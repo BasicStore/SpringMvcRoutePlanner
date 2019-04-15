@@ -35,19 +35,31 @@
  - controller read from session:
    Incident incidentX = (Incident)session.getAttribute("mockInc");
  
- - ???? includes
+ - include fragments:
+   https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html#rendering-template-fragments
+ 
+ - thymeleaf
+   https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#introducing-thymeleaf
+ 
+ - mix file var and session / model: 
+   th:text="'The name of the user is ' + ${user.name}"
+ 
+ - conditionals: (see also 4.10)
+   <div th:if="${user.isAdmin()} == false"> 
+   <div th:if="${user.isAdmin() == false}">
  
  --------------------------------------
- Monday pm
+NEXT TASKS:
  
- - complete query form
-   - internationalization 
- - research includes and structural example of this
- - redesign front end dm (incl basket and latest query + login level)
- - implement and update existing model
+ - complete internationalization updates
+ - add all links in the fragment [for all users] 
+ - poc page logic for the links
  - apply basic admin flow throughout
- 
- --------------------------------------
- 
- 
+ - position links throughout 
+ - implement and update existing model
+ - redesign front end dm (incl basket and latest query + login level)
+ - database + load sql file
+  
+ -------------------------------------- 
+  
   

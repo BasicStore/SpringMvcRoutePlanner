@@ -1,0 +1,199 @@
+
+CORE RPSTRUTS PAGE FLOW (users, members, admin)
+
+Users Section
+--> login page ==> LoginAction ==> populate station list
+                               ==> query
+                               ==> change pass 
+                               ==> login
+--> change pass
+    --> print username
+    --> old pass
+    --> new pass fields
+
+--> query
+    --> select start and destination from list [all users]
+    --> submit: Find Route [all users]
+    --> button / link list:
+        --> Admin Corner  [if admin]
+        --> Purchase History [if member]
+        --> View Basket [if member]
+        --> Become Member [if not member]
+        --> Logout [if is member/admin and signed in]
+
+==> QueryAction
+        --> calculate journey and push to output page
+            using IRouteMap
+        --> create new empty basket if it does not exist
+
+--> output
+    --> text output from query
+    --> button /links:
+        --> new route (back to query)
+        --> to admin [if admin]
+        --> add to basket [if member]
+        --> purchase [available to all users]
+    --> ticket purchase: [validation needed here]
+        ==> NEEDS REFACTORING: 
+            *** need to display basket [item lists] here
+                as the user potentially builds this up
+        - date of travel
+        - passenger type
+        - num tickets
+    --> Admin Corner  [if admin]
+    --> Purchase History [if member]
+    --> View Basket [if member]
+    --> Become Member [if not member]
+    --> Logout [if is member/admin and signed in]
+
+
+++> need a page for view basket 
+
+==> OutputAction
+    --> add to basket & redirect to output 
+    --> add to basket & redirect to new journey
+    --> add to basket & and go to view basket
+    --> add to basket & and go to checkout
+
+--> view basket
+    --> list of items
+    --> remove item from basket
+    --> Admin Corner  [if admin]
+    --> Purchase History [if member]
+    --> Become Member [if not member]
+    --> Logout [if is member/admin and signed in]
+
+++> basket item [fragment]
+    --> number
+    --> date of travel
+    --> ticket type
+
+--> checkout
+    --> select / define payment info
+    --> CONFIRM PAYMENT
+    --> Cancel Order [and go back to query page]
+    --> Admin Corner  [if admin]
+    --> Purchase History [if member]
+    --> View Basket [if member]
+    --> Logout [if is member/admin and signed in]
+
+==> CheckoutAction
+    --> to registration page if not a member
+
+++> display order summary [fragment]
+    --> contains completed order html
+
+--> sale_confirmation 
+    --> display order summary
+    --> Continue shopping
+    --> Admin Corner  [if admin]
+    --> Purchase History [if member]
+    --> Logout [if is member/admin and signed in]
+
+--> purchase history
+    --> list of orders
+    --> on order click, display order summary
+    --> Admin Corner  [if admin]
+    --> View Basket [if member]
+    --> Logout [if is member/admin and signed in]
+
+--> reg_page: [call this profile security]
+    title, name, address, email, mobile
+
+--> reg_confirmation 
+    --> confratulations + welcome 
+        ==> assign membership
+        ==> automatic login
+
+--> admin_menu
+    --> got to admin_tickets
+    --> got to admin_users 
+    --> Purchase History [if member]
+    --> Logout [if is member/admin and signed in]
+
+--> error: minor [errorPage.jsp]
+    --> login / logout
+    --> query
+
+--> error: major [systemError.jsp]
+    --> login / logout
+
+======================================================
+EXISTING DATABASE
+
+all_registered - registration detailsdescribe basket_contents 
+               - note person_id instead of user_id???????
+basket_contents - basically order info
+                - user_id
+                - ticket_id  
+passenger_types - name + code (eg OAP)
+tickets - really a ticket definition structure        
+user_roles - [refactor]     
+users - [refactor]
+zone_stage - (non-unique) station name + zone number    
+
+----------------
+
+DATABASE REFACTOR
+- users + user_roles must be consolidated with spring
+  security, and relationship tables is necessary
+
+======================================================
+Existing Shopping Cart Model  [needs refactoring]
+
+--> Basket
+    --> ticket list 
+        --> Ticket [refactor to ticket list]
+            --> PassengerType [type / code]
+            --> Travel date
+            --> num zones
+            --> num tickets
+    --> TicketTypeCosts 
+    --> card details [PaymentInfo]
+    --> activated
+
+--> List<Basket> basketList;
+
+----------------
+REFACTOR TO:
+Basket
+--> list<AbstractItem> [might want to flog some other stuff]
+    --> AbstractItem
+        --> Ticket (with costing info) 
+        --> PassengerType [type / code]
+        --> Travel date
+        --> num zones
+        --> num tickets
+
+--> Order
+    --> PaymentInfo    
+    --> Basket
+
+EXTENSION:
+--> how to accommodate special offers
+
+======================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
