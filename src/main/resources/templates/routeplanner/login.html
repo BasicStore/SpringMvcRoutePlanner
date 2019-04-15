@@ -11,26 +11,20 @@
     </style>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-   
+    
 </head>
 <body>
 	<h1 th:text = "#{international.text}"></h1>
+
     <p><h1><b>SPRING MVC ROUTE PLANNER!  --> LOGIN PAGE</b></h1></p>
 	<h2>Enter your login details: (omit this!!)</h2>
-    
-    
-    
-    <form action="#" th:action="@{/routeplanner/login}" th:object="${user}" method="post">
+    <form action="#" th:action="@{/entry/login}" th:object="${user}" method="post">
         <p>Username: <input type="text" th:field="*{username}" />
             <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error">First Name Error</span></p>
-        <p>Password: <input type="text" th:field="*{password}" />
-            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error">Last Name Error</span></p>
+        <p>Password: <input type="text" th:field="*{pass}" />
+            <span th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}" class="error">Last Name Error</span></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
-    
-    
-    
-    
     
 </body>
 

@@ -1,1 +1,22 @@
  SPRING MVC ROUTE PLANNER
+ 
+ localhost:8080/routeplanner/
+ localhost:8080/routeplanner/login
+ 
+ 
+ --------------------------------------
+ Techniques:
+ 
+ - session var
+ - use of model attribute (eg User, list)
+ - direct usage from internationalization file
+ - form object binding with thyme
+ 
+ 
+ 
+ 
+ 
+ 
+ --------------------------------------
+ 
+ 

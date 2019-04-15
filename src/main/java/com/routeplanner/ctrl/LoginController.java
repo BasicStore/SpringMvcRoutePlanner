@@ -1,4 +1,6 @@
 package com.routeplanner.ctrl;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +18,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.routeplanner.dm.IRouteMap;
+import com.routeplanner.dm.Journey;
+import com.routeplanner.engine.IRoutePlanner;
+import com.routeplanner.engine.RoutePlanner;
+import com.routeplanner.ex.DuplicateStationException;
+import com.routeplanner.ex.InvalidNetworkException;
+import com.routeplanner.ex.InvalidStationException;
+import com.routeplanner.ex.NoJourneyFoundException;
 import com.routeplanner.front.dm.User;
+import com.routeplanner.load.RouteMapReader;
+
+// import com.routeplanner.dm.User;
 
 
 @Controller
@@ -25,6 +38,8 @@ public class LoginController {
 	
 	private Logger logger = LoggerFactory.getLogger(LoginController.class);
 		
+	final static ResourceBundle mybundle = ResourceBundle.getBundle("application");
+	
 	
 	@GetMapping("/")
 	public String welcomeToApp(HttpServletRequest request, Model model) {
@@ -54,8 +69,7 @@ public class LoginController {
     	// RESOURCE FILE: testing accessing a configuration file which can be done from any java class
     	ResourceBundle rb = ResourceBundle.getBundle("config.sysprops");
     	String value = rb.getString("database.name");
-    	System.out.println("working with database:  " + value);
-    	
+    	logger.info("working with database:  " + value);
     	
         return "login";
     }
@@ -72,10 +86,12 @@ public class LoginController {
     		return new ModelAndView("login");
     	}    	
     	
+    	logger.info("Username = " + login.getUsername());
+    	logger.info("Password = " + login.getPassword());
+    	
     	// ENUM
     	// model.addAttribute("mStatusList", MaritalStatus.values());
-    	
-    	
+    	    	
     	// ADD OBJECT TO MODELANDVIEW + VIEW NAME 
     	// Person author = getPersonFromDb(login);
     	//Person author = new Person("MyFirstName", "MyLastname", "MyAddress");
@@ -83,7 +99,19 @@ public class LoginController {
     	//mv.addObject("person", author);
     	
     	
-    	ModelAndView mv = new ModelAndView("?????");
+    	String routeInfo = getDummyJourneyDetails();
+    	
+    	
+    	
+    	request.getSession().setAttribute("routeInfo", routeInfo);
+    	
+    	model.addAttribute("routeInfo", routeInfo);
+    	
+    	ModelAndView mv = new ModelAndView("query");
+    	
+    	
+    	
+    	
     	
     	
     	return mv;
@@ -93,7 +121,7 @@ public class LoginController {
 
   private static boolean pageHasBlankMandatoryFields(User login) {
 	  //return login.getUsername().isEmpty() || login.getPass().isEmpty() ? true : false;
-	  return true;
+	  return false;
   }
 
   
@@ -114,4 +142,50 @@ public class LoginController {
 //  	  
 //  	  return p;
 //  }
+  
+  
+  public String getDummyJourneyDetails() {
+		IRouteMap mapData;
+		try {
+			mapData = loadSystemData();
+			IRoutePlanner planner = new RoutePlanner(mapData); 
+			String[] routeDetails = new String[] {"Wimbledon", "Farringdon"};
+			Journey journey = planner.lookupJourney(routeDetails[0], routeDetails[1]);
+			String journeyDisplay = planner.getJourneyString(journey);
+			logger.info("Journey Display:  " + journeyDisplay);
+			return journeyDisplay;
+			
+		} catch(FileNotFoundException e) {
+			logger.info("File not found\n");
+			logger.info("");
+		} catch(IOException e) {
+			logger.info("IOException \n");
+			logger.info(e.getMessage());
+		} catch(InvalidStationException e) {
+			logger.info("Invalid Station\n");
+			logger.info(e.getMessage());
+		} catch(InvalidNetworkException e) {
+			logger.info("Invalid Network\n");
+			logger.info(e.getMessage());
+		} catch(NoJourneyFoundException e) { 
+			logger.info("No Journey Found\n");
+			logger.info(e.getMessage());
+		} catch (DuplicateStationException e) {
+			logger.info("Duplicate Station entered - presumably start and destination are the same\n");
+			logger.info(e.getMessage());
+		}
+		
+		return null;
+	}    
+  
+    
+  
+    // TODO consider moving this.......
+  	public IRouteMap loadSystemData() throws IOException, FileNotFoundException, InvalidNetworkException {
+		RouteMapReader reader = new RouteMapReader();
+		return reader.buildIRouteMap(mybundle.getString("route.map.xml"));
+	}
+  
+  
+  
 }

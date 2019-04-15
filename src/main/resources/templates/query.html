@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shell App - Personal Details Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .error {
+			color: red;
+			font-size: 15px;        
+        }
+    </style>
+</head>
+<body>
+    <h1 th:text = "#{international.text}"></h1>
+    <p><h1><b>SPRING MVC ROUTE PLANNER!  --> QUERY PAGE</b></h1></p>
+	 
+      	
+	<p><textarea name="routeInfo" th:text="${routeInfo}" rows="50" cols="400"></textarea></p>
+    
+    
+    
+</body>
+</html>

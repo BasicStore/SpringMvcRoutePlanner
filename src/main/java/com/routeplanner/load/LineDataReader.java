@@ -1,4 +1,4 @@
-package comrouteplanner.load;
+package com.routeplanner.load;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
