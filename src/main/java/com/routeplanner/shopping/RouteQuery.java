@@ -4,12 +4,58 @@ import java.util.List;
 import java.util.LinkedList;
 
 
-public class State 
+public class RouteQuery 
 {
+	private String currRouteStart;
+	private String currRouteDest;
 	
-	public State() {
+	private String routeInfo;
+	
+	public RouteQuery() {
 		
 	}
+
+
+	public String getCurrRouteStart() {
+		return currRouteStart;
+	}
+
+
+	public void setCurrRouteStart(String currRouteStart) {
+		this.currRouteStart = currRouteStart;
+	}
+
+
+	public String getCurrRouteDest() {
+		return currRouteDest;
+	}
+
+
+	public void setCurrRouteDest(String currRouteDest) {
+		this.currRouteDest = currRouteDest;
+	}
+
+
+	public String getRouteInfo() {
+		return routeInfo;
+	}
+
+
+	public void setRouteInfo(String routeInfo) {
+		this.routeInfo = routeInfo;
+	}
+
+	
+	
+
+//	public List<String> getStationList() {
+//		return stationList;
+//	}
+//
+//
+//	public void setStationList(List<String> stationList) {
+//		this.stationList = stationList;
+//	}
 	
 	// TODO VERY OLD CODE (2009) - needs complete overhaul
 	
@@ -1277,5 +1323,8 @@ public class State
 	}
 
 */
+	
+	
+	
 		
 }

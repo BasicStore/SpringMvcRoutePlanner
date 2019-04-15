@@ -1,4 +1,4 @@
-package com.routeplanner.front.dm;
+package com.routeplanner.shopping;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

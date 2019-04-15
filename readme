@@ -2,21 +2,52 @@
  
  localhost:8080/routeplanner/
  localhost:8080/routeplanner/login
- 
- 
+  
  --------------------------------------
  Techniques:
  
  - session var
- - use of model attribute (eg User, list)
+ 
+ - use of model attribute (eg User, list) ==> ${}
+   map.addAttribute("testModelMap", "model map property");
+   <p th:text="'Test model app property: ' + ${testModelMap}" />
+    
  - direct usage from internationalization file
+   <h1 th:text = "#{international.text}"></h1>
+ 
  - form object binding with thyme
+   mv.addObject("statement", statement);
+   <textarea rows="4" cols="50" th:field="*{summary}">Summary</textarea>
  
+ - session variable:
+   session ==> ${session.} 
+   request.getSession().setAttribute("xxx",zzz);
  
+ - get current dir
+   String currLocation = System.getProperty("user.dir");
  
+ - Get props in bespoke location:
+   ResourceBundle rb = ResourceBundle.getBundle("config.sysprops"); [folder + file prefix]
+   String value = rb.getString("database.name");
  
+ - drop downs populated from enum and result read into form object as enum property
  
+ - controller read from session:
+   Incident incidentX = (Incident)session.getAttribute("mockInc");
+ 
+ - ???? includes
+ 
+ --------------------------------------
+ Monday pm
+ 
+ - complete query form
+   - internationalization 
+ - research includes and structural example of this
+ - redesign front end dm (incl basket and latest query + login level)
+ - implement and update existing model
+ - apply basic admin flow throughout
  
  --------------------------------------
  
  
+  

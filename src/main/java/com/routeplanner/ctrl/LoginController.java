@@ -1,11 +1,11 @@
 package com.routeplanner.ctrl;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -17,17 +17,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.routeplanner.dm.IRouteMap;
-import com.routeplanner.dm.Journey;
-import com.routeplanner.engine.IRoutePlanner;
-import com.routeplanner.engine.RoutePlanner;
-import com.routeplanner.ex.DuplicateStationException;
 import com.routeplanner.ex.InvalidNetworkException;
-import com.routeplanner.ex.InvalidStationException;
-import com.routeplanner.ex.NoJourneyFoundException;
-import com.routeplanner.front.dm.User;
 import com.routeplanner.load.RouteMapReader;
+import com.routeplanner.shopping.RouteQuery;
+import com.routeplanner.shopping.User;
 
 // import com.routeplanner.dm.User;
 
@@ -38,6 +32,7 @@ public class LoginController {
 	
 	private Logger logger = LoggerFactory.getLogger(LoginController.class);
 		
+	// TODO move this with the route engine
 	final static ResourceBundle mybundle = ResourceBundle.getBundle("application");
 	
 	
@@ -52,19 +47,8 @@ public class LoginController {
 		String currLocation = System.getProperty("user.dir");    	
 		logger.info("logging from tomcat with slf4j - current location: " + currLocation);
 		logger.info("in the get request for login");
-
 		
 		model.addAttribute("user", new User());
-    	
-    	// SESSION tests [start] ------------------------------------
-    	//ShoppingCart cart = (ShoppingCart)request.getSession().setAttribute("cart",value);
-//    	Incident mockInc = new Incident();
-//    	mockInc.setReporter(new Person("authFirstName", "auth2ndName", "authAddress"));
-//    	mockInc.setId(104);
-//    	request.getSession().setAttribute("mockInc", mockInc);
-    	// Session tests [end] ------------------------------------    	
-    	
-    	
     	
     	// RESOURCE FILE: testing accessing a configuration file which can be done from any java class
     	ResourceBundle rb = ResourceBundle.getBundle("config.sysprops");
@@ -79,7 +63,6 @@ public class LoginController {
     @PostMapping("/login")
     public ModelAndView greetingSubmit(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User login, BindingResult errors) {
     	logger.info("in the post request for login");
-    	
     	if (errors.hasErrors() || pageHasBlankMandatoryFields(login)) {
     		System.out.println("ERRORS ON LOGIN FORM!!!!!!!");
     		logger.info("errors exist on login request form");
@@ -89,103 +72,53 @@ public class LoginController {
     	logger.info("Username = " + login.getUsername());
     	logger.info("Password = " + login.getPassword());
     	
-    	// ENUM
-    	// model.addAttribute("mStatusList", MaritalStatus.values());
-    	    	
-    	// ADD OBJECT TO MODELANDVIEW + VIEW NAME 
-    	// Person author = getPersonFromDb(login);
-    	//Person author = new Person("MyFirstName", "MyLastname", "MyAddress");
-    	//ModelAndView mv = new ModelAndView("person");
-    	//mv.addObject("person", author);
-    	
-    	
-    	String routeInfo = getDummyJourneyDetails();
-    	
-    	
-    	
-    	request.getSession().setAttribute("routeInfo", routeInfo);
-    	
-    	model.addAttribute("routeInfo", routeInfo);
+    	List<String> stationList = getStationList(); //Arrays.asList("Station1", "Station2", "Station3");
+    	request.getSession().setAttribute("stationList", stationList);
+
+    	model.addAttribute("routeQuery", new RouteQuery());
     	
     	ModelAndView mv = new ModelAndView("query");
-    	
-    	
-    	
-    	
-    	
     	
     	return mv;
     }
 
     
 
-  private static boolean pageHasBlankMandatoryFields(User login) {
-	  //return login.getUsername().isEmpty() || login.getPass().isEmpty() ? true : false;
-	  return false;
-  }
-
-  
-  //   
-//  
-//  private Person getPersonFromDb(User login) {
-//	  String userName = login.getUsername();
-//  	  String userPass = login.getPass();
-//  	  System.out.println("TODO  Get person object from storage: user/pass = " + userName + "/" + userPass);
-//  	  
-//	  Person p = new Person();
-//	  p.setFirstName("[UserPlaceholder]  username");
-//  	  p.setLastName("[UserPlaceholder] pass");
-//  	  
-//  	  LocalDate dateOfBirth = LocalDate.of(1950, 4, 14);
-//  	  p.setDateOfBirth(dateOfBirth);
-//  	  
-//  	  
-//  	  return p;
-//  }
-  
-  
-  public String getDummyJourneyDetails() {
+	  private static boolean pageHasBlankMandatoryFields(User login) {
+	//	  return (login == null || StringUtils.isBlank(login.getUsername()) || StringUtils.isBlank(login.getUsername())) ? true : false;
+	      return false;	  
+	  }
+	
+	
+	  // TODO move this................	
+	public List<String> getStationList() {
 		IRouteMap mapData;
 		try {
 			mapData = loadSystemData();
-			IRoutePlanner planner = new RoutePlanner(mapData); 
-			String[] routeDetails = new String[] {"Wimbledon", "Farringdon"};
-			Journey journey = planner.lookupJourney(routeDetails[0], routeDetails[1]);
-			String journeyDisplay = planner.getJourneyString(journey);
-			logger.info("Journey Display:  " + journeyDisplay);
-			return journeyDisplay;
-			
+			RouteMapReader reader = new RouteMapReader();
+			List<String> stationList = reader.getListAllStations(mapData);
+			return stationList;
 		} catch(FileNotFoundException e) {
 			logger.info("File not found\n");
 			logger.info("");
 		} catch(IOException e) {
 			logger.info("IOException \n");
 			logger.info(e.getMessage());
-		} catch(InvalidStationException e) {
-			logger.info("Invalid Station\n");
-			logger.info(e.getMessage());
 		} catch(InvalidNetworkException e) {
 			logger.info("Invalid Network\n");
 			logger.info(e.getMessage());
-		} catch(NoJourneyFoundException e) { 
-			logger.info("No Journey Found\n");
-			logger.info(e.getMessage());
-		} catch (DuplicateStationException e) {
-			logger.info("Duplicate Station entered - presumably start and destination are the same\n");
-			logger.info(e.getMessage());
-		}
+		} 
 		
-		return null;
+		return new ArrayList<String>();
 	}    
+
   
-    
-  
-    // TODO consider moving this.......
-  	public IRouteMap loadSystemData() throws IOException, FileNotFoundException, InvalidNetworkException {
+
+  // TODO move this................
+	public IRouteMap loadSystemData() throws IOException, FileNotFoundException, InvalidNetworkException {
 		RouteMapReader reader = new RouteMapReader();
 		return reader.buildIRouteMap(mybundle.getString("route.map.xml"));
 	}
-  
-  
+   
   
 }

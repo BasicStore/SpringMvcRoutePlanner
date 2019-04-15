@@ -5744,3 +5744,1994 @@ Total stops = 18
 2019-04-15 12:51:38.860  INFO 27194 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2019-04-15 12:51:38.862  INFO 27194 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-04-15 12:51:38.863  INFO 27194 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:23:31.997  INFO 2656 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 2656 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:23:31.999  INFO 2656 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:23:32.487  INFO 2656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:23:32.507  INFO 2656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2019-04-15 14:23:32.879  INFO 2656 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a3feab9b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:23:33.156  INFO 2656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:23:33.180  INFO 2656 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:23:33.180  INFO 2656 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:23:33.247  INFO 2656 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:23:33.247  INFO 2656 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1216 ms
+2019-04-15 14:23:33.404  INFO 2656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:23:33.734  INFO 2656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:23:33.797  INFO 2656 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:23:33.853  INFO 2656 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:23:33.854  INFO 2656 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:23:33.978  INFO 2656 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:23:34.097  INFO 2656 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:23:34.289  INFO 2656 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@7427ab5d'
+2019-04-15 14:23:34.291  INFO 2656 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:23:34.479  INFO 2656 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:23:34.523  WARN 2656 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:23:34.762  INFO 2656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:23:34.764  INFO 2656 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.448 seconds (JVM running for 6.698)
+2019-04-15 14:23:57.526  INFO 2656 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:23:57.527  INFO 2656 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:23:57.533  INFO 2656 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-04-15 14:26:23.015  INFO 2656 --- [http-nio-8080-exec-7] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 14:26:23.015  INFO 2656 --- [http-nio-8080-exec-7] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 14:26:23.015  INFO 2656 --- [http-nio-8080-exec-7] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 14:26:27.544  INFO 2656 --- [http-nio-8080-exec-8] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 14:26:27.544  INFO 2656 --- [http-nio-8080-exec-8] com.routeplanner.ctrl.LoginController    : Username = yiu
+2019-04-15 14:26:27.544  INFO 2656 --- [http-nio-8080-exec-8] com.routeplanner.ctrl.LoginController    : Password = rty
+2019-04-15 14:26:27.604  INFO 2656 --- [http-nio-8080-exec-8] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 14:26:27.831  INFO 2656 --- [http-nio-8080-exec-8] com.routeplanner.ctrl.LoginController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 14:26:36.762  INFO 2656 --- [http-nio-8080-exec-9] com.routeplanner.ctrl.QueryController    : start = Station3
+2019-04-15 14:26:36.762  INFO 2656 --- [http-nio-8080-exec-9] com.routeplanner.ctrl.QueryController    : destination = Station2
+2019-04-15 14:32:13.636  INFO 2656 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:32:13.636  INFO 2656 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:32:13.636  INFO 2656 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 14:32:13.638  INFO 2656 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 14:32:13.639  INFO 2656 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:32:18.095  INFO 3876 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 3876 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:32:18.098  INFO 3876 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:32:18.581  INFO 3876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:32:18.605  INFO 3876 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2019-04-15 14:32:18.946  INFO 3876 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$217939ac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:32:19.234  INFO 3876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:32:19.264  INFO 3876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:32:19.264  INFO 3876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:32:19.342  INFO 3876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:32:19.342  INFO 3876 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1207 ms
+2019-04-15 14:32:19.491  INFO 3876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:32:19.667  INFO 3876 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:32:19.753  INFO 3876 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:32:19.827  INFO 3876 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:32:19.828  INFO 3876 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:32:19.966  INFO 3876 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:32:20.080  INFO 3876 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:32:20.384  INFO 3876 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@233eaa84'
+2019-04-15 14:32:20.386  INFO 3876 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:32:20.654  INFO 3876 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:32:20.723  WARN 3876 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:32:21.053  INFO 3876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:32:21.056  INFO 3876 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.927 seconds (JVM running for 6.678)
+2019-04-15 14:32:26.321  INFO 3876 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:32:26.321  INFO 3876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:32:26.327  INFO 3876 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-04-15 14:32:26.430  INFO 3876 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 14:32:26.430  INFO 3876 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 14:32:26.431  INFO 3876 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 14:32:30.240  INFO 3876 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 14:32:30.241  INFO 3876 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = yiuy
+2019-04-15 14:32:30.241  INFO 3876 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = tyu
+2019-04-15 14:32:30.297  INFO 3876 --- [http-nio-8080-exec-2] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 14:32:30.533  INFO 3876 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 14:32:40.082  INFO 3876 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : start = Station2
+2019-04-15 14:32:40.082  INFO 3876 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : destination = Station1
+2019-04-15 14:36:00.497  INFO 3876 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:36:00.497  INFO 3876 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:36:00.497  INFO 3876 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 14:36:00.499  INFO 3876 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 14:36:00.500  INFO 3876 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:36:04.114  INFO 4258 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 4258 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:36:04.123  INFO 4258 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:36:04.687  INFO 4258 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:36:04.710  INFO 4258 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-04-15 14:36:05.024  INFO 4258 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c6668d7d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:36:05.369  INFO 4258 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:36:05.394  INFO 4258 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:36:05.394  INFO 4258 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:36:05.468  INFO 4258 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:36:05.468  INFO 4258 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1297 ms
+2019-04-15 14:36:05.605  INFO 4258 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:36:05.769  INFO 4258 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:36:05.833  INFO 4258 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:36:05.889  INFO 4258 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:36:05.890  INFO 4258 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:36:06.001  INFO 4258 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:36:06.123  INFO 4258 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:36:06.504  INFO 4258 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@3ce88ca'
+2019-04-15 14:36:06.507  INFO 4258 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:36:06.717  INFO 4258 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:36:06.767  WARN 4258 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:36:07.032  INFO 4258 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:36:07.035  INFO 4258 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.667 seconds (JVM running for 5.95)
+2019-04-15 14:36:07.138  INFO 4258 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:36:07.139  INFO 4258 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:36:07.146  INFO 4258 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-04-15 14:36:07.237  INFO 4258 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 14:36:07.237  INFO 4258 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 14:36:07.238  INFO 4258 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 14:36:09.041  INFO 4258 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 14:36:09.041  INFO 4258 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 14:36:09.041  INFO 4258 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 14:36:09.101  INFO 4258 --- [http-nio-8080-exec-2] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 14:36:09.325  INFO 4258 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 14:37:39.655  INFO 4258 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:37:39.655  INFO 4258 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:37:39.655  INFO 4258 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 14:37:39.657  INFO 4258 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 14:37:39.658  INFO 4258 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:37:43.543  INFO 4475 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 4475 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:37:43.545  INFO 4475 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:37:43.996  INFO 4475 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:37:44.020  INFO 4475 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-04-15 14:37:44.366  INFO 4475 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1df96c50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:37:44.664  INFO 4475 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:37:44.701  INFO 4475 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:37:44.701  INFO 4475 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:37:44.790  INFO 4475 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:37:44.790  INFO 4475 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1215 ms
+2019-04-15 14:37:44.936  INFO 4475 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:37:45.103  INFO 4475 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:37:45.165  INFO 4475 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:37:45.225  INFO 4475 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:37:45.226  INFO 4475 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:37:45.343  INFO 4475 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:37:45.464  INFO 4475 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:37:45.975  INFO 4475 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5ad45661'
+2019-04-15 14:37:45.978  INFO 4475 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:37:46.171  INFO 4475 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:37:46.214  WARN 4475 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:37:46.436  INFO 4475 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:37:46.439  INFO 4475 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.675 seconds (JVM running for 6.097)
+2019-04-15 14:37:47.529  INFO 4475 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:37:47.529  INFO 4475 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:37:47.536  INFO 4475 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-04-15 14:37:47.631  INFO 4475 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 14:37:47.631  INFO 4475 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 14:37:47.631  INFO 4475 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 14:37:49.324  INFO 4475 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 14:37:49.324  INFO 4475 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 14:37:49.324  INFO 4475 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 14:37:49.380  INFO 4475 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 14:37:49.617  INFO 4475 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 14:47:16.501  INFO 4475 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:47:16.502  INFO 4475 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:47:16.502  INFO 4475 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 14:47:16.503  INFO 4475 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 14:47:16.504  INFO 4475 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:47:20.126  INFO 5465 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 5465 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:47:20.128  INFO 5465 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:47:20.608  INFO 5465 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:47:20.629  INFO 5465 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-04-15 14:47:20.943  INFO 5465 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$aa81c114] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:47:21.220  INFO 5465 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:47:21.247  INFO 5465 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:47:21.247  INFO 5465 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:47:21.342  INFO 5465 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:47:21.342  INFO 5465 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1184 ms
+2019-04-15 14:47:21.689  INFO 5465 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:47:21.844  INFO 5465 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:47:21.903  INFO 5465 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:47:21.953  INFO 5465 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:47:21.954  INFO 5465 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:47:22.080  INFO 5465 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:47:22.204  INFO 5465 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:47:22.551  INFO 5465 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@58bad926'
+2019-04-15 14:47:22.553  INFO 5465 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:47:22.777  INFO 5465 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:47:22.860  WARN 5465 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:47:23.252  INFO 5465 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:47:23.255  INFO 5465 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.87 seconds (JVM running for 6.196)
+2019-04-15 14:47:32.515  INFO 5465 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:47:32.515  INFO 5465 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:47:32.524  INFO 5465 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-04-15 14:47:32.861 ERROR 5465 --- [http-nio-8080-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-1] Exception processing template "login": Error during execution of processor 'org.thymeleaf.spring5.processor.SpringInputGeneralFieldTagProcessor' (template: "login" - line 24, col 41)
+
+org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringInputGeneralFieldTagProcessor' (template: "login" - line 24, col 41)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.StandaloneElementTag.beHandled(StandaloneElementTag.java:228)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'user' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	... 56 common frames omitted
+
+2019-04-15 14:47:32.864 ERROR 5465 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringInputGeneralFieldTagProcessor' (template: "login" - line 24, col 41)] with root cause
+
+java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'user' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.StandaloneElementTag.beHandled(StandaloneElementTag.java:228)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-04-15 14:47:48.450 ERROR 5465 --- [http-nio-8080-exec-3] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-3] Exception processing template "login": Error during execution of processor 'org.thymeleaf.spring5.processor.SpringInputGeneralFieldTagProcessor' (template: "login" - line 24, col 41)
+
+org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringInputGeneralFieldTagProcessor' (template: "login" - line 24, col 41)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.StandaloneElementTag.beHandled(StandaloneElementTag.java:228)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:592)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'user' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	... 56 common frames omitted
+
+2019-04-15 14:47:48.450 ERROR 5465 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringInputGeneralFieldTagProcessor' (template: "login" - line 24, col 41)] with root cause
+
+java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'user' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleStandaloneElement(ProcessorTemplateHandler.java:918)
+	at org.thymeleaf.engine.StandaloneElementTag.beHandled(StandaloneElementTag.java:228)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:592)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-04-15 14:49:52.980  INFO 5465 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:49:52.980  INFO 5465 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:49:52.980  INFO 5465 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 14:49:52.982  INFO 5465 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 14:49:52.983  INFO 5465 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:49:56.524  INFO 5733 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 5733 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:49:56.527  INFO 5733 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:49:57.016  INFO 5733 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:49:57.039  INFO 5733 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-04-15 14:49:57.376  INFO 5733 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9634cac9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:49:57.683  INFO 5733 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:49:57.707  INFO 5733 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:49:57.708  INFO 5733 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:49:57.777  INFO 5733 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:49:57.778  INFO 5733 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1219 ms
+2019-04-15 14:49:57.969  INFO 5733 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:49:58.171  INFO 5733 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:49:58.249  INFO 5733 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:49:58.341  INFO 5733 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:49:58.342  INFO 5733 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:49:58.454  INFO 5733 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:49:58.620  INFO 5733 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:49:58.971  INFO 5733 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@7ac0bb56'
+2019-04-15 14:49:58.973  INFO 5733 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:49:59.174  INFO 5733 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:49:59.217  WARN 5733 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:49:59.457  INFO 5733 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:49:59.460  INFO 5733 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.612 seconds (JVM running for 5.89)
+2019-04-15 14:50:05.631  INFO 5733 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:50:05.632  INFO 5733 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:50:05.640  INFO 5733 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-04-15 14:50:08.876  INFO 5733 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 14:50:08.876  INFO 5733 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 14:50:08.876  INFO 5733 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 14:50:12.676  INFO 5733 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 14:50:12.677  INFO 5733 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = tuyt
+2019-04-15 14:50:12.677  INFO 5733 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = fgh
+2019-04-15 14:50:12.730  INFO 5733 --- [http-nio-8080-exec-2] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 14:50:12.946  INFO 5733 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 14:52:29.201  INFO 5733 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:52:29.201  INFO 5733 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:52:29.201  INFO 5733 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 14:52:29.203  INFO 5733 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 14:52:29.205  INFO 5733 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:52:32.752  INFO 6043 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 6043 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:52:32.754  INFO 6043 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:52:33.198  INFO 6043 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:52:33.223  INFO 6043 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-04-15 14:52:33.510  INFO 6043 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$711f1f3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:52:33.778  INFO 6043 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:52:33.801  INFO 6043 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:52:33.802  INFO 6043 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:52:33.868  INFO 6043 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:52:33.868  INFO 6043 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1084 ms
+2019-04-15 14:52:34.001  INFO 6043 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:52:34.148  INFO 6043 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:52:34.204  INFO 6043 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:52:34.255  INFO 6043 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:52:34.256  INFO 6043 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:52:34.370  INFO 6043 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:52:34.498  INFO 6043 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:52:34.841  INFO 6043 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6ff5f079'
+2019-04-15 14:52:34.843  INFO 6043 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:52:35.036  INFO 6043 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:52:35.075  WARN 6043 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:52:35.299  INFO 6043 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:52:35.302  INFO 6043 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.268 seconds (JVM running for 5.423)
+2019-04-15 14:52:39.062  INFO 6043 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:52:39.063  INFO 6043 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:52:39.069  INFO 6043 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-04-15 14:52:39.163  INFO 6043 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 14:52:39.164  INFO 6043 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 14:52:39.165  INFO 6043 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 14:52:41.429  INFO 6043 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 14:52:41.430  INFO 6043 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 14:52:41.430  INFO 6043 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 14:52:41.482  INFO 6043 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 14:52:41.716  INFO 6043 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 14:57:13.428  INFO 6043 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:57:13.428  INFO 6043 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:57:13.428  INFO 6043 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 14:57:13.430  INFO 6043 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 14:57:13.431  INFO 6043 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 14:57:17.596  INFO 6557 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 6557 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 14:57:17.599  INFO 6557 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 14:57:18.030  INFO 6557 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 14:57:18.052  INFO 6557 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-04-15 14:57:18.332  INFO 6557 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b691930e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 14:57:18.596  INFO 6557 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 14:57:18.621  INFO 6557 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 14:57:18.621  INFO 6557 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 14:57:18.688  INFO 6557 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 14:57:18.688  INFO 6557 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1058 ms
+2019-04-15 14:57:18.828  INFO 6557 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 14:57:18.994  INFO 6557 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 14:57:19.055  INFO 6557 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 14:57:19.131  INFO 6557 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 14:57:19.132  INFO 6557 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 14:57:19.239  INFO 6557 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 14:57:19.358  INFO 6557 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 14:57:19.656  INFO 6557 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@59a50e37'
+2019-04-15 14:57:19.658  INFO 6557 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 14:57:19.837  INFO 6557 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 14:57:19.877  WARN 6557 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 14:57:20.097  INFO 6557 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 14:57:20.100  INFO 6557 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.249 seconds (JVM running for 5.41)
+2019-04-15 14:57:25.366  INFO 6557 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 14:57:25.366  INFO 6557 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 14:57:25.386  INFO 6557 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 20 ms
+2019-04-15 14:57:25.480  INFO 6557 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 14:57:25.480  INFO 6557 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 14:57:25.480  INFO 6557 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 14:57:28.088  INFO 6557 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 14:57:28.088  INFO 6557 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 14:57:28.088  INFO 6557 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 14:57:28.151  INFO 6557 --- [http-nio-8080-exec-2] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 14:57:28.389  INFO 6557 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 15:02:13.599  INFO 6557 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:02:13.599  INFO 6557 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:02:13.600  INFO 6557 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:02:13.601  INFO 6557 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:02:13.602  INFO 6557 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:02:17.248  INFO 7159 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 7159 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:02:17.250  INFO 7159 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:02:17.690  INFO 7159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:02:17.710  INFO 7159 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2019-04-15 15:02:18.137  INFO 7159 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7b8c44b8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:02:18.462  INFO 7159 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:02:18.493  INFO 7159 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:02:18.494  INFO 7159 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:02:18.576  INFO 7159 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:02:18.576  INFO 7159 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1296 ms
+2019-04-15 15:02:18.715  INFO 7159 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:02:18.875  INFO 7159 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:02:18.935  INFO 7159 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:02:18.989  INFO 7159 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:02:18.990  INFO 7159 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:02:19.104  INFO 7159 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:02:19.245  INFO 7159 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:02:19.605  INFO 7159 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@5e170b63'
+2019-04-15 15:02:19.609  INFO 7159 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:02:19.807  INFO 7159 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:02:19.850  WARN 7159 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:02:20.076  INFO 7159 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:02:20.078  INFO 7159 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.568 seconds (JVM running for 5.737)
+2019-04-15 15:02:20.155  INFO 7159 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:02:20.155  INFO 7159 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:02:20.160  INFO 7159 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2019-04-15 15:02:20.263  INFO 7159 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:02:20.263  INFO 7159 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:02:20.264  INFO 7159 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:02:22.164  INFO 7159 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:02:22.164  INFO 7159 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:02:22.164  INFO 7159 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:02:22.180 ERROR 7159 --- [http-nio-8080-exec-2] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-2] Exception processing template "query": Error during execution of processor 'org.thymeleaf.spring5.processor.SpringSelectFieldTagProcessor' (template: "query" - line 22, col 36)
+
+org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringSelectFieldTagProcessor' (template: "query" - line 22, col 36)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'routeQuery' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	... 56 common frames omitted
+
+2019-04-15 15:02:22.181 ERROR 7159 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringSelectFieldTagProcessor' (template: "query" - line 22, col 36)] with root cause
+
+java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'routeQuery' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-04-15 15:02:32.422  INFO 7159 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:02:32.423  INFO 7159 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:02:32.423  INFO 7159 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:02:32.424  INFO 7159 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:02:32.426  INFO 7159 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:02:44.521  INFO 7255 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 7255 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:02:44.524  INFO 7255 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:02:45.183  INFO 7255 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:02:45.205  INFO 7255 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-04-15 15:02:45.572  INFO 7255 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$673407dc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:02:45.887  INFO 7255 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:02:45.914  INFO 7255 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:02:45.914  INFO 7255 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:02:45.985  INFO 7255 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:02:45.985  INFO 7255 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1417 ms
+2019-04-15 15:02:46.126  INFO 7255 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:02:46.298  INFO 7255 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:02:46.357  INFO 7255 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:02:46.414  INFO 7255 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:02:46.416  INFO 7255 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:02:46.538  INFO 7255 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:02:46.664  INFO 7255 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:02:47.097  INFO 7255 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1f479fa2'
+2019-04-15 15:02:47.100  INFO 7255 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:02:47.313  INFO 7255 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:02:47.352  WARN 7255 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:02:47.580  INFO 7255 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:02:47.583  INFO 7255 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.453 seconds (JVM running for 5.803)
+2019-04-15 15:02:48.016  INFO 7255 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:02:48.016  INFO 7255 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:02:48.023  INFO 7255 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-04-15 15:02:48.110  INFO 7255 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:02:48.110  INFO 7255 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:02:48.111  INFO 7255 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:02:49.919  INFO 7255 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:02:49.920  INFO 7255 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:02:49.920  INFO 7255 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:02:49.938 ERROR 7255 --- [http-nio-8080-exec-2] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-2] Exception processing template "query": Error during execution of processor 'org.thymeleaf.spring5.processor.SpringSelectFieldTagProcessor' (template: "query" - line 22, col 36)
+
+org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringSelectFieldTagProcessor' (template: "query" - line 22, col 36)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'routeQuery' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	... 56 common frames omitted
+
+2019-04-15 15:02:49.938 ERROR 7255 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring5.processor.SpringSelectFieldTagProcessor' (template: "query" - line 22, col 36)] with root cause
+
+java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'routeQuery' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:153)
+	at org.springframework.web.servlet.support.RequestContext.getBindStatus(RequestContext.java:903)
+	at org.thymeleaf.spring5.context.webmvc.SpringWebMvcThymeleafRequestContext.getBindStatus(SpringWebMvcThymeleafRequestContext.java:227)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatusFromParsedExpression(FieldUtils.java:306)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:253)
+	at org.thymeleaf.spring5.util.FieldUtils.getBindStatus(FieldUtils.java:227)
+	at org.thymeleaf.spring5.processor.AbstractSpringFieldTagProcessor.doProcess(AbstractSpringFieldTagProcessor.java:174)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2019-04-15 15:03:18.983  INFO 7255 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:03:18.984  INFO 7255 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:03:18.984  INFO 7255 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:03:18.986  INFO 7255 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:03:18.987  INFO 7255 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:03:22.216  INFO 7367 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 7367 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:03:22.218  INFO 7367 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:03:22.793  INFO 7367 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:03:22.816  INFO 7367 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-04-15 15:03:23.098  INFO 7367 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1f8c0e1b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:03:23.373  INFO 7367 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:03:23.396  INFO 7367 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:03:23.396  INFO 7367 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:03:23.463  INFO 7367 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:03:23.463  INFO 7367 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1214 ms
+2019-04-15 15:03:23.602  INFO 7367 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:03:23.745  INFO 7367 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:03:23.799  INFO 7367 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:03:23.847  INFO 7367 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:03:23.848  INFO 7367 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:03:23.959  INFO 7367 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:03:24.092  INFO 7367 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:03:24.444  INFO 7367 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@424baa71'
+2019-04-15 15:03:24.446  INFO 7367 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:03:24.632  INFO 7367 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:03:24.678  WARN 7367 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:03:24.937  INFO 7367 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:03:24.941  INFO 7367 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.12 seconds (JVM running for 5.386)
+2019-04-15 15:03:27.297  INFO 7367 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:03:27.297  INFO 7367 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:03:27.305  INFO 7367 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-04-15 15:03:27.397  INFO 7367 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:03:27.397  INFO 7367 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:03:27.398  INFO 7367 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:03:29.531  INFO 7367 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:03:29.532  INFO 7367 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:03:29.532  INFO 7367 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:06:39.372  INFO 7367 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:06:39.373  INFO 7367 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:06:39.373  INFO 7367 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:06:39.375  INFO 7367 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:06:39.376  INFO 7367 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:06:42.874  INFO 7726 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 7726 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:06:42.876  INFO 7726 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:06:43.309  INFO 7726 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:06:43.329  INFO 7726 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2019-04-15 15:06:43.613  INFO 7726 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$699eb7f0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:06:43.882  INFO 7726 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:06:43.908  INFO 7726 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:06:43.908  INFO 7726 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:06:43.975  INFO 7726 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:06:43.975  INFO 7726 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1068 ms
+2019-04-15 15:06:44.106  INFO 7726 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:06:44.259  INFO 7726 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:06:44.315  INFO 7726 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:06:44.368  INFO 7726 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:06:44.369  INFO 7726 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:06:44.477  INFO 7726 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:06:44.593  INFO 7726 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:06:44.975  INFO 7726 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@6bc97571'
+2019-04-15 15:06:44.977  INFO 7726 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:06:45.163  INFO 7726 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:06:45.204  WARN 7726 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:06:45.521  INFO 7726 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:06:45.525  INFO 7726 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.39 seconds (JVM running for 5.541)
+2019-04-15 15:06:49.422  INFO 7726 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:06:49.422  INFO 7726 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:06:49.428  INFO 7726 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-04-15 15:06:49.520  INFO 7726 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:06:49.520  INFO 7726 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:06:49.521  INFO 7726 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:06:51.418  INFO 7726 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:06:51.418  INFO 7726 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:06:51.418  INFO 7726 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:06:54.329  INFO 7726 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : start = Station1
+2019-04-15 15:06:54.329  INFO 7726 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : destination = Station1
+2019-04-15 15:06:54.388  INFO 7726 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:06:54.628  INFO 7726 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 15:07:06.031  INFO 7726 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : start = Station1
+2019-04-15 15:07:06.031  INFO 7726 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : destination = Station1
+2019-04-15 15:07:06.039  INFO 7726 --- [http-nio-8080-exec-5] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:07:06.257  INFO 7726 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 15:19:43.710  INFO 7726 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:19:43.711  INFO 7726 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:19:43.711  INFO 7726 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:19:43.712  INFO 7726 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:19:43.713  INFO 7726 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:19:48.067  INFO 8903 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 8903 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:19:48.069  INFO 8903 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:19:48.599  INFO 8903 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:19:48.631  INFO 8903 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 repository interfaces.
+2019-04-15 15:19:49.167  INFO 8903 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e477e493] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:19:49.584  INFO 8903 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:19:49.608  INFO 8903 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:19:49.609  INFO 8903 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:19:49.676  INFO 8903 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:19:49.676  INFO 8903 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1577 ms
+2019-04-15 15:19:49.816  INFO 8903 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:19:50.052  INFO 8903 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:19:50.174  INFO 8903 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:19:50.244  INFO 8903 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:19:50.245  INFO 8903 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:19:50.363  INFO 8903 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:19:50.512  INFO 8903 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:19:51.078  INFO 8903 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@21141b0c'
+2019-04-15 15:19:51.081  INFO 8903 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:19:51.394  INFO 8903 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:19:51.443  WARN 8903 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:19:51.664  INFO 8903 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:19:51.666  INFO 8903 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 4.458 seconds (JVM running for 7.204)
+2019-04-15 15:19:53.359  INFO 8903 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:19:53.359  INFO 8903 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:19:53.366  INFO 8903 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-04-15 15:19:53.454  INFO 8903 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:19:53.455  INFO 8903 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:19:53.455  INFO 8903 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:19:55.207  INFO 8903 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:19:55.207  INFO 8903 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:19:55.207  INFO 8903 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:20:02.217  INFO 8903 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : start = Alperton
+2019-04-15 15:20:02.218  INFO 8903 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : destination = Blackwall
+2019-04-15 15:20:02.230  INFO 8903 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:20:02.243  INFO 8903 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Alperton
+End    Blackwall
+From Alperton take the Piccadilly to Green Park for 13 stops.
+From Green Park take the Jubilee to Waterloo for 2 stops.
+From Waterloo take the Waterloo and City to Bank for 1 stop.
+From Bank take the Docklands Light Railway to Poplar for 4 stops.
+From Poplar take the Docklands Light Railway to Blackwall for 1 stop.
+Changes = 4
+Total stops = 21
+
+
+2019-04-15 15:20:09.250  INFO 8903 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : start = Blackwall
+2019-04-15 15:20:09.250  INFO 8903 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : destination = Bank
+2019-04-15 15:20:09.254  INFO 8903 --- [http-nio-8080-exec-5] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:20:09.254  INFO 8903 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Blackwall
+End    Bank
+From Blackwall take the Docklands Light Railway to Poplar for 1 stop.
+From Poplar take the Docklands Light Railway to Bank for 4 stops.
+Changes = 1
+Total stops = 5
+
+
+2019-04-15 15:20:18.242  INFO 8903 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : start = Bank
+2019-04-15 15:20:18.242  INFO 8903 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : destination = Bayswater
+2019-04-15 15:20:18.246  INFO 8903 --- [http-nio-8080-exec-4] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:20:18.247  INFO 8903 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Bank
+End    Bayswater
+From Bank take the Waterloo and City to Waterloo for 1 stop.
+From Waterloo take the Jubilee to Baker Street for 4 stops.
+From Baker Street take the Circle to Bayswater for 3 stops.
+Changes = 2
+Total stops = 8
+
+
+2019-04-15 15:20:46.562  INFO 8903 --- [http-nio-8080-exec-6] com.routeplanner.ctrl.QueryController    : start = Wimbledon
+2019-04-15 15:20:46.562  INFO 8903 --- [http-nio-8080-exec-6] com.routeplanner.ctrl.QueryController    : destination = Farringdon
+2019-04-15 15:20:46.566  INFO 8903 --- [http-nio-8080-exec-6] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:20:46.799  INFO 8903 --- [http-nio-8080-exec-6] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 15:22:22.052  INFO 8903 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:22:22.052  INFO 8903 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:22:22.052  INFO 8903 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:22:22.054  INFO 8903 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:22:22.055  INFO 8903 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:22:25.597  INFO 9155 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 9155 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:22:25.599  INFO 9155 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:22:26.040  INFO 9155 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:22:26.062  INFO 9155 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-04-15 15:22:26.346  INFO 9155 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a6efe1bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:22:26.713  INFO 9155 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:22:26.750  INFO 9155 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:22:26.751  INFO 9155 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:22:26.894  INFO 9155 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:22:26.894  INFO 9155 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1263 ms
+2019-04-15 15:22:27.068  INFO 9155 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:22:27.223  INFO 9155 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:22:27.279  INFO 9155 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:22:27.330  INFO 9155 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:22:27.331  INFO 9155 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:22:27.441  INFO 9155 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:22:27.568  INFO 9155 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:22:27.940  INFO 9155 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@203ecea'
+2019-04-15 15:22:27.942  INFO 9155 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:22:28.158  INFO 9155 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:22:28.201  WARN 9155 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:22:28.428  INFO 9155 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:22:28.430  INFO 9155 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.55 seconds (JVM running for 5.692)
+2019-04-15 15:22:29.075  INFO 9155 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:22:29.076  INFO 9155 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:22:29.082  INFO 9155 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-04-15 15:22:29.182  INFO 9155 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:22:29.182  INFO 9155 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:22:29.183  INFO 9155 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:22:31.106  INFO 9155 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:22:31.106  INFO 9155 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:22:31.106  INFO 9155 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:22:38.410  INFO 9155 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : start = All Saints
+2019-04-15 15:22:38.410  INFO 9155 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : destination = Bank
+2019-04-15 15:22:38.421  INFO 9155 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:22:38.423  INFO 9155 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  All Saints
+End    Bank
+From All Saints take the Docklands Light Railway to Bank for 5 stops.
+Changes = 0
+Total stops = 5
+
+
+2019-04-15 15:22:45.079  INFO 9155 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : start = All Saints
+2019-04-15 15:22:45.079  INFO 9155 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : destination = Beckton Park
+2019-04-15 15:22:45.084  INFO 9155 --- [http-nio-8080-exec-4] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:22:45.084  INFO 9155 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  All Saints
+End    Beckton Park
+From All Saints take the Docklands Light Railway to Poplar for 1 stop.
+From Poplar take the Docklands Light Railway to Beckton Park for 8 stops.
+Changes = 1
+Total stops = 9
+
+
+2019-04-15 15:24:04.274  INFO 9155 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:24:04.274  INFO 9155 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:24:04.275  INFO 9155 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:24:04.276  INFO 9155 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:24:04.277  INFO 9155 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:24:07.804  INFO 9323 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 9323 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:24:07.806  INFO 9323 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:24:08.262  INFO 9323 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:24:08.284  INFO 9323 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2019-04-15 15:24:08.615  INFO 9323 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$428215a0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:24:08.894  INFO 9323 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:24:08.920  INFO 9323 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:24:08.920  INFO 9323 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:24:08.997  INFO 9323 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:24:08.997  INFO 9323 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1153 ms
+2019-04-15 15:24:09.177  INFO 9323 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:24:09.377  INFO 9323 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:24:09.435  INFO 9323 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:24:09.509  INFO 9323 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:24:09.512  INFO 9323 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:24:09.647  INFO 9323 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:24:09.783  INFO 9323 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:24:10.127  INFO 9323 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@45951fa6'
+2019-04-15 15:24:10.130  INFO 9323 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:24:10.325  INFO 9323 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:24:10.367  WARN 9323 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:24:10.595  INFO 9323 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:24:10.597  INFO 9323 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.412 seconds (JVM running for 5.718)
+2019-04-15 15:24:18.897  INFO 9323 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:24:18.897  INFO 9323 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:24:18.914  INFO 9323 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2019-04-15 15:24:19.016  INFO 9323 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:24:19.016  INFO 9323 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:24:19.018  INFO 9323 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:24:21.127  INFO 9323 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:24:21.127  INFO 9323 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:24:21.127  INFO 9323 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:24:30.568  INFO 9323 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : start = Alperton
+2019-04-15 15:24:30.568  INFO 9323 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : destination = Aldgate East
+2019-04-15 15:24:30.580  INFO 9323 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:24:30.590  INFO 9323 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Alperton
+End    Aldgate East
+From Alperton take the Piccadilly to Green Park for 13 stops.
+From Green Park take the Jubilee to Waterloo for 2 stops.
+From Waterloo take the Waterloo and City to Bank for 1 stop.
+From Bank take the Central to Liverpool Street for 1 stop.
+From Liverpool Street take the Hammersmith and City to Aldgate East for 1 stop.
+Changes = 4
+Total stops = 18
+
+
+2019-04-15 15:30:33.052  INFO 9323 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:30:33.053  INFO 9323 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:30:33.053  INFO 9323 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:30:33.054  INFO 9323 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:30:33.055  INFO 9323 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-15 15:30:36.542  INFO 10107 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 10107 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-15 15:30:36.545  INFO 10107 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-15 15:30:36.961  INFO 10107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-15 15:30:36.981  INFO 10107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2019-04-15 15:30:37.298  INFO 10107 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$39d29a53] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-15 15:30:37.663  INFO 10107 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-15 15:30:37.691  INFO 10107 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-15 15:30:37.692  INFO 10107 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-15 15:30:37.773  INFO 10107 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-15 15:30:37.773  INFO 10107 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1199 ms
+2019-04-15 15:30:37.908  INFO 10107 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-15 15:30:38.074  INFO 10107 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-15 15:30:38.131  INFO 10107 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-15 15:30:38.183  INFO 10107 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-15 15:30:38.184  INFO 10107 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-15 15:30:38.298  INFO 10107 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-15 15:30:38.410  INFO 10107 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2019-04-15 15:30:38.703  INFO 10107 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@2b92ddb1'
+2019-04-15 15:30:38.705  INFO 10107 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:30:38.907  INFO 10107 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:30:38.948  WARN 10107 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-15 15:30:39.180  INFO 10107 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-15 15:30:39.182  INFO 10107 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 3.382 seconds (JVM running for 5.531)
+2019-04-15 15:30:39.805  INFO 10107 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-15 15:30:39.805  INFO 10107 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-15 15:30:39.815  INFO 10107 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-04-15 15:30:39.909  INFO 10107 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-15 15:30:39.909  INFO 10107 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-15 15:30:39.909  INFO 10107 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-15 15:30:41.082  INFO 10107 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the post request for login
+2019-04-15 15:30:41.083  INFO 10107 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : Username = 
+2019-04-15 15:30:41.083  INFO 10107 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : Password = 
+2019-04-15 15:30:57.946  INFO 10107 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : start = Wimbledon
+2019-04-15 15:30:57.946  INFO 10107 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : destination = Farringdon
+2019-04-15 15:30:57.961  INFO 10107 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:30:58.199  INFO 10107 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Hammersmith and City to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Hammersmith and City to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Edgware Road for 5 stops.
+From Edgware Road take the Circle to Farringdon for 5 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Paddington for 4 stops.
+From Paddington take the Circle to Farringdon for 6 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Bayswater for 3 stops.
+From Bayswater take the Circle to Farringdon for 7 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to Notting Hill Gate for 2 stops.
+From Notting Hill Gate take the Circle to Farringdon for 8 stops.
+Changes = 2
+Total stops = 18
+
+
+Start  Wimbledon
+End    Farringdon
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the District to High Street Kensington for 1 stop.
+From High Street Kensington take the Circle to Farringdon for 9 stops.
+Changes = 2
+Total stops = 18
+
+
+2019-04-15 15:31:06.296  INFO 10107 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : start = Wimbledon
+2019-04-15 15:31:06.297  INFO 10107 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : destination = Ealing Common
+2019-04-15 15:31:06.304  INFO 10107 --- [http-nio-8080-exec-4] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-15 15:31:06.305  INFO 10107 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : Journey Display:  
+Start  Wimbledon
+End    Ealing Common
+From Wimbledon take the District to Earl's Court for 8 stops.
+From Earl's Court take the Piccadilly to Ealing Common for 5 stops.
+Changes = 1
+Total stops = 13
+
+
+2019-04-15 15:38:18.837  INFO 10107 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-15 15:38:18.837  INFO 10107 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-15 15:38:18.837  INFO 10107 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-15 15:38:18.839  INFO 10107 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-15 15:38:18.840  INFO 10107 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

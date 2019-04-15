@@ -1,4 +1,4 @@
-package com.routeplanner.front.dm;
+package com.routeplanner.shopping;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

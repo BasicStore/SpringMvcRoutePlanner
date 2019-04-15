@@ -1,4 +1,4 @@
-package com.routeplanner.front.dm;
+package com.routeplanner.shopping;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
