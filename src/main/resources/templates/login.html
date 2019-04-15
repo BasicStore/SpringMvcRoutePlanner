@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shell App - Login Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .error {
+			color: red;
+			font-size: 15px;        
+        }
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+</head>
+<body>
+	<h1 th:text = "#{international.text}"></h1>
+
+    <p><h1><b>Shell App: LANDING PAGE!</b></h1></p>
+	<h2>Enter your login details: (omit this!!)</h2>
+    <form action="#" th:action="@{/entry/landing}" th:object="${user}" method="post">
+        <p>Username: <input type="text" th:field="*{username}" />
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error">First Name Error</span></p>
+        <p>Password: <input type="text" th:field="*{pass}" />
+            <span th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}" class="error">Last Name Error</span></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+    
+    <p>Now test reading a session variable in EL:</p>
+    <p th:text="${session.mockInc.reporter.firstName}" th:unless="${session == null}"> . </p>
+    <p th:text="${session.mockInc.reporter.lastName}" th:unless="${session == null}"> . </p>
+    <p th:text="${session.mockInc.reporter.address}" th:unless="${session == null}"> . </p>
+    
+    
+    
+</body>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != '') {
+                window.location.replace('?lang=' + selectedOption);
+            }
+        });
+    });
+</script>
+
+
+</html>
