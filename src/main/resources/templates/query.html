@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Shell App - Personal Details Page</title>
+    <title th:text = "#{rp.query.title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
         .error {
@@ -40,12 +40,20 @@
 			</tr>	 
 	 	</table>
 	 	<p><input type="submit" value="Find Route Options" th:attr="value=#{rp.query.submit}" align="center"/></p>
-	 	
 	 	<p><textarea name="routeInfo" th:text="*{routeInfo}" rows="50" cols="150"></textarea></p>
-	 	
-	 </form>
+	 	<div th:insert="navbar">  </div>
+	</form>
       	
 	
+    <form action="#" th:action="@{/routeplanner/checkout}" method="post">
+    
+    
+    	<p><input type="submit" value="Find Route Options" th:attr="value=#{rp.query.proceed.submit}" align="center"/></p>
+    
+    	<!--  need some hidden vars here   th:object="${routeQuery}" -->
+    
+    </form>
+    
     
 </body>
 </html>

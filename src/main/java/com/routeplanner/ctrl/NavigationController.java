@@ -24,4 +24,23 @@ public class NavigationController {
 	}
 	
 	
+	
+	@GetMapping("/logout")
+	public String logout() {
+		return "login";
+	}
+	
+	
+	@GetMapping("/purchase_history")
+	public String purchaseHistory() {
+		return "purchase_history";
+	}
+	
+	
+	@GetMapping("/view_basket")
+	public String viewBasket() {
+		return "view_basket";
+	}
+
+	
 }
