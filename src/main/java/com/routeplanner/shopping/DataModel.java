@@ -1,14 +1,14 @@
 package com.routeplanner.shopping;
 
+
+// TODO not clear whether this is needed...........
+
 public class DataModel 
 {
 	private int id;
-
-	// TODO VERY OLD CODE (2009) - needs complete overhaul
 	
 	public DataModel() 
 	{
-		
 		
 	}
 
@@ -24,20 +24,7 @@ public class DataModel
 		this.id = id;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 }

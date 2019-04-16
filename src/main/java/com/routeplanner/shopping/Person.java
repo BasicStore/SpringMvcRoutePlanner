@@ -1,64 +1,38 @@
 package com.routeplanner.shopping;
-import java.util.*;
 
-public class Person extends DataModel
-{
-	private ContactDetails contact;
+import java.util.List;
+
+public class Person {
+
+	private ContactDetails contactDetails;
+	
 	private List<PaymentInfo> paymentInfoList;
-	
-	// TODO VERY OLD CODE (2009) - needs complete overhaul
-	
-	
-	public Person(int id)
-	{
-		super();
-		setId(id);
-	}
-	
-	public Person(ContactDetails contact, List<PaymentInfo> paymentInfoList) 
-	{
-		super();
-		this.contact = contact;
-		this.paymentInfoList = paymentInfoList;
-	}
-
-	
-	public Person(ContactDetails contact) 
-	{
-		super();
-		this.contact = contact;
-	}
-	
-
-	public Person(int id,ContactDetails contact, List<PaymentInfo> paymentInfoList) 
-	{
-		super();
-		setId(id);
-		this.contact = contact;
-		this.paymentInfoList = paymentInfoList;
-	}
+		
+	public Person() {
 	
 		
-
-	public ContactDetails getContact() {
-		return contact;
 	}
 
-
-	public void setContact(ContactDetails contact) {
-		this.contact = contact;
+	public Person(ContactDetails contactDetails, List<PaymentInfo> paymentInfoList) {
+		this.contactDetails = contactDetails;
+		this.paymentInfoList = paymentInfoList;
 	}
 
+	public ContactDetails getContactDetails() {
+		return contactDetails;
+	}
+
+	public void setContactDetails(ContactDetails contactDetails) {
+		this.contactDetails = contactDetails;
+	}
 
 	public List<PaymentInfo> getPaymentInfoList() {
 		return paymentInfoList;
 	}
 
-
 	public void setPaymentInfoList(List<PaymentInfo> paymentInfoList) {
 		this.paymentInfoList = paymentInfoList;
 	}
-
-
+	
 	
 }

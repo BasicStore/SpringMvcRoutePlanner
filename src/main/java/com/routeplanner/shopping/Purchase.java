@@ -1,34 +1,26 @@
 package com.routeplanner.shopping;
-import java.util.*;
 
+import java.util.Date;
 
-public class Purchase extends DataModel
-{
+public class Purchase extends Order {
+
+	// TODO what is the best Date / LocalDateTime??????
 	private Date transactionDate;
-	private int numberZones;
-	private double totalPayment;
-	private OLD_2009_User user;
 	
-	// TODO VERY OLD CODE (2009) - needs complete overhaul
+	private Order order;
 	
-	public Purchase(Date transactionDate,double totalPayment,OLD_2009_User user) 
-	{
-		super();
-		this.transactionDate = transactionDate;
-		this.totalPayment = totalPayment;
-		this.user = user;
+	
+	public Purchase() {
+		
+		
+		
 	}
 
 
-	public Purchase(int purchase_id, Date transactionDate,double totalPayment,OLD_2009_User user)
-	{
-		super();
-		setId(purchase_id);
+	public Purchase(Date transactionDate, Order order) {
 		this.transactionDate = transactionDate;
-		this.totalPayment = totalPayment;
-		this.user = user;
+		this.order = order;
 	}
-	
 
 
 	public Date getTransactionDate() {
@@ -36,34 +28,19 @@ public class Purchase extends DataModel
 	}
 
 
-
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
 	}
 
 
-
-	public double getTotalPayment() {
-		return totalPayment;
+	public Order getOrder() {
+		return order;
 	}
 
 
-
-	public void setTotalPayment(double totalPayment) {
-		this.totalPayment = totalPayment;
-	}
-
-
-	public OLD_2009_User getUser() {
-		return user;
-	}
-
-
-	public void setUser(OLD_2009_User user) {
-		this.user = user;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 	
-	
-	
-	
+
 }

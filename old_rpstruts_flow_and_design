@@ -162,9 +162,8 @@ Existing Shopping Cart Model  [needs refactoring]
 ----------------------------------------------------------------
 REFACTOR TO:
 
-
 AbstractShopping
---> User
+--> User [ie of the system]
 
 Basket extends AbstractShopping
 --> list<AbstractItem> [might want to flog some other stuff]
@@ -228,7 +227,6 @@ Person
 
 State
    --> AbstractShopping shopping [could be basket, order or purchase]
-   --> User user  
 
 ----------------------------------------------------------------
 ----------------------------------------------------------------

@@ -89,8 +89,6 @@ public class LoginController {
     	loginUser.setRoleLevel(RoleLevel.ADMIN);   // TODO  set this up properly here.................
     	request.getSession().setAttribute("user", loginUser);  // TODO this needs to be changed to AnstractShopping............
     	
-    	//${session.user.roleLevel.id}
-    	
     	
     	
     	List<String> stationList = getStationList(); //Arrays.asList("Station1", "Station2", "Station3");
