@@ -1,27 +1,51 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    
+    
+    <link rel="stylesheet" th:href="@{/css/global.css}"/>
+    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 
-<!--  class="navbar" -->
+<!--  class="navbar"    class="navbar-inner"   class="navbar-cell"-->
 
 <body>
     <div>
         <div th:fragment="navbar">
-            <div class="navbar-inner">
-                <a th:href= "@{register}" th:text = "#{rp.nav.register}"></a>
-                <a th:href= "@{admin_corner}" th:text = "#{rp.nav.admin}"></a>
-
-                <!--  add logic here to display according to user roles -->
-                <a th:href= "@{purchase_history}" th:text = "#{rp.nav.purchase-history}"></a>
-                <a th:href= "@{view_basket}" th:text = "#{rp.nav.view-basket}"></a>
-                <a th:href= "@{login}" th:text = "#{rp.nav.logout}"></a>
+            <div>
+                <table style="padding-right: 60px">
+                	<tr>
+						<td class="navbar-cell">
+							<div th:if="${session.user.roleLevel.id} < 2">
+			                	<a th:href= "@{register}" th:text = "#{rp.nav.register}"></a>
+			                </div>		
+						</td>                	
+						<td class="navbar-cell">
+						    <div th:if="${session.user.roleLevel.id} == 3">
+                				<a th:href= "@{admin_corner}" th:text = "#{rp.nav.admin}"></a>	                
+                			</div>
+						</td>						
+						<td class="navbar-cell">
+							<div th:if="${session.user.roleLevel.id} >= 2">
+			                	<a th:href= "@{purchase_history}" th:text = "#{rp.nav.purchase-history}"></a>		                
+			                </div>
+						</td>						
+						<td class="navbar-cell">
+							<div><a th:href= "@{view_basket}" th:text = "#{rp.nav.view-basket}"></a></div>		
+						</td>
+						<td class="navbar-cell">
+							<div><a th:href= "@{login}" th:text = "#{rp.nav.logout}"></a></div>		
+						</td>
+                	</tr>
+                </table>
                 
             </div>
         </div>
     </div>
+    
+    
 </body>	
 	
     

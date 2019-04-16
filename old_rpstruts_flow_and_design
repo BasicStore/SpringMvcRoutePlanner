@@ -154,27 +154,96 @@ Existing Shopping Cart Model  [needs refactoring]
 
 --> List<Basket> basketList;
 
-----------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
 REFACTOR TO:
-Basket
+
+
+AbstractShopping
+--> User
+
+Basket extends AbstractShopping
 --> list<AbstractItem> [might want to flog some other stuff]
     --> AbstractItem
+        --> boolean open
         --> Ticket (with costing info) 
         --> PassengerType [type / code]
         --> Travel date
-        --> num zones
         --> num tickets
+        --> RouteQuery
+            --> currRouteStart
+            --> currRouteDest
+            --> routeInfo
+            --> zones covered --> List<Integer>
+        --> Rule
+            --> perActualItems --> int 
+            --> effectivePayItems --> double
+            --> relevantItemTypes --> List<Long>
+            --> validStartTime --> LocalDateTime
+            --> validEndTime --> LocalDateTime
 
---> Order
-    --> PaymentInfo    
-    --> Basket
+--> totalPrice --> BigDecimal
+----------
 
-EXTENSION:
---> how to accommodate special offers
+Order extends Basket
+   --> PaymentInfo    
+       --> nameOnCard;
+       --> cardType;
+       --> cardNumber;
+       --> securityCode;       
+       --> expiry_date;
+       --> valid_from;
 
+-----------------
+
+Purchase extends Order
+   --> Date transactionDate;
+   --> Order order;
+   
+----------------
+
+Person
+   --> ContactDetails contact;
+       --> String title;   
+       --> String firstname;      
+       --> String initials;
+	   --> String lastname;
+       --> String address_1;  
+       --> String address_2;
+       --> String address_3;              
+       --> String city;      
+       --> String region_or_state;
+	   --> String country;
+       --> String email;  
+       --> String mobile_tel;      
+       --> String home_tel;
+	   --> String office_tel;
+   
+   --> List<PaymentInfo> paymentInfoList;
+	
+
+State
+   --> AbstractShopping shopping [could be basket, order or purchase]
+   --> User user  
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
 ======================================================
 
 
+
+
+
+
+	
 
 
 

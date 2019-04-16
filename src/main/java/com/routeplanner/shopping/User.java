@@ -37,6 +37,9 @@ public class User {
 	//@Column(name="active")
 	private int active;
 	
+	private RoleLevel roleLevel;
+	
+		
 	
 	// ORIG working flat
 //	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
@@ -132,5 +135,18 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+	public RoleLevel getRoleLevel() {
+		return roleLevel;
+	}
+
+	public void setRoleLevel(RoleLevel roleLevel) {
+		this.roleLevel = roleLevel;
+	}
+
+
+	//////////////////////////////
+	// testing only below here
+	
 	
 }

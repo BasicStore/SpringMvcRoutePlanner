@@ -28,12 +28,19 @@ public class CheckoutController {
     public ModelAndView greetingSubmit(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User login, BindingResult errors) {
 		
 		
+		// collects the payment detials for the basket which already exists
+		
+		// creates an order object and then places the order
 		
 		
 		
+		// if there are validation issues, go back to checkout		
 		
+		// if transaction successful, delete the contents from the basket WITHIN THE SAME TRANCSACTION, and go to sale_confirmation  
 		
-		ModelAndView mv = new ModelAndView("checkout");
+		// if transaction failed: either go back to checkout or go to error page 
+		
+		ModelAndView mv = new ModelAndView("sale-confirmation");
 		return mv;
 	}
 	

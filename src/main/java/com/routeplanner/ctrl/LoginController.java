@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -17,9 +19,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.routeplanner.dm.IRouteMap;
 import com.routeplanner.ex.InvalidNetworkException;
 import com.routeplanner.load.RouteMapReader;
+import com.routeplanner.shopping.RoleLevel;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.User;
 
@@ -49,7 +53,14 @@ public class LoginController {
 		logger.info("logging from tomcat with slf4j - current location: " + currLocation);
 		logger.info("in the get request for login");
 		
-		model.addAttribute("user", new User());
+
+		// TODO test only
+		User user = new User();
+		user.setRoleLevel(RoleLevel.USER);
+		model.addAttribute("user", user);
+
+		
+		
     	
     	// RESOURCE FILE: testing accessing a configuration file which can be done from any java class
     	ResourceBundle rb = ResourceBundle.getBundle("config.sysprops");
@@ -60,18 +71,27 @@ public class LoginController {
     }
 
 
+	
     
     @PostMapping("/login")
-    public ModelAndView greetingSubmit(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User login, BindingResult errors) {
+    public ModelAndView greetingSubmit(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
     	logger.info("in the post request for login");
-    	if (errors.hasErrors() || pageHasBlankMandatoryFields(login)) {
+    	if (errors.hasErrors() || pageHasBlankMandatoryFields(loginUser)) {
     		System.out.println("ERRORS ON LOGIN FORM!!!!!!!");
     		logger.info("errors exist on login request form");
     		return new ModelAndView("login");
     	}    	
     	
-    	logger.info("Username = " + login.getUsername());
-    	logger.info("Password = " + login.getPassword());
+    	logger.info("Username = " + loginUser.getUsername());
+    	logger.info("Password = " + loginUser.getPassword());
+    	
+    	// TODO request.getSession().setAttribute("xxx",zzz);
+    	loginUser.setRoleLevel(RoleLevel.ADMIN);   // TODO  set this up properly here.................
+    	request.getSession().setAttribute("user", loginUser);  // TODO this needs to be changed to AnstractShopping............
+    	
+    	//${session.user.roleLevel.id}
+    	
+    	
     	
     	List<String> stationList = getStationList(); //Arrays.asList("Station1", "Station2", "Station3");
     	request.getSession().setAttribute("stationList", stationList);
@@ -83,6 +103,25 @@ public class LoginController {
     	return mv;
     }
 
+    
+    
+    @PostMapping("/continue")
+    public ModelAndView findAnotherRoute(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
+    	
+    	// get user object from the basket
+    	
+    	// delete the existing basket and create a new one from scratch 
+    	
+    	
+    	
+    	
+    	return null;
+    }
+    
+    
+    
+    
+    
     
 
 	  private static boolean pageHasBlankMandatoryFields(User login) {

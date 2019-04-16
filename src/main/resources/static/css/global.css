@@ -1,0 +1,10 @@
+.error {
+	color: red;
+	font-size: 15px;        
+}
+
+
+.navbar-cell {
+	font-weight: bold solid;
+	color: blue;
+}

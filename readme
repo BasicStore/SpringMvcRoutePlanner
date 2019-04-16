@@ -47,17 +47,21 @@
  - conditionals: (see also 4.10)
    <div th:if="${user.isAdmin()} == false"> 
    <div th:if="${user.isAdmin() == false}">
+   <div th:if="${!user.isAdmin() and !user.isMember()}" th:text = "#{rp.login.title}"></div>
  
  --------------------------------------
-NEXT TASKS:
+TUESDAY PM:
  
- - add all links in the fragment [for all users] 
- - poc page logic for the links
- - apply basic admin flow throughout
- - position links throughout 
- - implement and update existing model
+ - complete this: apply basic admin flow throughout
+ - position links throughout on each page 
+  
+ - implement and update existing model in code
  - redesign front end dm (incl basket and latest query + login level)
  - database + load sql file
+  
+ - sort out the CSS! 
+ - add a javascript file
+ - add control unit tests
   
  -------------------------------------- 
   
