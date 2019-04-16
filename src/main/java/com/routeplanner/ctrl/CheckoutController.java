@@ -24,11 +24,32 @@ public class CheckoutController {
 	}
 
 	
-	@PostMapping("/checkout")
-    public ModelAndView greetingSubmit(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User login, BindingResult errors) {
+	@PostMapping("/prepare-checkout")
+    public ModelAndView doCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User login, BindingResult errors) {
 		
 		
-		// collects the payment detials for the basket which already exists
+		logger.info("==============> in the check out....");
+		
+		// just collate the RouteQuery data and start a new abstract shopping object in the session with the data
+		
+		
+		ModelAndView mv = new ModelAndView("checkout");
+		
+		
+		// if transaction failed: either go back to checkout or go to error page 
+		
+		
+		
+		
+		return mv;
+	}
+	
+	
+	
+	@PostMapping("/do-checkout")
+	public ModelAndView doPurchase() {
+		
+		// 	collects the payment detials for the basket which already exists
 		
 		// creates an order object and then places the order
 		
@@ -36,14 +57,14 @@ public class CheckoutController {
 		
 		// if there are validation issues, go back to checkout		
 		
+		
+		// else: DO THE PURCHASE NOW
+		
 		// if transaction successful, delete the contents from the basket WITHIN THE SAME TRANCSACTION, and go to sale_confirmation  
-		
-		// if transaction failed: either go back to checkout or go to error page 
-		
 		ModelAndView mv = new ModelAndView("sale-confirmation");
+		
 		return mv;
 	}
-	
 	
 	
 }

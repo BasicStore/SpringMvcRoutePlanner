@@ -24,6 +24,7 @@ import com.routeplanner.ex.InvalidStationException;
 import com.routeplanner.ex.NoJourneyFoundException;
 import com.routeplanner.load.RouteMapReader;
 import com.routeplanner.shopping.RouteQuery;
+import com.routeplanner.shopping.User;
 
 @Controller
 @RequestMapping("/routeplanner")
@@ -57,8 +58,6 @@ public class QueryController {
 		ModelAndView mv = new ModelAndView("query");
 		return mv;
 	}
-	
-	
 	
 	
 	

@@ -10,8 +10,9 @@
 	 
 	 
 	 
-	 <form action="#" th:action="@{/routeplanner/checkout}" th:object="${routeQuery}" method="post">
+	 <form action="#" th:action="@{/routeplanner/do-checkout}" th:object="${routeQuery}" method="post">
 	 	
+	 	<p><input type="submit" value="Place Order" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
 	 
 	 
 	 </form>

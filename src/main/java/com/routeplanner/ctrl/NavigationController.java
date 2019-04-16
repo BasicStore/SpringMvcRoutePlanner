@@ -42,12 +42,5 @@ public class NavigationController {
 	public String viewBasket() {
 		return "view_basket";
 	}
-
-	
-	@PostMapping("/new-search")
-	public String confirmSale() {
-		return "query";
-	}
-	
 	
 }

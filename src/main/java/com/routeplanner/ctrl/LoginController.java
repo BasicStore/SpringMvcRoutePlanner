@@ -105,7 +105,9 @@ public class LoginController {
 
     
     
-    @PostMapping("/continue")
+    
+    // returning after initial search
+    @PostMapping("/new-search")  // 
     public ModelAndView findAnotherRoute(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
     	
     	// get user object from the basket
@@ -113,13 +115,19 @@ public class LoginController {
     	// delete the existing basket and create a new one from scratch 
     	
     	
+    	// TODO test only
+		User user = new User();
+		user.setRoleLevel(RoleLevel.USER);
+		model.addAttribute("user", user);
     	
+		model.addAttribute("routeQuery", new RouteQuery());
+		
     	
-    	return null;
+    	ModelAndView mv = new ModelAndView("query");
+    	
+    	return mv;
     }
-    
-    
-    
+
     
     
     
