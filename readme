@@ -49,16 +49,24 @@
    <div th:if="${user.isAdmin() == false}">
    <div th:if="${!user.isAdmin() and !user.isMember()}" th:text = "#{rp.login.title}"></div>
  
+ - hibernate JPA: using abstract superclass for subclasses which are annotated with @Entity
+   https://stackoverflow.com/questions/3827494/inherited-abstract-class-with-jpa-hibernate
+ 
+ - useful spring boot properties:
+   https://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle/#common-application-properties
+ 
  --------------------------------------
-TUESDAY PM:
-   
- - implement and update existing model in code
- - redesign front end dm (incl basket and latest query + login level)
- - database + load sql file
-  
  - sort out the CSS! 
  - add a javascript file
+ - refactor with new model
+ - notes 
+  
+ - database + load sql file
+ - end to end functionality structure and comments  
  - add control unit tests
+  
+ - do this tutorial!
+   https://spring.io/blog/2013/12/19/serving-static-web-content-with-spring-boot 
   
  -------------------------------------- 
   

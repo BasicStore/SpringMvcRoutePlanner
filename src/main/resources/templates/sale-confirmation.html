@@ -2,9 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text = "#{rp.sale-confirm.title}"></title>
-    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    
+	<link th:href="@{/css/global.css}" rel="stylesheet" />    
 </head>
 <body>
     <p><h1><b th:text = "#{rp.sale-confirm.header}"></b></h1></p>
@@ -12,7 +11,7 @@
 	 	
 	 <form action="#" th:action="@{/routeplanner/new-search}" method="post">
 	 
-	 	<p><input type="submit" value="Find another route" th:attr="value=#{rp.sale-confirm.continue}" align="center"/></p>
+	 	<p><input type="submit" class="formButton" value="Find another route" th:attr="value=#{rp.sale-confirm.continue}" align="center"/></p>
 	 
 	 </form>
 	 	

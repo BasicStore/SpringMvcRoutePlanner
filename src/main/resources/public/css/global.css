@@ -1,0 +1,18 @@
+.error {
+	color: red;
+	font-size: 15px;        
+}
+
+.navbar-cell {
+	padding-right: 30px;	
+	
+}
+
+
+.formButton
+{
+	background-color: #6699FF;
+	color: black;
+	font-weight: bold;
+	text-alignment: center;
+}

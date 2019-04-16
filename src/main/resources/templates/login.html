@@ -3,12 +3,7 @@
 	<head>
 	    <title th:text = "#{rp.login.title}"></title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <style>
-	        .error {
-				color: red;
-				font-size: 15px;        
-	        }
-	    </style>
+	    <link th:href="@{/css/global.css}" rel="stylesheet" />
 	    
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	   
@@ -42,8 +37,8 @@
 	        	<tr>        		
 	        		<td align="center">          
 	        			<p>
-		        			<input type="submit" value="Submit" th:attr="value=#{rp.login.submit}" /> 
-		        			<input type="reset" value="Reset" th:attr="value=#{rp.login.reset}" />
+		        			<input class="formButton" type="submit" value="Submit" th:attr="value=#{rp.login.submit}" /> 
+		        			<input class="formButton" type="reset" value="Reset" th:attr="value=#{rp.login.reset}" />
 	        			</p>
 	        		</td>
 	        	</tr>

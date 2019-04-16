@@ -1,21 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    
-    
-    <link rel="stylesheet" th:href="@{/css/global.css}"/>
-    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/global.css}" rel="stylesheet" />
 </head>
-
-
-<!--  class="navbar"    class="navbar-inner"   class="navbar-cell"-->
 
 <body>
     <div>
         <div th:fragment="navbar">
             <div>
-                <table style="padding-right: 60px">
+                <table class="navbar-cell" >
                 	<tr>
 						<td class="navbar-cell">
 							<div th:if="${session.user.roleLevel.id} < 2">
@@ -39,13 +33,10 @@
 							<div><a th:href= "@{login}" th:text = "#{rp.nav.logout}"></a></div>		
 						</td>
                 	</tr>
-                </table>
-                
+                </table>                
             </div>
         </div>
     </div>
-    
-    
 </body>	
 	
     
