@@ -62,6 +62,7 @@ Wednesday
  - OK refactor existing with new model
   
  - improve travelInfoService
+ - investigate whether hibernate will actually map this approach!
  - start from CheckoutController.doCheckout() and build up the AbstractShopping from this point
  
  

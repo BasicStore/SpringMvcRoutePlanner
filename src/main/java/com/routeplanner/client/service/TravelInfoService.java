@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -27,18 +28,19 @@ public class TravelInfoService implements ITravelInfoService {
 	
 	private final static ResourceBundle mybundle = ResourceBundle.getBundle("application");
 	
+	private static IRouteMap routeMap;
+	
+	
 	public TravelInfoService() {
 		
 	}
 	
 	
 	public String getJourneyDetails(String start, String dest) {
-		IRouteMap mapData;
 		try {
-			mapData = loadSystemData();   // TODO avoid doing this > 1 time!!!!!!!!
-			IRoutePlanner planner = new RoutePlanner(mapData); 
-			String[] routeDetails = new String[] {start, dest};
-			Journey journey = planner.lookupJourney(routeDetails[0], routeDetails[1]);
+			loadSystemData();  
+			IRoutePlanner planner = new RoutePlanner(routeMap); 
+			Journey journey = planner.lookupJourney(start, dest);
 			String journeyDisplay = planner.getJourneyString(journey);
 			logger.info("Journey Display:  " + journeyDisplay);
 			return journeyDisplay;
@@ -62,21 +64,16 @@ public class TravelInfoService implements ITravelInfoService {
 			logger.info(e.getMessage());
 		}
 		
-		return null;
+		return StringUtils.EMPTY;
 	}    
-  
+  	
 	
-	
-	
-	// TODO avoid DUPLICATION!!!!
 	
 	public List<String> getStationList() {
-		IRouteMap mapData;
 		try {
-			mapData = loadSystemData();
 			RouteMapReader reader = new RouteMapReader();
-			List<String> stationList = reader.getListAllStations(mapData);
-			return stationList;
+			loadSystemData(reader);
+			return reader.getListAllStations(routeMap);
 		} catch(FileNotFoundException e) {
 			logger.info("File not found\n");
 			logger.info("");
@@ -90,11 +87,18 @@ public class TravelInfoService implements ITravelInfoService {
 		
 		return new ArrayList<String>();
 	}    
-      
-    
-  	private IRouteMap loadSystemData() throws IOException, FileNotFoundException, InvalidNetworkException {
-		RouteMapReader reader = new RouteMapReader();
-		return reader.buildIRouteMap(mybundle.getString("route.map.xml"));
+     
+	
+	private void loadSystemData() throws IOException, FileNotFoundException, InvalidNetworkException {
+		loadSystemData(new RouteMapReader());
 	}
 	
+    
+  	private void loadSystemData(RouteMapReader reader) throws IOException, FileNotFoundException, InvalidNetworkException {
+		if (routeMap == null && reader != null) {
+			routeMap = reader.buildIRouteMap(mybundle.getString("route.map.xml"));
+		}
+	}
+	
+  	
 }
