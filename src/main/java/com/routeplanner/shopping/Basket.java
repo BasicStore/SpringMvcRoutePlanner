@@ -6,12 +6,12 @@ public class Basket extends AbstractShopping {
 
 	private Set<AbstractItem> tickets;
 		
-	public Basket() {
-	
-		
+	public Basket(User user) {
+		super(user);
 	}
 	
-	public Basket(Set<AbstractItem> tickets) {
+	public Basket(User user, Set<AbstractItem> tickets) {
+		this(user);
 		this.tickets = tickets;
 	}
 

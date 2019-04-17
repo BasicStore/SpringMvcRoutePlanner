@@ -10,27 +10,31 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.routeplanner.shopping.User;
+import com.routeplanner.shopping.AbstractShopping;
+import com.routeplanner.shopping.Basket;
+import com.routeplanner.shopping.RouteQuery;
 
 
 @Controller
 @RequestMapping("/routeplanner")
 public class CheckoutController {
 
-	private Logger logger = LoggerFactory.getLogger(CheckoutController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CheckoutController.class);
 	
 	public CheckoutController() {
 		
 	}
 
-	
-	@PostMapping("/prepare-checkout")
-    public ModelAndView doCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User login, BindingResult errors) {
-		
-		
-		logger.info("==============> in the check out....");
+	@PostMapping("/proceed-to-checkout")
+    public ModelAndView doCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute RouteQuery routeQuery, BindingResult errors) {
+		logger.info("proceeding to checkout");
+		logger.info("current query start: " + routeQuery.getCurrRouteStart());
+		logger.info("current query dest: " + routeQuery.getCurrRouteDest());
+		logger.info("current query route info: " + routeQuery.getRouteInfo());
 		
 		// just collate the RouteQuery data and start a new abstract shopping object in the session with the data
+		AbstractShopping shopping = (Basket)request.getSession().getAttribute("shopping");
+		logger.info("Role level for this shopper: " + shopping.getUser().getRoleLevel().getLit());		
 		
 		
 		ModelAndView mv = new ModelAndView("checkout");

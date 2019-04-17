@@ -10,7 +10,7 @@ public abstract class AbstractShopping {
 
 	
 	public AbstractShopping(User user) {
-		
+		this.user = user;
 	}
 
 

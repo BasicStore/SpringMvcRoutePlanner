@@ -1,15 +1,10 @@
 package com.routeplanner.ctrl;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -19,25 +14,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.routeplanner.dm.IRouteMap;
-import com.routeplanner.ex.InvalidNetworkException;
-import com.routeplanner.load.RouteMapReader;
+import com.routeplanner.client.service.TravelInfoService;
+import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.RoleLevel;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.User;
-
-// import com.routeplanner.dm.User;
 
 
 @Controller
 @RequestMapping("/routeplanner")
 public class LoginController {
 	
-	private Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 		
 	// TODO move this with the route engine
 	final static ResourceBundle mybundle = ResourceBundle.getBundle("application");
+	
+	@Autowired
+	private TravelInfoService travelInfoService;
 	
 	
 	@GetMapping("/")
@@ -53,14 +47,10 @@ public class LoginController {
 		logger.info("logging from tomcat with slf4j - current location: " + currLocation);
 		logger.info("in the get request for login");
 		
-
-		// TODO test only
+		// bind a user object for the current user to sign in
 		User user = new User();
 		user.setRoleLevel(RoleLevel.USER);
 		model.addAttribute("user", user);
-
-		
-		
     	
     	// RESOURCE FILE: testing accessing a configuration file which can be done from any java class
     	ResourceBundle rb = ResourceBundle.getBundle("config.sysprops");
@@ -75,30 +65,37 @@ public class LoginController {
     
     @PostMapping("/login")
     public ModelAndView greetingSubmit(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
-    	logger.info("in the post request for login");
+    	logger.info("Dealing with login request");
     	if (errors.hasErrors() || pageHasBlankMandatoryFields(loginUser)) {
-    		System.out.println("ERRORS ON LOGIN FORM!!!!!!!");
+    		// TODO apply login form validation here...........
     		logger.info("errors exist on login request form");
     		return new ModelAndView("login");
     	}    	
     	
+    	// TODO get this from the database with username and pass via service class
+    	User validUser = new User(); 
+    	if (validUser == null) {
+    		// bind a user object for the current user to sign in
+    		User user = new User();
+    		user.setRoleLevel(RoleLevel.USER);
+    		model.addAttribute("user", user);
+    		return new ModelAndView("login");
+    	}
+    	
     	logger.info("Username = " + loginUser.getUsername());
     	logger.info("Password = " + loginUser.getPassword());
     	
-    	// TODO request.getSession().setAttribute("xxx",zzz);
-    	loginUser.setRoleLevel(RoleLevel.ADMIN);   // TODO  set this up properly here.................
-    	request.getSession().setAttribute("user", loginUser);  // TODO this needs to be changed to AnstractShopping............
-    	
-    	
-    	
-    	List<String> stationList = getStationList(); //Arrays.asList("Station1", "Station2", "Station3");
-    	request.getSession().setAttribute("stationList", stationList);
+    	// add static full station list to session
+    	request.getSession().setAttribute("stationList", travelInfoService.getStationList());
 
+    	
+    	validUser.setRoleLevel(RoleLevel.ADMIN);   // TODO  remove this eventually as it will be set from the database
+    	request.getSession().setAttribute("shopping", new Basket(validUser));  // TODO this needs to be changed to AnstractShopping............
+
+    	// set up the new route query, at this stage it is just a query, so is not part of the shopping session variable
     	model.addAttribute("routeQuery", new RouteQuery());
     	
-    	ModelAndView mv = new ModelAndView("query");
-    	
-    	return mv;
+    	return new ModelAndView("query");
     }
 
     
@@ -125,46 +122,12 @@ public class LoginController {
     	
     	return mv;
     }
-
-    
-    
     
 
-	  private static boolean pageHasBlankMandatoryFields(User login) {
+    private static boolean pageHasBlankMandatoryFields(User login) {
 	//	  return (login == null || StringUtils.isBlank(login.getUsername()) || StringUtils.isBlank(login.getUsername())) ? true : false;
-	      return false;	  
-	  }
-	
-	
-	  // TODO move this................	
-	public List<String> getStationList() {
-		IRouteMap mapData;
-		try {
-			mapData = loadSystemData();
-			RouteMapReader reader = new RouteMapReader();
-			List<String> stationList = reader.getListAllStations(mapData);
-			return stationList;
-		} catch(FileNotFoundException e) {
-			logger.info("File not found\n");
-			logger.info("");
-		} catch(IOException e) {
-			logger.info("IOException \n");
-			logger.info(e.getMessage());
-		} catch(InvalidNetworkException e) {
-			logger.info("Invalid Network\n");
-			logger.info(e.getMessage());
-		} 
-		
-		return new ArrayList<String>();
-	}    
-
-  
-
-  // TODO move this................
-	public IRouteMap loadSystemData() throws IOException, FileNotFoundException, InvalidNetworkException {
-		RouteMapReader reader = new RouteMapReader();
-		return reader.buildIRouteMap(mybundle.getString("route.map.xml"));
+	    return false;	  
 	}
-   
+	
   
 }

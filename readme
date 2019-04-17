@@ -56,13 +56,17 @@
    https://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle/#common-application-properties
  
  --------------------------------------
- - sort out the CSS! 
- - add a javascript file
- - refactor with new model
- - notes 
+Wednesday
+ 
+ - OK fix button
+ - OK refactor existing with new model
   
- - database + load sql file
- - end to end functionality structure and comments  
+ - improve travelInfoService
+ - start from CheckoutController.doCheckout() and build up the AbstractShopping from this point
+ 
+ 
+ - database + load sql file for non-admin / membership use
+ - forms and flow for non-admin / membership use 
  - add control unit tests
   
  - do this tutorial!

@@ -11,7 +11,7 @@
 	 
 	 <form id="checkoutForm" action="#" th:action="@{/routeplanner/do-checkout}" th:object="${routeQuery}" method="post">
 	 	
-	 	<p><input class="formButton" onclick="submitForm(this)" value="Place Order" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
+	 	<p><input type="button" class="formButton" onclick="submitForm(this)" value="Place Order" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
 	 
 	 </form>
 	 

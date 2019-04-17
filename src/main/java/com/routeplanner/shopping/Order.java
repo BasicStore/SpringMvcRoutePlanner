@@ -5,12 +5,14 @@ public class Order extends Basket {
 	private PaymentInfo paymentInfo;
 	
 	
-	public Order() {
-		
+	public Order(User user, Basket basket) {
+		super(user);
+		manageBasket(basket);
 	}
 
 
-	public Order(PaymentInfo paymentInfo) {
+	public Order(PaymentInfo paymentInfo, User user, Basket basket) {
+		this(user, basket);
 		this.paymentInfo = paymentInfo;
 	}
 
@@ -24,4 +26,12 @@ public class Order extends Basket {
 		this.paymentInfo = paymentInfo;
 	}
 
+	
+	protected void manageBasket(Basket basket) {
+		if (basket != null) {
+			setTickets(basket.getTickets());
+		}
+	}
+	
+	
 }

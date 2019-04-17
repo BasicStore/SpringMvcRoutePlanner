@@ -38,15 +38,9 @@
 	 	<p><textarea name="routeInfo" th:text="*{routeInfo}" rows="50" cols="150"></textarea></p>
 	 	<div th:insert="navbar">  </div>
 	</form>
-      	
 	
-    <form action="#" th:action="@{/routeplanner/prepare-checkout}" method="post">
-    
-    
+    <form action="#" th:action="@{/routeplanner/proceed-to-checkout}" th:object="${routeQuery}" method="post">
     	<p><input class="formButton" type="submit" value="Find Route Options" th:attr="value=#{rp.query.proceed.submit}" align="center"/></p>
-    
-    	<!--  need some hidden vars here   th:object="${routeQuery}" -->
-    
     </form>
     
     
