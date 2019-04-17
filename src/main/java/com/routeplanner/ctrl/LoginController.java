@@ -1,7 +1,9 @@
 package com.routeplanner.ctrl;
 import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.routeplanner.client.service.TravelInfoService;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.RoleLevel;
 import com.routeplanner.shopping.RouteQuery;
+import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.User;
 
 
@@ -88,9 +92,9 @@ public class LoginController {
     	// add static full station list to session
     	request.getSession().setAttribute("stationList", travelInfoService.getStationList());
 
-    	
+    	// add embryonic shopping cart to session
     	validUser.setRoleLevel(RoleLevel.ADMIN);   // TODO  remove this eventually as it will be set from the database
-    	request.getSession().setAttribute("shopping", new Basket(validUser));  // TODO this needs to be changed to AnstractShopping............
+    	request.getSession().setAttribute("shopping", new Shopping(validUser));  // TODO this needs to be changed to AnstractShopping............
 
     	// set up the new route query, at this stage it is just a query, so is not part of the shopping session variable
     	model.addAttribute("routeQuery", new RouteQuery());

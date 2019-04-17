@@ -1,6 +1,7 @@
 package com.routeplanner.ctrl;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,9 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.routeplanner.shopping.AbstractShopping;
-import com.routeplanner.shopping.Basket;
+
 import com.routeplanner.shopping.RouteQuery;
+import com.routeplanner.shopping.Shopping;
 
 
 @Controller
@@ -33,8 +34,12 @@ public class CheckoutController {
 		logger.info("current query route info: " + routeQuery.getRouteInfo());
 		
 		// just collate the RouteQuery data and start a new abstract shopping object in the session with the data
-		AbstractShopping shopping = (Basket)request.getSession().getAttribute("shopping");
+		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		logger.info("Role level for this shopper: " + shopping.getUser().getRoleLevel().getLit());		
+		
+		
+		
+		
 		
 		
 		ModelAndView mv = new ModelAndView("checkout");

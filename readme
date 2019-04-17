@@ -60,15 +60,15 @@ Wednesday
  
  - OK fix button
  - OK refactor existing with new model
+ - OK improve travelInfoService
+ - OK investigate and refactor the model to use composition if necessary.................
   
- - improve travelInfoService
- - investigate whether hibernate will actually map this approach!
- - start from CheckoutController.doCheckout() and build up the AbstractShopping from this point
- 
- 
- - database + load sql file for non-admin / membership use
- - forms and flow for non-admin / membership use 
- - add control unit tests
+  
+ - database + load sql file for non-admin / membership use 
+ - select ticket type & add to basket
+ - select payment info
+ - persist to db within transaction
+ - add control unit test shells
   
  - do this tutorial!
    https://spring.io/blog/2013/12/19/serving-static-web-content-with-spring-boot 

@@ -2,14 +2,19 @@ package com.routeplanner.shopping;
 
 import java.util.Date;
 
-public class Purchase extends Order {
-
-	// TODO what is the best Date / LocalDateTime??????
-	private Date transactionDate;
+public class Purchase {
 	
-	public Purchase(Date transactionDate, PaymentInfo paymentInfo, User user, Basket basket) {
-		super(paymentInfo, user, basket);
+	private User user;
+	
+	private Date transactionDate;  // TODO what is the best Date / LocalDateTime??????
+	
+	private Order order;
+	
+	
+	public Purchase(User user, Date transactionDate, Order order) {
+		this.user = user;
 		this.transactionDate = transactionDate;
+		this.order = order;
 	}
 
 	public Date getTransactionDate() {

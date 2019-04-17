@@ -8,16 +8,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="role")
+@Entity
+@Table(name="role")
 public class Role {
 
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
-//	@Column(name="role_id")
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="role_id")
 	private int roleId;
 	
-//	@Column(name="role")
+	@Column(name="role")
 	private String role;
 	
 	public Role() {

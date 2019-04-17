@@ -2,12 +2,13 @@ package com.routeplanner.shopping;
 
 import java.util.Set;
 
-public class Basket extends AbstractShopping {
+public class Basket {
 
 	private Set<AbstractItem> tickets;
-		
+	private User user;	
+	
 	public Basket(User user) {
-		super(user);
+		this.user = user;
 	}
 	
 	public Basket(User user, Set<AbstractItem> tickets) {

@@ -1,16 +1,20 @@
 package com.routeplanner.shopping;
 
-public class Order extends Basket {
+public class Order {
 
+	private User user;
+	
 	private PaymentInfo paymentInfo;
+	
+	private Basket basket;
 	
 	
 	public Order(User user, Basket basket) {
-		super(user);
-		manageBasket(basket);
+		this.user = user;
+		this.basket = basket;
 	}
 
-
+	
 	public Order(PaymentInfo paymentInfo, User user, Basket basket) {
 		this(user, basket);
 		this.paymentInfo = paymentInfo;
@@ -25,13 +29,5 @@ public class Order extends Basket {
 	public void setPaymentInfo(PaymentInfo paymentInfo) {
 		this.paymentInfo = paymentInfo;
 	}
-
-	
-	protected void manageBasket(Basket basket) {
-		if (basket != null) {
-			setTickets(basket.getTickets());
-		}
-	}
-	
 	
 }
