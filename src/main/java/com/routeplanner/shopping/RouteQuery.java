@@ -1,16 +1,39 @@
 package com.routeplanner.shopping;
-import java.util.HashMap;
-import java.util.List;
-import java.util.LinkedList;
+import java.sql.Blob;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
+import org.hibernate.Hibernate;
 
 
-public class RouteQuery 
+@Entity
+@Table(name="route_query")
+public class RouteQuery extends DataModel 
 {
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Column(name="rqid")
+//	private int id;
+	
 	private String currRouteStart;
+	
 	private String currRouteDest;
+	
+//	@Lob
+//    @Column(name = "route_info", columnDefinition = "LONGBLOB")
+//	private Blob routeInfo;
+	
+	
+	// TODO needs saving as Blob........
 	private String routeInfo;
 	
-	private List<Integer> zonesCovered;
+	
+	// for simplicity, implement without this first
+	//private List<Integer> zonesCovered;
 	
 	
 	public RouteQuery() {
@@ -45,6 +68,9 @@ public class RouteQuery
 
 	public void setRouteInfo(String routeInfo) {
 		this.routeInfo = routeInfo;
+		
+		// this.routeInfo = Hibernate.createBlob(routeInfo.getBytes());
+		
 	}
 	
 		

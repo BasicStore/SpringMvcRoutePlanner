@@ -1,16 +1,19 @@
 package com.routeplanner.shopping;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
-public abstract class AbstractItem {
+@MappedSuperclass
+public abstract class AbstractItem extends DataModel {
 	
 	private boolean open;
 	
+	@Column(name="num_units")
 	private int numUnits;
 	
 	
 	public AbstractItem() {
 		
 	}
-
 
 	public AbstractItem(boolean open, int numUnits) {
 		this.open = open;

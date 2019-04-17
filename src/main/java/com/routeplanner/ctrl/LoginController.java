@@ -1,4 +1,5 @@
 package com.routeplanner.ctrl;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.routeplanner.client.service.TravelInfoService;
+import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.RoleLevel;
 import com.routeplanner.shopping.RouteQuery;
@@ -36,6 +38,11 @@ public class LoginController {
 	
 	@Autowired
 	private TravelInfoService travelInfoService;
+	
+	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......
+	@Autowired
+	private UserRepository userRepository;
+
 	
 	
 	@GetMapping("/")
@@ -76,25 +83,21 @@ public class LoginController {
     		return new ModelAndView("login");
     	}    	
     	
-    	// TODO get this from the database with username and pass via service class
-    	User validUser = new User(); 
-    	if (validUser == null) {
-    		// bind a user object for the current user to sign in
-    		User user = new User();
-    		user.setRoleLevel(RoleLevel.USER);
-    		model.addAttribute("user", user);
+    	User dbUser = getLoginUser(request, loginUser.getUsername());
+    	if (dbUser == null) {
+    		User newusr = new User();
+			newusr.setRoleLevel(RoleLevel.USER);
+    		model.addAttribute("user", newusr);
     		return new ModelAndView("login");
     	}
-    	
-    	logger.info("Username = " + loginUser.getUsername());
-    	logger.info("Password = " + loginUser.getPassword());
+    	 
+    	logger.info("User found in database with username = " + loginUser.getUsername());
     	
     	// add static full station list to session
     	request.getSession().setAttribute("stationList", travelInfoService.getStationList());
 
     	// add embryonic shopping cart to session
-    	validUser.setRoleLevel(RoleLevel.ADMIN);   // TODO  remove this eventually as it will be set from the database
-    	request.getSession().setAttribute("shopping", new Shopping(validUser));  // TODO this needs to be changed to AnstractShopping............
+    	request.getSession().setAttribute("shopping", new Shopping(dbUser));  // TODO this needs to be changed to AnstractShopping............
 
     	// set up the new route query, at this stage it is just a query, so is not part of the shopping session variable
     	model.addAttribute("routeQuery", new RouteQuery());
@@ -102,6 +105,25 @@ public class LoginController {
     	return new ModelAndView("query");
     }
 
+    
+    
+    // TODO replace eventually with spring security
+    private User getLoginUser(HttpServletRequest request, String gvnUsername) {
+    	try {
+			logger.info("Attempting to retrieve user '" + gvnUsername + "' from database");
+			Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+			Optional<User> dbuser = userRepository.findByUsername(gvnUsername);
+			if (Optional.ofNullable(dbuser).isPresent()) {
+				logger.info("user has been retrieved successfully from db");
+				return dbuser.get();
+			}
+		} catch(Exception e) {
+			logger.info("Error retrieving user from db: " + e.getMessage());
+		}
+    	
+    	return null;
+    }
+    
     
     
     

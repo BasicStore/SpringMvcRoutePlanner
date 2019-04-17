@@ -1,19 +1,23 @@
 package com.routeplanner.shopping;
 import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
+@Entity
+@Table(name="ticket")
 public class Ticket extends AbstractItem {
 	
-	// TODO reconsider.......
-	private Ticket ticket;
-		
+	@OneToOne
 	private PassengerType passengerType;
 	
-	// TODO maybe Date would be better........
 	private LocalDateTime travelDate;
 	
+	@OneToOne
 	private RouteQuery routeQuery;
 	
+	@OneToOne
 	private Rule rule;
 	
 	
@@ -22,15 +26,14 @@ public class Ticket extends AbstractItem {
 	}
 
 
-	public Ticket(Ticket ticket, PassengerType passengerType, LocalDateTime travelDate, RouteQuery routeQuery,
-			Rule rule) {
-		this.ticket = ticket;
+	public Ticket(boolean open, int numUnits, PassengerType passengerType, LocalDateTime travelDate, 
+			RouteQuery routeQuery, Rule rule) {
+		super(open, numUnits);
 		this.passengerType = passengerType;
 		this.travelDate = travelDate;
 		this.routeQuery = routeQuery;
 		this.rule = rule;
 	}
 	
-
 	
 }	

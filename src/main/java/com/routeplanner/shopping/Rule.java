@@ -1,27 +1,50 @@
 package com.routeplanner.shopping;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-public class Rule {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="rule")
+public class Rule extends DataModel {
+
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Column(name="rule_id")
+//	private int id;
+	
+	@Column(name="per_items")
 	private int perActualItems;
+	
+	@Column(name="effective_items")
 	private BigDecimal effectivePayItems;
-	private Set<Long> relevantItems;
-	private LocalDateTime validStartTime;	
+	
+	@Column(name="start_time")
+	private LocalDateTime validStartTime;
+	
+	@Column(name="end_time")
 	private LocalDateTime validEndTime;
+	
+	// for simplicity, ignore this for now.....
+	// private Set<Long> relevantItems;
+	
 	
 	public Rule() {
 		
 	}
-
-
-	public Rule(int perActualItems, BigDecimal effectivePayItems, Set<Long> relevantItems, LocalDateTime validStartTime,
+	
+	
+	public Rule(int perActualItems, BigDecimal effectivePayItems, LocalDateTime validStartTime,
 			LocalDateTime validEndTime) {
 		this.perActualItems = perActualItems;
 		this.effectivePayItems = effectivePayItems;
-		this.relevantItems = relevantItems;
+		//this.relevantItems = relevantItems;     // Set<Long> relevantItems, 
 		this.validStartTime = validStartTime;
 		this.validEndTime = validEndTime;
 	}
@@ -47,14 +70,14 @@ public class Rule {
 	}
 
 
-	public Set<Long> getRelevantItems() {
-		return relevantItems;
-	}
-
-
-	public void setRelevantItems(Set<Long> relevantItems) {
-		this.relevantItems = relevantItems;
-	}
+//	public Set<Long> getRelevantItems() {
+//		return relevantItems;
+//	}
+//
+//
+//	public void setRelevantItems(Set<Long> relevantItems) {
+//		this.relevantItems = relevantItems;
+//	}
 
 
 	public LocalDateTime getValidStartTime() {
@@ -75,5 +98,5 @@ public class Rule {
 	public void setValidEndTime(LocalDateTime validEndTime) {
 		this.validEndTime = validEndTime;
 	}
-
+	
 }

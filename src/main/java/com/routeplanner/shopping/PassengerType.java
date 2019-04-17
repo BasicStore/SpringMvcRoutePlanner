@@ -1,15 +1,20 @@
 package com.routeplanner.shopping;
-import java.util.List;
-import java.util.LinkedList;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class PassengerType 
+
+@Entity
+@Table(name="passenger_type")
+public class PassengerType extends DataModel 
 {
 	private String type;
+	
 	private String code;
 	
-	// TODO VERY OLD CODE (2009) - needs complete overhaul
-	
-	
+	public PassengerType() {
+		
+	}
+		
 	public PassengerType(String code)
 	{
 		setCode(code);
@@ -20,8 +25,7 @@ public class PassengerType
 	{
 		setType(type);
 	}
-	
-	
+		
 	
 	public PassengerType(String type, String code) 
 	{
@@ -30,35 +34,6 @@ public class PassengerType
 	}
 
 
-	private static boolean listContains(List<String> list,String inElement)
-	{
-		for (int i = 0; i < list.size(); i++)
-		{
-			String listElement = list.get(i);
-			if (listElement.equals(inElement))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	
-	public static List<String> getNonIntersectPT(List<String> allPasTypes, List<String> intersectList)
-	{
-		List<String> nonIntersectList = new LinkedList<String>();
-		for (int i = 0; i < allPasTypes.size(); i++)
-		{
-			String thisPT = allPasTypes.get(i);
-			if (! listContains(intersectList,thisPT))
-			{
-				nonIntersectList.add(thisPT);
-			}
-		}
-		return nonIntersectList;
-	}
-	
-	
 	public String getType() {
 		return type;
 	}
@@ -78,11 +53,5 @@ public class PassengerType
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
-	
-	
-	
-	
-	
 	
 }

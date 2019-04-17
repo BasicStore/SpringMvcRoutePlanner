@@ -1,21 +1,30 @@
 package com.routeplanner.shopping;
 import java.util.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-
-public class PaymentInfo extends DataModel
+@Entity
+@Table(name="payment_info")
+public class PaymentInfo extends DataModel 
 {
-
-	// TODO VERY OLD CODE (2009) - needs complete overhaul
-	
+	@Column(name="card_name")
 	private String nameOnCard;
-	private String cardType; 
-	private String cardNumber;
-	private String safeCardNumber;
-	private String securityCode;
-	private Date expiry_date;
-	private Date valid_from;
-	private Purchase purchase;
 	
+	@Column(name="card_type")
+	private String cardType; 
+	
+	@Column(name="card_num")
+	private String cardNumber;
+	
+	@Column(name="card_sec_code")
+	private String securityCode;
+	
+	
+	private Date expiry_date;
+	
+	
+	private Date valid_from;
 	
 	
 	public PaymentInfo()
@@ -24,36 +33,15 @@ public class PaymentInfo extends DataModel
 	}
 	
 	public PaymentInfo(String cardType, String cardNumber, String securityCode,
-		                      Date expiry_date, Date valid_from,Purchase purchase,String nameOnCard) 
+		                      Date expiry_date, Date valid_from, String nameOnCard) 
 	{
-		super();
 		this.nameOnCard = nameOnCard;
 		this.cardType = cardType;
 		this.cardNumber = cardNumber;
-		this.setSafeCardNumber(this.cardNumber);
 		this.securityCode = securityCode;
 		this.expiry_date = expiry_date;
 		this.valid_from = valid_from;
-		this.purchase = purchase;
-		
 	}
-
-	
-	public PaymentInfo(int id, String cardType, String cardNumber, String securityCode,
-			Date expiry_date, Date valid_from,Purchase purchase,String nameOnCard) 
-	{
-		super();
-		this.nameOnCard = nameOnCard;
-		setId(id);
-		this.cardType = cardType;
-		this.cardNumber = cardNumber;
-		this.setSafeCardNumber(this.cardNumber);
-		this.securityCode = securityCode;
-		this.expiry_date = expiry_date;
-		this.valid_from = valid_from;
-		this.purchase = purchase;
-	}
-
 
 
 	public String getCardType() {
@@ -77,9 +65,7 @@ public class PaymentInfo extends DataModel
 	public void setCardNumber(String cardNumber) 
 	{
 		this.cardNumber = cardNumber;
-		setSafeCardNumber(this.cardNumber);
 	}
-
 
 
 	public String getSecurityCode() {
@@ -114,17 +100,7 @@ public class PaymentInfo extends DataModel
 	public void setValid_from(Date valid_from) {
 		this.valid_from = valid_from;
 	}
-
-
-	public Purchase getPurchase() {
-		return purchase;
-	}
-
-
-	public void setPurchase(Purchase purchase) {
-		this.purchase = purchase;
-	}
-
+	
 
 	public String getNameOnCard() {
 		return nameOnCard;
@@ -135,34 +111,24 @@ public class PaymentInfo extends DataModel
 		this.nameOnCard = nameOnCard;
 	}
 	
-	private void setSafeCardNumber(String cardNumber)
+	
+	// TODO refactor
+	private String generateSafeCardNumber(String cardNumber)
 	{
-		int minDigits = 10;
-		if (cardNumber.length() > minDigits)
-		{
-			int digitsStart = 11;
-			String prefix = "***";
-			String suffix = cardNumber.substring(11);
-			this.safeCardNumber = prefix + suffix;
-		}
-		else
-		{
-			this.safeCardNumber = "";
-		}
+//		int minDigits = 10;
+//		if (cardNumber.length() > minDigits)
+//		{
+//			int digitsStart = 11;
+//			String prefix = "***";
+//			String suffix = cardNumber.substring(11);
+//			this.safeCardNumber = prefix + suffix;
+//		}
+//		else
+//		{
+//			this.safeCardNumber = "";
+//		}
+		
+		return cardNumber;
 	}
-
-
-	public String getSafeCardNumber() {
-		return safeCardNumber;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

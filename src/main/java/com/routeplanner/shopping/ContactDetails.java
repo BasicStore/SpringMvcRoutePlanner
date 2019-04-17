@@ -1,7 +1,8 @@
 package com.routeplanner.shopping;
 
-public class ContactDetails  extends DataModel
+public class ContactDetails 
 {
+	private int id;
 	private String title;
 	private String firstname;
 	private String initials;
@@ -53,7 +54,7 @@ public class ContactDetails  extends DataModel
 			String office_tel) 
 	{
 		super();
-		setId(id);
+		this.id = id;
 		this.title = title;
 		this.firstname = firstname;
 		this.initials = initials;

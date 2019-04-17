@@ -1,5 +1,6 @@
 package com.routeplanner.shopping;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,37 +14,36 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-//@Entity
-//@Table(name="user")
-public class User {
+@Entity
+@Table(name="user")
+public class User extends DataModel {
 
 //	@Id
 //	@GeneratedValue(strategy=GenerationType.AUTO)
 //	@Column(name="user_id")
-	private int id;
+//	private int id;
 	
-	//@Column(name="email")
+	@Column(name="email")
 	private String email;
 	
-	//@Column(name="password")
+	@Column(name="password")
 	private String password;
 	
-	//	@Column(name="name")
+	@Column(name="name")
 	private String username;
 	
-	//@Column(name="last_name")
+	@Column(name="last_name")
 	private String lastName;
 	
-	//@Column(name="active")
+	@Column(name="active")
 	private int active;
 	
 	private RoleLevel roleLevel;
-	
 		
 	
 	// ORIG working flat
-//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-//	@JoinTable(name="user_role", joinColumns=@JoinColumn(name="user_id"))
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinTable(name="user_role", joinColumns=@JoinColumn(name="user_id"))
 	
 	
 	
@@ -66,20 +66,9 @@ public class User {
 		this.username = user.getUsername();
 		this.lastName = user.getLastName();
 		this.email = user.getEmail();
-		this.id = user.getId();
 		this.password = user.getPassword();
 		this.roles = user.getRoles();
 	}
-
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 
 	public String getEmail() {
 		return email;
@@ -144,9 +133,5 @@ public class User {
 		this.roleLevel = roleLevel;
 	}
 
-
-	//////////////////////////////
-	// testing only below here
-	
 	
 }

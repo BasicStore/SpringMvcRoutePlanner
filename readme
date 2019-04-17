@@ -64,11 +64,45 @@ Wednesday
  - OK investigate and refactor the model to use composition if necessary.................
   
   
- - database + load sql file for non-admin / membership use 
- - select ticket type & add to basket
- - select payment info
- - persist to db within transaction
- - add control unit test shells
+ - database + load sql file for non-admin / membership use
+   --> OK save initial basket dummy
+   --> OK save actual initial basket 
+   --> OK use user1 from data.sql
+   --> OK refactor Rule for simplicity! remove relevantItems
+   --> OK research Date and hibernate [resorting to LocalDateTime + LocalDate]
+   --> OK decision on usage of DataModel
+   --> OK add hibernate: PassengerType ==> Rule ==> RouteQuery (includes BLOB!) ==> Ticket ==> inehritance and hibernate ==> Order ==> purchase ==> PaymentInfo
+ 
+ 
+   --> ddl for ContactDetails, Person
+   --> complete ddl for ticket
+   
+   --> save dummy basket contents: Ticket / Abstract Item   
+   --> save dummy order and ensure refs stay intact   
+   --> save dummy purchase and ensure refs stay intact   
+   --> add transaction management 
+   --> trim automatic spring boot column sizes 
+   --> consider Blob to store RouteQuery.routeInfo
+ 
+ - create an order
+   --> add dummy tickets
+   --> add dummy payments types to db
+   --> get list of payment types and display as a table with select field
+   --> get list of ticket types and display as a table with select field
+ 
+ - create a purchase
+  
+ ==> further areas:
+   --> fill in the gaps of this basic journey / polish functionality 
+   --> add registration journey
+   --> add admin functionality and journey
+   --> server side validation
+   --> spring security   
+   --> add unit test shells including for controller   
+   --> more soffisticated HTML, CSS and js - redesign frontend
+   --> jasper reports
+   --> liquibase
+   --> archiving          
   
  - do this tutorial!
    https://spring.io/blog/2013/12/19/serving-static-web-content-with-spring-boot 
