@@ -51,7 +51,7 @@ public class CheckoutController {
 		
 		// just collate the RouteQuery data and start a new abstract shopping object in the session with the data
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
-		logger.info("Role level for this shopper: " + shopping.getUser().getRoleLevel().getLit());		
+		logger.info("Role level for this shopper: " + shopping.getUser().getRoleLevel().getId());		
 		
 		
 		

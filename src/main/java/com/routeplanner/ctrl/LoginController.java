@@ -47,20 +47,20 @@ public class LoginController {
 	
 	@GetMapping("/")
 	public String welcomeToApp(HttpServletRequest request, Model model) {
-		return greetingForm(request, model);
+		return displayLoginForm(request, model);
 	}
     
 	
 	
 	@GetMapping("/login")
-    public String greetingForm(HttpServletRequest request, Model model) {
+    public String displayLoginForm(HttpServletRequest request, Model model) {
 		String currLocation = System.getProperty("user.dir");    	
 		logger.info("logging from tomcat with slf4j - current location: " + currLocation);
 		logger.info("in the get request for login");
 		
 		// bind a user object for the current user to sign in
 		User user = new User();
-		user.setRoleLevel(RoleLevel.USER);
+		//user.setRoleLevel(RoleLevel.USER);
 		model.addAttribute("user", user);
     	
     	// RESOURCE FILE: testing accessing a configuration file which can be done from any java class
@@ -75,7 +75,7 @@ public class LoginController {
 	
     
     @PostMapping("/login")
-    public ModelAndView greetingSubmit(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
+    public ModelAndView attemptLogin(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
     	logger.info("Dealing with login request");
     	if (errors.hasErrors() || pageHasBlankMandatoryFields(loginUser)) {
     		// TODO apply login form validation here...........
@@ -84,9 +84,15 @@ public class LoginController {
     	}    	
     	
     	User dbUser = getLoginUser(request, loginUser.getUsername());
+    	
+    	// artificially  set role here.....
+    	//dbUser.setRoleLevel(RoleLevel.ADMIN);
+    	
+    	
+    	
     	if (dbUser == null) {
     		User newusr = new User();
-			newusr.setRoleLevel(RoleLevel.USER);
+			//newusr.setRoleLevel(RoleLevel.USER);
     		model.addAttribute("user", newusr);
     		return new ModelAndView("login");
     	}
@@ -138,7 +144,7 @@ public class LoginController {
     	
     	// TODO test only
 		User user = new User();
-		user.setRoleLevel(RoleLevel.USER);
+		//user.setRoleLevel(RoleLevel.USER);
 		model.addAttribute("user", user);
     	
 		model.addAttribute("routeQuery", new RouteQuery());

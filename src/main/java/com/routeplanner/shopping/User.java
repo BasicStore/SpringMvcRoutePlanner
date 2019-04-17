@@ -1,6 +1,5 @@
 package com.routeplanner.shopping;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,11 +17,6 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User extends DataModel {
 
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
-//	@Column(name="user_id")
-//	private int id;
-	
 	@Column(name="email")
 	private String email;
 	
@@ -38,23 +32,9 @@ public class User extends DataModel {
 	@Column(name="active")
 	private int active;
 	
-	private RoleLevel roleLevel;
-		
 	
-	// ORIG working flat
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(name="user_role", joinColumns=@JoinColumn(name="user_id"))
-	
-	
-	
-	// OTHER OPTION
-//	@ManyToMany
-//    @JoinTable( 
-//        name = "users_roles", 
-//        joinColumns = @JoinColumn(
-//          name = "user_id", referencedColumnName = "id"), 
-//        inverseJoinColumns = @JoinColumn(
-//          name = "roles_role_id", referencedColumnName = "roleId")) 
 	private Set<Role> roles;
 	
 	public User() {
@@ -125,13 +105,12 @@ public class User extends DataModel {
 		this.roles = roles;
 	}
 
+	
+	// TODO REMOVE THESE SOON
 	public RoleLevel getRoleLevel() {
-		return roleLevel;
+		// return roleLevel;
+		return RoleLevel.ADMIN;
 	}
-
-	public void setRoleLevel(RoleLevel roleLevel) {
-		this.roleLevel = roleLevel;
-	}
-
+	
 	
 }

@@ -16,11 +16,13 @@
 			                	<a th:href= "@{register}" th:text = "#{rp.nav.register}"></a>
 			                </div>		
 						</td>                	
-						<td class="navbar-cell">
+
+						 <td class="navbar-cell">
 						    <div th:if="${session.shopping.user.roleLevel.id} == 3">
                 				<a th:href= "@{admin_corner}" th:text = "#{rp.nav.admin}"></a>	                
                 			</div>
-						</td>						
+						</td>
+												
 						<td class="navbar-cell">
 							<div th:if="${session.shopping.user.roleLevel.id} >= 2">
 			                	<a th:href= "@{purchase_history}" th:text = "#{rp.nav.purchase-history}"></a>		                

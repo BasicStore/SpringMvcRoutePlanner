@@ -56,7 +56,7 @@
    https://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle/#common-application-properties
  
  --------------------------------------
-Wednesday
+
  
  - OK fix button
  - OK refactor existing with new model
@@ -77,11 +77,15 @@ Wednesday
    --> OK complete ddl for basket   
    --> OK complete repositories
  
-   --> add in the role level conversions
  
-   --> insert passenger types
-   --> handle ticket types (eg on peak, off peak) 
-   
+  --------------------------------------
+ From Thursday
+  
+   --> IN PROGRESS add in the role level conversions
+       --> OK decouple db from enum
+       --> apply RoleLevel in User with actual roles and the static UserLevel methods, or convert direct in thyme if possible      
+   --> insert passenger types as per the old system
+   --> handle ticket types enums (eg on peak, off peak) 
    --> save dummy basket contents: Ticket / Abstract Item   
    --> save dummy order and ensure refs stay intact   
    --> save dummy purchase and ensure refs stay intact   
@@ -94,8 +98,7 @@ Wednesday
    --> add dummy payments types to db
    --> get list of payment types and display as a table with select field
    --> get list of ticket types and display as a table with select field
- 
- - create a purchase
+  - create a purchase
   
  ==> further areas:
    --> fill in the gaps of this basic journey / polish functionality 
