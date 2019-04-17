@@ -1,16 +1,27 @@
 package com.routeplanner.shopping;
-
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-public class Purchase {
+@Entity
+@Table(name="purchase")
+public class Purchase extends DataModel {
 	
+	@OneToOne
 	private User user;
 	
-	private Date transactionDate;  // TODO what is the best Date / LocalDateTime??????
+	@Column(name="transaction")
+	private Date transactionDate;  
 	
+	@OneToOne
 	private Order order;
 	
-	
+	public Purchase() {
+		
+	}
+		
 	public Purchase(User user, Date transactionDate, Order order) {
 		this.user = user;
 		this.transactionDate = transactionDate;
@@ -20,7 +31,6 @@ public class Purchase {
 	public Date getTransactionDate() {
 		return transactionDate;
 	}
-
 
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;

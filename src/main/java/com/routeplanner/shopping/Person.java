@@ -1,21 +1,28 @@
 package com.routeplanner.shopping;
+import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-import java.util.List;
-
-public class Person {
-
+@Entity
+@Table(name="person")
+public class Person extends DataModel {
+		
+	@OneToOne
 	private ContactDetails contactDetails;
-	
-	private List<PaymentInfo> paymentInfoList;
+
+	@OneToMany
+	private Set<PaymentInfo> paymentInfos;
 		
 	public Person() {
 	
 		
 	}
 
-	public Person(ContactDetails contactDetails, List<PaymentInfo> paymentInfoList) {
+	public Person(ContactDetails contactDetails, Set<PaymentInfo> paymentInfoList) {
 		this.contactDetails = contactDetails;
-		this.paymentInfoList = paymentInfoList;
+		this.paymentInfos = paymentInfoList;
 	}
 
 	public ContactDetails getContactDetails() {
@@ -26,12 +33,12 @@ public class Person {
 		this.contactDetails = contactDetails;
 	}
 
-	public List<PaymentInfo> getPaymentInfoList() {
-		return paymentInfoList;
+	public Set<PaymentInfo> getPaymentInfos() {
+		return paymentInfos;
 	}
 
-	public void setPaymentInfoList(List<PaymentInfo> paymentInfoList) {
-		this.paymentInfoList = paymentInfoList;
+	public void setPaymentInfos(Set<PaymentInfo> paymentInfos) {
+		this.paymentInfos = paymentInfos;
 	}
 	
 	

@@ -71,11 +71,16 @@ Wednesday
    --> OK refactor Rule for simplicity! remove relevantItems
    --> OK research Date and hibernate [resorting to LocalDateTime + LocalDate]
    --> OK decision on usage of DataModel
-   --> OK add hibernate: PassengerType ==> Rule ==> RouteQuery (includes BLOB!) ==> Ticket ==> inehritance and hibernate ==> Order ==> purchase ==> PaymentInfo
+   --> OK add hibernate: PassengerType ==> Rule ==> RouteQuery ==> Ticket ==> inehritance and hibernate ==> Order ==> purchase ==> PaymentInfo
+   --> OK ddl for ContactDetails, Person
+   --> OK complete ddl for ticket, order and purchase
+   --> OK complete ddl for basket   
+   --> OK complete repositories
  
+   --> add in the role level conversions
  
-   --> ddl for ContactDetails, Person
-   --> complete ddl for ticket
+   --> insert passenger types
+   --> handle ticket types (eg on peak, off peak) 
    
    --> save dummy basket contents: Ticket / Abstract Item   
    --> save dummy order and ensure refs stay intact   
