@@ -6,8 +6,47 @@
     <link th:href="@{/css/global.css}" rel="stylesheet" />
 </head>
 <body>
-     
-	 <p><h1><b th:text = "#{rp.view-basket.header}"></b></h1></p>
+    <p><h1><b th:text = "#{rp.view-basket.header}"></b></h1></p>
+	
+	 <form id="checkoutForm" action="#" th:action="@{/routeplanner/add-ticket}" th:object="${ticket}" method="post">
+	 
+	 	<label th:text = "#{rp.basket.add.ticket.title}"></label>
+	 
+		<div>
+           <label th:text = "#{rp.basket.ticket.type}"></label>
+           <select th:field="*{ticketType}">
+               <option th:each="tt : ${ticketTypeList}"
+                       th:text="${tt.description}"
+                       th:value="${tt}"></option>
+	       </select>
+        </div>
+	
+		<div th:object="${ticket.passengerType}">
+			<label th:text = "#{rp.basket.passenger.type}"></label>
+		    <select id="passTypes" name="passTypes">
+		        <option th:each="pt : ${passengerTypeList}"
+		                th:value="${pt}"
+		                th:text="${pt.code}"></option>
+		    </select>
+		</div> 
+		
+	 	<p><input class="formButton" type="submit" value="Add Ticket" th:attr="value=#{rp.basket.add.ticket}" align="center"/></p>
+	 
+	 </form>
+	 
+	 
+	 
+	 
+	 
+	 
+	 <form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout}" th:object="${basket}" method="post">
+	 	
+	 	<!-- DISPLAY EXISTING TICKETS HERE (other than the above):   IE>   basket.tickets  -->
+	 
+	 
+	 	<p><input type="button" class="formButton" onclick="submitForm(this)" value="Place Order" th:attr="value=#{rp.basket.submit}" align="center"/></p>
+	 
+	 </form>
 	 
 	 <div th:insert="navbar">  </div>
 	 	 

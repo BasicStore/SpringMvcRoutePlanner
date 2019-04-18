@@ -14,11 +14,6 @@ import javax.persistence.Table;
 @Table(name="rule")
 public class Rule extends DataModel {
 
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
-//	@Column(name="rule_id")
-//	private int id;
-	
 	@Column(name="per_items")
 	private int perActualItems;
 	

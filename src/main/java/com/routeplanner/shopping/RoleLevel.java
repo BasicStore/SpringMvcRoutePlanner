@@ -13,8 +13,6 @@ public enum RoleLevel {
 
 	final static ResourceBundle prop = ResourceBundle.getBundle("application");
 	
-	private static final Logger logger = LoggerFactory.getLogger(RoleLevel.class);
-	
 	public final int id;
 	
 	public final String roleName;
@@ -29,13 +27,7 @@ public enum RoleLevel {
 	}
 	
 	public static boolean isMember(User user) {
-		logger.info("in IsMember ");
-		
 		if (user.getRoles() != null) {
-			
-			logger.info("IsMember: user has roles, and member prop =  " + prop.getString("role.level.member"));
-			
-			//return user.getRoles().stream().filter(r->r.getId() == MEMBER.getId()).findFirst().isPresent();
 			return user.getRoles().stream().filter(r->r.getRole().equals(prop.getString("role.level.member"))).findFirst().isPresent();
 		}
 		
@@ -43,11 +35,7 @@ public enum RoleLevel {
 	}
 	
 	public static boolean isAdmin(User user) {
-		logger.info("in IsAdmin ");
 		if (user.getRoles() != null) { 
-			logger.info("IsAdmin: user has roles, and admin prop =  " + prop.getString("role.level.admin"));
-			
-			//return user.getRoles().stream().filter(r->r.getId() == ADMIN.getId()).findFirst().isPresent();
 			return user.getRoles().stream().filter(r->r.getRole().equals(prop.getString("role.level.admin"))).findFirst().isPresent();
 		}
 		return false;

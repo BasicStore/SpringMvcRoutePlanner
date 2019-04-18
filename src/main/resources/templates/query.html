@@ -9,10 +9,19 @@
     <h1 th:text = "#{international.text}"></h1>
     <p><h1><b th:text = "#{rp.query.header}"></b></h1></p>
 	 
+	 
 	 <form action="#" th:action="@{/routeplanner/query}" th:object="${routeQuery}" method="post">
 	 	<table>
 			<tr>
-				<td align="right"><label th:for="currRouteStart">Start</label></td>
+				<td align="right">
+				
+				
+				<label th:text = "#{rp.query.start}"></label>
+				
+					<!-- <label th:for="currRouteStart">Start</label> -->
+					<!-- <label th:attr="value=#{rp.query.start}">Start</label> -->			
+				</td>
+				
 				<td align="left">
 					<select style="width: 250px;" th:field="*{currRouteStart}">
 		               <option value="" th:text = "#{rp.dropdown.default}"></option>
@@ -23,7 +32,10 @@
 				</td>
 			</tr>	 
 			<tr>
-				<td align="right"><label th:for="currRouteDest">Destination</label></td>
+				<td align="right">
+					<!-- <label th:for="currRouteDest">Destination</label> -->
+					<label th:text = "#{rp.query.destination}"></label>
+				</td>
 				<td align="left">
 		           <select style="width: 250px;" th:field="*{currRouteDest}">
 		               <option value="" th:text = "#{rp.dropdown.default}"></option>
@@ -38,8 +50,9 @@
 	 	<p><textarea name="routeInfo" th:text="*{routeInfo}" rows="50" cols="150"></textarea></p>
 	 	<div th:insert="navbar">  </div>
 	</form>
+		
 	
-    <form action="#" th:action="@{/routeplanner/proceed-to-checkout}" th:object="${routeQuery}" method="post">
+    <form action="#" th:action="@{/routeplanner/go-to-basket}" th:object="${routeQuery}" method="post">
     	<p><input class="formButton" type="submit" value="Find Route Options" th:attr="value=#{rp.query.proceed.submit}" align="center"/></p>
     </form>
     

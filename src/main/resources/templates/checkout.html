@@ -9,7 +9,14 @@
 <body>
     <p><h1><b th:text = "#{rp.checkout.header}"></b></h1></p>
 	 
-	 <form id="checkoutForm" action="#" th:action="@{/routeplanner/do-checkout}" th:object="${routeQuery}" method="post">
+	 
+	 
+	 <form id="checkoutForm" action="#" th:action="@{/routeplanner/do-purchase}" th:object="${basket}" method="post">
+	 	
+	 	
+	 	<!-- PAYMENT INFO GOES HERE.............. -->
+	 	
+	 	
 	 	
 	 	<p><input type="button" class="formButton" onclick="submitForm(this)" value="Place Order" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
 	 
@@ -19,4 +26,5 @@
 	 	 
 </body>
 </html>
+
 

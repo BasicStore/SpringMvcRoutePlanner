@@ -1,7 +1,4 @@
 package com.routeplanner.ctrl;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ResourceBundle;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.routeplanner.client.service.TravelInfoService;
 import com.routeplanner.dm.IRouteMap;
 import com.routeplanner.dm.Journey;
@@ -56,7 +52,10 @@ public class QueryController {
 				 ? "No travel data found" : travelInfoService.getJourneyDetails(start, dest);   
     	routeQuery.setRouteInfo(routeInfo);
     	model.addAttribute("routeQuery", routeQuery);
-    	logger.info("current query route info: " + routeQuery.getRouteInfo());
+    	logger.info("current query route info: " + routeQuery.getRouteInfo());    	
+    	
+    	// add (the most recent) route query into a session     
+    	request.getSession().setAttribute("mostRecentQuery", routeQuery);
     	
     	// go to query form and populate travel info
 		ModelAndView mv = new ModelAndView("query");

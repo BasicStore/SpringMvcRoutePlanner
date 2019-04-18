@@ -56,15 +56,12 @@
    https://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle/#common-application-properties
  
  --------------------------------------
-
  
  - OK fix button
  - OK refactor existing with new model
  - OK improve travelInfoService
  - OK investigate and refactor the model to use composition if necessary.................
-  
-  
- - database + load sql file for non-admin / membership use
+ - OK database + load sql file for non-admin / membership use
    --> OK save initial basket dummy
    --> OK save actual initial basket 
    --> OK use user1 from data.sql
@@ -76,45 +73,64 @@
    --> OK complete ddl for ticket, order and purchase
    --> OK complete ddl for basket   
    --> OK complete repositories
- 
- 
-  --------------------------------------
- From Thursday
-  
-   --> OK add in the role level conversions
+    --> OK add in the role level conversions
        --> OK decouple db from enum
        --> OK apply RoleLevel in User with actual roles and the static UserLevel methods, or convert direct in thyme if possible
-       --> OK sort out navbar logic to avoid malformation for different roles             
-   --> insert passenger types as per the old system
-   --> handle ticket types enums (eg on peak, off peak) 
-   --> save dummy basket contents: Ticket / Abstract Item   
-   --> save dummy order and ensure refs stay intact   
-   --> save dummy purchase and ensure refs stay intact   
+       --> OK sort out navbar logic to avoid malformation for different roles 
+   --> OK insert passenger types as per the old system
+   --> OK handle ticket types enums (eg on peak, off peak) 
+   --> OK refactor to add basket page [tickets list and add new ticket]
+       --> OK adapt view_basket page  
+       --> OK direct to checkout page (which will include payment details and person details) 
+   --> OK implement place order (add to basket)
+
+  --------------------------------------
+  NEXT JOBS:
+  
+   --> confirm flow is final
+   --> view basket page: 
+       --> 1st form: add ticket travel date, num units, [auto: open (and close it before completing purchase)],
+       --> 2nd form: display a list of tickets in a table with selection and remove options 
+   --> checkout page: 
+       --> 1st form: add payment html components for a new payment method
+       --> 2nd form: display list of existing payment types 
+   --> save to database
    --> add transaction management 
+   --> add poc spring form validation
+   --> add poc controller test and all unit test methods    
+   --> investigate ddl issue that seems to have started around Wednesday mid-pm (added old rp tables)       
+       
+  --------------------------------------
+  POST MAIN FLOW:
+
+   --> complete spring form validation
+   --> complete unit tests
+   --> full testing       
    --> trim automatic spring boot column sizes 
    --> consider Blob to store RouteQuery.routeInfo
  
- - create an order
-   --> add dummy tickets
-   --> add dummy payments types to db
-   --> get list of payment types and display as a table with select field
-   --> get list of ticket types and display as a table with select field
-  - create a purchase
-  
- ==> further areas:
+  --------------------------------------
+ COMPLETE CORE FUNCTIONALITY
+ 
    --> fill in the gaps of this basic journey / polish functionality 
    --> add registration journey
    --> add admin functionality and journey
    --> server side validation
+   --> javadocs
+
+--------------------------------------   
+MAJOR EXTENSIONS   
+      
    --> spring security   
-   --> add unit test shells including for controller   
+   --> add unit test shells including for controller
+   --> update all the prop files for all langs
+   --> auditing
+   --> allow for oracle aswell as mysql + sqlserver, adapt with dialects         
    --> more soffisticated HTML, CSS and js - redesign frontend
    --> jasper reports
    --> liquibase
-   --> archiving          
-  
- - do this tutorial!
-   https://spring.io/blog/2013/12/19/serving-static-web-content-with-spring-boot 
+   --> archiving
+   --> upgrade to spring boot 3.0           
   
  -------------------------------------- 
   

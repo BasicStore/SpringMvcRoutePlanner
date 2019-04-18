@@ -1,9 +1,6 @@
 package com.routeplanner.ctrl;
-import java.util.Optional;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +11,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.routeplanner.repository.BasketRepository;
 import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.Basket;
-import com.routeplanner.shopping.RouteQuery;
+import com.routeplanner.shopping.Order;
+import com.routeplanner.shopping.PaymentInfo;
 import com.routeplanner.shopping.Shopping;
-import com.routeplanner.shopping.User;
+import com.routeplanner.shopping.Ticket;
 
 
 @Controller
@@ -42,75 +39,58 @@ public class CheckoutController {
 		
 	}
 
-	@PostMapping("/proceed-to-checkout")
-    public ModelAndView doCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute RouteQuery routeQuery, BindingResult errors) {
-		logger.info("proceeding to checkout");
-		logger.info("current query start: " + routeQuery.getCurrRouteStart());
-		logger.info("current query dest: " + routeQuery.getCurrRouteDest());
-		logger.info("current query route info: " + routeQuery.getRouteInfo());
 		
-		// just collate the RouteQuery data and start a new abstract shopping object in the session with the data
+	
+	
+	@PostMapping("/go-to-checkout")
+	public ModelAndView goToPayment(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute Basket basket, BindingResult errors) {
+		if (errors.hasErrors()) {
+    		logger.info("errors exist on submitBasketForm on view basket page");
+    		model.addAttribute("basket", basket);
+    		model.addAttribute("ticket", new Ticket());
+    		return new ModelAndView("view-basket");
+    	}
+		
+		// create an order with this basket and put this in the session
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
-		logger.info("Role level for this shopper: " + shopping.getUser().getRoleLevel().getId());		
+		Order order = new Order();
+		order.setBasket(basket);
+		order.setUser(shopping.getUser());
 		
+		// prepare new payment info part of screen
+		model.addAttribute("paymentInfo", new PaymentInfo());		
 		
-		
-		ModelAndView mv = new ModelAndView("checkout");
-		
-		
-		// if transaction failed: either go back to checkout or go to error page 
-		
-		
-		
-		
-		return mv;
+		return new ModelAndView("checkout");
 	}
 	
 	
 	
-	@PostMapping("/do-checkout")
-	public ModelAndView doPurchase(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute RouteQuery routeQuery, BindingResult errors) {
-		
-		// 	collects the payment detials for the basket which already exists
-		
-		// creates an order object and then places the order
-		
-		
-		
-		// if there are validation issues, go back to checkout		
-		
-		
-		// else: DO THE PURCHASE NOW
-		
-		
 	
-		try {
-			logger.info("about to save basket.........");
-			Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
-			
-			// TODO  would normally get the user directly from the cart, but as it has not come from the db..... 			
-//			Optional<User> user = userRepository.findByUsername("user1");
-//			if (Optional.ofNullable(user).isPresent()) {
-//				Basket basket = new Basket(user.get());
-//				basketRepository.save(basket);
-//				logger.info("basket is saved........");
-//			}
-			
-			
-			Basket basket = new Basket(shopping.getUser());
-			basketRepository.save(basket);
-			logger.info("basket is saved........");
-			
-			
-		} catch(Exception e) {
-			logger.info("Error saving basket: " + e.getMessage());
-		}
+	@PostMapping("/do-purchase")
+	public ModelAndView doPurchase(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute PaymentInfo paymentInfo, BindingResult errors) {
+		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+		if (errors.hasErrors()) {
+    		logger.info("errors exist on checkout page");
+    		model.addAttribute("basket", shopping.getBasket());
+    		return new ModelAndView("checkout");
+    	}
 		
-	
-	
-	
+		// update the payment info for the current order
+		Order order = shopping.getOrder();
+		order.setPaymentInfo(paymentInfo);
 		
-		
+		// DO THE PURCHASE NOW
+//		try {
+//			logger.info("about to save basket.........");
+//			Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+//			Basket basket = new Basket(shopping.getUser());
+//			basketRepository.save(basket);
+//			logger.info("basket is saved........");
+//			
+//			
+//		} catch(Exception e) {
+//			logger.info("Error saving basket: " + e.getMessage());
+//		}
 		
 		
 		// if transaction successful, delete the contents from the basket WITHIN THE SAME TRANCSACTION, and go to sale_confirmation  

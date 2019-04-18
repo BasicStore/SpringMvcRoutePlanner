@@ -1,8 +1,10 @@
 package com.routeplanner.ctrl;
+import java.util.Collection;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -19,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.routeplanner.client.service.TravelInfoService;
+import com.routeplanner.repository.PassengerTypeRepository;
 import com.routeplanner.repository.UserRepository;
-import com.routeplanner.shopping.Basket;
-import com.routeplanner.shopping.RoleLevel;
+import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.User;
@@ -39,10 +41,14 @@ public class LoginController {
 	@Autowired
 	private TravelInfoService travelInfoService;
 	
-	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......
+	
+	
+	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......!!!!!!!!!
 	@Autowired
 	private UserRepository userRepository;
-
+	@Autowired
+	private PassengerTypeRepository passTypeRepository;
+	
 	
 	
 	@GetMapping("/")
@@ -93,11 +99,7 @@ public class LoginController {
     	logger.info("User found in database with username = '" + dbUser.getUsername() + "', and role '" 
     			+ dbUser.getRoleLevel().getRoleName() + "'");
     	
-    	// add static full station list to session
-    	request.getSession().setAttribute("stationList", travelInfoService.getStationList());
-
-    	// add embryonic shopping cart to session
-    	request.getSession().setAttribute("shopping", new Shopping(dbUser));  // TODO this needs to be changed to AnstractShopping............
+    	initSessVars(request, dbUser);
 
     	// set up the new route query, at this stage it is just a query, so is not part of the shopping session variable
     	model.addAttribute("routeQuery", new RouteQuery());
@@ -105,6 +107,18 @@ public class LoginController {
     	return new ModelAndView("query");
     }
 
+    
+    
+    private void initSessVars(HttpServletRequest request, User user) {
+    	
+    	Collection<PassengerType> pasTypes= passTypeRepository.findAll();
+    	
+    	HttpSession sess = request.getSession();
+    	sess.setAttribute("stationList", travelInfoService.getStationList());
+    	sess.setAttribute("passengerTypeList", passTypeRepository.findAll());
+    	sess.setAttribute("shopping", new Shopping(user));
+    }
+    
     
     
     // TODO replace eventually with spring security

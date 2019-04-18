@@ -14,6 +14,8 @@ public class Ticket extends AbstractItem {
 	
 	private LocalDateTime travelDate;
 	
+	private TicketType ticketType;
+		
 	@OneToOne
 	private RouteQuery routeQuery;
 	
@@ -34,6 +36,55 @@ public class Ticket extends AbstractItem {
 		this.routeQuery = routeQuery;
 		this.rule = rule;
 	}
-	
+
+
+	public PassengerType getPassengerType() {
+		return passengerType;
+	}
+
+
+	public void setPassengerType(PassengerType passengerType) {
+		this.passengerType = passengerType;
+	}
+
+
+	public LocalDateTime getTravelDate() {
+		return travelDate;
+	}
+
+
+	public void setTravelDate(LocalDateTime travelDate) {
+		this.travelDate = travelDate;
+	}
+
+
+	public TicketType getTicketType() {
+		return ticketType;
+	}
+
+
+	public void setTicketType(TicketType ticketType) {
+		this.ticketType = ticketType;
+	}
+
+
+	public RouteQuery getRouteQuery() {
+		return routeQuery;
+	}
+
+
+	public void setRouteQuery(RouteQuery routeQuery) {
+		this.routeQuery = routeQuery;
+	}
+
+
+	public Rule getRule() {
+		return rule;
+	}
+
+
+	public void setRule(Rule rule) {
+		this.rule = rule;
+	}
 	
 }	

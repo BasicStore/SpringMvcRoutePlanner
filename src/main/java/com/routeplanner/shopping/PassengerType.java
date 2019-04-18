@@ -15,18 +15,6 @@ public class PassengerType extends DataModel
 		
 	}
 		
-	public PassengerType(String code)
-	{
-		setCode(code);
-	}
-	
-	
-	public PassengerType(String type,int extra)
-	{
-		setType(type);
-	}
-		
-	
 	public PassengerType(String type, String code) 
 	{
 		this.type = type;

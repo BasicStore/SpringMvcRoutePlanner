@@ -9,6 +9,7 @@ public class Shopping {
 		
 	public Shopping(User user) {
 		this.user = user;
+		this.basket = new Basket();
 	}
 
 	public User getUser() {
