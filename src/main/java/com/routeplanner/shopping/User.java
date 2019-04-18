@@ -104,13 +104,9 @@ public class User extends DataModel {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
 	
-	// TODO REMOVE THESE SOON
 	public RoleLevel getRoleLevel() {
-		// return roleLevel;
-		return RoleLevel.ADMIN;
+		return RoleLevel.getHighestRole(this);
 	}
-	
 	
 }

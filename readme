@@ -81,9 +81,10 @@
   --------------------------------------
  From Thursday
   
-   --> IN PROGRESS add in the role level conversions
+   --> OK add in the role level conversions
        --> OK decouple db from enum
-       --> apply RoleLevel in User with actual roles and the static UserLevel methods, or convert direct in thyme if possible      
+       --> OK apply RoleLevel in User with actual roles and the static UserLevel methods, or convert direct in thyme if possible
+       --> OK sort out navbar logic to avoid malformation for different roles             
    --> insert passenger types as per the old system
    --> handle ticket types enums (eg on peak, off peak) 
    --> save dummy basket contents: Ticket / Abstract Item   

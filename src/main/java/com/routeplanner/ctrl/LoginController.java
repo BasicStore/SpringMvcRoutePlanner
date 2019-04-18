@@ -60,7 +60,7 @@ public class LoginController {
 		
 		// bind a user object for the current user to sign in
 		User user = new User();
-		//user.setRoleLevel(RoleLevel.USER);
+		logger.info("check new user role is USER ==> " + user.getRoleLevel().getRoleName());
 		model.addAttribute("user", user);
     	
     	// RESOURCE FILE: testing accessing a configuration file which can be done from any java class
@@ -84,20 +84,14 @@ public class LoginController {
     	}    	
     	
     	User dbUser = getLoginUser(request, loginUser.getUsername());
-    	
-    	// artificially  set role here.....
-    	//dbUser.setRoleLevel(RoleLevel.ADMIN);
-    	
-    	
-    	
     	if (dbUser == null) {
     		User newusr = new User();
-			//newusr.setRoleLevel(RoleLevel.USER);
-    		model.addAttribute("user", newusr);
+			model.addAttribute("user", newusr);
     		return new ModelAndView("login");
     	}
-    	 
-    	logger.info("User found in database with username = " + loginUser.getUsername());
+    	
+    	logger.info("User found in database with username = '" + dbUser.getUsername() + "', and role '" 
+    			+ dbUser.getRoleLevel().getRoleName() + "'");
     	
     	// add static full station list to session
     	request.getSession().setAttribute("stationList", travelInfoService.getStationList());
@@ -144,7 +138,6 @@ public class LoginController {
     	
     	// TODO test only
 		User user = new User();
-		//user.setRoleLevel(RoleLevel.USER);
 		model.addAttribute("user", user);
     	
 		model.addAttribute("routeQuery", new RouteQuery());

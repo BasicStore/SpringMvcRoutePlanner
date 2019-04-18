@@ -11,23 +11,27 @@
             <div>
                 <table class="navbar-cell" >
                 	<tr>
-						<td class="navbar-cell">
-							<div th:if="${session.shopping.user.roleLevel.id} < 2">
+                		<div th:if="${session.shopping.user.roleLevel.id} < 2">
+    						<td class="navbar-cell">
 			                	<a th:href= "@{register}" th:text = "#{rp.nav.register}"></a>
-			                </div>		
-						</td>                	
+							</td>
+					    </div>                	
 
-						 <td class="navbar-cell">
-						    <div th:if="${session.shopping.user.roleLevel.id} == 3">
-                				<a th:href= "@{admin_corner}" th:text = "#{rp.nav.admin}"></a>	                
-                			</div>
-						</td>
-												
-						<td class="navbar-cell">
-							<div th:if="${session.shopping.user.roleLevel.id} >= 2">
+
+                        <div th:if="${session.shopping.user.roleLevel.id} == 3">
+	    					<td class="navbar-cell">
+	                				<a th:href= "@{admin_corner}" th:text = "#{rp.nav.admin}"></a>	                
+							</td>
+						</div>	
+								
+						
+						<div th:if="${session.shopping.user.roleLevel.id} >= 2">						
+							<td class="navbar-cell">
 			                	<a th:href= "@{purchase_history}" th:text = "#{rp.nav.purchase-history}"></a>		                
-			                </div>
-						</td>						
+							</td>
+						</div>
+						
+												
 						<td class="navbar-cell">
 							<div><a th:href= "@{view_basket}" th:text = "#{rp.nav.view-basket}"></a></div>		
 						</td>
