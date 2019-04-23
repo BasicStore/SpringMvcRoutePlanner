@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 @SpringBootApplication
 public class SpringMvcRoutePlannerApplication extends WebMvcConfigurerAdapter {
@@ -19,6 +20,12 @@ public class SpringMvcRoutePlannerApplication extends WebMvcConfigurerAdapter {
 		SpringApplication.run(SpringMvcRoutePlannerApplication.class, args);
 	}
 
+	
+	@Bean
+    public Java8TimeDialect java8TimeDialect() {
+        return new Java8TimeDialect();
+    }
+	
 	
     @Bean
     public LocaleResolver localeResolver(){

@@ -31,21 +31,12 @@ public class LoginController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 		
-	// TODO move this with the route engine
-	final static ResourceBundle mybundle = ResourceBundle.getBundle("application");
-	
 	@Autowired
 	private TravelInfoService travelInfoService;
-	
-	
 	
 	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......!!!!!!!!!
 	@Autowired
 	private UserRepository userRepository;
-	
-//	@Autowired
-//	private PassengerTypeRepository passTypeRepository;
-	
 	
 	
 	@GetMapping("/")
@@ -107,18 +98,8 @@ public class LoginController {
     
     
     private void initSessVars(HttpServletRequest request, User user) {
-    	
-    	//Collection<PassengerTypeOLD> pasTypes= passTypeRepository.findAll();
-    	
     	HttpSession sess = request.getSession();
     	sess.setAttribute("stationList", travelInfoService.getStationList());
-    	
-    	
-    	// TODO is this necessary?
-    	//sess.setAttribute("passengerTypeList", passTypeRepository.findAll());
-    	//model.addAttribute("passengerTypeList", PassengerType.values());
-    	sess.setAttribute("passengerTypeList", PassengerType.values());
-    	
     	sess.setAttribute("shopping", new Shopping(user));
     }
     

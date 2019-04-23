@@ -10,7 +10,7 @@ public class DataModel
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	protected int id;
 	
 	public DataModel() 
 	{

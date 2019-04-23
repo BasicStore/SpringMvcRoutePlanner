@@ -10,8 +10,4 @@ insert into user_role (user_id, roles_id) values (1, 1);
 insert into user_role (user_id, roles_id) values (2, 2);
 insert into user_role (user_id, roles_id) values (3, 3);
 
-insert into passenger_type values(1, 'OVER 75','OAP');
-insert into passenger_type values(2, 'STANDARD PLUS','PLU');
-insert into passenger_type values(3, 'BOG STANDARD','STD');
-insert into passenger_type values(4, 'STUDENT POOR','STU');
 

@@ -10,30 +10,60 @@
 	
 	 <form id="checkoutForm" action="#" th:action="@{/routeplanner/add-ticket}" th:object="${ticket}" method="post">
 	 
-	 	<label th:text = "#{rp.basket.add.ticket.title}"></label>
-	 
-		<div>
-           <label th:text = "#{rp.basket.ticket.type}"></label>
-           <select th:field="*{ticketType}" width="200px">
-               <option th:each="tt : ${ticketTypeList}"
-                       th:text="${tt.descriptionTrans}"
-                       th:value="${tt}"></option>
-	       </select>
-        </div>
+	 	
 	
-	
-	
-		<div>
-           <label th:text = "#{rp.basket.passenger.type}"></label>
-           <select th:field="*{passengerType}" width="200px">
-               <option th:each="pt : ${passengerTypeList}"
-               		   th:text="${pt.typeDisplay}"
-                       th:value="${pt}"></option>
-	       </select>
-        </div>
-	
-	
-	
+		<div class="mainDiv">
+		
+			<label th:text="#{rp.basket.add.ticket.title}" class="header"></label>
+		
+			<br />
+		
+		    <table class="mainDiv">
+		    	<tr>
+					<td align="right">	    	
+						<label th:text = "#{rp.basket.ticket.type}"></label>
+					</td>
+					<td align="left">	    	
+						<select th:field="*{ticketType}" width="200px">
+	               			<option th:each="tt : ${ticketTypeList}"
+	                       			th:text="${tt.descriptionTrans}"
+	                       			th:value="${tt}"></option>
+		       			</select>
+					</td>
+					
+		    	</tr>
+		    	<tr>
+					<td align="right">	    	
+						<label th:text = "#{rp.basket.passenger.type}"></label>
+					</td>
+					<td align="left">	    	
+						<select th:field="*{passengerType}" width="200px">
+	             				<option th:each="pt : ${passengerTypeList}"
+	             						th:text="${pt.typeDisplay}"
+	                     				th:value="${pt}"></option>
+		       			</select>
+					</td>
+		    	</tr>
+		    	<tr>
+					<td align="right">	    	
+						<label th:text = "#{rp.basket.num-units}"></label>
+					</td>
+					<td align="left">	    	
+						<select th:field="*{numUnits}" width="50px">
+					    	<option th:each="n : ${#numbers.sequence(1,10)}" th:value="${n}" th:text="${n}"/>
+						</select>
+					</td>
+		    	</tr>
+		    	<tr>
+					<td align="right">	    	
+						<label th:text="#{rp.basket.travel.date}"></label>
+					</td>
+					<td align="left">	    	
+						<input type="date" th:field="*{{travelDate}}" placeholder="yyyy-MM-dd"/>
+					</td>
+		    	</tr>
+		    </table>
+	 	</div>
 		
 		
 	 	<p><input class="formButton" type="submit" value="Add Ticket" th:attr="value=#{rp.basket.add.ticket}" align="center"/></p>
@@ -42,19 +72,70 @@
 	 
 	 
 	 
-	 
+
+
+	        
+
 	 
 	 
 	 <form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout}" th:object="${basket}" method="post">
+
+	<ul>
+
+		<li th:each="item,iterStat : *{tickets}">
+	        <input type="radio" th:field="*{radioButtonSelectedValue}" th:value="${item.id}" />
+			<label th:for="${#ids.prev('radioButtonSelectedValue')}" th:text="${item.id}"></label>
+			
+ 
+    
+			<input name="id" type="hidden" value="th:text='${iterStat.index}+1'" />
+			
+			
+			
+			
+			
+			 
+	        <label th:text="${item.ticketType.descriptionTrans}"></label>                                   
+	        <label th:text="${item.passengerType.codeDisplay}"></label>
+	        <label th:text="${item.numUnits}"></label>
+	        <label th:text="${item.travelDate}"></label>
+		</li>
+	</ul>
+
 	 	
-	 	<!-- DISPLAY EXISTING TICKETS HERE (other than the above):  
 	 	
 	 	
-	 	***************************************  IE>   basket.tickets  -->
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	
+	 	<!-- DISPLAY EXISTING TICKETS HERE (other than the above):      radioButtonSelectedValue
+
+
+<!--  listed item, not the id -->
+			<!-- <input name="id" type="hidden" value="th:text='${iterStat.index}+1'" /> -->
+			<!-- 
+			<th:block th:text='${iterStat.index}+1'></th:block><input name="id" type="hidden" th:value="${item.id}" />
+
+
+
+<input name="id" type="hidden" value="th:text='${item.id}'" />
+
+	        <input type="radio" th:field="*{currentSelection}" th:each="val : *{tickets}" th:value="${item}" /> -->
+	 	
+	 	<!--  -->***************************************  IE>   basket.tickets  -->
+	 	
+	 
+	 	
+	 	
+	 	
 	 	
 	 	<p><input class="formButton" type="submit" value="Place Order" th:attr="value=#{rp.basket.submit}" align="center"/></p>
-	 	
-	 	
 	 
 	 </form>
 	 

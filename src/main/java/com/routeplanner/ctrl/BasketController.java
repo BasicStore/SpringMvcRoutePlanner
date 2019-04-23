@@ -30,10 +30,6 @@ public class BasketController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BasketController.class);
 	
-	// TODO FIND A DYNAMIC WAY OF ACHIEVING THIS..........
-	final static ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
-	
-	
 	public BasketController() {
 		
 	}
@@ -60,9 +56,8 @@ public class BasketController {
 		return new ModelAndView("view-basket");
 	}
 
+		
 	
-	
-	// TODO *****************************************************
 	@PostMapping("/add-ticket")
     public ModelAndView addTicket(HttpServletRequest request, ModelMap model, 
     		@Valid @ModelAttribute Ticket newTicket, BindingResult errors) {
@@ -71,8 +66,6 @@ public class BasketController {
     		model.addAttribute("ticket", newTicket);
     		return new ModelAndView("checkout");
     	}
-
-		
 		
 		// add the new ticket to the basket
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
@@ -99,24 +92,10 @@ public class BasketController {
 
 	
 	
-	
-	
-	
 	// TODO should not be necessary!!!! omit this
 	// TODO needs to be refactored so that view basket uses session values directly for this static content
 	private void addStaticSessVars(HttpServletRequest request, ModelMap model) {
 		model.addAttribute("ticketTypeList", TicketType.values());
-		
-		
-		
-		//logger.info("ACCESS INTERNATIONALIZATION FROM JAVA TEST: " + prop.getString("test"));
-		
-		//Locale.getDefault();
-		
-		
-		//Collection<PassengerTypeOLD> pasTypes = (Collection<PassengerTypeOLD>)request.getSession().getAttribute("passengerTypeList");
-    	//pasTypes.forEach(t->logger.info("CC passenger type code from db = " + t.getCode()));
-
 		model.addAttribute("passengerTypeList", PassengerType.values());
 	}
 	

@@ -16,3 +16,21 @@
 	font-weight: bold;
 	text-alignment: center;
 }
+
+
+ 
+div.mainDiv
+{
+	background-color: #FFFFCC;
+	border: solid 1px black;
+	width: 40%;
+	margins: auto;
+	positions:relative;
+}
+
+
+
+.header {
+	text-align: center;	
+	font-weight: bold;
+}

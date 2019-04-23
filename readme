@@ -8,6 +8,8 @@
  
  - session var
  
+ - return "redirect:/admin/rates/prices";
+ 
  - use of model attribute (eg User, list) ==> ${}
    map.addAttribute("testModelMap", "model map property");
    <p th:text="'Test model app property: ' + ${testModelMap}" />
@@ -56,7 +58,36 @@
  - useful spring boot properties:
    https://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle/#common-application-properties
  
+ - formatting dates:
+   https://www.baeldung.com/dates-in-thymeleaf
+   https://stackoverflow.com/questions/45291061/spring-boot-thymeleaf-getting-time-from-input
+   
+   https://stackoverflow.com/questions/34883357/spring-java-time-localdatetime-binding-issue
+ 
+ - tabular output:
+   https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#iteration-basics
+   
+   
+   https://stackoverflow.com/questions/38367339/thymeleaf-how-to-loop-a-list-by-index
+ 
+   https://stackoverflow.com/questions/17692941/values-for-thfield-attributes-in-checkbox
+ https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#creating-a-form
+ 
  --------------------------------------
+ 
+ <label th:for="${#ids.prev('currentSelection')}" th:text="${item.routeQuery.currRouteStart}"></label>
+	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.routeQuery.currRouteDest}"></label>
+ 
+ 
+ insert into passenger_type values(1, 'OVER 75','OAP');
+insert into passenger_type values(2, 'STANDARD PLUS','PLU');
+insert into passenger_type values(3, 'BOG STANDARD','STD');
+insert into passenger_type values(4, 'STUDENT POOR','STU');
+ 
+ 
+ <label th:for="${#ids.prev('currentSelection')}" th:text="${item.routeQuery.startAndDestinationLabel}"></label>
+ 
+ <input type="radio" th:field="*{currentSelection}" th:value="${item}" />
  
  
  WAS view basket:
@@ -72,7 +103,72 @@
 		</div> 
  
  
- --------------------------------------
+ 
+ 		<li th:each="item: *{tickets}">
+	        <input type="radio" th:field="*{currentSelection}" th:value="${item}" />
+	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.ticketType.descriptionTrans}"></label>                                   
+	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.passengerType.codeDisplay}"></label>
+		</li>
+ 
+ 
+ 	<form th:object="*{tickets}">
+		    <th:block th:each="column: ${columns}">
+		        <input type="radio" th:value="${column.key}" th:id="${column.key}" th:field="*{type}" />
+		        <label th:for="${column.key}" th:text="${column.value}" />
+		    </th:block>
+		</form>
+		
+		
+		
+		
+		!!!************ https://medium.com/@grokwich/spring-boot-thymeleaf-html-form-handling-762ef0d51327
+		            +++https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#order-list
+		***********https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#handling-the-command-object
+		
+		************ OLD STRUTS 1 view_basket.jsp
+	<c:forEach var="thisBasket" items="${state.basketList}" varStatus="loopCount">
+   		<tr>	
+   			<td class="tableContents">${loopCount.count}</td>
+   			<td class="tableContents">${thisBasket.start}</td>
+   			<td class="tableContents">${thisBasket.destination}</td>
+   			<td class="tableContents">${thisBasket.ticket.name}</td>    
+   			<td class="tableContents">${thisBasket.numberTickets}</td>
+   			<td class="tableContents">${thisBasket.travelDate}</td>
+   			<td class="tableContents">${thisBasket.passengerType.code}</td>
+   			<td class="tableContents">${thisBasket.totalPayment}
+   			<td><input type="checkbox" name="remove${loopCount.count}" /></td>
+   			<td><input type="checkbox" name="purchase${loopCount.count}" /></td>
+   			<input type="hidden" name="count" value="${loopCount.count}" />
+    	</tr>
+		</c:forEach>
+	
+	
+	Date format too: https://stackoverflow.com/questions/49570719/using-input-type-hidden-combine-with-thymeleaf
+	
+ =========================================
+ possible avenues:
+ 
+ https://stackoverflow.com/questions/34959430/bootstrap-datatable-with-select-column-with-radio-button
+ 
+ 
+ CSS:
+ https://css-tricks.com/forums/topic/selecting-radio-button-when-table-row-is-clicked/
+ 
+ 
+ <li th:each="item: *{tickets}">
+	        <input type="radio" th:field="*{currentSelection}" th:value="${item}" />
+	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.ticketType.descriptionTrans}"></label>                                   
+	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.passengerType.codeDisplay}"></label>
+	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.numUnits}"></label>
+	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.travelDate}"></label>
+		</li>
+ 
+ DELETING AN OBJECT QITH A SUBMIT BUTTON:
+ https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller
+ 
+ 
+ 
+ =========================================
  
  - OK fix button
  - OK refactor existing with new model
@@ -107,10 +203,12 @@
    --> view basket page: 
        --> 1st form: 
            --> OK resolve passenger type and ticket type translation issues
-           --> add ticket travel date, num units, [auto: open (and close it before completing purchase)],
-       
-       
-       
+           --> OK add num units
+           --> OK add ticket travel date
+           --> OK add open OR fix the dm to avoid having to do this
+           
+           
+                      
        --> 2nd form: display a list of tickets in a table with selection and remove options 
                      https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf
        
@@ -124,6 +222,8 @@
    --> investigate ddl issue that seems to have started around Wednesday mid-pm (added old rp tables)       
    --> BasketController & maybe LoginController must get the current locale dynamically
    --> dynamic locale retrieval in enums
+       OR TRY THIS IN view-basket!!!!! th:text="${session.mockInc.reporter.firstName}"
+   --> sort out error controller, especially for dates 
        
   --------------------------------------
   POST MAIN FLOW:

@@ -51,7 +51,7 @@ public class CheckoutController {
     		return new ModelAndView("view-basket");
     	}
 		
-		logger.info("go to checkout from basket page");
+		logger.info("go to checkout from basket page. BASKet = " + basket.toString());
 		
 		// create an order with this basket and put this in the session
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");

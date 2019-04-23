@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Hibernate;
 
 
@@ -22,6 +24,8 @@ public class RouteQuery extends DataModel
 	private String currRouteStart;
 	
 	private String currRouteDest;
+	
+	//private String startAndDestinationLabel = "undefined";
 	
 //	@Lob
 //    @Column(name = "route_info", columnDefinition = "LONGBLOB")
@@ -48,6 +52,7 @@ public class RouteQuery extends DataModel
 
 	public void setCurrRouteStart(String currRouteStart) {
 		this.currRouteStart = currRouteStart;
+		//setStartAndDestinationLabel();
 	}
 
 
@@ -58,6 +63,7 @@ public class RouteQuery extends DataModel
 
 	public void setCurrRouteDest(String currRouteDest) {
 		this.currRouteDest = currRouteDest;
+		//setStartAndDestinationLabel();
 	}
 
 
@@ -72,7 +78,18 @@ public class RouteQuery extends DataModel
 		// this.routeInfo = Hibernate.createBlob(routeInfo.getBytes());
 		
 	}
-
+	
+	
+//	public void setStartAndDestinationLabel() {
+//		startAndDestinationLabel = (StringUtils.isBlank(currRouteStart) || StringUtils.isBlank(currRouteDest)) ? StringUtils.EMPTY : currRouteStart + " - " + currRouteDest;   
+//	}
+//	
+//	
+//	public String getStartAndDestinationLabel() {
+//		setStartAndDestinationLabel();
+//		return startAndDestinationLabel;
+//	}
+	
 
 	@Override
 	public String toString() {

@@ -5,7 +5,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class AbstractItem extends DataModel {
 	
-	private boolean open;
+	private boolean open = true;
 	
 	@Column(name="num_units")
 	private int numUnits;
