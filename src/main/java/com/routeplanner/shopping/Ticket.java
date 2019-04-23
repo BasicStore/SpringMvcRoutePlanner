@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="ticket")
 public class Ticket extends AbstractItem {
 	
-	@OneToOne
+	//@OneToOne
 	private PassengerType passengerType;
 	
 	private LocalDateTime travelDate;
@@ -43,10 +43,19 @@ public class Ticket extends AbstractItem {
 	}
 
 
+//	public void setPassengerType(String passTypeStr) {
+//		
+//		// PassengerType passengerType
+//		
+//		
+//		this.passengerType = new PassengerType("AAAA", "BBBBB");
+//	}
+
+	
 	public void setPassengerType(PassengerType passengerType) {
 		this.passengerType = passengerType;
 	}
-
+		
 
 	public LocalDateTime getTravelDate() {
 		return travelDate;

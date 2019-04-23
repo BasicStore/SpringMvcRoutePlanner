@@ -2,11 +2,9 @@ package com.routeplanner.ctrl;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.routeplanner.client.service.TravelInfoService;
-import com.routeplanner.repository.PassengerTypeRepository;
 import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
@@ -46,8 +42,9 @@ public class LoginController {
 	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......!!!!!!!!!
 	@Autowired
 	private UserRepository userRepository;
-	@Autowired
-	private PassengerTypeRepository passTypeRepository;
+	
+//	@Autowired
+//	private PassengerTypeRepository passTypeRepository;
 	
 	
 	
@@ -111,11 +108,17 @@ public class LoginController {
     
     private void initSessVars(HttpServletRequest request, User user) {
     	
-    	Collection<PassengerType> pasTypes= passTypeRepository.findAll();
+    	//Collection<PassengerTypeOLD> pasTypes= passTypeRepository.findAll();
     	
     	HttpSession sess = request.getSession();
     	sess.setAttribute("stationList", travelInfoService.getStationList());
-    	sess.setAttribute("passengerTypeList", passTypeRepository.findAll());
+    	
+    	
+    	// TODO is this necessary?
+    	//sess.setAttribute("passengerTypeList", passTypeRepository.findAll());
+    	//model.addAttribute("passengerTypeList", PassengerType.values());
+    	sess.setAttribute("passengerTypeList", PassengerType.values());
+    	
     	sess.setAttribute("shopping", new Shopping(user));
     }
     

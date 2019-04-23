@@ -31,7 +31,8 @@
    String value = rb.getString("database.name");
  
  - drop downs populated from enum and result read into form object as enum property
- 
+   see PassengerType to populate with translated text in java - is there a better way of doing this?
+  
  - controller read from session:
    Incident incidentX = (Incident)session.getAttribute("mockInc");
  
@@ -54,6 +55,22 @@
  
  - useful spring boot properties:
    https://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/htmlsingle/#common-application-properties
+ 
+ --------------------------------------
+ 
+ 
+ WAS view basket:
+ 
+ <div th:object="${ticket.passengerType}">
+			<label th:text = "#{rp.basket.passenger.type}"></label>
+		    <select id="passTypes" name="passTypes">
+		    <!--<select th:field="*{passengerType}">-->
+		        <option th:each="pt : ${passengerTypeList}"
+		                th:value="${pt}"
+		                th:text="${pt.code}"></option>
+		    </select>
+		</div> 
+ 
  
  --------------------------------------
  
@@ -83,14 +100,20 @@
        --> OK adapt view_basket page  
        --> OK direct to checkout page (which will include payment details and person details) 
    --> OK implement place order (add to basket)
+   --> OK confirm flow is final
 
   --------------------------------------
   NEXT JOBS:
-  
-   --> OK confirm flow is final
    --> view basket page: 
-       --> 1st form: add ticket travel date, num units, [auto: open (and close it before completing purchase)],
+       --> 1st form: 
+           --> OK resolve passenger type and ticket type translation issues
+           --> add ticket travel date, num units, [auto: open (and close it before completing purchase)],
+       
+       
+       
        --> 2nd form: display a list of tickets in a table with selection and remove options 
+                     https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf
+       
    --> checkout page: 
        --> 1st form: add payment html components for a new payment method
        --> 2nd form: display list of existing payment types 
@@ -99,12 +122,15 @@
    --> add poc spring form validation
    --> add poc controller test and all unit test methods    
    --> investigate ddl issue that seems to have started around Wednesday mid-pm (added old rp tables)       
+   --> BasketController & maybe LoginController must get the current locale dynamically
+   --> dynamic locale retrieval in enums
        
   --------------------------------------
   POST MAIN FLOW:
 
    --> complete spring form validation
    --> complete unit tests
+   --> give user option to change the locale
    --> full testing       
    --> trim automatic spring boot column sizes 
    --> consider Blob to store RouteQuery.routeInfo
@@ -125,7 +151,7 @@ MAJOR EXTENSIONS
    --> add unit test shells including for controller
    --> update all the prop files for all langs
    --> auditing
-   --> allow for oracle aswell as mysql + sqlserver, adapt with dialects         
+   --> allow for oracle as well as mysql + sqlserver, adapt with dialects         
    --> more soffisticated HTML, CSS and js - redesign frontend
    --> jasper reports
    --> liquibase
@@ -133,5 +159,26 @@ MAJOR EXTENSIONS
    --> upgrade to spring boot 3.0           
   
  -------------------------------------- 
+  
+  
+  Error creating bean with name 'entityManagerFactory' defined in class path resource 
+  [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed
+  
+  
+  select user0_.id as id1_13_, user0_.active as active2_13_, user0_.email as email3_13_, user0_.last_name as last_nam4_13_, user0_.password as password5_13_, 
+  user0_.name as name6_13_ from user user0_ 
+  where user0_.name='user3'
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   

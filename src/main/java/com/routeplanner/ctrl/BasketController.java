@@ -1,7 +1,7 @@
 package com.routeplanner.ctrl;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -9,13 +9,13 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
@@ -29,6 +29,10 @@ import com.routeplanner.shopping.TicketType;
 public class BasketController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BasketController.class);
+	
+	// TODO FIND A DYNAMIC WAY OF ACHIEVING THIS..........
+	final static ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
+	
 	
 	public BasketController() {
 		
@@ -58,7 +62,7 @@ public class BasketController {
 
 	
 	
-	
+	// TODO *****************************************************
 	@PostMapping("/add-ticket")
     public ModelAndView addTicket(HttpServletRequest request, ModelMap model, 
     		@Valid @ModelAttribute Ticket newTicket, BindingResult errors) {
@@ -94,12 +98,26 @@ public class BasketController {
 	}
 
 	
+	
+	
+	
+	
+	// TODO should not be necessary!!!! omit this
 	// TODO needs to be refactored so that view basket uses session values directly for this static content
 	private void addStaticSessVars(HttpServletRequest request, ModelMap model) {
 		model.addAttribute("ticketTypeList", TicketType.values());
-		Collection<PassengerType> pasTypes = (Collection<PassengerType>)request.getSession().getAttribute("passengerTypeList");
+		
+		
+		
+		//logger.info("ACCESS INTERNATIONALIZATION FROM JAVA TEST: " + prop.getString("test"));
+		
+		//Locale.getDefault();
+		
+		
+		//Collection<PassengerTypeOLD> pasTypes = (Collection<PassengerTypeOLD>)request.getSession().getAttribute("passengerTypeList");
     	//pasTypes.forEach(t->logger.info("CC passenger type code from db = " + t.getCode()));
-    	model.addAttribute("passengerTypeList", pasTypes);
+
+		model.addAttribute("passengerTypeList", PassengerType.values());
 	}
 	
 	

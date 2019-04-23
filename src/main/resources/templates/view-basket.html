@@ -14,21 +14,27 @@
 	 
 		<div>
            <label th:text = "#{rp.basket.ticket.type}"></label>
-           <select th:field="*{ticketType}">
+           <select th:field="*{ticketType}" width="200px">
                <option th:each="tt : ${ticketTypeList}"
-                       th:text="${tt.description}"
+                       th:text="${tt.descriptionTrans}"
                        th:value="${tt}"></option>
 	       </select>
         </div>
 	
-		<div th:object="${ticket.passengerType}">
-			<label th:text = "#{rp.basket.passenger.type}"></label>
-		    <select id="passTypes" name="passTypes">
-		        <option th:each="pt : ${passengerTypeList}"
-		                th:value="${pt}"
-		                th:text="${pt.code}"></option>
-		    </select>
-		</div> 
+	
+	
+		<div>
+           <label th:text = "#{rp.basket.passenger.type}"></label>
+           <select th:field="*{passengerType}" width="200px">
+               <option th:each="pt : ${passengerTypeList}"
+               		   th:text="${pt.typeDisplay}"
+                       th:value="${pt}"></option>
+	       </select>
+        </div>
+	
+	
+	
+		
 		
 	 	<p><input class="formButton" type="submit" value="Add Ticket" th:attr="value=#{rp.basket.add.ticket}" align="center"/></p>
 	 

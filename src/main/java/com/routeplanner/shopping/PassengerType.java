@@ -1,24 +1,46 @@
 package com.routeplanner.shopping;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-@Entity
-@Table(name="passenger_type")
-public class PassengerType extends DataModel 
-{
-	private String type;
+public enum PassengerType {
+
+	OVER_75(1, "rp.passenger.type.over75", "rp.passenger.type.code.over75", "", ""),
+	STANDARD_PLUS(2, "rp.passenger.type.standard-plus", "rp.passenger.type.code.standard-plus", "", ""),
+	BOG_STANDARD(3, "rp.passenger.type.bog-standard", "rp.passenger.type.code.bog-standard", "", ""),
+	STUDENT_POOR(4, "rp.passenger.type.student-poor", "rp.passenger.type.code.student-poor", "", "");
+
+	// TODO this must be dynamic
+	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
 	
-	private String code;
+	private final int id;
+
+	private final String code;
 	
-	public PassengerType() {
-		
-	}
-		
-	public PassengerType(String type, String code) 
-	{
-		this.type = type;
+	private final String type;
+	
+	private final String codeDisplay;
+	
+	private final String typeDisplay;
+	
+	
+	private PassengerType(int id, String code, String type, String codeDisplay, String typeDisplay) {
+		this.id = id;
 		this.code = code;
+		this.type= type;
+		this.codeDisplay = prop.getString(code);
+		this.typeDisplay = prop.getString(type);
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public String getCode() {
+		return code;
 	}
 
 
@@ -27,27 +49,17 @@ public class PassengerType extends DataModel
 	}
 
 
-	public void setType(String type) {
-		this.type = type;
+	public String getCodeDisplay() {
+		return codeDisplay;
 	}
 
 
-	public String getCode() 
-	{
-		return code;
+	public String getTypeDisplay() {
+		return typeDisplay;
 	}
 
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	@Override
-	public String toString() {
-		return "PassengerType [type=" + type + ", code=" + code + ", getType()=" + getType() + ", getCode()="
-				+ getCode() + ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
-	
 	
 }
+
+
+
