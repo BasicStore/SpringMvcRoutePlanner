@@ -87,7 +87,7 @@
   --------------------------------------
   NEXT JOBS:
   
-   --> confirm flow is final
+   --> OK confirm flow is final
    --> view basket page: 
        --> 1st form: add ticket travel date, num units, [auto: open (and close it before completing purchase)],
        --> 2nd form: display a list of tickets in a table with selection and remove options 

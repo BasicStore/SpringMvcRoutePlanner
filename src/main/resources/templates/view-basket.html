@@ -41,10 +41,14 @@
 	 
 	 <form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout}" th:object="${basket}" method="post">
 	 	
-	 	<!-- DISPLAY EXISTING TICKETS HERE (other than the above):   IE>   basket.tickets  -->
-	 
-	 
-	 	<p><input type="button" class="formButton" onclick="submitForm(this)" value="Place Order" th:attr="value=#{rp.basket.submit}" align="center"/></p>
+	 	<!-- DISPLAY EXISTING TICKETS HERE (other than the above):  
+	 	
+	 	
+	 	***************************************  IE>   basket.tickets  -->
+	 	
+	 	<p><input class="formButton" type="submit" value="Place Order" th:attr="value=#{rp.basket.submit}" align="center"/></p>
+	 	
+	 	
 	 
 	 </form>
 	 

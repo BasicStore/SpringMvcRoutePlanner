@@ -206,5 +206,16 @@ public class ContactDetails extends DataModel
 	public void setOfficeTel(String officeTel) {
 		this.officeTel = officeTel;
 	}
+
+
+	@Override
+	public String toString() {
+		return "ContactDetails [title=" + title + ", firstname=" + firstname + ", initials=" + initials + ", lastname="
+				+ lastname + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", addressLine3="
+				+ addressLine3 + ", city=" + city + ", regionOrState=" + regionOrState + ", country=" + country
+				+ ", email=" + email + ", mobileTel=" + mobileTel + ", homeTel=" + homeTel + ", officeTel=" + officeTel
+				+ "]";
+	}
+	
 	
 }

@@ -35,5 +35,12 @@ public class Purchase extends DataModel {
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
 	}
+
+	@Override
+	public String toString() {
+		return "Purchase [user=" + user + ", transactionDate=" + transactionDate + ", order=" + order
+				+ ", getTransactionDate()=" + getTransactionDate() + ", getId()=" + getId() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
 	
 }

@@ -39,5 +39,11 @@ public abstract class AbstractItem extends DataModel {
 	public void setNumUnits(int numUnits) {
 		this.numUnits = numUnits;
 	}
+
+	@Override
+	public String toString() {
+		return "AbstractItem [open=" + open + ", numUnits=" + numUnits + "]";
+	}
+	
 	
 }

@@ -45,7 +45,13 @@ public class Basket extends DataModel {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Basket [tickets=" + tickets + ", user=" + user + ", getTickets()=" + getTickets() + ", getUser()="
+				+ getUser() + ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 	
 }
 

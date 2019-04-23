@@ -93,5 +93,17 @@ public class Rule extends DataModel {
 	public void setValidEndTime(LocalDateTime validEndTime) {
 		this.validEndTime = validEndTime;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Rule [perActualItems=" + perActualItems + ", effectivePayItems=" + effectivePayItems
+				+ ", validStartTime=" + validStartTime + ", validEndTime=" + validEndTime + ", getPerActualItems()="
+				+ getPerActualItems() + ", getEffectivePayItems()=" + getEffectivePayItems() + ", getValidStartTime()="
+				+ getValidStartTime() + ", getValidEndTime()=" + getValidEndTime() + ", getId()=" + getId()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+	
 	
 }

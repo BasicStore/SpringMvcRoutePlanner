@@ -43,13 +43,15 @@ public class CheckoutController {
 	
 	
 	@PostMapping("/go-to-checkout")
-	public ModelAndView goToPayment(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute Basket basket, BindingResult errors) {
+	public ModelAndView goToCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute Basket basket, BindingResult errors) {
 		if (errors.hasErrors()) {
     		logger.info("errors exist on submitBasketForm on view basket page");
     		model.addAttribute("basket", basket);
     		model.addAttribute("ticket", new Ticket());
     		return new ModelAndView("view-basket");
     	}
+		
+		logger.info("go to checkout from basket page");
 		
 		// create an order with this basket and put this in the session
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
@@ -76,7 +78,7 @@ public class CheckoutController {
     	}
 		
 		// update the payment info for the current order
-		Order order = shopping.getOrder();
+		Order order = shopping.getOrder() != null ? shopping.getOrder() : new Order(); // TODO remove this condition later...............
 		order.setPaymentInfo(paymentInfo);
 		
 		// DO THE PURCHASE NOW

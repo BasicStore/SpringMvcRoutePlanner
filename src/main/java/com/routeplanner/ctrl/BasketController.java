@@ -68,6 +68,8 @@ public class BasketController {
     		return new ModelAndView("checkout");
     	}
 
+		
+		
 		// add the new ticket to the basket
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		Basket basket = (Basket)shopping.getBasket();
@@ -76,6 +78,7 @@ public class BasketController {
 			basket.setTickets(new HashSet<Ticket>());
 		}
 		basket.getTickets().add(newTicket);
+		logger.info("added ticket to basket: " + newTicket.toString());
 		
 		// TODO at this stage save the basket to the database?
 		
@@ -95,7 +98,7 @@ public class BasketController {
 	private void addStaticSessVars(HttpServletRequest request, ModelMap model) {
 		model.addAttribute("ticketTypeList", TicketType.values());
 		Collection<PassengerType> pasTypes = (Collection<PassengerType>)request.getSession().getAttribute("passengerTypeList");
-    	pasTypes.forEach(t->logger.info("CC passenger type code from db = " + t.getCode()));
+    	//pasTypes.forEach(t->logger.info("CC passenger type code from db = " + t.getCode()));
     	model.addAttribute("passengerTypeList", pasTypes);
 	}
 	

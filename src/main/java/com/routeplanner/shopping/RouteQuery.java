@@ -72,6 +72,14 @@ public class RouteQuery extends DataModel
 		// this.routeInfo = Hibernate.createBlob(routeInfo.getBytes());
 		
 	}
+
+
+	@Override
+	public String toString() {
+		return "RouteQuery [currRouteStart=" + currRouteStart + ", currRouteDest=" + currRouteDest + ", routeInfo="
+				+ routeInfo + ", getCurrRouteStart()=" + getCurrRouteStart() + ", getCurrRouteDest()="
+				+ getCurrRouteDest() + ", getRouteInfo()=" + getRouteInfo() + ", getId()=" + getId() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
 	
-		
 }

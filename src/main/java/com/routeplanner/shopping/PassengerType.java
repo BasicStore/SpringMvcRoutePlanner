@@ -41,5 +41,13 @@ public class PassengerType extends DataModel
 	public void setCode(String code) {
 		this.code = code;
 	}
+
+	@Override
+	public String toString() {
+		return "PassengerType [type=" + type + ", code=" + code + ", getType()=" + getType() + ", getCode()="
+				+ getCode() + ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+	
 	
 }

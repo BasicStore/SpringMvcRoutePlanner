@@ -43,6 +43,13 @@ public class Shopping {
 	public void setPurchase(Purchase purchase) {
 		this.purchase = purchase;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Shopping [user=" + user + ", basket=" + basket + ", order=" + order + ", purchase=" + purchase
+				+ ", getUser()=" + getUser() + ", getBasket()=" + getBasket() + ", getOrder()=" + getOrder()
+				+ ", getPurchase()=" + getPurchase() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 	
 }

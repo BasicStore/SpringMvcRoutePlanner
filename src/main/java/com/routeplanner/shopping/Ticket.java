@@ -86,5 +86,17 @@ public class Ticket extends AbstractItem {
 	public void setRule(Rule rule) {
 		this.rule = rule;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Ticket [passengerType=" + passengerType + ", travelDate=" + travelDate + ", ticketType=" + ticketType
+				+ ", routeQuery=" + routeQuery + ", rule=" + rule + ", getPassengerType()=" + getPassengerType()
+				+ ", getTravelDate()=" + getTravelDate() + ", getTicketType()=" + getTicketType() + ", getRouteQuery()="
+				+ getRouteQuery() + ", getRule()=" + getRule() + ", isOpen()=" + isOpen() + ", getNumUnits()="
+				+ getNumUnits() + ", toString()=" + super.toString() + ", getId()=" + getId() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + "]";
+	}
+	
 	
 }	

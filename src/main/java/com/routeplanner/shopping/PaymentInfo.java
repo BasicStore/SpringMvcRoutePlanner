@@ -130,5 +130,16 @@ public class PaymentInfo extends DataModel
 		
 		return cardNumber;
 	}
+
+	@Override
+	public String toString() {
+		return "PaymentInfo [nameOnCard=" + nameOnCard + ", cardType=" + cardType + ", cardNumber=" + cardNumber
+				+ ", securityCode=" + securityCode + ", expiry_date=" + expiry_date + ", valid_from=" + valid_from
+				+ ", getCardType()=" + getCardType() + ", getCardNumber()=" + getCardNumber() + ", getSecurityCode()="
+				+ getSecurityCode() + ", getExpiry_date()=" + getExpiry_date() + ", getValid_from()=" + getValid_from()
+				+ ", getNameOnCard()=" + getNameOnCard() + ", getId()=" + getId() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
 	
 }

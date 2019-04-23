@@ -40,6 +40,14 @@ public class Person extends DataModel {
 	public void setPaymentInfos(Set<PaymentInfo> paymentInfos) {
 		this.paymentInfos = paymentInfos;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Person [contactDetails=" + contactDetails + ", paymentInfos=" + paymentInfos + ", getContactDetails()="
+				+ getContactDetails() + ", getPaymentInfos()=" + getPaymentInfos() + ", getId()=" + getId()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+
 	
 }

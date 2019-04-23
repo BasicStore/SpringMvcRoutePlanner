@@ -57,6 +57,13 @@ public class Order extends DataModel {
 	public void setBasket(Basket basket) {
 		this.basket = basket;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Order [user=" + user + ", paymentInfo=" + paymentInfo + ", basket=" + basket + ", getPaymentInfo()="
+				+ getPaymentInfo() + ", getUser()=" + getUser() + ", getBasket()=" + getBasket() + ", getId()="
+				+ getId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
 	
 }

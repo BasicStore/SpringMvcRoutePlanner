@@ -108,5 +108,16 @@ public class User extends DataModel {
 	public RoleLevel getRoleLevel() {
 		return RoleLevel.getHighestRole(this);
 	}
+
+	@Override
+	public String toString() {
+		return "User [email=" + email + ", password=" + password + ", username=" + username + ", lastName=" + lastName
+				+ ", active=" + active + ", roles=" + roles + ", getEmail()=" + getEmail() + ", getPassword()="
+				+ getPassword() + ", getLastName()=" + getLastName() + ", getUsername()=" + getUsername()
+				+ ", getActive()=" + getActive() + ", getRoles()=" + getRoles() + ", getRoleLevel()=" + getRoleLevel()
+				+ ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
+	
 	
 }
