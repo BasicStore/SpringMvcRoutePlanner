@@ -14,14 +14,8 @@
 	 	<table>
 			<tr>
 				<td align="right">
-				
-				
-				<label th:text = "#{rp.query.start}"></label>
-				
-					<!-- <label th:for="currRouteStart">Start</label> -->
-					<!-- <label th:attr="value=#{rp.query.start}">Start</label> -->			
+					<label th:text = "#{rp.query.start}"></label>
 				</td>
-				
 				<td align="left">
 					<select style="width: 250px;" th:field="*{currRouteStart}">
 		               <option value="" th:text = "#{rp.dropdown.default}"></option>
@@ -33,7 +27,6 @@
 			</tr>	 
 			<tr>
 				<td align="right">
-					<!-- <label th:for="currRouteDest">Destination</label> -->
 					<label th:text = "#{rp.query.destination}"></label>
 				</td>
 				<td align="left">
@@ -53,7 +46,7 @@
 		
 	
     <form action="#" th:action="@{/routeplanner/go-to-basket}" th:object="${routeQuery}" method="post">
-    	<p><input class="formButton" type="submit" value="Find Route Options" th:attr="value=#{rp.query.proceed.submit}" align="center"/></p>
+    	<p><input class="formButtonProceed" type="submit" value="Proceed to Checkout" th:attr="value=#{rp.query.proceed.submit}" align="center"/></p>
     </form>
     
     

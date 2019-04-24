@@ -18,6 +18,15 @@
 }
 
 
+
+.formButtonProceed
+{
+	background-color: #00cc00;
+	color: black;
+	font-weight: bold;
+	text-alignment: center;
+}
+
  
 div.mainDiv
 {
@@ -33,11 +42,10 @@ div.mainDiv
 
 
 .header {
-	text-align: center;	
 	font-weight: bold;
 	padding-top: 10px;
 	padding-left: 10px;
-	padding-bottom: 35px;
+	padding-bottom: 40px;
 }
 
 
@@ -49,6 +57,7 @@ div.mainDiv
 
 .table-msg {
 	font-type: italic bold 12px/30px Georgia, serif;
+	padding-top: 35px;
 }
 
 

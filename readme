@@ -230,10 +230,11 @@ ISSUES AND CORE JOURNEY:
 - OK add route info and other details to the ticket persistence
 - OK add new ticket needs to have labels for the start and destination
 - OK add start and destination on ticket type causes a crash
+- OK research workaround for adding parameters when referencing internationalization files & put start and destination at top of new ticket title
+- OK search another journey button:  Add Another Journey
 
 
-- research adding parameters when referencing internationalization files & put start and destination at top of new ticket title
-- search another journey button:  Add Journey
+- remove view basket from view basket page.....
 - log the id of the basket items once they have been persisted
 - apply the remove checkbox to the basket contents instead of the current radio
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
@@ -260,10 +261,11 @@ ISSUES AND CORE JOURNEY:
    --> complete spring form validation
    --> complete unit tests
    --> give user option to change the locale with photos
-   --> full testing       
+   --> full testing & tighten functionality      
    --> trim automatic spring boot column sizes 
    --> consider Blob to store RouteQuery.routeInfo
-   --> fill in the gaps of this basic journey / polish functionality 
+   --> fill in the gaps of this basic journey / polish functionality
+   --> make robust, even without spring security. eg. if a user tries to go directly to page.  
    --> server side validation
    --> javadocs
    --> check warnings
