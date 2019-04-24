@@ -216,10 +216,10 @@ ISSUES AND CORE JOURNEY:
   - OK tidy existing basket code
   - OK remove all the artificial counters!
   - OK keep a record of the changes for the payment info stuff
-  - get working and smarten basket presentation a little (ie with table and headers and remove unnecessary th:text fields)
-    --> new ticket values need to set the defaults
-    --> give basket contents a min height
-    --> apply logic for msg [but if atall possible, avoid having to use an empty property in basket!]  
+  - OK get working and smarten basket presentation a little (ie with table and headers and remove unnecessary th:text fields)
+    --> OK new ticket values need to set the defaults
+    --> OK give basket contents a min height
+    --> OK apply logic for msg  
 - persist basket and items, and maybe shopping trolley
 - log the id of the basket items once they have been persisted
 - apply the remove checkbox to the basket contents

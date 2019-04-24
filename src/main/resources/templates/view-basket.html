@@ -68,17 +68,16 @@
 	 	 
 	 
 	 <form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout}" th:object="${basket}" method="post">
-		 <div class="mainDiv" height="400px">
+		 <div class="mainDiv">   
 			 <label th:text="#{rp.basket.contents.title}" class="header"></label>
-			 
 			 <div th:if="*{tickets != null and tickets.size() > 0}">
 				 <table class="open-table">
 					 <tr>
-				         <th><label th:text = "#{rp.basket.select}"></label></th>
-				         <th><label th:text = "#{rp.basket.ticket.type}"></label></th>
-				         <th><label th:text = "#{rp.basket.passenger.type}"></label></th>
-				         <th><label th:text = "#{rp.basket.num-units}"></label></th>
-				         <th><label th:text = "#{rp.basket.travel.date}"></label></th>
+				         <th><label class="table-header" th:text = "#{rp.basket.select}"></label></th>
+				         <th><label class="table-header" th:text = "#{rp.basket.ticket.type}"></label></th>
+				         <th><label class="table-header" th:text = "#{rp.basket.passenger.type}"></label></th>
+				         <th><label class="table-header" th:text = "#{rp.basket.num-units}"></label></th>
+				         <th><label class="table-header" th:text = "#{rp.basket.travel.date}"></label></th>
 		  		     </tr>
 					 <tr th:each="item : *{tickets}">
 				         <td><input type="radio" th:field="*{radioButtonSelectedValue}" th:value="${item.id}" /></td>

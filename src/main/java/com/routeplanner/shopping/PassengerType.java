@@ -4,10 +4,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public enum PassengerType {
-
-	OVER_75(1, "rp.passenger.type.over75", "rp.passenger.type.code.over75", "", ""),
+	
+	BOG_STANDARD(1, "rp.passenger.type.bog-standard", "rp.passenger.type.code.bog-standard", "", ""),
 	STANDARD_PLUS(2, "rp.passenger.type.standard-plus", "rp.passenger.type.code.standard-plus", "", ""),
-	BOG_STANDARD(3, "rp.passenger.type.bog-standard", "rp.passenger.type.code.bog-standard", "", ""),
+	OVER_75(3, "rp.passenger.type.over75", "rp.passenger.type.code.over75", "", ""),
 	STUDENT_POOR(4, "rp.passenger.type.student-poor", "rp.passenger.type.code.student-poor", "", "");
 
 	// TODO this must be dynamic

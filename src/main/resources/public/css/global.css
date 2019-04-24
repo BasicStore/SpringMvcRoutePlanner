@@ -27,6 +27,7 @@ div.mainDiv
 	margins: auto;
 	positions:relative;
 	padding: 15px;
+	min-height: 230px;
 }
 
 
@@ -36,7 +37,13 @@ div.mainDiv
 	font-weight: bold;
 	padding-top: 10px;
 	padding-left: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 35px;
+}
+
+
+.table-header {
+	font-type: 12px/30px Georgia, serif;
+	text-decoration: underline;
 }
 
 
