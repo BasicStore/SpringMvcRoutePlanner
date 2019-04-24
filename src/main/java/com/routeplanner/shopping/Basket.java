@@ -21,6 +21,10 @@ public class Basket extends DataModel {
 	@Transient
 	private String radioButtonSelectedValue;
 	
+	// TODO should this be explicit but have duplication????? or leave  program to checlk whether there are any open items
+	private boolean open = true;
+	
+	
 	public Basket() {
 
 	}
@@ -60,14 +64,22 @@ public class Basket extends DataModel {
 		this.radioButtonSelectedValue = radioButtonSelectedValue;
 	}
 
+	public boolean isOpen() {
+		return open;
+	}
+
+	public void setOpen(boolean open) {
+		this.open = open;
+	}
+
 	@Override
 	public String toString() {
-		return "Basket [tickets=" + tickets + ", user=" + user + ", currentSelection=" + radioButtonSelectedValue
-				+ ", getTickets()=" + getTickets() + ", getUser()=" + getUser() + ", "
-				+ ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()="
+		return "Basket [tickets=" + tickets + ", user=" + user + ", radioButtonSelectedValue="
+				+ radioButtonSelectedValue + ", open=" + open + ", id=" + id + ", getTickets()=" + getTickets()
+				+ ", getUser()=" + getUser() + ", getRadioButtonSelectedValue()=" + getRadioButtonSelectedValue()
+				+ ", isOpen()=" + isOpen() + ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()="
 				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
 
 }
 

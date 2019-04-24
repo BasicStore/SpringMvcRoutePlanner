@@ -15,6 +15,7 @@ from user u
 inner join basket b on u.id = b.user_id
 inner join basket_tickets bts on bts.basket_id = b.id
 inner join ticket t on t.id = bts.tickets_id
+order by u.name, b.id, t.id
 --------------------------------------------------------
 RETRIEVE BASKET CONTENTS WITH ROUTE INFO:
 
@@ -35,6 +36,7 @@ inner join basket b on u.id = b.user_id
 inner join basket_tickets bts on bts.basket_id = b.id
 inner join ticket t on t.id = bts.tickets_id
 inner join route_query rq on rq.id = t.route_query_id
+order by u.name, b.id, t.id
 --------------------------------------------------------
 RETRIEVE BASKET CONTENTS WITH ROUTE INFO AND RULES:
 
@@ -57,10 +59,38 @@ inner join basket_tickets bts on bts.basket_id = b.id
 inner join ticket t on t.id = bts.tickets_id
 inner join route_query rq on rq.id = t.route_query_id
 inner join rule r on r.id = t.rule_id
+order by u.name, b.id, t.id
 --------------------------------------------------------
+RETRIEVE THE OPEN BASKET FOR THE SPECIFIED USER (NOTE THAT BASKETS MAY ARE OPEN UNTIL THEY ARE PART OF AN ORDER)
+
+select b.id as BASKET_ID, 
+       u.name as USERNAME,
+       count(bts.tickets_id) as NUM_TICKETS
+   from basket b 
+   inner join user u on u.id = b.user_id 
+   inner join basket_tickets bts on bts.basket_id = b.id
+   inner join ticket t on t.id = bts.tickets_id
+   where u.id = 3
+   and b.open = 1
+   and count(bts.tickets_id ) > 0
 
 
-
+JUST GET THE LIVE BASKET BASED ON THE OPEN FIELD IN BASKET
+   
+select b.id as BASKET_ID, 
+       u.name as USERNAME
+   from basket b 
+   inner join user u on u.id = b.user_id 
+   where u.id = 3
+   and b.open = 1
+ 
+ 
+HQL VERSION   
+select b from basket b  
+   inner join fetch b.user 
+   where u.id = :userId
+   and b.open = true 
+--------------------------------------------------------
 
 
 

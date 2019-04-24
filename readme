@@ -222,13 +222,19 @@ ISSUES AND CORE JOURNEY:
     --> OK apply logic for msg 
 - OK persist basket and items, and maybe shopping trolley
 - OK improve the display for add ticket / basket contents page (ie tables and border)
+- OK write queries to get basket contents, route info and rules from db
+- OK save basket to the db at login if one is not in session
+- OK find any basket that is not empty and sort out the logic for this  
 
 
+get this working?
 
-AM
-- write query to get route info of a basket
-- add route info and other details to the ticket persistence
 - log the id of the basket items once they have been persisted
+
+
+
+- add route info and other details to the ticket persistence
+- tidy up usage of session: incl BasketController.addTicket()
 - apply the remove checkbox to the basket contents
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
   - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
@@ -238,7 +244,7 @@ AM
 
 
 
-PM
+
 - payment info add new / remove / select + personal details page
 - smarten up basic shopping route and functionality to fully save a basket
 - server side validation of existing forms

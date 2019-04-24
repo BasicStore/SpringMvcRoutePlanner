@@ -1,5 +1,6 @@
 package com.routeplanner.ctrl;
 import java.util.HashSet;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.slf4j.Logger;
@@ -88,6 +89,9 @@ public class BasketController {
 		// persist the ticket and its basket now that there are some basket contents
 		ticketRepository.save(newTicket);
 		basketRepository.save(basket);
+		
+		
+		
 		
 		logger.info("added ticket to basket: " + newTicket.toString());
 		

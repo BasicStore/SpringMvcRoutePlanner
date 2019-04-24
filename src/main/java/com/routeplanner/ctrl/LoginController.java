@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.routeplanner.client.service.TravelInfoService;
+import com.routeplanner.repository.BasketRepository;
 import com.routeplanner.repository.UserRepository;
+import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
@@ -38,6 +40,9 @@ public class LoginController {
 	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......!!!!!!!!!
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private BasketRepository basketRepository;
 	
 	
 	@GetMapping("/")
@@ -101,9 +106,25 @@ public class LoginController {
     private void initSessVars(HttpServletRequest request, User user) {
     	HttpSession sess = request.getSession();
     	sess.setAttribute("stationList", travelInfoService.getStationList());
-    	sess.setAttribute("shopping", new Shopping(user));
+    	
+    	// get an existing open basket for this user from the database
+    	Basket openBasket = (Basket)basketRepository.findOpenBasketForUser(user.getId());
+    	
+    	// if no shopping and basket exist in the session, then add them
+    	if (request.getSession().getAttribute("shopping") == null) {
+    		Shopping shopping = new Shopping(user);
+
+    		// create a new open basket if one doesn't exist in the database
+    		if (openBasket == null) {
+    			openBasket = new Basket(user);
+    			basketRepository.save(openBasket);
+    		}
+    		
+    		// put the user's open basket into the session
+    		shopping.setBasket(openBasket);
+    		sess.setAttribute("shopping", new Shopping(user));
+    	}
     }
-    
         
     
     

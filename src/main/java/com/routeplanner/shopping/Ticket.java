@@ -9,9 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="ticket")
 public class Ticket extends AbstractItem {
 	
-	private static int counter = 0;
-	
-	
 	private PassengerType passengerType;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -87,15 +84,14 @@ public class Ticket extends AbstractItem {
 		this.rule = rule;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Ticket [passengerType=" + passengerType + ", travelDate=" + travelDate + ", ticketType=" + ticketType
-				+ ", routeQuery=" + routeQuery + ", rule=" + rule + ", getPassengerType()=" + getPassengerType()
-				+ ", getTravelDate()=" + getTravelDate() + ", getTicketType()=" + getTicketType() + ", getRouteQuery()="
-				+ getRouteQuery() + ", getRule()=" + getRule() + ", isOpen()=" + isOpen() + ", getNumUnits()="
-				+ getNumUnits() + ", toString()=" + super.toString() + ", getId()=" + getId() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + "]";
+				+ ", routeQuery=" + routeQuery + ", rule=" + rule + ", id=" + id + ", getPassengerType()="
+				+ getPassengerType() + ", getTravelDate()=" + getTravelDate() + ", getTicketType()=" + getTicketType()
+				+ ", getRouteQuery()=" + getRouteQuery() + ", getRule()=" + getRule() + ", isOpen()=" + isOpen()
+				+ ", getNumUnits()=" + getNumUnits() + ", toString()=" + super.toString() + ", getId()=" + getId()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
 	
 }	
