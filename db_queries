@@ -1,0 +1,81 @@
+--------------------------------------------------------
+RETRIEVE BASKET CONTENTS:  [without rule and route]
+
+select b.id as BASKET_ID,
+       u.name as USERNAME,
+       t.id as TICKET_ID,
+       t.num_units as NUM_UNITS,
+       t.open as OPEN,
+       t.passenger_type as PASSTYPE,
+       t.ticket_type as TICKTYPE,
+       t.travel_date as TRAVEL_DATE,
+       t.route_query_id as ROUTE_ID,
+       t.rule_id as RULE_ID
+from user u
+inner join basket b on u.id = b.user_id
+inner join basket_tickets bts on bts.basket_id = b.id
+inner join ticket t on t.id = bts.tickets_id
+--------------------------------------------------------
+RETRIEVE BASKET CONTENTS WITH ROUTE INFO:
+
+select b.id as BASKET_ID,
+       u.name as USERNAME,
+       t.id as TICKET_ID,
+       t.num_units as NUM_UNITS,
+       t.open as OPEN,
+       t.passenger_type as PASSTYPE,
+       t.ticket_type as TICKTYPE,
+       t.travel_date as TRAVEL_DATE,
+       t.route_query_id as ROUTE_ID,
+       t.rule_id as RULE_ID,
+       rq.curr_route_start as ROUTE_START,
+       rq.curr_route_dest as ROUTE_DESTINATION
+from user u
+inner join basket b on u.id = b.user_id
+inner join basket_tickets bts on bts.basket_id = b.id
+inner join ticket t on t.id = bts.tickets_id
+inner join route_query rq on rq.id = t.route_query_id
+--------------------------------------------------------
+RETRIEVE BASKET CONTENTS WITH ROUTE INFO AND RULES:
+
+select b.id as BASKET_ID,
+       u.name as USERNAME,
+       t.id as TICKET_ID,
+       t.num_units as NUM_UNITS,
+       t.passenger_type as PASSTYPE,
+       t.ticket_type as TICKTYPE,
+       rq.curr_route_start as ROUTE_START,
+       rq.curr_route_dest as ROUTE_DESTINATION,
+       t.rule_id as RULE_ID,
+       r.effective_items as EFFECTIVE,
+       r.per_items as PER_ITEMS,
+       r.start_time as RULE_START,
+       r.end_time AS RULE_END
+from user u
+inner join basket b on u.id = b.user_id
+inner join basket_tickets bts on bts.basket_id = b.id
+inner join ticket t on t.id = bts.tickets_id
+inner join route_query rq on rq.id = t.route_query_id
+inner join rule r on r.id = t.rule_id
+--------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

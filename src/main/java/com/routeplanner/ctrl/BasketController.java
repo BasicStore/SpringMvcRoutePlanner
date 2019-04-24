@@ -1,13 +1,10 @@
 package com.routeplanner.ctrl;
 import java.util.HashSet;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -15,7 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
+import com.routeplanner.repository.BasketRepository;
+import com.routeplanner.repository.TicketRepository;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
@@ -29,6 +27,12 @@ import com.routeplanner.shopping.TicketType;
 public class BasketController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BasketController.class);
+	
+	@Autowired
+	private TicketRepository ticketRepository;
+	
+	@Autowired
+	private BasketRepository basketRepository;
 	
 	public BasketController() {
 		
@@ -71,18 +75,26 @@ public class BasketController {
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		Basket basket = (Basket)shopping.getBasket();
 		basket.setUser(shopping.getUser());
+		
+		
+		
+		
+		// add the ticket to the current shopping session variable
 		if (basket.getTickets() == null) {
 			basket.setTickets(new HashSet<Ticket>());
 		}
 		basket.getTickets().add(newTicket);
+		
+		// persist the ticket and its basket now that there are some basket contents
+		ticketRepository.save(newTicket);
+		basketRepository.save(basket);
+		
 		logger.info("added ticket to basket: " + newTicket.toString());
 		
-		// TODO at this stage save the basket to the database?
-		
-		// prepare for existing tickets
+		// prepare view existing tickets
 		model.addAttribute("basket", basket);
 		
-		// prepare for new ticket		
+		// prepare view to accept a new ticket		
 		model.addAttribute("ticket", new Ticket()); 
 		addStaticSessVars(request, model);
     	

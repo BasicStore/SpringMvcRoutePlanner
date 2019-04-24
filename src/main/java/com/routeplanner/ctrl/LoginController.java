@@ -22,6 +22,7 @@ import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
+import com.routeplanner.shopping.TicketType;
 import com.routeplanner.shopping.User;
 
 
@@ -103,6 +104,7 @@ public class LoginController {
     	sess.setAttribute("shopping", new Shopping(user));
     }
     
+        
     
     
     // TODO replace eventually with spring security
