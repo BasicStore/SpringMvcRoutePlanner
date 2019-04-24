@@ -1,15 +1,9 @@
 package com.routeplanner.shopping;
 import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-
 
 @Entity
 @Table(name="ticket")
@@ -33,37 +27,22 @@ public class Ticket extends AbstractItem {
 	
 	
 	public Ticket() {
-		this.id = counter;// TODO POC ONLY!!
-		counter++;
+		
 	}
-
 
 	public Ticket(boolean open, int numUnits, PassengerType passengerType, LocalDate travelDate, 
 			RouteQuery routeQuery, Rule rule) {
 		super(open, numUnits);
-		this.id = counter;
 		this.passengerType = passengerType;
 		this.travelDate = travelDate;
 		this.routeQuery = routeQuery;
 		this.rule = rule;
-		counter++;
 	}
-
 
 	public PassengerType getPassengerType() {
 		return passengerType;
 	}
 
-
-//	public void setPassengerType(String passTypeStr) {
-//		
-//		// PassengerType passengerType
-//		
-//		
-//		this.passengerType = new PassengerType("AAAA", "BBBBB");
-//	}
-
-	
 	public void setPassengerType(PassengerType passengerType) {
 		this.passengerType = passengerType;
 	}
@@ -118,6 +97,5 @@ public class Ticket extends AbstractItem {
 				+ getNumUnits() + ", toString()=" + super.toString() + ", getId()=" + getId() + ", getClass()="
 				+ getClass() + ", hashCode()=" + hashCode() + "]";
 	}
-	
 	
 }	

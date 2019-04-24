@@ -19,8 +19,6 @@ public class Basket extends DataModel {
 	private User user;	
 	
 	@Transient
-	//private String currentSelection; 
-	//private Ticket currentSelection;
 	private String radioButtonSelectedValue;
 	
 	public Basket() {
@@ -54,29 +52,6 @@ public class Basket extends DataModel {
 	}
 	
 	
-	
-	
-
-//	public String isCurrentSelection() {
-//		return currentSelection;
-//	}
-//
-//	public void setCurrentSelection(String currentSelection) {
-//		this.currentSelection = currentSelection;
-//	}
-//
-//	public Basket(Set<Ticket> tickets, User user, String currentSelection) {
-//		super();
-//		this.tickets = tickets;
-//		this.user = user;
-//		this.currentSelection = currentSelection;
-//	}
-
-	
-	
-	
-	
-//	
 	public String getRadioButtonSelectedValue() {
 		return radioButtonSelectedValue;
 	}
@@ -85,21 +60,6 @@ public class Basket extends DataModel {
 		this.radioButtonSelectedValue = radioButtonSelectedValue;
 	}
 
-//	public Ticket getCurrentSelection() {
-//		return currentSelection != null ? currentSelection : null;
-//	}
-////
-//	public void setCurrentSelection(Ticket currentSelection) {
-//		this.currentSelection = currentSelection;
-//	}
-//	
-//	
-//	
-//	public void setCurrentSelection(String currentSelectionStr) {
-//		this.currentSelection = currentSelection;
-//	}
-//	
-
 	@Override
 	public String toString() {
 		return "Basket [tickets=" + tickets + ", user=" + user + ", currentSelection=" + radioButtonSelectedValue
@@ -107,8 +67,6 @@ public class Basket extends DataModel {
 				+ ", getId()=" + getId() + ", getClass()=" + getClass() + ", hashCode()="
 				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
-	
 	
 
 }

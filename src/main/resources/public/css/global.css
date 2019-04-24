@@ -26,6 +26,7 @@ div.mainDiv
 	width: 40%;
 	margins: auto;
 	positions:relative;
+	padding: 15px;
 }
 
 
@@ -33,4 +34,17 @@ div.mainDiv
 .header {
 	text-align: center;	
 	font-weight: bold;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+
+.table-msg {
+	font-type: italic bold 12px/30px Georgia, serif;
+}
+
+
+.open-table {
+	border-spacing: 5px;
 }

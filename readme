@@ -197,54 +197,61 @@ insert into passenger_type values(4, 'STUDENT POOR','STU');
        --> OK direct to checkout page (which will include payment details and person details) 
    --> OK implement place order (add to basket)
    --> OK confirm flow is final
-
-  --------------------------------------
-  NEXT JOBS:
-   --> view basket page: 
+   --> IN PROGRESS view basket page: 
        --> 1st form: 
            --> OK resolve passenger type and ticket type translation issues
            --> OK add num units
            --> OK add ticket travel date
            --> OK add open OR fix the dm to avoid having to do this
-           
-           
-                      
-       --> 2nd form: display a list of tickets in a table with selection and remove options 
-                     https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf
-       
-   --> checkout page: 
-       --> 1st form: add payment html components for a new payment method
-       --> 2nd form: display list of existing payment types 
-   --> save to database
-   --> add transaction management 
-   --> add poc spring form validation
-   --> add poc controller test and all unit test methods    
-   --> investigate ddl issue that seems to have started around Wednesday mid-pm (added old rp tables)       
-   --> BasketController & maybe LoginController must get the current locale dynamically
-   --> dynamic locale retrieval in enums
-       OR TRY THIS IN view-basket!!!!! th:text="${session.mockInc.reporter.firstName}"
-   --> sort out error controller, especially for dates 
+      --> FIXED investigate ddl issue that seems to have started around Wednesday mid-pm (added old rp tables)
+   
+===========================================================================================================================
+===========================================================================================================================
+***************************** STATE OF PLAY *****************************   
+===========================================================================================================================
+===========================================================================================================================
+ISSUES AND CORE JOURNEY:
+
+- clean up existing mess
+  - OK tidy existing basket code
+  - OK remove all the artificial counters!
+  - OK keep a record of the changes for the payment info stuff
+  - get working and smarten basket presentation a little (ie with table and headers and remove unnecessary th:text fields)
+    --> new ticket values need to set the defaults
+    --> give basket contents a min height
+    --> apply logic for msg [but if atall possible, avoid having to use an empty property in basket!]  
+- persist basket and items, and maybe shopping trolley
+- log the id of the basket items once they have been persisted
+- apply the remove checkbox to the basket contents
+  - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
+  - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
+- improve the display for add ticket / basket contents page (ie tables and border)
+- add route info and other details to the ticket persistence
+- payment info add new / remove / select + personal details page
+- smarten up basic shopping route and functionality to fully save a basket
+- server side validation of existing forms
+- design journey for a) registration (non-members) b) admin corner (admin)
+- add in placeholder journey pages with the links insert
+- add transaction management
+- make sure there is no inconsistency between session and model usage  
+- add poc spring form validation
+- add poc controller test and all unit test method stubs    
+- consider dynamic locale retrieval in enums or use of session eg. th:text="${session.mockInc.reporter.firstName}"
+- sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response 
        
   --------------------------------------
-  POST MAIN FLOW:
+ COMPLETE CORE FUNCTIONALITY
 
    --> complete spring form validation
    --> complete unit tests
-   --> give user option to change the locale
+   --> give user option to change the locale with photos
    --> full testing       
    --> trim automatic spring boot column sizes 
    --> consider Blob to store RouteQuery.routeInfo
- 
-  --------------------------------------
- COMPLETE CORE FUNCTIONALITY
- 
    --> fill in the gaps of this basic journey / polish functionality 
-   --> add registration journey
-   --> add admin functionality and journey
    --> server side validation
    --> javadocs
-
---------------------------------------   
+---------------------------------------
 MAJOR EXTENSIONS   
       
    --> spring security   
@@ -257,28 +264,4 @@ MAJOR EXTENSIONS
    --> liquibase
    --> archiving
    --> upgrade to spring boot 3.0           
-  
  -------------------------------------- 
-  
-  
-  Error creating bean with name 'entityManagerFactory' defined in class path resource 
-  [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed
-  
-  
-  select user0_.id as id1_13_, user0_.active as active2_13_, user0_.email as email3_13_, user0_.last_name as last_nam4_13_, user0_.password as password5_13_, 
-  user0_.name as name6_13_ from user user0_ 
-  where user0_.name='user3'
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
