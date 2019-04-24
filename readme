@@ -225,29 +225,26 @@ ISSUES AND CORE JOURNEY:
 - OK write queries to get basket contents, route info and rules from db
 - OK save basket to the db at login if one is not in session
 - OK find any basket that is not empty and sort out the logic for this  
+- OK get this working?
+- OK tidy up usage of session: incl BasketController.addTicket()
+- OK add route info and other details to the ticket persistence
+- OK add new ticket needs to have labels for the start and destination
+- OK add start and destination on ticket type causes a crash
 
 
-get this working?
-
+- research adding parameters when referencing internationalization files & put start and destination at top of new ticket title
+- search another journey button:  Add Journey
 - log the id of the basket items once they have been persisted
-
-
-
-- add route info and other details to the ticket persistence
-- tidy up usage of session: incl BasketController.addTicket()
-- apply the remove checkbox to the basket contents
+- apply the remove checkbox to the basket contents instead of the current radio
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
   - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
-- question is, in BasketController.addTicket(), is it better to use the session than the model?????
-      --> ie. basket (model) V shopping.basket (session)
-      --> also, loading mession statics or model 
 
 
 
 
 - payment info add new / remove / select + personal details page
 - smarten up basic shopping route and functionality to fully save a basket
-- server side validation of existing forms
+- logic around creating an order and a purchase. Careful to set basket.open = false; + each individual item too. 
 - design journey for a) registration (non-members) b) admin corner (admin)
 - add in placeholder journey pages with the links insert
 - add transaction management
@@ -269,6 +266,11 @@ get this working?
    --> fill in the gaps of this basic journey / polish functionality 
    --> server side validation
    --> javadocs
+   --> check warnings
+   --> it is worth noting that route queries are not unique by start and dest, but tied to a particular query instance.
+       it may be worth rethinking this, and perhaps checking the db first before calculating????
+   --> apply zones coverage
+   
 ---------------------------------------
 MAJOR EXTENSIONS   
       

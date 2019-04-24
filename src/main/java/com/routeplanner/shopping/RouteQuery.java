@@ -1,44 +1,32 @@
 package com.routeplanner.shopping;
-import java.sql.Blob;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.StringUtils;
-import org.hibernate.Hibernate;
+import org.hibernate.validator.constraints.Length;
 
 
 @Entity
 @Table(name="route_query")
 public class RouteQuery extends DataModel 
 {
-//	@Id
-//	@GeneratedValue(strategy=GenerationType.AUTO)
-//	@Column(name="rqid")
-//	private int id;
-	
 	private String currRouteStart;
 	
 	private String currRouteDest;
 	
-	//private String startAndDestinationLabel = "undefined";
 	
 //	@Lob
 //    @Column(name = "route_info", columnDefinition = "LONGBLOB")
 //	private Blob routeInfo;
-	
-	
-	// TODO needs saving as Blob........
+	// TODO needs saving as Blob........this is a temporary measure....
+	@Column(name = "route_info", nullable = false, length = 1000)  
+	@Length(max = 2000)
 	private String routeInfo;
 	
-	
-	// for simplicity, implement without this first
+	// TODO  for simplicity, implement without this first
 	//private List<Integer> zonesCovered;
 	
+
 	
 	public RouteQuery() {
 		

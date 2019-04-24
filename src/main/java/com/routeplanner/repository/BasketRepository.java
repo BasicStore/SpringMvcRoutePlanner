@@ -2,12 +2,16 @@ package com.routeplanner.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import com.routeplanner.shopping.Basket;
 
-public interface BasketRepository extends JpaRepository<Basket, Integer> {
+@Repository
+public interface BasketRepository<T> extends JpaRepository<Basket, Integer> {
 	
-	@Query("select b from basket b inner join fetch b.user where u.id = :userId and b.open = true")
+	@Query("SELECT b FROM Basket b join b.user u WHERE u.id = :userId and b.open is true")
 	Basket findOpenBasketForUser(@Param("userId") int userId);
-	
+
 }
+
+
 

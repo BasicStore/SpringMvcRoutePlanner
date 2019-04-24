@@ -23,7 +23,7 @@
 					</td>
 					<td align="left">	    	
 						<select th:field="*{ticketType}" width="200px">
-	               			<option th:each="tt : ${ticketTypeList}"
+	               			<option th:each="tt : ${session.ticketTypeList}"
 	                       			th:text="${tt.descriptionTrans}"
 	                       			th:value="${tt}"></option>
 		       			</select>
@@ -35,7 +35,7 @@
 					</td>
 					<td align="left">	    	
 						<select th:field="*{passengerType}" width="200px">
-	             				<option th:each="pt : ${passengerTypeList}"
+	             				<option th:each="pt : ${session.passengerTypeList}"
 	             						th:text="${pt.typeDisplay}"
 	                     				th:value="${pt}"></option>
 		       			</select>
@@ -59,8 +59,34 @@
 						<input type="date" th:field="*{{travelDate}}" placeholder="yyyy-MM-dd"/>
 					</td>
 		    	</tr>
+		    	
+		    	
+		    	
+		    	<!-- JUST A TEST   [start] -->
+		    	<tr>
+					<td align="right">	    	
+						<label th:text = "#{rp.query.start}"></label>
+					</td>
+					<td align="left">	    	
+						<label th:text = "${session.mostRecentQuery.currRouteStart}"></label>
+					</td>
+		    	</tr>
+		    	<tr>
+					<td align="right">	    	
+						<label th:text = "#{rp.query.destination}"></label>
+					</td>
+					<td align="left">	    	
+						<label th:text = "${session.mostRecentQuery.currRouteDest}"></label>
+					</td>
+		    	</tr>
+		    	
+		    	<!-- JUST A TEST   [end] -->
+		    	
 		    </table>
 	 	</div>
+		
+		
+		
 		
 	 	<p><input class="formButton" type="submit" value="Add Ticket" th:attr="value=#{rp.basket.add.ticket}" align="center"/></p>
 	 </form>
@@ -77,6 +103,8 @@
 				         <th><label class="table-header" th:text = "#{rp.basket.passenger.type}"></label></th>
 				         <th><label class="table-header" th:text = "#{rp.basket.num-units}"></label></th>
 				         <th><label class="table-header" th:text = "#{rp.basket.travel.date}"></label></th>
+				         <th><label class="table-header" th:text = "#{rp.query.start}"></label></th>
+				         <th><label class="table-header" th:text = "#{rp.query.destination}"></label></th>
 		  		     </tr>
 					 <tr th:each="item : *{tickets}">
 				         <td><input type="radio" th:field="*{radioButtonSelectedValue}" th:value="${item.id}" /></td>
@@ -84,6 +112,8 @@
 				         <td><label th:text="${item.passengerType.codeDisplay}"></label></td>
 				         <td><label th:text="${item.numUnits}"></label></td>
 				         <td><label th:text="${item.travelDate}"></label></td>
+				         <td><label th:text="${item.routeQuery.currRouteStart}"></label></td>
+				         <td><label th:text="${item.routeQuery.currRouteDest}"></label></td>
 				     </tr>
 				 </table>
 			 </div>

@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -104,8 +105,11 @@ public class LoginController {
     
     
     private void initSessVars(HttpServletRequest request, User user) {
+    	// setup common static session variables
     	HttpSession sess = request.getSession();
     	sess.setAttribute("stationList", travelInfoService.getStationList());
+    	sess.setAttribute("ticketTypeList", TicketType.values());
+    	sess.setAttribute("passengerTypeList", PassengerType.values());
     	
     	// get an existing open basket for this user from the database
     	Basket openBasket = (Basket)basketRepository.findOpenBasketForUser(user.getId());
@@ -122,7 +126,7 @@ public class LoginController {
     		
     		// put the user's open basket into the session
     		shopping.setBasket(openBasket);
-    		sess.setAttribute("shopping", new Shopping(user));
+    		sess.setAttribute("shopping", shopping);
     	}
     }
         

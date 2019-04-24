@@ -83,13 +83,6 @@ select b.id as BASKET_ID,
    inner join user u on u.id = b.user_id 
    where u.id = 3
    and b.open = 1
- 
- 
-HQL VERSION   
-select b from basket b  
-   inner join fetch b.user 
-   where u.id = :userId
-   and b.open = true 
 --------------------------------------------------------
 
 
