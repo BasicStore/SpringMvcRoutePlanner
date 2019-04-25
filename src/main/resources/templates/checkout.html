@@ -73,24 +73,10 @@
 			 		</tr>
 			 	</table>
 			 </div><!--right side payment details - end -->
-			 
-			 
-			 
-		 </form>
-	 </div>
-	 <!-- Add payment details - end -->
-	 
-	 
-	 
-	 <form id="purchaseForm" action="#" th:action="@{/routeplanner/do-purchase}" th:object="${basket}" method="post">
-	    	
-	    	
-	    	
-	    	
-	    	<!-- PAYMENT INFO GOES HERE.............. -->
-	    	
-		 <p><input class="formButton" type="submit" value="Purchase" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
+		</div>	 
+        <p><input class="formButtonProceed" type="submit" value="Purchase" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
 	 </form>
+	 
 	 
 	 <div th:insert="navbar">  </div>
 	 	 

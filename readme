@@ -233,65 +233,60 @@ ISSUES AND CORE JOURNEY:
 - OK research workaround for adding parameters when referencing internationalization files & put start and destination at top of new ticket title
 - OK search another journey button:  Add Another Journey
 - OK make sure there is no inconsistency between session and model usage
+- OK separate flow so there is a contact details and then a payment info page
+- OK personal details page
 
-
-
-
-
-- separate flow so there is a contact details and then a payment info page
-- personal details page
-- payment info add new / remove / select 
+  --------------------------------------
+ BASIC CORE JOBS
+ 
 - design journey for a) registration (non-members) b) admin corner (admin)
 - implement registration page
+- implement admin corner
 
 
-
-- remove view basket from view basket page.....
-- log the id of the basket items once they have been persisted
+- log the id of the basket items once they have been persisted + shopping
 - apply the remove checkbox to the basket contents instead of the current radio
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
   - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
-
-
-
-- smarten up basic shopping route and functionality to fully save a basket
-- logic around creating an order and a purchase. Careful to set basket.open = false; + each individual item too. 
-- add in placeholder journey pages with the links insert
-- add transaction management
+- implement transactions and db exception handling 
+- persistence of Order and Purchase
+- add poc controller test and all unit test method stubs
 - add poc spring form validation
-- add poc controller test and all unit test method stubs    
 - consider dynamic locale retrieval in enums or use of session eg. th:text="${session.mockInc.reporter.firstName}"
-- sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response 
+- sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response
++ logic around creating an order and a purchase. Careful to set basket.open = false; + each individual item too. 
++ start a new shopping spree housekeeping
        
   --------------------------------------
  COMPLETE CORE FUNCTIONALITY
 
    --> complete spring form validation
    --> complete unit tests
-   --> give user option to change the locale with photos
-   --> full testing & tighten functionality      
    --> trim automatic spring boot column sizes 
-   --> consider Blob to store RouteQuery.routeInfo
-   --> fill in the gaps of this basic journey / polish functionality
-   --> make robust, even without spring security. eg. if a user tries to go directly to page.  
-   --> server side validation
-   --> javadocs
-   --> check warnings
    --> it is worth noting that route queries are not unique by start and dest, but tied to a particular query instance.
        it may be worth rethinking this, and perhaps checking the db first before calculating????
-   --> apply zones coverage
+   --> consider Blob to store RouteQuery.routeInfo
+   --> fill in the gaps of this basic journey / polish functionality
+   --> server side validation
+   --> remove view basket from view basket page.....   
+   --> check warnings
    
 ---------------------------------------
 MAJOR EXTENSIONS   
       
+   --> rewrite html replacing tables etc      
    --> spring security   
    --> add unit test shells including for controller
-   --> update all the prop files for all langs
+   --> payment info add new / remove / select
+   --> give user option to change the locale with photos   
+   --> apply zones coverage   
    --> auditing
    --> allow for oracle as well as mysql + sqlserver, adapt with dialects         
    --> more soffisticated HTML, CSS and js - redesign frontend
    --> jasper reports
    --> liquibase
    --> archiving
-   --> upgrade to spring boot 3.0           
+   --> upgrade to spring boot 3.0
+   --> javadocs   
+   --> update all the prop files for all langs              
  -------------------------------------- 

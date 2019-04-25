@@ -7,7 +7,7 @@
     <script th:src="|/js/global.js|"></script>
 </head>
 <body>
-    <p><h1><b th:text = "#{rp.checkout.header}"></b></h1></p>
+    <p><h1><b th:text = "#{rp.contact.details.header}"></b></h1></p>
 	
 	<!-- ADD NEW PERSONAL INFO GOES HERE (but the default can be deduced from the membership personal info?).............. -->
 	<!-- put this into its own file? -->
@@ -17,7 +17,7 @@
 	 <div class="mainDiv">
 	     <label th:text = "#{rp.person.add.contact.details}" class="header"></label>
 		 <form id="contactDetailsForm" action="#" th:action="@{/routeplanner/add-contact-details}" th:object="${contactDetails}" method="post">
-			 <div class="display-inline"><!--left side payment details - start -->
+			 <div><!--left side payment details - start -->
 			 	<table>
 			 		<tr>
 			 			<td align="right">
@@ -30,52 +30,6 @@
 	                     				th:value="${ti}"></option>
 			       			</select>
 			 			</td>
-			 		</tr>
-			 		<tr>
-			 			<td align="right">
-			 				<label th:text = "#{rp.person.address.line1}"></label>		
-			 			</td>
-			 			<td align="left">
-			 				<input type="text" th:field="*{addressLine1}" />	
-			 			</td>
-			 		</tr>
-			 		<tr>
-			 			<td align="right">
-			 				<label th:text = "#{rp.person.address.line2}"></label>	
-			 			</td>
-			 			<td align="left">
-			 				<input type="text" th:field="*{addressLine2}" />	
-			 			</td>
-			 		</tr>
-			 		<tr>
-			 			<td align="right">
-			 				<label th:text = "#{rp.person.address.line3}"></label>	
-			 			</td>
-			 			<td align="left">
-			 				<input type="text" th:field="*{addressLine3}" />	
-			 			</td>
-			 		</tr>
-			 		<tr>
-			 			<td align="right">
-			 				<label th:text = "#{rp.person.mobile-tel}"></label>	
-			 			</td>
-			 			<td align="left">
-			 				<input type="text" th:field="*{mobileTel}" />	
-			 			</td>
-			 		</tr>
-			 		<tr>
-			 			<td align="right">
-			 				<label th:text = "#{rp.person.home-tel}"></label>	
-			 			</td>
-			 			<td align="left">
-			 				<input type="text" th:field="*{homeTel}" />	
-			 			</td>
-			 		</tr>
-			 	</table>
-			 </div>
-			 <div class="display-inline">
-			 	<table>
-			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.person.fullname}"></label>	
 			 			</td>
@@ -85,6 +39,12 @@
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line1}"></label>		
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine1}" />	
+			 			</td>
+			 			<td align="right">
 			 				<label th:text = "#{rp.person.city}"></label>	
 			 			</td>
 			 			<td align="left">
@@ -92,6 +52,12 @@
 			 			</td>
 			 		</tr>
 			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line2}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine2}" />	
+			 			</td>
 			 			<td align="right">
 			 				<label th:text = "#{rp.person.regionOrState}"></label>	
 			 			</td>
@@ -101,6 +67,12 @@
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line3}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine3}" />	
+			 			</td>
+			 			<td align="right">
 			 				<label th:text = "#{rp.person.country}"></label>		
 			 			</td>
 			 			<td align="left">
@@ -108,6 +80,12 @@
 			 			</td>
 			 		</tr>
 			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.mobile-tel}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{mobileTel}" />	
+			 			</td>
 			 			<td align="right">
 			 				<label th:text = "#{rp.person.email}"></label>		
 			 			</td>
@@ -117,20 +95,21 @@
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
-			 						
+			 				<label th:text = "#{rp.person.home-tel}"></label>	
 			 			</td>
 			 			<td align="left">
-			 				
+			 				<input type="text" th:field="*{homeTel}" />	
+			 			</td>
+			 			<td align="right">
+			 			</td>
+			 			<td align="left">
 			 			</td>
 			 		</tr>
 			 	</table>
 			 </div>
-		 </form>
-	 </div>
-	
-	
-	<br /><br /><br /><br /><br />
-	 
+		</div>
+	    <p><input class="formButtonProceed" type="submit" value="Proceed" th:attr="value=#{rp.contact.details.submit}" align="center"/></p> 
+	 </form>
 	 
 	 <div th:insert="navbar">  </div>
 	 	 

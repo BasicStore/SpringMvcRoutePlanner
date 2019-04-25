@@ -33,8 +33,7 @@ div.mainDiv
 	background-color: #FFFFCC;
 	border: solid 1px black;
 	width: 55%;
-	margins: auto;
-	positions:relative;
+	
 	padding: 15px;
 }
 
@@ -73,13 +72,5 @@ div.mainDiv
 	float:left;
 	padding-right: 30px;
 }
-
-.formClear {
-  clear:left;
-  height:85px;
-}
-
-
-
 
 

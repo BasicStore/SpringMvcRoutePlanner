@@ -68,7 +68,7 @@
 	 </form>
 	 	 
 	 
-	 <form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout}" th:object="${basket}" method="post">
+	 <form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout-person-details}" th:object="${basket}" method="post">
 		 <div class="mainDiv">   
 			 <label th:text="#{rp.basket.contents.title}" class="header"></label>
 			 <div th:if="*{tickets != null and tickets.size() > 0}">

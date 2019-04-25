@@ -42,8 +42,8 @@ public class CheckoutController {
 	@Autowired
 	private PaymentInfoRepository paymentInfoRepository;
 	
-	@Autowired
-	private OrderRepository orderRepository;
+//	@Autowired
+//	private OrderRepository orderRepository;
 	
 	@Autowired
 	private ContractDetailsRepository contactDetailsRepository;
@@ -59,7 +59,7 @@ public class CheckoutController {
 	}
 
 	
-	@PostMapping("/go-to-checkout")
+	@PostMapping("/go-to-checkout-person-details")
 	public ModelAndView goToCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute Basket basket, BindingResult errors) {
 		if (errors.hasErrors()) {
     		logger.info("errors exist on submitBasketForm on view basket page");
@@ -68,10 +68,9 @@ public class CheckoutController {
     		return new ModelAndView("view-basket");
     	}
 		
-		logger.info("go to checkout from basket page. BASKet = " + basket.toString());
+		logger.info("go to checkout from basket page. Basket = " + basket.toString());
 		
 		// prepare new payment info and new contact details parts of the screen
-		//model.addAttribute("paymentInfo", new PaymentInfo());	
 		model.addAttribute("contactDetails", new ContactDetails());
 		
 		return new ModelAndView("contact-details");
@@ -91,7 +90,17 @@ public class CheckoutController {
 		contactDetailsRepository.save(contactDetails);
 		
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
-		Order order = shopping.getOrder();
+		
+		// the user is creating an order if following the standard journey, so at this stage create a new order object
+		//Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder(); 
+		Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder();		
+//		Order order = shopping.getOrder();
+//		if (shopping.getOrder() == null) {
+//			order = new Order();
+//			orderRepository.save(order);
+//		}
+		
+		shopping.setOrder(order);
 		PaymentInfo paymentInfo = new PaymentInfo();
 		paymentInfo.setContactDetails(contactDetails);
 		
@@ -100,6 +109,9 @@ public class CheckoutController {
 		
 		// persist order with the payment info (contact details part)		
 		order.setPaymentInfo(paymentInfo);
+		order.setBasket(shopping.getBasket());
+		order.setUser(shopping.getUser());
+		// TODO orderRepository.save(order);
 		
 		// go to checkout page
 		model.addAttribute("paymentInfo", new PaymentInfo());
@@ -117,6 +129,8 @@ public class CheckoutController {
     		return new ModelAndView("checkout");
     	}
 		
+		logger.info("payment info added by user (excludes contact info): " + paymentInfo.toString());
+				
 		// update the payment with the card details
 		PaymentInfo shopPayInfo = shopping.getOrder().getPaymentInfo();
 		shopPayInfo.setCardNumber(paymentInfo.getCardNumber());
@@ -125,18 +139,30 @@ public class CheckoutController {
 		shopPayInfo.setNameOnCard(paymentInfo.getNameOnCard());
 		shopPayInfo.setSecurityCode(paymentInfo.getSecurityCode());
 		
-		// persist the payment info
+		// persist the payment info in full
 		paymentInfoRepository.save(shopPayInfo);
-		orderRepository.save(shopping.getOrder());
+		logger.info("persisted payment info in full: " + paymentInfo.toString());
 		
-		// TODO if all successful then create a purchase here...........................and persist it
-		Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
-		// TODO DO THE PURCHASE (PLACEHOLDER STUB)
-		// TODO if successful PERSIST IT
+		//  TODO orderRepository.save(shopping.getOrder());
 		
-		// TODO think about presentation of the model on the sale confirmation page 
+		if (purchase(shopping.getOrder())) {
+			Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
+			shopping.setPurchase(purchase);
+			// TODO persist the purchase value
+			
+			// TODO implement some tidying up:  basket.open = false; and similarly with all items
+		} else {
+			// TODO got to sale-failure with explanation, and a link to payment
+		}
 				
 		return new ModelAndView("sale-confirmation");
+	}
+	
+	
+	
+	// do something to actually purchase the 
+	private boolean purchase(Order order) {
+		return true;
 	}
 	
 	
