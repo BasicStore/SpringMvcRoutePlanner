@@ -2,7 +2,10 @@ package com.routeplanner.shopping;
 import java.util.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="payment_info")
@@ -12,7 +15,7 @@ public class PaymentInfo extends DataModel
 	private String nameOnCard;
 	
 	@Column(name="card_type")
-	private String cardType; 
+	private CardType cardType; 
 	
 	@Column(name="card_num")
 	private String cardNumber;
@@ -20,11 +23,14 @@ public class PaymentInfo extends DataModel
 	@Column(name="card_sec_code")
 	private String securityCode;
 	
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date expiry_date;
 	
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date valid_from;
+	
+	@OneToOne
+	private ContactDetails contactDetails;
 	
 	
 	public PaymentInfo()
@@ -32,7 +38,7 @@ public class PaymentInfo extends DataModel
 		
 	}
 	
-	public PaymentInfo(String cardType, String cardNumber, String securityCode,
+	public PaymentInfo(CardType cardType, String cardNumber, String securityCode,
 		                      Date expiry_date, Date valid_from, String nameOnCard) 
 	{
 		this.nameOnCard = nameOnCard;
@@ -43,24 +49,17 @@ public class PaymentInfo extends DataModel
 		this.valid_from = valid_from;
 	}
 
-
-	public String getCardType() {
+	public CardType getCardType() {
 		return cardType;
 	}
 
-
-
-	public void setCardType(String cardType) {
+	public void setCardType(CardType cardType) {
 		this.cardType = cardType;
 	}
-
-
 
 	public String getCardNumber() {
 		return cardNumber;
 	}
-
-
 
 	public void setCardNumber(String cardNumber) 
 	{

@@ -9,11 +9,7 @@ public class ContactDetails extends DataModel
 {
 	private String title;
 	
-	private String firstname;
-	
-	private String initials;
-	
-	private String lastname;
+	private String fullname;
 	
 	@Column(name="address_line_1")
 	private String addressLine1;
@@ -46,15 +42,13 @@ public class ContactDetails extends DataModel
 	public ContactDetails() {
 		
 	}
+	
 
-
-	public ContactDetails(String title, String firstname, String initials, String lastname, String addressLine1,
-			String addressLine2, String addressLine3, String city, String regionOrState, String country, String email,
-			String mobileTel, String homeTel, String officeTel) {
+	public ContactDetails(String title, String fullname, String addressLine1, String addressLine2, String addressLine3,
+			String city, String regionOrState, String country, String email, String mobileTel, String homeTel,
+			String officeTel) {
 		this.title = title;
-		this.firstname = firstname;
-		this.initials = initials;
-		this.lastname = lastname;
+		this.fullname = fullname;
 		this.addressLine1 = addressLine1;
 		this.addressLine2 = addressLine2;
 		this.addressLine3 = addressLine3;
@@ -76,37 +70,7 @@ public class ContactDetails extends DataModel
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-
-	public String getInitials() {
-		return initials;
-	}
-
-
-	public void setInitials(String initials) {
-		this.initials = initials;
-	}
-
-
-	public String getLastname() {
-		return lastname;
-	}
-
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
+	
 
 	public String getAddressLine1() {
 		return addressLine1;
@@ -208,14 +172,28 @@ public class ContactDetails extends DataModel
 	}
 
 
+	public String getFullname() {
+		return fullname;
+	}
+
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+
 	@Override
 	public String toString() {
-		return "ContactDetails [title=" + title + ", firstname=" + firstname + ", initials=" + initials + ", lastname="
-				+ lastname + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", addressLine3="
-				+ addressLine3 + ", city=" + city + ", regionOrState=" + regionOrState + ", country=" + country
-				+ ", email=" + email + ", mobileTel=" + mobileTel + ", homeTel=" + homeTel + ", officeTel=" + officeTel
-				+ "]";
+		return "ContactDetails [title=" + title + ", fullname=" + fullname + ", addressLine1=" + addressLine1
+				+ ", addressLine2=" + addressLine2 + ", addressLine3=" + addressLine3 + ", city=" + city
+				+ ", regionOrState=" + regionOrState + ", country=" + country + ", email=" + email + ", mobileTel="
+				+ mobileTel + ", homeTel=" + homeTel + ", officeTel=" + officeTel + ", id=" + id + ", getTitle()="
+				+ getTitle() + ", getAddressLine1()=" + getAddressLine1() + ", getAddressLine2()=" + getAddressLine2()
+				+ ", getAddressLine3()=" + getAddressLine3() + ", getCity()=" + getCity() + ", getRegionOrState()="
+				+ getRegionOrState() + ", getCountry()=" + getCountry() + ", getEmail()=" + getEmail()
+				+ ", getMobileTel()=" + getMobileTel() + ", getHomeTel()=" + getHomeTel() + ", getOfficeTel()="
+				+ getOfficeTel() + ", getFullname()=" + getFullname() + ", getId()=" + getId() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
 	
 }

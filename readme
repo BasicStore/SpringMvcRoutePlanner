@@ -232,6 +232,17 @@ ISSUES AND CORE JOURNEY:
 - OK add start and destination on ticket type causes a crash
 - OK research workaround for adding parameters when referencing internationalization files & put start and destination at top of new ticket title
 - OK search another journey button:  Add Another Journey
+- OK make sure there is no inconsistency between session and model usage
+
+
+paymentInfo
+
+
+
+- payment info add new / remove / select + personal details page
+- design journey for a) registration (non-members) b) admin corner (admin)
+- implement registration page
+
 
 
 - remove view basket from view basket page.....
@@ -242,14 +253,10 @@ ISSUES AND CORE JOURNEY:
 
 
 
-
-- payment info add new / remove / select + personal details page
 - smarten up basic shopping route and functionality to fully save a basket
 - logic around creating an order and a purchase. Careful to set basket.open = false; + each individual item too. 
-- design journey for a) registration (non-members) b) admin corner (admin)
 - add in placeholder journey pages with the links insert
 - add transaction management
-- make sure there is no inconsistency between session and model usage  
 - add poc spring form validation
 - add poc controller test and all unit test method stubs    
 - consider dynamic locale retrieval in enums or use of session eg. th:text="${session.mockInc.reporter.firstName}"

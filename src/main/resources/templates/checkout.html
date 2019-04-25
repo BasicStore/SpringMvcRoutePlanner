@@ -8,9 +8,203 @@
 </head>
 <body>
     <p><h1><b th:text = "#{rp.checkout.header}"></b></h1></p>
+	
+	<!-- ADD NEW PERSONAL INFO GOES HERE (but the default can be deduced from the membership personal info?).............. -->
+	<!-- put this into its own file? -->
+	
+	
+	<!-- Add payment details - start --> 
+	 <div class="mainDiv" style="min-height: 130px">
+	     <label th:text = "#{rp.person.add.contact.details}" class="header"></label>
+		 <form id="contactDetailsForm" action="#" th:action="@{/routeplanner/add-contact-details}" th:object="${contactDetails}" method="post">
+			 <div class="display-inline"><!--left side payment details - start -->
+			 	<table>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.title}"></label>
+			 			</td>
+			 			<td align="left">
+							<select th:field="*{title}" width="80px">
+	             				<option th:each="ti : ${session.titleList}"
+	             						th:text="${ti}"
+	                     				th:value="${ti}"></option>
+			       			</select>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line1}"></label>		
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine1}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line2}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine2}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line3}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine3}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.mobile-tel}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{mobileTel}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.home-tel}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{homeTel}" />	
+			 			</td>
+			 		</tr>
+			 	</table>
+			 </div><!--left side payment details - end -->
+			 <div class="display-inline"><!--right side payment details - start -->
+			 	<table>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.fullname}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{fullname}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.city}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{city}" />
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.regionOrState}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{regionOrState}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.country}"></label>		
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{country}" />
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.email}"></label>		
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{email}" />
+			 			</td>
+			 		</tr>
+			 	</table>
+			 </div><!--right side payment details - end -->
+		 </form>
+	 </div>
+	 <!-- Add payment details - end -->
+	
+	
+	
+	<!-- Add payment details - start --> 
+	 <div class="mainDiv" style="min-height: 130px">
+	     <label th:text = "#{rp.checkout.add.payment.details}" class="header"></label>
+		 <form id="paymentDetailsForm" action="#" th:action="@{/routeplanner/add-paymentinfo}" th:object="${paymentInfo}" method="post">
+			 <div class="display-inline"><!--left side payment details - start -->
+			 	<table>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.checkout.card.type}"></label>
+			 			</td>
+			 			<td align="left">
+			 				<select th:field="*{cardType}" width="200px">
+		             				<option th:each="ct : ${session.cardTypeList}"
+		             						th:text="${ct.codeDisplay}"
+		                     				th:value="${ct}"></option>
+			       			</select>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.checkout.name.on.card}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{nameOnCard}" />
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.checkout.card.number}"></label>
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{cardNumber}" />
+			 			</td>
+			 		</tr>
+			 	</table>
+			 </div><!--left side payment details - end -->
+			 <div class="display-inline"><!--right side payment details - start -->
+			 	<table>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.checkout.security.code}"></label>
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" size="3" maxlength="3" th:field="*{securityCode}" />
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.checkout.expiry.date}"></label>
+			 			</td>
+			 			<td align="left">
+			 				<input type="date" th:field="*{{expiry_date}}" placeholder="yyyy-MM-dd"/>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.checkout.valid.from}"></label>
+			 			</td>
+			 			<td align="left">
+			 				<input type="date" th:field="*{{valid_from}}" placeholder="yyyy-MM-dd"/>
+			 			</td>
+			 		</tr>
+			 	</table>
+			 </div><!--right side payment details - end -->
+		 </form>
+	 </div>
+	 <!-- Add payment details - end -->
 	 
-	 <form id="checkoutForm" action="#" th:action="@{/routeplanner/do-purchase}" th:object="${basket}" method="post">
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 <form id="purchaseForm" action="#" th:action="@{/routeplanner/do-purchase}" th:object="${basket}" method="post">
+	    	
+	    	
+	    	
+	    	
 	    	<!-- PAYMENT INFO GOES HERE.............. -->
+	    	
 		 <p><input class="formButton" type="submit" value="Purchase" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
 	 </form>
 	 

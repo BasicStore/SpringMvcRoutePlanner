@@ -1,5 +1,6 @@
 package com.routeplanner.ctrl;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,8 @@ import com.routeplanner.client.service.TravelInfoService;
 import com.routeplanner.repository.BasketRepository;
 import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.Basket;
+import com.routeplanner.shopping.CardType;
+import com.routeplanner.shopping.Order;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
@@ -34,7 +37,11 @@ import com.routeplanner.shopping.User;
 public class LoginController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-		
+	
+	// TODO this must be dynamic
+	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
+	
+	
 	@Autowired
 	private TravelInfoService travelInfoService;
 	
@@ -50,8 +57,7 @@ public class LoginController {
 	public String welcomeToApp(HttpServletRequest request, Model model) {
 		return displayLoginForm(request, model);
 	}
-    
-	
+    	
 	
 	@GetMapping("/login")
     public String displayLoginForm(HttpServletRequest request, Model model) {
@@ -110,6 +116,8 @@ public class LoginController {
     	sess.setAttribute("stationList", travelInfoService.getStationList());
     	sess.setAttribute("ticketTypeList", TicketType.values());
     	sess.setAttribute("passengerTypeList", PassengerType.values());
+    	sess.setAttribute("cardTypeList", CardType.values());
+    	sess.setAttribute("titleList", getTitles());
     	
     	// get an existing open basket for this user from the database
     	Basket openBasket = (Basket)basketRepository.findOpenBasketForUser(user.getId());
@@ -130,6 +138,15 @@ public class LoginController {
     	}
     }
         
+    
+    
+    private String[] getTitles() {
+    	return new String[] {prop.getString("rp.person.title.mr"), 
+    			prop.getString("rp.person.title.mrs"), 
+    			prop.getString("rp.person.title.miss")};
+    }
+    
+    
     
     
     // TODO replace eventually with spring security
@@ -159,6 +176,8 @@ public class LoginController {
     	// get user object from the basket
     	
     	// delete the existing basket and create a new one from scratch 
+    	
+    	// VERY IMPORTANT TO CREATE A NEW SHOPPING OBJECT IN THE TROLLEY
     	
     	
     	// TODO test only

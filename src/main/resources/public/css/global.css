@@ -64,3 +64,16 @@ div.mainDiv
 .open-table {
 	border-spacing: 5px;
 }
+
+.display-inline {
+	display:block;
+	float:left;
+	padding-right: 30px;
+}
+
+
+
+
+
+
+
