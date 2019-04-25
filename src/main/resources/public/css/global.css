@@ -36,9 +36,12 @@ div.mainDiv
 	margins: auto;
 	positions:relative;
 	padding: 15px;
-	min-height: 230px;
 }
 
+
+.mainDivSize {
+	min-height: 230px;	
+}
 
 
 .header {
@@ -71,7 +74,10 @@ div.mainDiv
 	padding-right: 30px;
 }
 
-
+.formClear {
+  clear:left;
+  height:85px;
+}
 
 
 

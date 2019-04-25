@@ -111,6 +111,14 @@ public class PaymentInfo extends DataModel
 	}
 	
 	
+	public ContactDetails getContactDetails() {
+		return contactDetails;
+	}
+
+	public void setContactDetails(ContactDetails contactDetails) {
+		this.contactDetails = contactDetails;
+	}
+
 	// TODO refactor
 	private String generateSafeCardNumber(String cardNumber)
 	{

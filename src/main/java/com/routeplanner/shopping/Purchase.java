@@ -1,5 +1,7 @@
 package com.routeplanner.shopping;
+import java.time.LocalDate;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -13,7 +15,7 @@ public class Purchase extends DataModel {
 	private User user;
 	
 	@Column(name="transaction")
-	private Date transactionDate;  
+	private LocalDate transactionDate;  
 	
 	@OneToOne
 	private Order order;
@@ -22,18 +24,34 @@ public class Purchase extends DataModel {
 		
 	}
 		
-	public Purchase(User user, Date transactionDate, Order order) {
+	public Purchase(User user, LocalDate transactionDate, Order order) {
 		this.user = user;
 		this.transactionDate = transactionDate;
 		this.order = order;
 	}
 
-	public Date getTransactionDate() {
+	public LocalDate getTransactionDate() {
 		return transactionDate;
 	}
 
-	public void setTransactionDate(Date transactionDate) {
+	public void setTransactionDate(LocalDate transactionDate) {
 		this.transactionDate = transactionDate;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	@Override

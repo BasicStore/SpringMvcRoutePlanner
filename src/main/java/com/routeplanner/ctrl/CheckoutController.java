@@ -1,4 +1,6 @@
 package com.routeplanner.ctrl;
+import java.time.LocalDate;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -14,12 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.routeplanner.repository.BasketRepository;
+import com.routeplanner.repository.ContractDetailsRepository;
 import com.routeplanner.repository.OrderRepository;
 import com.routeplanner.repository.PaymentInfoRepository;
 import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.ContactDetails;
+import com.routeplanner.shopping.Order;
 import com.routeplanner.shopping.PaymentInfo;
+import com.routeplanner.shopping.Purchase;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.Ticket;
 
@@ -39,6 +44,9 @@ public class CheckoutController {
 	
 	@Autowired
 	private OrderRepository orderRepository;
+	
+	@Autowired
+	private ContractDetailsRepository contactDetailsRepository;
 	
 	
 	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......
@@ -63,103 +71,72 @@ public class CheckoutController {
 		logger.info("go to checkout from basket page. BASKet = " + basket.toString());
 		
 		// prepare new payment info and new contact details parts of the screen
-		model.addAttribute("paymentInfo", new PaymentInfo());	
+		//model.addAttribute("paymentInfo", new PaymentInfo());	
 		model.addAttribute("contactDetails", new ContactDetails());
 		
-		return new ModelAndView("checkout");
+		return new ModelAndView("contact-details");
 	}
 	
 	
 	
-	@PostMapping("/add-paymentinfo")
-	public ModelAndView addPaymentInfo(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute PaymentInfo paymentInfo, BindingResult errors) {
-		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+	@PostMapping("/add-contact-details")
+	public ModelAndView goToPayment(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute ContactDetails contactDetails, BindingResult errors) {
 		if (errors.hasErrors()) {
-    		logger.info("errors exist on paymentDetailsForm on checkout page");
-    		model.addAttribute("paymentInfo", paymentInfo);
-    		return new ModelAndView("checkout");
+    		logger.info("errors exist on contactDetailsForm on contact details page");
+    		model.addAttribute("contactDetails", contactDetails);
+    		return new ModelAndView("contact-details");
     	}
 		
-		// persist the payment info
+		logger.info("persisting contact details as part of this order process = " + contactDetails.toString());
+		contactDetailsRepository.save(contactDetails);
+		
+		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+		Order order = shopping.getOrder();
+		PaymentInfo paymentInfo = new PaymentInfo();
+		paymentInfo.setContactDetails(contactDetails);
+		
+		// persist payment info
 		paymentInfoRepository.save(paymentInfo);
 		
-		// prepare new payment info part of screen
+		// persist order with the payment info (contact details part)		
+		order.setPaymentInfo(paymentInfo);
+		
+		// go to checkout page
 		model.addAttribute("paymentInfo", new PaymentInfo());
-		model.addAttribute("contactDetails", new ContactDetails());
-		
-		
-		
-		
-		
 		return new ModelAndView("checkout");
 	}
-	
-	
-	
-	// TOOD IN PROGRESS
-	@PostMapping("/add-contact-details")
-	public ModelAndView addContactDetails(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute PaymentInfo paymentInfo, BindingResult errors) {
-//		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
-//		if (errors.hasErrors()) {
-//    		logger.info("errors exist on paymentDetailsForm on checkout page");
-//    		model.addAttribute("paymentInfo", paymentInfo);
-//    		return new ModelAndView("checkout");
-//    	}
-//		
-//		// persist the payment info
-//		paymentInfoRepository.save(paymentInfo);
-//		
-//		// prepare new payment info part of screen
-//		model.addAttribute("paymentInfo", new PaymentInfo());
-		
-		
-		return new ModelAndView("checkout");
-	}
-	
-	
-	
 	
 	
 	
 	@PostMapping("/do-purchase")
-	public ModelAndView doPurchase(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute PaymentInfo paymentInfo, BindingResult errors) {
+	public ModelAndView addPaymentInfo(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute PaymentInfo paymentInfo, BindingResult errors) {
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		if (errors.hasErrors()) {
-    		logger.info("errors exist on purchaseForm on checkout page");
-    		model.addAttribute("basket", shopping.getBasket());
+    		logger.info("errors exist on doPurchaseForm on checkout page");
+    		model.addAttribute("paymentInfo", paymentInfo);
     		return new ModelAndView("checkout");
     	}
 		
+		// update the payment with the card details
+		PaymentInfo shopPayInfo = shopping.getOrder().getPaymentInfo();
+		shopPayInfo.setCardNumber(paymentInfo.getCardNumber());
+		shopPayInfo.setCardType(paymentInfo.getCardType());		
+		shopPayInfo.setExpiry_date(paymentInfo.getExpiry_date());
+		shopPayInfo.setNameOnCard(paymentInfo.getNameOnCard());
+		shopPayInfo.setSecurityCode(paymentInfo.getSecurityCode());
 		
-		// order.setPaymentInfo(paymentInfo);
+		// persist the payment info
+		paymentInfoRepository.save(shopPayInfo);
+		orderRepository.save(shopping.getOrder());
 		
+		// TODO if all successful then create a purchase here...........................and persist it
+		Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
+		// TODO DO THE PURCHASE (PLACEHOLDER STUB)
+		// TODO if successful PERSIST IT
 		
-		// get or create the order for this shopping spree
-//				Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder();
-//				orderRepository.save(order);
-		
-		
-		
-		
-		
-		// DO THE PURCHASE NOW
-//		try {
-//			logger.info("about to save basket.........");
-//			Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
-//			Basket basket = new Basket(shopping.getUser());
-//			basketRepository.save(basket);
-//			logger.info("basket is saved........");
-//			
-//			
-//		} catch(Exception e) {
-//			logger.info("Error saving basket: " + e.getMessage());
-//		}
-		
-		
-		// if transaction successful, delete the contents from the basket WITHIN THE SAME TRANCSACTION, and go to sale_confirmation  
-		ModelAndView mv = new ModelAndView("sale-confirmation");
-		
-		return mv;
+		// TODO think about presentation of the model on the sale confirmation page 
+				
+		return new ModelAndView("sale-confirmation");
 	}
 	
 	

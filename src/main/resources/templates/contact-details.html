@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text = "#{rp.checkout.title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/global.css}" rel="stylesheet" />
+    <script th:src="|/js/global.js|"></script>
+</head>
+<body>
+    <p><h1><b th:text = "#{rp.checkout.header}"></b></h1></p>
+	
+	<!-- ADD NEW PERSONAL INFO GOES HERE (but the default can be deduced from the membership personal info?).............. -->
+	<!-- put this into its own file? -->
+	
+	
+	 
+	 <div class="mainDiv">
+	     <label th:text = "#{rp.person.add.contact.details}" class="header"></label>
+		 <form id="contactDetailsForm" action="#" th:action="@{/routeplanner/add-contact-details}" th:object="${contactDetails}" method="post">
+			 <div class="display-inline"><!--left side payment details - start -->
+			 	<table>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.title}"></label>
+			 			</td>
+			 			<td align="left">
+							<select th:field="*{title}" width="80px">
+	             				<option th:each="ti : ${session.titleList}"
+	             						th:text="${ti}"
+	                     				th:value="${ti}"></option>
+			       			</select>
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line1}"></label>		
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine1}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line2}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine2}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.address.line3}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{addressLine3}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.mobile-tel}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{mobileTel}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.home-tel}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{homeTel}" />	
+			 			</td>
+			 		</tr>
+			 	</table>
+			 </div>
+			 <div class="display-inline">
+			 	<table>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.fullname}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{fullname}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.city}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{city}" />
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.regionOrState}"></label>	
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{regionOrState}" />	
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.country}"></label>		
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{country}" />
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 				<label th:text = "#{rp.person.email}"></label>		
+			 			</td>
+			 			<td align="left">
+			 				<input type="text" th:field="*{email}" />
+			 			</td>
+			 		</tr>
+			 		<tr>
+			 			<td align="right">
+			 						
+			 			</td>
+			 			<td align="left">
+			 				
+			 			</td>
+			 		</tr>
+			 	</table>
+			 </div>
+		 </form>
+	 </div>
+	
+	
+	<br /><br /><br /><br /><br />
+	 
+	 
+	 <div th:insert="navbar">  </div>
+	 	 
+</body>
+</html>
+
+

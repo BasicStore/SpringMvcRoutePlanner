@@ -235,11 +235,12 @@ ISSUES AND CORE JOURNEY:
 - OK make sure there is no inconsistency between session and model usage
 
 
-paymentInfo
 
 
 
-- payment info add new / remove / select + personal details page
+- separate flow so there is a contact details and then a payment info page
+- personal details page
+- payment info add new / remove / select 
 - design journey for a) registration (non-members) b) admin corner (admin)
 - implement registration page
 
