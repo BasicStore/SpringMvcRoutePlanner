@@ -5,12 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="payment_info")
 public class PaymentInfo extends DataModel 
 {
+	private static String CARD_NUMBER_PREFIX = "XXXX-XXXX-XXXX-";
+	
 	@Column(name="card_name")
 	private String nameOnCard;
 	
@@ -118,25 +121,22 @@ public class PaymentInfo extends DataModel
 	public void setContactDetails(ContactDetails contactDetails) {
 		this.contactDetails = contactDetails;
 	}
-
-	// TODO refactor
-	private String generateSafeCardNumber(String cardNumber)
-	{
-//		int minDigits = 10;
-//		if (cardNumber.length() > minDigits)
-//		{
-//			int digitsStart = 11;
-//			String prefix = "***";
-//			String suffix = cardNumber.substring(11);
-//			this.safeCardNumber = prefix + suffix;
-//		}
-//		else
-//		{
-//			this.safeCardNumber = "";
-//		}
-		
-		return cardNumber;
+	
+	/**
+	 * Refreshes the payment card details, apart from the credit card number.
+	 * The credit card number is represented as XXXX characters, but just displaying 
+	 * the final 4 characters  
+	 */
+	public void setCardPresentationPostPurchase() {
+		nameOnCard = (StringUtils.isNotBlank(nameOnCard)) && nameOnCard.length() == 16 
+				? CARD_NUMBER_PREFIX + nameOnCard.substring(12) : null; 
+		cardType = null;
+		cardNumber = null;
+		securityCode = null;
+		expiry_date = null;
+		valid_from = null;
 	}
+	
 
 	@Override
 	public String toString() {
