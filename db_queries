@@ -84,21 +84,69 @@ select b.id as BASKET_ID,
    where u.id = 3
    and b.open = 1
 --------------------------------------------------------
+RETRIEVE BASKET CONTENTS WITH ORDER AND BASIC ROUTE INFO:
 
+select b.id as BASKET_ID,
+       u.name as USERNAME,
+       t.id as TICKET_ID,
+       t.num_units as NUM_UNITS,
+       t.open as OPEN,
+       t.passenger_type as PASSTYPE,
+       t.ticket_type as TICKTYPE,
+       t.travel_date as TRAVEL_DATE,
+       t.route_query_id as ROUTE_ID,
+       t.rule_id as RULE_ID,
+       rq.curr_route_start as ROUTE_START,
+       rq.curr_route_dest as ROUTE_DESTINATION
+from user u
+inner join basket b on u.id = b.user_id
+inner join basket_tickets bts on bts.basket_id = b.id
+inner join ticket t on t.id = bts.tickets_id
+inner join route_query rq on rq.id = t.route_query_id
+order by u.name, b.id, t.id
+--------------------------------------------------------
+FULL PURCHASE QUERY - shorten as needed
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select b.id as BASKET_ID,
+       u.name as USERNAME,
+       t.id as TICKET_ID,
+       t.num_units as NUM_UNITS,
+       t.open as OPEN,
+       t.passenger_type as PASSTYPE,
+       t.ticket_type as TICKTYPE,
+       t.travel_date as TRAVEL_DATE,
+       t.route_query_id as ROUTE_ID,
+       t.rule_id as RULE_ID,
+       rq.curr_route_start as ROUTE_START,
+       rq.curr_route_dest as ROUTE_DESTINATION,
+       pi.card_num,
+       pi.card_type,
+       pi.card_name,
+       pi.card_sec_code,
+       pi.expiry_date,
+       cd.address_line_1,
+       cd.address_line_2,
+       cd.address_line_3,
+       cd.city,
+       cd.country,
+       cd.email,
+       cd.fullname,
+       cd.home_phone,
+       cd.office_phone,
+       cd.region_or_state,
+       cd.title,
+       o.id,
+       p.id,   
+       p.transaction 
+from user u
+inner join basket b on u.id = b.user_id
+inner join orders o on b.id = o.basket_id
+inner join purchase p on p.order_id = o.id
+inner join payment_info pi on pi.id = o.payment_info_id
+inner join contact_details cd on cd.id = pi.contact_details_id
+inner join basket_tickets bts on bts.basket_id = b.id
+inner join ticket t on t.id = bts.tickets_id
+inner join route_query rq on rq.id = t.route_query_id
+order by u.name, b.id, t.id
+--------------------------------------------------------
 

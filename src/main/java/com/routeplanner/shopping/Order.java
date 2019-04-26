@@ -4,7 +4,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="order")
+@Table(name="orders")
 public class Order extends DataModel {
 	
 	@OneToOne
@@ -18,7 +18,7 @@ public class Order extends DataModel {
 	
 	
 	public Order() {
-		
+		super();
 	}
 	
 	public Order(User user, Basket basket) {

@@ -19,6 +19,7 @@ import com.routeplanner.repository.BasketRepository;
 import com.routeplanner.repository.ContractDetailsRepository;
 import com.routeplanner.repository.OrderRepository;
 import com.routeplanner.repository.PaymentInfoRepository;
+import com.routeplanner.repository.PurchaseRepository;
 import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.ContactDetails;
@@ -42,8 +43,11 @@ public class CheckoutController {
 	@Autowired
 	private PaymentInfoRepository paymentInfoRepository;
 	
-//	@Autowired
-//	private OrderRepository orderRepository;
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Autowired
+	private PurchaseRepository purchaseRepository;
 	
 	@Autowired
 	private ContractDetailsRepository contactDetailsRepository;
@@ -93,12 +97,12 @@ public class CheckoutController {
 		
 		// the user is creating an order if following the standard journey, so at this stage create a new order object
 		//Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder(); 
-		Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder();		
-//		Order order = shopping.getOrder();
-//		if (shopping.getOrder() == null) {
-//			order = new Order();
-//			orderRepository.save(order);
-//		}
+		//Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder();		
+		Order order = shopping.getOrder();
+		if (shopping.getOrder() == null) {
+			order = new Order();
+			orderRepository.save(order);
+		}
 		
 		shopping.setOrder(order);
 		PaymentInfo paymentInfo = new PaymentInfo();
@@ -111,7 +115,7 @@ public class CheckoutController {
 		order.setPaymentInfo(paymentInfo);
 		order.setBasket(shopping.getBasket());
 		order.setUser(shopping.getUser());
-		// TODO orderRepository.save(order);
+		orderRepository.save(order);
 		
 		// go to checkout page
 		model.addAttribute("paymentInfo", new PaymentInfo());
@@ -142,14 +146,12 @@ public class CheckoutController {
 		// persist the payment info in full
 		paymentInfoRepository.save(shopPayInfo);
 		logger.info("persisted payment info in full: " + paymentInfo.toString());
-		
-		//  TODO orderRepository.save(shopping.getOrder());
-		
+
+		// persist the purchase
 		if (purchase(shopping.getOrder())) {
 			Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
 			shopping.setPurchase(purchase);
-			// TODO persist the purchase value
-			
+			purchaseRepository.save(purchase);
 			// TODO implement some tidying up:  basket.open = false; and similarly with all items
 		} else {
 			// TODO got to sale-failure with explanation, and a link to payment
