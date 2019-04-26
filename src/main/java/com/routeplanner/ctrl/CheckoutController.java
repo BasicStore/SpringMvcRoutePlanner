@@ -15,12 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.routeplanner.repository.BasketRepository;
-import com.routeplanner.repository.ContractDetailsRepository;
-import com.routeplanner.repository.OrderRepository;
-import com.routeplanner.repository.PaymentInfoRepository;
-import com.routeplanner.repository.PurchaseRepository;
-import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.ContactDetails;
 import com.routeplanner.shopping.Order;
@@ -28,6 +22,9 @@ import com.routeplanner.shopping.PaymentInfo;
 import com.routeplanner.shopping.Purchase;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.Ticket;
+import com.routeplanner.shopping.service.OrderService;
+import com.routeplanner.shopping.service.PaymentInfoService;
+import com.routeplanner.shopping.service.PurchaseService;
 
 
 @Controller
@@ -36,26 +33,14 @@ public class CheckoutController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CheckoutController.class);
 	
-	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......
 	@Autowired
-	private BasketRepository basketRepository;
+	private PaymentInfoService paymentInfoService;
 	
 	@Autowired
-	private PaymentInfoRepository paymentInfoRepository;
+	private OrderService orderService;
 	
 	@Autowired
-	private OrderRepository orderRepository;
-	
-	@Autowired
-	private PurchaseRepository purchaseRepository;
-	
-	@Autowired
-	private ContractDetailsRepository contactDetailsRepository;
-	
-	
-	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......
-	@Autowired
-	private UserRepository userRepository;
+	private PurchaseService purchaseService;
 	
 	
 	public CheckoutController() {
@@ -91,17 +76,14 @@ public class CheckoutController {
     	}
 		
 		logger.info("persisting contact details as part of this order process = " + contactDetails.toString());
-		contactDetailsRepository.save(contactDetails);
-		
-		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+		paymentInfoService.saveContactDetails(contactDetails);
 		
 		// the user is creating an order if following the standard journey, so at this stage create a new order object
-		//Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder(); 
-		//Order order = shopping.getOrder() == null ? new Order(shopping.getUser(), shopping.getBasket()) : shopping.getOrder();		
+		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		Order order = shopping.getOrder();
 		if (shopping.getOrder() == null) {
 			order = new Order();
-			orderRepository.save(order);
+			orderService.save(order);
 		}
 		
 		shopping.setOrder(order);
@@ -109,13 +91,13 @@ public class CheckoutController {
 		paymentInfo.setContactDetails(contactDetails);
 		
 		// persist payment info
-		paymentInfoRepository.save(paymentInfo);
+		paymentInfoService.save(paymentInfo);
 		
 		// persist order with the payment info (contact details part)		
 		order.setPaymentInfo(paymentInfo);
 		order.setBasket(shopping.getBasket());
 		order.setUser(shopping.getUser());
-		orderRepository.save(order);
+		orderService.save(order);
 		
 		// go to checkout page
 		model.addAttribute("paymentInfo", new PaymentInfo());
@@ -144,14 +126,14 @@ public class CheckoutController {
 		shopPayInfo.setSecurityCode(paymentInfo.getSecurityCode());
 		
 		// persist the payment info in full
-		paymentInfoRepository.save(shopPayInfo);
+		paymentInfoService.save(shopPayInfo);
 		logger.info("persisted payment info in full: " + paymentInfo.toString());
 
 		// persist the purchase
 		if (purchase(shopping.getOrder())) {
 			Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
 			shopping.setPurchase(purchase);
-			purchaseRepository.save(purchase);
+			purchaseService.save(purchase);
 			// TODO implement some tidying up:  basket.open = false; and similarly with all items
 		} else {
 			// TODO got to sale-failure with explanation, and a link to payment

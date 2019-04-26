@@ -236,18 +236,20 @@ ISSUES AND CORE JOURNEY:
 - OK separate flow so there is a contact details and then a payment info page
 - OK personal details page
 - OK persistence of Order and Purchase
+- OK need to dump some data from shopping variable on the sale confirmation page
 
   --------------------------------------
  BASIC CORE JOBS
 
--  need to provide some data from shopping variable on the sale confirmation page
-
-- log the id of the basket items once they have been persisted + shopping
 - separate out db calls into daos, and services and implement transactions and db exception handling
-  --> BasketDao, ContactDetailsDao, OrderDao, PaymentInfoDao, PersonDao, PurchaseDao, RoleDao, RouteQueryDao, RuleDao, TicketDao, UserDao
+  --> OK poc: DAOs are not necessary!
   --> BasketService, ContactDetailsService, OrderService, PaymentInfoService, PersonService, PurchaseService, RoleService, RouteQueryService, 
       RuleService, TicketService, UserService
-
+       
++ start a new shopping spree housekeeping
+- add proper exception handling from ervices and test transactions are working
+      
+- log the id of the basket items once they have been persisted + shopping
 - add poc controller test and all unit test method stubs
 - add poc spring form validation
 
@@ -262,7 +264,7 @@ ISSUES AND CORE JOURNEY:
 - consider dynamic locale retrieval in enums or use of session eg. th:text="${session.mockInc.reporter.firstName}"
 - sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response
 + logic around creating an order and a purchase. Careful to set basket.open = false; + each individual item too. 
-+ start a new shopping spree housekeeping
+
        
   --------------------------------------
  COMPLETE CORE FUNCTIONALITY
@@ -297,56 +299,6 @@ MAJOR EXTENSIONS
    --> javadocs   
    --> update all the prop files for all langs              
  -------------------------------------- 
- 
- 
- <p th:text="${}" th:unless="${session == null}"> . </p>
- 
- 
- 
- <p th:text="'Username: ' + ${session.shopping.purchase.user.username}" th:unless="${session == null}"> . </p>
- <p th:text="'Email: ' + ${session.shopping.purchase.user.email}" th:unless="${session == null}"> . </p>
- <p th:text="'Transaction date: ' + ${session.shopping.purchase.transactionDate}" th:unless="${session == null}"> . </p>
- <p th:text="'Name on card: ' + ${session.shopping.purchase.order.paymentInfo.nameOnCard}" th:unless="${session == null}"> . </p>
- <p th:text="'Card number: ' + ${session.shopping.purchase.order.paymentInfo.cardNumber}" th:unless="${session == null}"> . </p>
- <p th:text="'Title: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.title}" th:unless="${session == null}"> . </p>
- <p th:text="'Fullname: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.fullname}" th:unless="${session == null}"> . </p>
- <p th:text="'Address line 1: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.addressLine1}" th:unless="${session == null}"> . </p>
- <p th:text="'Address line 2: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.addressLine2}" th:unless="${session == null}"> . </p>
- <p th:text="'Address line 3: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.addressLine3}" th:unless="${session == null}"> . </p>
- <p th:text="'City: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.city}" th:unless="${session == null}"> . </p>
- <p th:text="'Region: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.regionOrState}" th:unless="${session == null}"> . </p>
- <p th:text="'Country: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.country}" th:unless="${session == null}"> . </p>
- <p th:text="'Email: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.email}" th:unless="${session == null}"> . </p>
- <p th:text="'Mobile Tel: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.mobileTel}" th:unless="${session == null}"> . </p>
- <p th:text="'Home Tel: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.homeTel}" th:unless="${session == null}"> . </p>
- <p th:text="'Office Tel: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.officeTel}" th:unless="${session == null}"> . </p>
- 
- 
- 
- session.shopping.purchase.order.basket
- session.shopping.purchase.order
- session.shopping.purchase.order
- session.shopping.purchase.order
- 
- 
-  
-  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
  

@@ -1,15 +1,14 @@
 package com.routeplanner.ctrl;
-import java.util.Collection;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,16 +19,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.routeplanner.client.service.TravelInfoService;
-import com.routeplanner.repository.BasketRepository;
-import com.routeplanner.repository.UserRepository;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.CardType;
-import com.routeplanner.shopping.Order;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.TicketType;
 import com.routeplanner.shopping.User;
+import com.routeplanner.shopping.ex.UsernameNotFoundException;
+import com.routeplanner.shopping.service.BasketService;
+import com.routeplanner.shopping.service.UserService;
 
 
 @Controller
@@ -45,12 +44,11 @@ public class LoginController {
 	@Autowired
 	private TravelInfoService travelInfoService;
 	
-	// TODO NOT GREAT TO PUT THESE HERE, WRITE A SERVICE TIER FOR THIS.......!!!!!!!!!
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	@Autowired
-	private BasketRepository basketRepository;
+	private BasketService basketService;
 	
 	
 	@GetMapping("/")
@@ -120,7 +118,7 @@ public class LoginController {
     	sess.setAttribute("titleList", getTitles());
     	
     	// get an existing open basket for this user from the database
-    	Basket openBasket = (Basket)basketRepository.findOpenBasketForUser(user.getId());
+    	Basket openBasket = basketService.findOpenBasketForUser(user.getId());
     	
     	// if no shopping and basket exist in the session, then add them
     	if (request.getSession().getAttribute("shopping") == null) {
@@ -129,7 +127,7 @@ public class LoginController {
     		// create a new open basket if one doesn't exist in the database
     		if (openBasket == null) {
     			openBasket = new Basket(user);
-    			basketRepository.save(openBasket);
+    			basketService.save(openBasket);
     		}
     		
     		// put the user's open basket into the session
@@ -148,16 +146,18 @@ public class LoginController {
     
     
     
-    
     // TODO replace eventually with spring security
     private User getLoginUser(HttpServletRequest request, String gvnUsername) {
     	try {
 			logger.info("Attempting to retrieve user '" + gvnUsername + "' from database");
 			Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
-			Optional<User> dbuser = userRepository.findByUsername(gvnUsername);
-			if (Optional.ofNullable(dbuser).isPresent()) {
+			try {
+				User dbuser = userService.findByUsername(gvnUsername);
 				logger.info("user has been retrieved successfully from db");
-				return dbuser.get();
+				return dbuser;
+			} catch(UsernameNotFoundException e) {
+				logger.info("User not found: " + e.getMessage());
+				return null;
 			}
 		} catch(Exception e) {
 			logger.info("Error retrieving user from db: " + e.getMessage());

@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.routeplanner.repository.BasketRepository;
-import com.routeplanner.repository.RouteQueryRepository;
-import com.routeplanner.repository.TicketRepository;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.Ticket;
+import com.routeplanner.shopping.service.BasketService;
+import com.routeplanner.shopping.service.RouteQueryService;
+import com.routeplanner.shopping.service.TicketService;
 
 
 @Controller
@@ -28,13 +28,13 @@ public class BasketController {
 	private static final Logger logger = LoggerFactory.getLogger(BasketController.class);
 	
 	@Autowired
-	private TicketRepository ticketRepository;
-	
-	@Autowired	
-	private BasketRepository basketRepository;
+	private TicketService ticketService;
 	
 	@Autowired
-	private RouteQueryRepository routeQueryRepository;
+	private BasketService basketService;
+	
+	@Autowired
+	private RouteQueryService routeQueryService;
 	
 	public BasketController() {
 		
@@ -82,12 +82,12 @@ public class BasketController {
 		
 		// TODO ************** RouteQuery routeQuery;
 		RouteQuery routeQuery = (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
-		routeQueryRepository.save(routeQuery);
+		routeQueryService.save(routeQuery);
 		newTicket.setRouteQuery(routeQuery);
 		
 		// persist the ticket and its basket now that there are some basket contents
-		ticketRepository.save(newTicket);
-		basketRepository.save(basket);
+		ticketService.save(newTicket);
+		basketService.save(basket);
 		logger.info("added new ticket to basket with id: " + newTicket.getId());
 		
 		// prepare view existing tickets
