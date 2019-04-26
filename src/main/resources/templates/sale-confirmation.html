@@ -37,8 +37,20 @@
 	 <p th:text="'Home Tel: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.homeTel}" th:unless="${session == null}"> . </p>
 	 <p th:text="'Office Tel: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.officeTel}" th:unless="${session == null}"> . </p>
 	 
+	 <p><h1><b th:text = "Tickets.............."></b></h1></p>
 	 
-	 
+	 <table class="open-table">
+		 <tr th:each="item : ${session.shopping.purchase.order.basket.tickets}">
+	        <p th:text = "'***** NEXT TICKET..............'"></p>
+	        <p th:text="'Ticket type: ' + ${item.ticketType.descriptionTrans}" th:unless="${session == null}"> . </p>
+	        <p th:text="'Passenger type: ' + ${item.passengerType.codeDisplay}" th:unless="${session == null}"> . </p>
+	        <p th:text="'Number tickets: ' + ${item.numUnits}" th:unless="${session == null}"> . </p>
+	        <p th:text="'Date of travel: ' + ${item.travelDate}" th:unless="${session == null}"> . </p>
+	        <p th:text="'Start station: ' + ${item.routeQuery.currRouteStart}" th:unless="${session == null}"> . </p>
+			<p th:text="'Destination station: ' + ${item.routeQuery.currRouteDest}" th:unless="${session == null}"> . </p>
+			<br />
+	     </tr>
+	 </table>
 	 
 	 
 	 
