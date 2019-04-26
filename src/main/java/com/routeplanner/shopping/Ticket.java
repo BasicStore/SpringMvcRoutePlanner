@@ -29,7 +29,7 @@ public class Ticket extends AbstractItem {
 
 	public Ticket(boolean open, int numUnits, PassengerType passengerType, LocalDate travelDate, 
 			RouteQuery routeQuery, Rule rule) {
-		super(open, numUnits);
+		super(numUnits);
 		this.passengerType = passengerType;
 		this.travelDate = travelDate;
 		this.routeQuery = routeQuery;
@@ -89,7 +89,7 @@ public class Ticket extends AbstractItem {
 		return "Ticket [passengerType=" + passengerType + ", travelDate=" + travelDate + ", ticketType=" + ticketType
 				+ ", routeQuery=" + routeQuery + ", rule=" + rule + ", id=" + id + ", getPassengerType()="
 				+ getPassengerType() + ", getTravelDate()=" + getTravelDate() + ", getTicketType()=" + getTicketType()
-				+ ", getRouteQuery()=" + getRouteQuery() + ", getRule()=" + getRule() + ", isOpen()=" + isOpen()
+				+ ", getRouteQuery()=" + getRouteQuery() + ", getRule()=" + getRule() 
 				+ ", getNumUnits()=" + getNumUnits() + ", toString()=" + super.toString() + ", getId()=" + getId()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}

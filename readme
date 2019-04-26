@@ -237,67 +237,72 @@ ISSUES AND CORE JOURNEY:
 - OK personal details page
 - OK persistence of Order and Purchase
 - OK need to dump some data from shopping variable on the sale confirmation page
-
-  --------------------------------------
- BASIC CORE JOBS
-
-- separate out db calls into daos, and services and implement transactions and db exception handling
+- OK separate out db calls into daos, and services and implement transactions and db exception handling
   --> OK poc: DAOs are not necessary!
-  --> BasketService, ContactDetailsService, OrderService, PaymentInfoService, PersonService, PurchaseService, RoleService, RouteQueryService, 
-      RuleService, TicketService, UserService
-       
-+ start a new shopping spree housekeeping
-- add proper exception handling from ervices and test transactions are working
-      
-- log the id of the basket items once they have been persisted + shopping
+  --> OK BasketService, ContactDetailsService, OrderService, PaymentInfoService, PersonService, PurchaseService, RoleService, RouteQueryService, 
+         RuleService, TicketService, UserService
++ OK post purchase housekeeping
++ OK start a new shopping spree housekeeping
+  --------------------------------------
+ COMPLETE CORE FUNCTIONALITY
+
+- add in server side protection on query page to avoid proceeding without a journey
+
+- add proper exception handling from services and test transactions are working
+  --> all controllers using shopping db methods
+  --> usage of: TravelInfoService.getJourneyDetails()
+
 - add poc controller test and all unit test method stubs
 - add poc spring form validation
 
+- log the id of the basket items once they have been persisted + shopping
+- clarity on selected objects persisted
 - apply the remove checkbox to the basket contents instead of the current radio
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
   - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
+
+- consider dynamic locale retrieval in enums or use of session eg. th:text="${session.mockInc.reporter.firstName}"
+- sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response
  
 - design journey for a) registration (non-members) b) admin corner (admin)
 - implement registration page
 - implement admin corner
+- refine user of roles to be admin or member, and implied guest which is not in the db 
 
-- consider dynamic locale retrieval in enums or use of session eg. th:text="${session.mockInc.reporter.firstName}"
-- sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response
-+ logic around creating an order and a purchase. Careful to set basket.open = false; + each individual item too. 
+- complete spring form validation on server side
 
-       
-  --------------------------------------
- COMPLETE CORE FUNCTIONALITY
+- it is worth noting that route queries are not unique by start and dest, but tied to a particular query instance.
+  it may be worth rethinking this, and perhaps checking the db first before calculating????
+  Maybe better not to save the query result at all.......? Maybe store in a map within the session, and then remove the values on each re-entry 
+- consider Blob to store RouteQuery.routeInfo
+- trim automatic spring boot column sizes
 
-   --> complete spring form validation
-   --> complete unit tests
-   --> trim automatic spring boot column sizes 
-   --> it is worth noting that route queries are not unique by start and dest, but tied to a particular query instance.
-       it may be worth rethinking this, and perhaps checking the db first before calculating????
-   --> consider Blob to store RouteQuery.routeInfo
-   --> fill in the gaps of this basic journey / polish functionality
-   --> server side validation
-   --> remove view basket from view basket page.....   
-   --> check warnings
+- safety with the back button
+  --> CheckoutController, see todo: sometimes the basket is lost from the order
+- fill in remaining gaps of this basic journey / polish functionality
+
+- add system images
+- remove view basket from view basket page.....   
+- check warnings
    
 ---------------------------------------
 MAJOR EXTENSIONS   
-      
-   --> rewrite html replacing tables etc      
-   --> spring security   
-   --> add unit test shells including for controller
-   --> payment info add new / remove / select
-   --> give user option to change the locale with photos   
-   --> apply zones coverage   
-   --> auditing
-   --> allow for oracle as well as mysql + sqlserver, adapt with dialects         
-   --> more soffisticated HTML, CSS and js - redesign frontend
+
+   --> complete unit tests including for controller      
+   --> remember payment infos and allow user to select from previous or add a new payment info
+       --> payment info add new / remove / select   
+   --> give user option to change the locale with flag images
+   --> spring security
+   --> more soffisticated HTML, CSS and js - redesign frontend      
    --> jasper reports
    --> liquibase
    --> archiving
    --> upgrade to spring boot 3.0
+   --> auditing
+   --> allow for oracle as well as mysql + sqlserver, adapt with dialects
+   --> apply zones coverage   
+   --> update all the prop files for all langs   
    --> javadocs   
-   --> update all the prop files for all langs              
  -------------------------------------- 
  
  

@@ -20,8 +20,11 @@ import com.routeplanner.shopping.ContactDetails;
 import com.routeplanner.shopping.Order;
 import com.routeplanner.shopping.PaymentInfo;
 import com.routeplanner.shopping.Purchase;
+import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.Ticket;
+import com.routeplanner.shopping.User;
+import com.routeplanner.shopping.service.BasketService;
 import com.routeplanner.shopping.service.OrderService;
 import com.routeplanner.shopping.service.PaymentInfoService;
 import com.routeplanner.shopping.service.PurchaseService;
@@ -33,6 +36,8 @@ public class CheckoutController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CheckoutController.class);
 	
+	LoginController loginController;
+	
 	@Autowired
 	private PaymentInfoService paymentInfoService;
 	
@@ -41,6 +46,9 @@ public class CheckoutController {
 	
 	@Autowired
 	private PurchaseService purchaseService;
+	
+	@Autowired
+	private BasketService basketService;
 	
 	
 	public CheckoutController() {
@@ -132,11 +140,18 @@ public class CheckoutController {
 		// persist the purchase
 		if (purchase(shopping.getOrder())) {
 			Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
+			
+			// TODO when the back button is involved, sometimes the basket is lost from the order.................needs fixing
+			Basket basket = purchase.getOrder().getBasket();
+			
+			basket.setOpen(false);
+			basketService.save(basket);
+			
 			shopping.setPurchase(purchase);
 			purchaseService.save(purchase);
-			// TODO implement some tidying up:  basket.open = false; and similarly with all items
+			shopping.postPurchasePruneOrder();
 		} else {
-			// TODO got to sale-failure with explanation, and a link to payment
+			// TODO go to sale-failure with explanation, and a link to payment
 		}
 				
 		return new ModelAndView("sale-confirmation");

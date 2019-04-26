@@ -51,6 +51,10 @@ public class LoginController {
 	private BasketService basketService;
 	
 	
+	public LoginController() {
+		
+	}
+	
 	@GetMapping("/")
 	public String welcomeToApp(HttpServletRequest request, Model model) {
 		return displayLoginForm(request, model);
@@ -169,27 +173,32 @@ public class LoginController {
     
     
     
-    // returning after initial search
+    
     @PostMapping("/new-search")  // 
-    public ModelAndView findAnotherRoute(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
+    public ModelAndView findAnotherRoute(HttpServletRequest request, Model model) {
+    	Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
     	
-    	// get user object from the basket
+    	// returning after initial search - so a shopping object with a valid user should 
+    	// exist in the session - logout if this is not the case
+    	if (shopping == null || shopping.getUser() == null) {
+    		User user = new User();
+    		logger.info("resetting user: " + user.getRoleLevel().getRoleName());
+    		model.addAttribute("user", user);
+    		return new ModelAndView("login");
+    	}
     	
-    	// delete the existing basket and create a new one from scratch 
-    	
-    	// VERY IMPORTANT TO CREATE A NEW SHOPPING OBJECT IN THE TROLLEY
-    	
-    	
-    	// TODO test only
-		User user = new User();
-		model.addAttribute("user", user);
+    	// delete the existing basket and create a new one from scratch
+    	User user = shopping.getUser();
+		Basket openBasket = new Basket(user);
+		basketService.save(openBasket);
+		
+		// put the user's open basket into the session
+		shopping.startFreshJourneyPrunePreviousPurchase();
+		shopping.setBasket(openBasket);
+		shopping.setUser(shopping.getUser());
     	
 		model.addAttribute("routeQuery", new RouteQuery());
-		
-    	
-    	ModelAndView mv = new ModelAndView("query");
-    	
-    	return mv;
+    	return new ModelAndView("query");
     }
     
 

@@ -43,7 +43,25 @@ public class Shopping {
 	public void setPurchase(Purchase purchase) {
 		this.purchase = purchase;
 	}
-
+	
+	public void postOrderPruneBasket() {
+		this.basket = null;
+	}
+	
+	
+	public void postPurchasePruneOrder() {
+		postOrderPruneBasket();
+		this.purchase.getOrder().getPaymentInfo().setCardPresentationPostPurchase();
+	}
+	
+	
+	public void startFreshJourneyPrunePreviousPurchase() {
+		postOrderPruneBasket();
+		this.order = null;
+		this.purchase = null;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Shopping [user=" + user + ", basket=" + basket + ", order=" + order + ", purchase=" + purchase

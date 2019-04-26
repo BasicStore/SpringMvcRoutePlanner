@@ -12,7 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="payment_info")
 public class PaymentInfo extends DataModel 
 {
-	private static String CARD_NUMBER_PREFIX = "XXXX-XXXX-XXXX-";
+	private static String CARD_NUMBER_PREFIX = "-XXXX-XXXX-XXXX";
 	
 	@Column(name="card_name")
 	private String nameOnCard;
@@ -128,13 +128,8 @@ public class PaymentInfo extends DataModel
 	 * the final 4 characters  
 	 */
 	public void setCardPresentationPostPurchase() {
-		nameOnCard = (StringUtils.isNotBlank(nameOnCard)) && nameOnCard.length() == 16 
-				? CARD_NUMBER_PREFIX + nameOnCard.substring(12) : null; 
-		cardType = null;
-		cardNumber = null;
-		securityCode = null;
-		expiry_date = null;
-		valid_from = null;
+		nameOnCard = StringUtils.isNotBlank(nameOnCard) && nameOnCard.length() > 4 
+				? nameOnCard.substring(0, 3) + CARD_NUMBER_PREFIX : null; 
 	}
 	
 
