@@ -70,9 +70,21 @@ public class Basket extends DataModel {
 		return open;
 	}
 
+	/**
+	 * Sets the status of the basket and its contents to open or closed.
+	 * @param open
+	 */
 	public void setOpen(boolean open) {
 		this.open = open;
+		updateBasketContentsStatus(open);
 	}
+	
+	private void updateBasketContentsStatus(boolean open) {
+		if (tickets != null) {
+			tickets.forEach(i->i.setOpen(open));
+		}
+	}
+	
 
 	@Override
 	public String toString() {

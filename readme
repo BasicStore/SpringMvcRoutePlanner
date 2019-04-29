@@ -254,21 +254,25 @@ ISSUES AND CORE JOURNEY:
 - OK add proper exception handling from services and test transactions are working
   --> OK all controllers using shopping db methods
   --> OK usage of: TravelInfoService.getJourneyDetails()
+- OK still an issue when an initial search is done, then an invalid search is performed, the user can then still proceed to checkout. Needs fixing
+- OK think again about the open flag on items (is it enough to rely on the open flag on the basket)?
 
   --------------------------------------
  COMPLETE CORE FUNCTIONALITY
 
-- think again about the open flag on items (is it enough to rely on the open flag on the basket)?
+- add poc controller test and all unit test method stubs
+  https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
+  SERVICES MOCKITO: @RunWith(MockitoJUnitRunner.class)
+
+- issue: fetching all items including closed items... 
+
 - what about if starting a new journey on the 2nd lap with an existing basket containing items??
   - currently the basket is refreshed (incorrectly)
 
 - basket.tickets is null after completing a purchase and then coming back to start a new journey (this time on an empty basket) 
 
 - add poc bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
-- add poc controller test and all unit test method stubs
-
-- still an issue when an initial search is done, then an invalid search is performed, the user can then still proceed to checkout. Needs fixing
-
+  https://medium.freecodecamp.org/unit-testing-services-endpoints-and-repositories-in-spring-boot-4b7d9dc2b772 
 - log the id of the basket items once they have been persisted + shopping
 - remove link needs to replace radios (but note the methods for radios and checkboxes) 
 - apply the remove checkbox to the basket contents instead of the current radio
@@ -287,7 +291,10 @@ ISSUES AND CORE JOURNEY:
 - rethink whether query itself needs to be stored....or else consider Blob to store RouteQuery.routeInfo  
 - trim automatic spring boot column sizes
 
-- error page handling
+- error page handling:
+  --> apply errors in the contoller when services mess up
+  --> test that transaction management is working
+  --> checkoutController.addPaymentInfo()
 - safety with the back button
   --> CheckoutController, see todo: sometimes the basket is lost from the order
 - fill in remaining gaps of this basic journey / polish functionality
@@ -297,16 +304,21 @@ ISSUES AND CORE JOURNEY:
 - remove view basket from view basket page.....   
 - check warnings
 - add in remaining form validation  
+- list challenges and techs / new stuff / extensions / mvc / purpose and approach / main spiel   
    
 ---------------------------------------
 MAJOR EXTENSIONS   
 
+   --> research spring boot profiles for running mode (eg. so tests can ignore data.sql) 
+       & so that the tests always run
+   --> proper date picker and date management
+   --> add spring data
+   --> spring security
    --> implement rules for special deals 
    --> complete unit tests including for controller      
    --> remember payment infos and allow user to select from previous or add a new payment info
        --> payment info add new / remove / select   
    --> give user option to change the locale with flag images
-   --> spring security
    --> more soffisticated HTML, CSS and js - redesign frontend      
    --> jasper reports
    --> liquibase

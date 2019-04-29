@@ -109,6 +109,7 @@ FULL PURCHASE QUERY - shorten as needed
 
 select b.id as BASKET_ID,
        b.open as BASKET_OPEN,
+       t.open as TICKET_OPEN,
        u.name as USERNAME,
        t.id as TICKET_ID,
        t.num_units as NUM_UNITS,

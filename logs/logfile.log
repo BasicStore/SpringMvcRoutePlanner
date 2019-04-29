@@ -2453,3 +2453,545 @@ Total stops = 10
 2019-04-29 13:24:45.126  INFO 27376 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2019-04-29 13:24:46.326  INFO 27376 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-04-29 13:24:46.329  INFO 27376 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 13:55:41.886  INFO 29990 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 29990 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 13:55:41.889  INFO 29990 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-29 13:55:42.424  INFO 29990 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 13:55:42.510  INFO 29990 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78ms. Found 11 repository interfaces.
+2019-04-29 13:55:42.829  INFO 29990 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a06bce3d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-29 13:55:43.136  INFO 29990 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-29 13:55:43.164  INFO 29990 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-29 13:55:43.165  INFO 29990 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-29 13:55:43.239  INFO 29990 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-29 13:55:43.240  INFO 29990 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1317 ms
+2019-04-29 13:55:43.398  INFO 29990 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 13:55:43.683  INFO 29990 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 13:55:43.733  INFO 29990 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 13:55:43.783  INFO 29990 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 13:55:43.784  INFO 29990 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 13:55:44.057  INFO 29990 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 13:55:44.192  INFO 29990 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 13:55:50.149  INFO 29990 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 13:55:50.376  INFO 29990 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 13:55:50.679  INFO 29990 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 13:55:51.130  INFO 29990 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-29 13:55:51.177  WARN 29990 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-29 13:55:51.399  INFO 29990 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-29 13:55:51.401  INFO 29990 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 10.412 seconds (JVM running for 12.69)
+2019-04-29 13:55:54.578  INFO 29990 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-29 13:55:54.578  INFO 29990 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-29 13:55:54.586  INFO 29990 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-04-29 13:55:54.611  INFO 29990 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-29 13:55:54.612  INFO 29990 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-29 13:55:54.612  INFO 29990 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : check new user role is USER ==> role.level.user
+2019-04-29 13:55:54.613  INFO 29990 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-29 13:55:59.779  INFO 29990 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Dealing with login request
+2019-04-29 13:55:59.780  INFO 29990 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Attempting to retrieve user 'user3' from database
+2019-04-29 13:55:59.901  INFO 29990 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : user has been retrieved successfully from db
+2019-04-29 13:55:59.902  INFO 29990 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : User found in database with username = 'user3', and role 'role.level.admin'
+2019-04-29 13:56:10.557  INFO 29990 --- [http-nio-8080-exec-6] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start: Acton Town  Destination: Acton Town
+2019-04-29 13:56:10.560  INFO 29990 --- [http-nio-8080-exec-6] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 13:56:10.560  INFO 29990 --- [http-nio-8080-exec-6] c.r.client.service.TravelInfoService     : Duplicate Station entered - start and destination are the same
+
+2019-04-29 13:56:10.560  INFO 29990 --- [http-nio-8080-exec-6] c.r.client.service.TravelInfoService     : The start and destination should be different. Please try again.
+2019-04-29 13:56:51.160  INFO 29990 --- [http-nio-8080-exec-8] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start:   Destination: Acton Town
+2019-04-29 13:56:51.160  INFO 29990 --- [http-nio-8080-exec-8] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 13:56:51.160  INFO 29990 --- [http-nio-8080-exec-8] c.r.client.service.TravelInfoService     : Invalid Station
+
+2019-04-29 13:56:51.160  INFO 29990 --- [http-nio-8080-exec-8] c.r.client.service.TravelInfoService     : Either the start or destination is not an actual station. Please try again.
+2019-04-29 13:58:28.980  INFO 29990 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-29 13:58:28.982  INFO 29990 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 13:58:28.982  INFO 29990 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 13:58:30.376  INFO 29990 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 13:58:30.380  INFO 29990 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 13:58:34.868  INFO 30318 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 30318 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 13:58:34.871  INFO 30318 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-29 13:58:35.406  INFO 30318 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 13:58:35.497  INFO 30318 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84ms. Found 11 repository interfaces.
+2019-04-29 13:58:35.907  INFO 30318 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$151e70eb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-29 13:58:36.226  INFO 30318 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-29 13:58:36.272  INFO 30318 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-29 13:58:36.273  INFO 30318 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-29 13:58:36.377  INFO 30318 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-29 13:58:36.377  INFO 30318 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1471 ms
+2019-04-29 13:58:36.571  INFO 30318 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 13:58:36.944  INFO 30318 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 13:58:36.991  INFO 30318 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 13:58:37.043  INFO 30318 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 13:58:37.044  INFO 30318 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 13:58:37.357  INFO 30318 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 13:58:37.484  INFO 30318 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 13:58:43.367  INFO 30318 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 13:58:43.594  INFO 30318 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 13:58:43.907  INFO 30318 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 13:58:44.481  INFO 30318 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-29 13:58:44.530  WARN 30318 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-29 13:58:44.811  INFO 30318 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-29 13:58:44.813  INFO 30318 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 10.719 seconds (JVM running for 13.298)
+2019-04-29 13:58:45.255  INFO 30318 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-29 13:58:45.255  INFO 30318 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-29 13:58:45.263  INFO 30318 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-04-29 13:58:45.291  INFO 30318 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-29 13:58:45.291  INFO 30318 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-29 13:58:45.291  INFO 30318 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : check new user role is USER ==> role.level.user
+2019-04-29 13:58:45.292  INFO 30318 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-29 13:58:49.297  INFO 30318 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Dealing with login request
+2019-04-29 13:58:49.297  INFO 30318 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Attempting to retrieve user 'user3' from database
+2019-04-29 13:58:49.408  INFO 30318 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : user has been retrieved successfully from db
+2019-04-29 13:58:49.410  INFO 30318 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : User found in database with username = 'user3', and role 'role.level.admin'
+2019-04-29 13:58:51.071  INFO 30318 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start:   Destination: 
+2019-04-29 13:58:51.074  INFO 30318 --- [http-nio-8080-exec-4] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 13:58:51.074  INFO 30318 --- [http-nio-8080-exec-4] c.r.client.service.TravelInfoService     : Invalid Station
+
+2019-04-29 13:58:51.074  INFO 30318 --- [http-nio-8080-exec-4] c.r.client.service.TravelInfoService     : Either the start or destination is not an actual station. Please try again.
+2019-04-29 13:58:59.385  INFO 30318 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start: Acton Town  Destination: Acton Town
+2019-04-29 13:58:59.385  INFO 30318 --- [http-nio-8080-exec-5] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 13:58:59.385  INFO 30318 --- [http-nio-8080-exec-5] c.r.client.service.TravelInfoService     : Duplicate Station entered - start and destination are the same
+
+2019-04-29 13:58:59.385  INFO 30318 --- [http-nio-8080-exec-5] c.r.client.service.TravelInfoService     : The start and destination should be different. Please try again.
+2019-04-29 13:59:10.303  INFO 30318 --- [http-nio-8080-exec-8] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start: Aldgate  Destination: Arnos Grove
+2019-04-29 13:59:10.303  INFO 30318 --- [http-nio-8080-exec-8] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 13:59:10.308  INFO 30318 --- [http-nio-8080-exec-8] c.r.client.service.TravelInfoService     : Journey Display:  
+Start  Aldgate
+End    Arnos Grove
+From Aldgate take the Metropolitan to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Victoria to Finsbury Park for 2 stops.
+From Finsbury Park take the Piccadilly to Arnos Grove for 5 stops.
+Changes = 2
+Total stops = 12
+
+
+Start  Aldgate
+End    Arnos Grove
+From Aldgate take the Circle to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Victoria to Finsbury Park for 2 stops.
+From Finsbury Park take the Piccadilly to Arnos Grove for 5 stops.
+Changes = 2
+Total stops = 12
+
+
+2019-04-29 13:59:10.308  INFO 30318 --- [http-nio-8080-exec-8] com.routeplanner.ctrl.QueryController    : current query route info: 
+Start  Aldgate
+End    Arnos Grove
+From Aldgate take the Metropolitan to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Victoria to Finsbury Park for 2 stops.
+From Finsbury Park take the Piccadilly to Arnos Grove for 5 stops.
+Changes = 2
+Total stops = 12
+
+
+Start  Aldgate
+End    Arnos Grove
+From Aldgate take the Circle to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Victoria to Finsbury Park for 2 stops.
+From Finsbury Park take the Piccadilly to Arnos Grove for 5 stops.
+Changes = 2
+Total stops = 12
+
+
+2019-04-29 14:34:34.522  INFO 30318 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-29 14:34:34.524  INFO 30318 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 14:34:34.524  INFO 30318 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 14:34:35.827  INFO 30318 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 14:34:35.828  INFO 30318 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 14:34:41.839  INFO 1369 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 1369 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 14:34:41.842  INFO 1369 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-29 14:34:42.332  INFO 1369 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 14:34:42.417  INFO 1369 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77ms. Found 11 repository interfaces.
+2019-04-29 14:34:42.734  INFO 1369 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$217b7484] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-29 14:34:43.017  INFO 1369 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-29 14:34:43.038  INFO 1369 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-29 14:34:43.039  INFO 1369 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-29 14:34:43.107  INFO 1369 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-29 14:34:43.107  INFO 1369 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1230 ms
+2019-04-29 14:34:43.264  INFO 1369 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 14:34:43.517  INFO 1369 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 14:34:43.563  INFO 1369 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 14:34:43.609  INFO 1369 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 14:34:43.609  INFO 1369 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 14:34:43.862  INFO 1369 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 14:34:43.977  INFO 1369 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 14:34:49.792  INFO 1369 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 14:34:50.060  INFO 1369 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 14:34:50.377  INFO 1369 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 14:34:50.938  INFO 1369 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-29 14:34:51.003  WARN 1369 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-29 14:34:51.334  INFO 1369 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-29 14:34:51.339  INFO 1369 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 10.265 seconds (JVM running for 12.491)
+2019-04-29 14:34:51.700  INFO 1369 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-29 14:34:51.700  INFO 1369 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-29 14:34:51.710  INFO 1369 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-04-29 14:34:51.740  INFO 1369 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-29 14:34:51.740  INFO 1369 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-29 14:34:51.740  INFO 1369 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : check new user role is USER ==> role.level.user
+2019-04-29 14:34:51.741  INFO 1369 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-29 14:34:56.278  INFO 1369 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Dealing with login request
+2019-04-29 14:34:56.279  INFO 1369 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : Attempting to retrieve user 'user3' from database
+2019-04-29 14:34:56.389  INFO 1369 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : user has been retrieved successfully from db
+2019-04-29 14:34:56.390  INFO 1369 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.LoginController    : User found in database with username = 'user3', and role 'role.level.admin'
+2019-04-29 14:35:00.672  INFO 1369 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start: Aldgate East  Destination: Arsenal
+2019-04-29 14:35:00.675  INFO 1369 --- [http-nio-8080-exec-4] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 14:35:00.679  INFO 1369 --- [http-nio-8080-exec-4] c.r.client.service.TravelInfoService     : Journey Display:  
+Start  Aldgate East
+End    Arsenal
+From Aldgate East take the Hammersmith and City to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Piccadilly to Arsenal for 3 stops.
+Changes = 1
+Total stops = 8
+
+
+2019-04-29 14:35:00.679  INFO 1369 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : current query route info: 
+Start  Aldgate East
+End    Arsenal
+From Aldgate East take the Hammersmith and City to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Piccadilly to Arsenal for 3 stops.
+Changes = 1
+Total stops = 8
+
+
+2019-04-29 14:35:07.641  INFO 1369 --- [http-nio-8080-exec-7] com.routeplanner.ctrl.BasketController   : added new ticket to basket with id: 3
+2019-04-29 14:35:08.363  INFO 1369 --- [http-nio-8080-exec-9] c.routeplanner.ctrl.CheckoutController   : go to checkout from basket page. Basket = Basket [tickets=null, user=null, radioButtonSelectedValue=null, open=true, id=0, getTickets()=null, getUser()=null, getRadioButtonSelectedValue()=null, isOpen()=true, getId()=0, getClass()=class com.routeplanner.shopping.Basket, hashCode()=302333117, toString()=com.routeplanner.shopping.Basket@12053cbd]
+2019-04-29 14:35:25.964  INFO 1369 --- [http-nio-8080-exec-8] c.routeplanner.ctrl.CheckoutController   : errors exist on contactDetailsForm on contact details page
+2019-04-29 14:35:33.977  INFO 1369 --- [http-nio-8080-exec-1] c.routeplanner.ctrl.CheckoutController   : persisting contact details as part of this order process = ContactDetails [title=FrMr, fullname=hgjhg, addressLine1=hkj, addressLine2=jhk, addressLine3=jh, city=gjh, regionOrState=gjh, country=jhg, email=jhg@sdf.com, mobileTel=789, homeTel=879, officeTel=null, id=0, getTitle()=FrMr, getAddressLine1()=hkj, getAddressLine2()=jhk, getAddressLine3()=jh, getCity()=gjh, getRegionOrState()=gjh, getCountry()=jhg, getEmail()=jhg@sdf.com, getMobileTel()=789, getHomeTel()=879, getOfficeTel()=null, getFullname()=hgjhg, getId()=0, getClass()=class com.routeplanner.shopping.ContactDetails, hashCode()=580576725, toString()=com.routeplanner.shopping.ContactDetails@229ae5d5]
+2019-04-29 14:36:12.921  INFO 1369 --- [http-nio-8080-exec-2] c.routeplanner.ctrl.CheckoutController   : payment info added by user (excludes contact info): PaymentInfo [nameOnCard=gjhgj, cardType=MASTERCARD, cardNumber=876587657657, securityCode=576, expiry_date=null, valid_from=null, getCardType()=MASTERCARD, getCardNumber()=876587657657, getSecurityCode()=576, getExpiry_date()=null, getValid_from()=null, getNameOnCard()=gjhgj, getId()=0, getClass()=class com.routeplanner.shopping.PaymentInfo, hashCode()=1655095311, toString()=com.routeplanner.shopping.PaymentInfo@62a6c00f]
+2019-04-29 14:36:12.971  INFO 1369 --- [http-nio-8080-exec-2] c.routeplanner.ctrl.CheckoutController   : persisted payment info in full: PaymentInfo [nameOnCard=gjhgj, cardType=MASTERCARD, cardNumber=876587657657, securityCode=576, expiry_date=null, valid_from=null, getCardType()=MASTERCARD, getCardNumber()=876587657657, getSecurityCode()=576, getExpiry_date()=null, getValid_from()=null, getNameOnCard()=gjhgj, getId()=0, getClass()=class com.routeplanner.shopping.PaymentInfo, hashCode()=1655095311, toString()=com.routeplanner.shopping.PaymentInfo@62a6c00f]
+2019-04-29 14:39:05.253  INFO 1369 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start: Aldgate  Destination: Amersham
+2019-04-29 14:39:05.253  INFO 1369 --- [http-nio-8080-exec-5] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 14:39:05.255  INFO 1369 --- [http-nio-8080-exec-5] c.r.client.service.TravelInfoService     : Journey Display:  
+Start  Aldgate
+End    Amersham
+From Aldgate take the Metropolitan to Liverpool Street for 1 stop.
+From Liverpool Street take the Central to Bank for 1 stop.
+From Bank take the Waterloo and City to Waterloo for 1 stop.
+From Waterloo take the Jubilee to Baker Street for 4 stops.
+From Baker Street take the Metropolitan to Chalfont and Latimer for 13 stops.
+From Chalfont and Latimer take the Metropolitan to Amersham for 1 stop.
+Changes = 5
+Total stops = 21
+
+
+Start  Aldgate
+End    Amersham
+From Aldgate take the Circle to Liverpool Street for 1 stop.
+From Liverpool Street take the Central to Bank for 1 stop.
+From Bank take the Waterloo and City to Waterloo for 1 stop.
+From Waterloo take the Jubilee to Baker Street for 4 stops.
+From Baker Street take the Metropolitan to Chalfont and Latimer for 13 stops.
+From Chalfont and Latimer take the Metropolitan to Amersham for 1 stop.
+Changes = 5
+Total stops = 21
+
+
+2019-04-29 14:39:05.255  INFO 1369 --- [http-nio-8080-exec-5] com.routeplanner.ctrl.QueryController    : current query route info: 
+Start  Aldgate
+End    Amersham
+From Aldgate take the Metropolitan to Liverpool Street for 1 stop.
+From Liverpool Street take the Central to Bank for 1 stop.
+From Bank take the Waterloo and City to Waterloo for 1 stop.
+From Waterloo take the Jubilee to Baker Street for 4 stops.
+From Baker Street take the Metropolitan to Chalfont and Latimer for 13 stops.
+From Chalfont and Latimer take the Metropolitan to Amersham for 1 stop.
+Changes = 5
+Total stops = 21
+
+
+Start  Aldgate
+End    Amersham
+From Aldgate take the Circle to Liverpool Street for 1 stop.
+From Liverpool Street take the Central to Bank for 1 stop.
+From Bank take the Waterloo and City to Waterloo for 1 stop.
+From Waterloo take the Jubilee to Baker Street for 4 stops.
+From Baker Street take the Metropolitan to Chalfont and Latimer for 13 stops.
+From Chalfont and Latimer take the Metropolitan to Amersham for 1 stop.
+Changes = 5
+Total stops = 21
+
+
+2019-04-29 14:39:15.635  INFO 1369 --- [http-nio-8080-exec-7] com.routeplanner.ctrl.BasketController   : added new ticket to basket with id: 10
+2019-04-29 14:39:16.579  INFO 1369 --- [http-nio-8080-exec-9] c.routeplanner.ctrl.CheckoutController   : go to checkout from basket page. Basket = Basket [tickets=null, user=null, radioButtonSelectedValue=null, open=true, id=0, getTickets()=null, getUser()=null, getRadioButtonSelectedValue()=null, isOpen()=true, getId()=0, getClass()=class com.routeplanner.shopping.Basket, hashCode()=1572941727, toString()=com.routeplanner.shopping.Basket@5dc12f9f]
+2019-04-29 14:39:34.672  INFO 1369 --- [http-nio-8080-exec-10] c.routeplanner.ctrl.CheckoutController   : errors exist on contactDetailsForm on contact details page
+2019-04-29 14:39:38.938  INFO 1369 --- [http-nio-8080-exec-8] c.routeplanner.ctrl.CheckoutController   : persisting contact details as part of this order process = ContactDetails [title=FrMr, fullname=uyiuyi, addressLine1=jhg, addressLine2=jh, addressLine3=, city=iuy, regionOrState=uyi, country=uyi, email=iuy@sdf.com, mobileTel=987, homeTel=789, officeTel=null, id=0, getTitle()=FrMr, getAddressLine1()=jhg, getAddressLine2()=jh, getAddressLine3()=, getCity()=iuy, getRegionOrState()=uyi, getCountry()=uyi, getEmail()=iuy@sdf.com, getMobileTel()=987, getHomeTel()=789, getOfficeTel()=null, getFullname()=uyiuyi, getId()=0, getClass()=class com.routeplanner.shopping.ContactDetails, hashCode()=709039770, toString()=com.routeplanner.shopping.ContactDetails@2a43169a]
+2019-04-29 14:39:47.003  INFO 1369 --- [http-nio-8080-exec-1] c.routeplanner.ctrl.CheckoutController   : payment info added by user (excludes contact info): PaymentInfo [nameOnCard=iuyuiy, cardType=MASTERCARD, cardNumber=768687687, securityCode=678, expiry_date=null, valid_from=null, getCardType()=MASTERCARD, getCardNumber()=768687687, getSecurityCode()=678, getExpiry_date()=null, getValid_from()=null, getNameOnCard()=iuyuiy, getId()=0, getClass()=class com.routeplanner.shopping.PaymentInfo, hashCode()=402673427, toString()=com.routeplanner.shopping.PaymentInfo@18004f13]
+2019-04-29 14:39:47.034  INFO 1369 --- [http-nio-8080-exec-1] c.routeplanner.ctrl.CheckoutController   : persisted payment info in full: PaymentInfo [nameOnCard=iuyuiy, cardType=MASTERCARD, cardNumber=768687687, securityCode=678, expiry_date=null, valid_from=null, getCardType()=MASTERCARD, getCardNumber()=768687687, getSecurityCode()=678, getExpiry_date()=null, getValid_from()=null, getNameOnCard()=iuyuiy, getId()=0, getClass()=class com.routeplanner.shopping.PaymentInfo, hashCode()=402673427, toString()=com.routeplanner.shopping.PaymentInfo@18004f13]
+2019-04-29 15:25:05.952  INFO 5986 --- [main] c.r.s.repository.TestBasketRepository    : Starting TestBasketRepository on iraddev07.manirad.emea.ngc.com with PID 5986 (started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 15:25:05.954  INFO 5986 --- [main] c.r.s.repository.TestBasketRepository    : No active profile set, falling back to default profiles: default
+2019-04-29 15:25:06.479  INFO 5986 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 15:25:06.657  INFO 5986 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 163ms. Found 11 repository interfaces.
+2019-04-29 15:25:07.387  INFO 5986 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 15:25:07.539  INFO 5986 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 15:25:07.541  INFO 5986 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 15:25:07.704  INFO 5986 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 15:25:07.875  INFO 5986 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 15:25:08.264  INFO 5986 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 15:25:08.289  INFO 5986 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 15:25:15.803  INFO 5986 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 15:25:16.030  INFO 5986 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:25:16.635  INFO 5986 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 15:25:17.089  INFO 5986 --- [main] c.r.s.repository.TestBasketRepository    : Started TestBasketRepository in 11.979 seconds (JVM running for 13.389)
+2019-04-29 15:25:17.114  INFO 5986 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@35a3d49f testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@5e17553a, testMethod = testPoc@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@389b0789 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@13d9cbf5 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ee8290b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@192c3f1e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@291b4bf5, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@ed7268f3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7748410a], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@6315bb4]; rollback [true]
+2019-04-29 15:25:17.359  WARN 5986 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2019-04-29 15:25:17.360 ERROR 5986 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry '1' for key 'PRIMARY'
+2019-04-29 15:25:17.371  INFO 5986 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@35a3d49f testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@5e17553a, testMethod = testPoc@TestBasketRepository, testException = javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement, mergedContextConfiguration = [MergedContextConfiguration@389b0789 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@13d9cbf5 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ee8290b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@192c3f1e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@291b4bf5, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@ed7268f3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7748410a], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2019-04-29 15:25:17.379  INFO 5986 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@35a3d49f testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@af007d6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@389b0789 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@13d9cbf5 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ee8290b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@192c3f1e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@291b4bf5, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@ed7268f3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7748410a], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@6315bb4]; rollback [true]
+2019-04-29 15:25:28.779  INFO 5986 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@35a3d49f testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@af007d6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@389b0789 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@13d9cbf5 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ee8290b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@192c3f1e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@291b4bf5, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@ed7268f3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7748410a], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2019-04-29 15:25:28.802  INFO 5986 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:25:28.803  INFO 5986 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 15:25:30.129  INFO 5986 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 15:25:30.133  INFO 5986 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 15:27:59.421  INFO 6278 --- [main] c.r.s.repository.TestBasketRepository    : Starting TestBasketRepository on iraddev07.manirad.emea.ngc.com with PID 6278 (started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 15:27:59.423  INFO 6278 --- [main] c.r.s.repository.TestBasketRepository    : No active profile set, falling back to default profiles: default
+2019-04-29 15:27:59.910  INFO 6278 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 15:28:00.037  INFO 6278 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117ms. Found 11 repository interfaces.
+2019-04-29 15:28:00.597  INFO 6278 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 15:28:00.768  INFO 6278 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 15:28:00.769  INFO 6278 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 15:28:00.939  INFO 6278 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 15:28:01.100  INFO 6278 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 15:28:01.428  INFO 6278 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 15:28:01.445  INFO 6278 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 15:28:07.694  INFO 6278 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 15:28:07.930  INFO 6278 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:28:08.443  INFO 6278 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 15:28:08.858  INFO 6278 --- [main] c.r.s.repository.TestBasketRepository    : Started TestBasketRepository in 9.994 seconds (JVM running for 11.314)
+2019-04-29 15:28:08.880  INFO 6278 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@7905a0b8 testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@3b5fad2d, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@35a3d49f testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@389b0789 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ee8290b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@192c3f1e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@291b4bf5, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@ed7268f3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7748410a], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@4738131e]; rollback [true]
+2019-04-29 15:28:53.288  INFO 6450 --- [main] c.r.s.repository.TestBasketRepository    : Starting TestBasketRepository on iraddev07.manirad.emea.ngc.com with PID 6450 (started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 15:28:53.295  INFO 6450 --- [main] c.r.s.repository.TestBasketRepository    : No active profile set, falling back to default profiles: default
+2019-04-29 15:28:53.633  INFO 6450 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 15:28:53.749  INFO 6450 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106ms. Found 11 repository interfaces.
+2019-04-29 15:28:54.302  INFO 6450 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 15:28:54.351  INFO 6450 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 15:28:54.352  INFO 6450 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 15:28:54.459  INFO 6450 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 15:28:54.674  INFO 6450 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 15:28:54.946  INFO 6450 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 15:28:54.957  INFO 6450 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 15:29:01.842  INFO 6450 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 15:29:02.085  INFO 6450 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:29:02.445  INFO 6450 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 15:29:02.717  INFO 6450 --- [main] c.r.s.repository.TestBasketRepository    : Started TestBasketRepository in 9.775 seconds (JVM running for 10.478)
+2019-04-29 15:29:02.735  INFO 6450 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@5e4c8041 testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@501edcf1, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@71c8becc testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@19d37183 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60285225, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@42d8062c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@76a3e297, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1b289282, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@553a3d88], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@53d6e959]; rollback [true]
+2019-04-29 15:29:02.814  INFO 6450 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@5e4c8041 testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@501edcf1, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@71c8becc testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@19d37183 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@60285225, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@42d8062c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@76a3e297, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@1b289282, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@553a3d88], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2019-04-29 15:29:02.823  INFO 6450 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:29:02.823  INFO 6450 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 15:29:04.110  INFO 6450 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 15:29:04.114  INFO 6450 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 15:45:16.078  INFO 7976 --- [main] c.r.s.repository.TestBasketRepository    : Starting TestBasketRepository on iraddev07.manirad.emea.ngc.com with PID 7976 (started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 15:45:16.081  INFO 7976 --- [main] c.r.s.repository.TestBasketRepository    : No active profile set, falling back to default profiles: default
+2019-04-29 15:45:16.350  INFO 7976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 15:45:16.433  INFO 7976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74ms. Found 11 repository interfaces.
+2019-04-29 15:45:16.845  INFO 7976 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 15:45:16.891  INFO 7976 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 15:45:16.892  INFO 7976 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 15:45:17.025  INFO 7976 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 15:45:17.122  INFO 7976 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 15:45:17.363  INFO 7976 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 15:45:17.373  INFO 7976 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 15:45:23.136  INFO 7976 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 15:45:23.396  INFO 7976 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:45:23.760  INFO 7976 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 15:45:23.981  INFO 7976 --- [main] c.r.s.repository.TestBasketRepository    : Started TestBasketRepository in 8.486 seconds (JVM running for 9.211)
+2019-04-29 15:45:23.997  INFO 7976 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3e6ec74]; rollback [true]
+2019-04-29 15:45:24.287  INFO 7976 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = java.lang.AssertionError: expected:<1> but was:<0>, mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2019-04-29 15:45:24.301  INFO 7976 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:45:24.301  INFO 7976 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 15:45:25.613  INFO 7976 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 15:45:25.616  INFO 7976 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 15:46:06.959  INFO 8067 --- [main] c.r.s.repository.TestBasketRepository    : Starting TestBasketRepository on iraddev07.manirad.emea.ngc.com with PID 8067 (started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 15:46:06.969  INFO 8067 --- [main] c.r.s.repository.TestBasketRepository    : No active profile set, falling back to default profiles: default
+2019-04-29 15:46:07.392  INFO 8067 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 15:46:07.530  INFO 8067 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120ms. Found 11 repository interfaces.
+2019-04-29 15:46:08.082  INFO 8067 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 15:46:08.130  INFO 8067 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 15:46:08.131  INFO 8067 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 15:46:08.286  INFO 8067 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 15:46:08.383  INFO 8067 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 15:46:08.628  INFO 8067 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 15:46:08.639  INFO 8067 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 15:46:14.489  INFO 8067 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 15:46:14.724  INFO 8067 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:46:15.182  INFO 8067 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 15:46:15.327  INFO 8067 --- [main] c.r.s.repository.TestBasketRepository    : Started TestBasketRepository in 8.754 seconds (JVM running for 9.41)
+2019-04-29 15:46:15.344  INFO 8067 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@2bd8f7db]; rollback [true]
+2019-04-29 15:46:15.697  INFO 8067 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2019-04-29 15:46:15.705  INFO 8067 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:46:15.705  INFO 8067 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 15:46:16.958  INFO 8067 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 15:46:16.962  INFO 8067 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 15:46:58.935  INFO 8167 --- [main] c.r.s.repository.TestBasketRepository    : Starting TestBasketRepository on iraddev07.manirad.emea.ngc.com with PID 8167 (started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 15:46:58.938  INFO 8167 --- [main] c.r.s.repository.TestBasketRepository    : No active profile set, falling back to default profiles: default
+2019-04-29 15:46:59.338  INFO 8167 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 15:46:59.429  INFO 8167 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83ms. Found 11 repository interfaces.
+2019-04-29 15:46:59.846  INFO 8167 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 15:46:59.887  INFO 8167 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 15:46:59.887  INFO 8167 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 15:47:00.015  INFO 8167 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 15:47:00.118  INFO 8167 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 15:47:00.388  INFO 8167 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 15:47:00.402  INFO 8167 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 15:47:06.554  INFO 8167 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 15:47:06.739  INFO 8167 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:47:07.196  INFO 8167 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 15:47:07.365  INFO 8167 --- [main] c.r.s.repository.TestBasketRepository    : Started TestBasketRepository in 8.967 seconds (JVM running for 9.577)
+2019-04-29 15:47:07.389  INFO 8167 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@636985df]; rollback [true]
+2019-04-29 15:47:07.725  INFO 8167 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2019-04-29 15:47:07.731  INFO 8167 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:47:07.732  INFO 8167 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 15:47:08.864  INFO 8167 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 15:47:08.867  INFO 8167 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 15:57:48.646  INFO 9249 --- [main] c.r.s.repository.TestBasketRepository    : Starting TestBasketRepository on iraddev07.manirad.emea.ngc.com with PID 9249 (started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 15:57:48.649  INFO 9249 --- [main] c.r.s.repository.TestBasketRepository    : No active profile set, falling back to default profiles: default
+2019-04-29 15:57:48.931  INFO 9249 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 15:57:49.018  INFO 9249 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 11 repository interfaces.
+2019-04-29 15:57:49.434  INFO 9249 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 15:57:49.480  INFO 9249 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 15:57:49.481  INFO 9249 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 15:57:49.629  INFO 9249 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 15:57:49.735  INFO 9249 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 15:57:50.019  INFO 9249 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 15:57:50.031  INFO 9249 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 15:57:56.192  INFO 9249 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 15:57:56.444  INFO 9249 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:57:56.840  INFO 9249 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 15:57:57.068  INFO 9249 --- [main] c.r.s.repository.TestBasketRepository    : Started TestBasketRepository in 8.98 seconds (JVM running for 9.665)
+2019-04-29 15:57:57.084  INFO 9249 --- [main] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@3fb450d7]; rollback [true]
+2019-04-29 15:57:57.155  INFO 9249 --- [main] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@71c8becc testClass = TestBasketRepository, testInstance = com.routeplanner.shopping.repository.TestBasketRepository@78b729e6, testMethod = testFindOpenBasketForUser@TestBasketRepository, testException = java.lang.AssertionError: expected:<0> but was:<3>, mergedContextConfiguration = [MergedContextConfiguration@19d37183 testClass = TestBasketRepository, locations = '{}', classes = '{class com.routeplanner.SpringMvcRoutePlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1a0dcaa key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration, org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration, org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration, org.springframework.boot.test.autoconfigure.jdbc.TestDatabaseAutoConfiguration, org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManagerAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7113b13f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6043cd28, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@4d3167f4, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@43fa7088, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7a30d1e6], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]
+2019-04-29 15:57:57.163  INFO 9249 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 15:57:57.164  INFO 9249 --- [Thread-2] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 15:57:58.169  INFO 9249 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 15:57:58.282  INFO 9249 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 17:30:13.607  INFO 1369 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-29 17:30:13.608  INFO 1369 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 17:30:13.609  INFO 1369 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 17:30:14.339  INFO 1369 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 17:30:14.341  INFO 1369 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 17:30:19.828  INFO 17047 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 17047 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 17:30:19.831  INFO 17047 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-29 17:30:20.355  INFO 17047 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 17:30:20.440  INFO 17047 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78ms. Found 10 repository interfaces.
+2019-04-29 17:30:20.755  INFO 17047 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a6c1bc6a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-29 17:30:21.044  INFO 17047 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-29 17:30:21.069  INFO 17047 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-29 17:30:21.070  INFO 17047 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-29 17:30:21.141  INFO 17047 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-29 17:30:21.141  INFO 17047 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1274 ms
+2019-04-29 17:30:21.308  INFO 17047 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 17:30:21.722  INFO 17047 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 17:30:21.774  INFO 17047 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 17:30:21.820  INFO 17047 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 17:30:21.821  INFO 17047 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 17:30:21.943  INFO 17047 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 17:30:22.055  INFO 17047 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 17:30:27.846  INFO 17047 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 17:30:28.123  INFO 17047 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 17:30:28.429  INFO 17047 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 17:30:28.887  INFO 17047 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-29 17:30:28.937  WARN 17047 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-29 17:30:29.204  INFO 17047 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-29 17:30:29.206  INFO 17047 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 10.057 seconds (JVM running for 13.257)
+2019-04-29 17:30:37.879  INFO 17047 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-29 17:30:37.879  INFO 17047 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-29 17:30:37.887  INFO 17047 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-04-29 17:30:37.918  INFO 17047 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-29 17:30:37.918  INFO 17047 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-29 17:30:37.919  INFO 17047 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : check new user role is USER ==> role.level.user
+2019-04-29 17:30:37.919  INFO 17047 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-29 17:30:44.219  INFO 17047 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Dealing with login request
+2019-04-29 17:30:44.220  INFO 17047 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : Attempting to retrieve user 'user3' from database
+2019-04-29 17:30:44.337  INFO 17047 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : user has been retrieved successfully from db
+2019-04-29 17:30:44.338  INFO 17047 --- [http-nio-8080-exec-2] com.routeplanner.ctrl.LoginController    : User found in database with username = 'user3', and role 'role.level.admin'
+2019-04-29 17:30:48.128  INFO 17047 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start: Aldgate  Destination: Archway
+2019-04-29 17:30:48.131  INFO 17047 --- [http-nio-8080-exec-4] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 17:30:48.136  INFO 17047 --- [http-nio-8080-exec-4] c.r.client.service.TravelInfoService     : Journey Display:  
+Start  Aldgate
+End    Archway
+From Aldgate take the Metropolitan to Moorgate for 2 stops.
+From Moorgate take the Northern to Archway for 8 stops.
+Changes = 1
+Total stops = 10
+
+
+Start  Aldgate
+End    Archway
+From Aldgate take the Circle to Moorgate for 2 stops.
+From Moorgate take the Northern to Archway for 8 stops.
+Changes = 1
+Total stops = 10
+
+
+Start  Aldgate
+End    Archway
+From Aldgate take the Metropolitan to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Northern to Archway for 5 stops.
+Changes = 1
+Total stops = 10
+
+
+Start  Aldgate
+End    Archway
+From Aldgate take the Circle to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Northern to Archway for 5 stops.
+Changes = 1
+Total stops = 10
+
+
+2019-04-29 17:30:48.137  INFO 17047 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.QueryController    : current query route info: 
+Start  Aldgate
+End    Archway
+From Aldgate take the Metropolitan to Moorgate for 2 stops.
+From Moorgate take the Northern to Archway for 8 stops.
+Changes = 1
+Total stops = 10
+
+
+Start  Aldgate
+End    Archway
+From Aldgate take the Circle to Moorgate for 2 stops.
+From Moorgate take the Northern to Archway for 8 stops.
+Changes = 1
+Total stops = 10
+
+
+Start  Aldgate
+End    Archway
+From Aldgate take the Metropolitan to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Northern to Archway for 5 stops.
+Changes = 1
+Total stops = 10
+
+
+Start  Aldgate
+End    Archway
+From Aldgate take the Circle to King's Cross St. Pancras for 5 stops.
+From King's Cross St. Pancras take the Northern to Archway for 5 stops.
+Changes = 1
+Total stops = 10
+
+
+2019-04-29 17:30:56.069  INFO 17047 --- [http-nio-8080-exec-7] com.routeplanner.ctrl.BasketController   : added new ticket to basket with id: 3
+2019-04-29 17:30:56.999  INFO 17047 --- [http-nio-8080-exec-8] c.routeplanner.ctrl.CheckoutController   : go to checkout from basket page. Basket = Basket [tickets=null, user=null, radioButtonSelectedValue=null, open=true, id=0, getTickets()=null, getUser()=null, getRadioButtonSelectedValue()=null, isOpen()=true, getId()=0, getClass()=class com.routeplanner.shopping.Basket, hashCode()=1367732890, toString()=com.routeplanner.shopping.Basket@5185f29a]
+2019-04-29 17:48:05.262  INFO 17047 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-29 17:48:05.264  INFO 17047 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 17:48:05.264  INFO 17047 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 17:48:06.621  INFO 17047 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 17:48:06.624  INFO 17047 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

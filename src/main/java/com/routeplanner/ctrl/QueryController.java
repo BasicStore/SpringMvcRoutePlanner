@@ -71,6 +71,7 @@ public class QueryController {
 			} else if (journeySummary.getFailureException() instanceof Exception) {
 				routeQuery.setRouteInfo(prop.getString("error.engine.generic"));
 			}
+        	model.addAttribute("errorLine1", prop.getString("rp.basket.no.route.err.msg.line1"));
         }
         
     	model.addAttribute("routeQuery", routeQuery);

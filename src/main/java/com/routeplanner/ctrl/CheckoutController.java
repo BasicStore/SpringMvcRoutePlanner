@@ -2,6 +2,7 @@ package com.routeplanner.ctrl;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -164,20 +165,27 @@ public class CheckoutController {
 		logger.info("persisted payment info in full: " + paymentInfo.toString());
 
 		// persist the purchase
-		if (purchase(shopping.getOrder())) {
-			Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
-			
-			// TODO when the back button is involved, sometimes the basket is lost from the order.................needs fixing
-			Basket basket = purchase.getOrder().getBasket();
-			
-			basket.setOpen(false);
-			basketService.save(basket);
-			
-			shopping.setPurchase(purchase);
-			purchaseService.save(purchase);
-			shopping.postPurchasePruneOrder();
-		} else {
-			// TODO go to sale-failure with explanation, and a link to payment
+		try {
+			if (purchase(shopping.getOrder())) {
+				Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
+				
+				// TODO when the back button is involved, sometimes the basket is lost from the order.................needs fixing
+				Basket basket = purchase.getOrder().getBasket();
+				
+				// set the basket and its contents to closed
+				basket.setOpen(false);
+				basketService.saveTickets(basket.getTickets());
+				basketService.save(basket);
+				shopping.setPurchase(purchase);
+				purchaseService.save(purchase);
+				shopping.postPurchasePruneOrder();
+			} else {
+				// TODO go to sale-failure with explanation, and a link to payment
+			}
+		} catch(Throwable t) { 
+			logger.info("An error occurred whilst attempting to persist the purchase data - " + t.getMessage());
+    		model.addAttribute("paymentInfo", paymentInfo);
+    		return new ModelAndView("checkout");
 		}
 				
 		return new ModelAndView("sale-confirmation");
