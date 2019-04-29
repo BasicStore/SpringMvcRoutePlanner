@@ -121,29 +121,22 @@ public class CheckoutController {
 	
 	
 	
-	
-	// TODO add in bespoke address if necessary.........
 	private void addBespokeErrMsgs(ContactDetails contactDetails, ModelMap model) {
-		if (StringUtils.isBlank(contactDetails.getAddressLine1())) {
-			model.addAttribute("blankAddress1", prop.getString("rp.validation.is.null"));
-		}
-		
-		if (StringUtils.isBlank(contactDetails.getCity())) {
-			
-		}
-
-		if (StringUtils.isBlank(contactDetails.getRegionOrState())) {
-			
-		}
-
-		if (StringUtils.isBlank(contactDetails.getCountry())) {
-			
-		}
-
-		if (StringUtils.isBlank(contactDetails.getEmail())) {
-			
+		addBlankValidation(contactDetails.getAddressLine1(), model, "badFieldAddressLine1");
+		addBlankValidation(contactDetails.getCity(), model, "badFieldCity");
+		addBlankValidation(contactDetails.getRegionOrState(), model, "badFieldRegion");
+		addBlankValidation(contactDetails.getCountry(), model, "badFieldCountry");
+		addBlankValidation(contactDetails.getEmail(), model, "badFieldEmail");
+		addBlankValidation(contactDetails.getFullname(), model, "badFieldFullname");
+	}
+	
+	
+	private void addBlankValidation(String field, ModelMap model, String attribute) {
+		if (StringUtils.isBlank(field)) {
+			model.addAttribute(attribute, prop.getString("rp.validation.is.null"));
 		}
 	}
+	
 	
 	
 	

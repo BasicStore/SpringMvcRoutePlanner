@@ -12,6 +12,8 @@
 	<!-- ADD NEW PERSONAL INFO GOES HERE (but the default can be deduced from the membership personal info?).............. -->
 	<!-- put this into its own file? -->
 	
+	
+	
 	 <div class="mainDiv">
 	     <p class><label th:text = "#{rp.person.add.contact.details}" class="header"></label></p>
 		 <form id="contactDetailsForm" action="#" th:action="@{/routeplanner/add-contact-details}" th:object="${contactDetails}" method="post">
@@ -36,7 +38,7 @@
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{fullname}" />
-			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>	
+			 				<p class="errorMsg"><label th:text = "${badFieldFullname}"></label></p>	
 			 			</td>
 			 		</tr>
 			 		<tr>
@@ -46,7 +48,7 @@
 			 			</td>
 			 			<td align="left">
 			 				<input class="form-field-space" type="text" th:field="*{addressLine1}" />
-			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
+			 				<p class="errorMsg"><label th:text = "${badFieldAddressLine1}"></label></p>
 			 			</td>
 			 			<td align="right">
 			 				<label th:text = "#{rp.person.city}"></label>
@@ -54,7 +56,7 @@
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{city}" />
-			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
+			 				<p class="errorMsg"><label th:text = "${badFieldCity}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>
@@ -72,7 +74,7 @@
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{regionOrState}" />	
-			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
+			 				<p class="errorMsg"><label th:text = "${badFieldRegion}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>
@@ -90,7 +92,7 @@
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{country}" />
-			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
+			 				<p class="errorMsg"><label th:text = "${badFieldCountry}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>
@@ -108,7 +110,7 @@
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{email}" />
-			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
+			 				<p class="errorMsg"><label th:text = "${badFieldEmail}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>

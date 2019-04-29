@@ -2074,3 +2074,91 @@ Total stops = 4
 2019-04-29 11:30:43.175  INFO 17030 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2019-04-29 11:30:44.459  INFO 17030 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-04-29 11:30:44.462  INFO 17030 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-04-29 11:53:31.634  INFO 19520 --- [main] c.r.SpringMvcRoutePlannerApplication     : Starting SpringMvcRoutePlannerApplication on iraddev07.manirad.emea.ngc.com with PID 19520 (/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes started by muser in /home/muser/XWorkspace1/SpringMvcRoutePlanner)
+2019-04-29 11:53:31.636  INFO 19520 --- [main] c.r.SpringMvcRoutePlannerApplication     : No active profile set, falling back to default profiles: default
+2019-04-29 11:53:32.129  INFO 19520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-29 11:53:32.219  INFO 19520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83ms. Found 11 repository interfaces.
+2019-04-29 11:53:32.557  INFO 19520 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6ac1d3ba] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-29 11:53:32.856  INFO 19520 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-29 11:53:32.880  INFO 19520 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-29 11:53:32.880  INFO 19520 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-04-29 11:53:32.946  INFO 19520 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-29 11:53:32.946  INFO 19520 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1280 ms
+2019-04-29 11:53:33.113  INFO 19520 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-04-29 11:53:33.478  INFO 19520 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-04-29 11:53:33.531  INFO 19520 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-29 11:53:33.585  INFO 19520 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-04-29 11:53:33.586  INFO 19520 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-29 11:53:33.877  INFO 19520 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-29 11:53:34.001  INFO 19520 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-29 11:53:40.293  INFO 19520 --- [main] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/home/muser/XWorkspace1/SpringMvcRoutePlanner/target/classes/data.sql)'
+2019-04-29 11:53:40.520  INFO 19520 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 11:53:40.836  INFO 19520 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-29 11:53:41.295  INFO 19520 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-29 11:53:41.347  WARN 19520 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-29 11:53:41.588  INFO 19520 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-29 11:53:41.590  INFO 19520 --- [main] c.r.SpringMvcRoutePlannerApplication     : Started SpringMvcRoutePlannerApplication in 10.697 seconds (JVM running for 12.968)
+2019-04-29 11:53:43.724  INFO 19520 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-29 11:53:43.724  INFO 19520 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-29 11:53:43.731  INFO 19520 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-04-29 11:53:43.762  INFO 19520 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : logging from tomcat with slf4j - current location: /home/muser/XWorkspace1/SpringMvcRoutePlanner
+2019-04-29 11:53:43.762  INFO 19520 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : in the get request for login
+2019-04-29 11:53:43.762  INFO 19520 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : check new user role is USER ==> role.level.user
+2019-04-29 11:53:43.763  INFO 19520 --- [http-nio-8080-exec-1] com.routeplanner.ctrl.LoginController    : working with database:  Some database name input
+2019-04-29 11:53:48.748  INFO 19520 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.LoginController    : Dealing with login request
+2019-04-29 11:53:48.749  INFO 19520 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.LoginController    : Attempting to retrieve user 'user3' from database
+2019-04-29 11:53:48.858  INFO 19520 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.LoginController    : user has been retrieved successfully from db
+2019-04-29 11:53:48.859  INFO 19520 --- [http-nio-8080-exec-4] com.routeplanner.ctrl.LoginController    : User found in database with username = 'user3', and role 'role.level.admin'
+2019-04-29 11:53:52.415  INFO 19520 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : Finding requested travel info. Start: Acton Town  Destination: Archway
+2019-04-29 11:53:52.421  INFO 19520 --- [http-nio-8080-exec-3] com.routeplanner.engine.RoutePlanner     : Route Planner has been set up successfully......
+2019-04-29 11:53:52.427  INFO 19520 --- [http-nio-8080-exec-3] c.r.client.service.TravelInfoService     : Journey Display:  
+Start  Acton Town
+End    Archway
+From Acton Town take the Piccadilly to Green Park for 9 stops.
+From Green Park take the Victoria to Warren Street for 2 stops.
+From Warren Street take the Northern to Archway for 5 stops.
+Changes = 2
+Total stops = 16
+
+
+Start  Acton Town
+End    Archway
+From Acton Town take the Piccadilly to Green Park for 9 stops.
+From Green Park take the Victoria to Euston for 3 stops.
+From Euston take the Northern to Archway for 4 stops.
+Changes = 2
+Total stops = 16
+
+
+2019-04-29 11:53:52.428  INFO 19520 --- [http-nio-8080-exec-3] com.routeplanner.ctrl.QueryController    : current query route info: 
+Start  Acton Town
+End    Archway
+From Acton Town take the Piccadilly to Green Park for 9 stops.
+From Green Park take the Victoria to Warren Street for 2 stops.
+From Warren Street take the Northern to Archway for 5 stops.
+Changes = 2
+Total stops = 16
+
+
+Start  Acton Town
+End    Archway
+From Acton Town take the Piccadilly to Green Park for 9 stops.
+From Green Park take the Victoria to Euston for 3 stops.
+From Euston take the Northern to Archway for 4 stops.
+Changes = 2
+Total stops = 16
+
+
+2019-04-29 11:53:57.659  INFO 19520 --- [http-nio-8080-exec-6] com.routeplanner.ctrl.BasketController   : added new ticket to basket with id: 3
+2019-04-29 11:53:58.591  INFO 19520 --- [http-nio-8080-exec-8] c.routeplanner.ctrl.CheckoutController   : go to checkout from basket page. Basket = Basket [tickets=null, user=null, radioButtonSelectedValue=null, open=true, id=0, getTickets()=null, getUser()=null, getRadioButtonSelectedValue()=null, isOpen()=true, getId()=0, getClass()=class com.routeplanner.shopping.Basket, hashCode()=1364836781, toString()=com.routeplanner.shopping.Basket@5159c1ad]
+2019-04-29 11:54:10.068  INFO 19520 --- [http-nio-8080-exec-10] c.routeplanner.ctrl.CheckoutController   : errors exist on contactDetailsForm on contact details page
+2019-04-29 11:54:33.957  INFO 19520 --- [http-nio-8080-exec-1] c.routeplanner.ctrl.CheckoutController   : persisting contact details as part of this order process = ContactDetails [title=FrMr, fullname=hjkh, addressLine1=yiuyiuy, addressLine2=, addressLine3=, city=yuiyiuyi, regionOrState=hjkhk, country=hjhjkhkj, email=, mobileTel=, homeTel=, officeTel=null, id=0, getTitle()=FrMr, getAddressLine1()=yiuyiuy, getAddressLine2()=, getAddressLine3()=, getCity()=yuiyiuyi, getRegionOrState()=hjkhk, getCountry()=hjhjkhkj, getEmail()=, getMobileTel()=, getHomeTel()=, getOfficeTel()=null, getFullname()=hjkh, getId()=0, getClass()=class com.routeplanner.shopping.ContactDetails, hashCode()=1799594296, toString()=com.routeplanner.shopping.ContactDetails@6b43a138]
+2019-04-29 11:54:46.336  INFO 19520 --- [http-nio-8080-exec-2] c.routeplanner.ctrl.CheckoutController   : errors exist on contactDetailsForm on contact details page
+2019-04-29 11:55:09.566  INFO 19520 --- [http-nio-8080-exec-4] c.routeplanner.ctrl.CheckoutController   : persisting contact details as part of this order process = ContactDetails [title=FrMr, fullname=hjkh, addressLine1=yiuyiuy, addressLine2=, addressLine3=, city=yuiyiuyi, regionOrState=hjkhk, country=hjhjkhkj, email=hjk@sdf.com, mobileTel=, homeTel=, officeTel=null, id=0, getTitle()=FrMr, getAddressLine1()=yiuyiuy, getAddressLine2()=, getAddressLine3()=, getCity()=yuiyiuyi, getRegionOrState()=hjkhk, getCountry()=hjhjkhkj, getEmail()=hjk@sdf.com, getMobileTel()=, getHomeTel()=, getOfficeTel()=null, getFullname()=hjkh, getId()=0, getClass()=class com.routeplanner.shopping.ContactDetails, hashCode()=305631740, toString()=com.routeplanner.shopping.ContactDetails@123791fc]
+2019-04-29 11:55:17.785  INFO 19520 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-29 11:55:17.788  INFO 19520 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-29 11:55:17.788  INFO 19520 --- [Thread-4] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2019-04-29 11:55:19.140  INFO 19520 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-04-29 11:55:19.143  INFO 19520 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
