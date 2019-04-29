@@ -5,6 +5,8 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.routeplanner.dm.DataModel;
+
 
 @Entity
 @Table(name="route_query")
@@ -13,6 +15,10 @@ public class RouteQuery extends DataModel
 	private String currRouteStart;
 	
 	private String currRouteDest;
+	
+	// a route query is tentatively successful until it fails
+	private boolean successfulLastSearch = true;
+	
 	
 	
 //	@Lob
@@ -33,6 +39,19 @@ public class RouteQuery extends DataModel
 	}
 
 
+	public RouteQuery(String currRouteStart, String currRouteDest, String routeInfo) {
+		this.currRouteStart = currRouteStart;
+		this.currRouteDest = currRouteDest;
+		this.routeInfo = routeInfo;
+	}
+
+
+	public RouteQuery(String currRouteStart, String currRouteDest, String routeInfo, boolean successfulLastSearch) {
+		this(currRouteStart, currRouteDest, routeInfo);
+		this.successfulLastSearch=successfulLastSearch; 
+	}
+	
+	
 	public String getCurrRouteStart() {
 		return currRouteStart;
 	}
@@ -68,16 +87,15 @@ public class RouteQuery extends DataModel
 	}
 	
 	
-//	public void setStartAndDestinationLabel() {
-//		startAndDestinationLabel = (StringUtils.isBlank(currRouteStart) || StringUtils.isBlank(currRouteDest)) ? StringUtils.EMPTY : currRouteStart + " - " + currRouteDest;   
-//	}
-//	
-//	
-//	public String getStartAndDestinationLabel() {
-//		setStartAndDestinationLabel();
-//		return startAndDestinationLabel;
-//	}
-	
+	public boolean isSuccessfulLastSearch() {
+		return successfulLastSearch;
+	}
+
+
+	public void setSuccessfulLastSearch(boolean successfulLastSearch) {
+		this.successfulLastSearch = successfulLastSearch;
+	}
+
 
 	@Override
 	public String toString() {

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.routeplanner.dm.DataModel;
+
 @Entity
 @Table(name="purchase")
 public class Purchase extends DataModel {

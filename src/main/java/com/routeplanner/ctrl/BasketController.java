@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
@@ -59,7 +60,7 @@ public class BasketController {
 		RouteQuery mostRecentQuery = request.getSession().getAttribute("mostRecentQuery") == null ? null : (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
 		
 		// do not proceed unless the journey details are provided
-		if (mostRecentQuery == null) {
+		if (mostRecentQuery == null || !mostRecentQuery.isSuccessfulLastSearch()) {
 			model.addAttribute("routeQuery", new RouteQuery());
 			model.addAttribute("errorLine1", prop.getString("rp.basket.no.route.err.msg.line1"));
 			return new ModelAndView("query");

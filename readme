@@ -251,14 +251,12 @@ ISSUES AND CORE JOURNEY:
 - OK poc basic OOB spring form validation on server side (on contact details page)
 - OK query page msg is not red!!!!
 - OK put contact-details.html into its own file for other use in the registration / admin corner sections
+- OK add proper exception handling from services and test transactions are working
+  --> OK all controllers using shopping db methods
+  --> OK usage of: TravelInfoService.getJourneyDetails()
 
   --------------------------------------
  COMPLETE CORE FUNCTIONALITY
-
-- add bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
-- add poc controller test and all unit test method stubs
-
-- still an issue when an initial search is done, then an invalid search is performed, the user can then still proceed to checkout. Needs fixing
 
 - think again about the open flag on items (is it enough to rely on the open flag on the basket)?
 - what about if starting a new journey on the 2nd lap with an existing basket containing items??
@@ -266,14 +264,13 @@ ISSUES AND CORE JOURNEY:
 
 - basket.tickets is null after completing a purchase and then coming back to start a new journey (this time on an empty basket) 
 
-- add proper exception handling from services and test transactions are working
-  --> all controllers using shopping db methods
-  --> usage of: TravelInfoService.getJourneyDetails()
+- add poc bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
+- add poc controller test and all unit test method stubs
 
-
+- still an issue when an initial search is done, then an invalid search is performed, the user can then still proceed to checkout. Needs fixing
 
 - log the id of the basket items once they have been persisted + shopping
-- clarity on selected objects persisted
+- remove link needs to replace radios (but note the methods for radios and checkboxes) 
 - apply the remove checkbox to the basket contents instead of the current radio
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
   - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
@@ -287,18 +284,16 @@ ISSUES AND CORE JOURNEY:
 - refine user of roles to be admin or member, and implied guest which is not in the db 
 - purchase history
 
-- it is worth noting that route queries are not unique by start and dest, but tied to a particular query instance.
-  it may be worth rethinking this, and perhaps checking the db first before calculating????
-  Maybe better not to save the query result at all.......? Maybe store in a map within the session, and then remove the values on each re-entry 
-- consider Blob to store RouteQuery.routeInfo
+- rethink whether query itself needs to be stored....or else consider Blob to store RouteQuery.routeInfo  
 - trim automatic spring boot column sizes
 
+- error page handling
 - safety with the back button
   --> CheckoutController, see todo: sometimes the basket is lost from the order
 - fill in remaining gaps of this basic journey / polish functionality
 - full system test
 
-- add system images
+- add system images incl basket
 - remove view basket from view basket page.....   
 - check warnings
 - add in remaining form validation  

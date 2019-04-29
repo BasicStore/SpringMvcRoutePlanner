@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.routeplanner.dm.DataModel;
+
 
 @Entity
 @Table(name="user")

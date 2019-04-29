@@ -1,4 +1,4 @@
-package com.routeplanner.shopping;
+package com.routeplanner.dm;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

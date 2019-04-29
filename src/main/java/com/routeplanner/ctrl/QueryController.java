@@ -1,7 +1,10 @@
 package com.routeplanner.ctrl;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,23 +16,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.routeplanner.client.service.TravelInfoService;
-import com.routeplanner.dm.IRouteMap;
-import com.routeplanner.dm.Journey;
-import com.routeplanner.engine.IRoutePlanner;
-import com.routeplanner.engine.RoutePlanner;
+import com.routeplanner.dm.JourneySummary;
 import com.routeplanner.ex.DuplicateStationException;
 import com.routeplanner.ex.InvalidNetworkException;
 import com.routeplanner.ex.InvalidStationException;
 import com.routeplanner.ex.NoJourneyFoundException;
-import com.routeplanner.load.RouteMapReader;
 import com.routeplanner.shopping.RouteQuery;
-import com.routeplanner.shopping.User;
 
 @Controller
 @RequestMapping("/routeplanner")
 public class QueryController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
+	
+	// TODO this must be dynamic
+	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
 	
 	@Autowired
 	private TravelInfoService travelInfoService;
@@ -38,7 +39,7 @@ public class QueryController {
 	public QueryController() {
 	
 	}
-
+	
 	
 	@PostMapping("/query")
     public ModelAndView findTravelInfo(HttpServletRequest request, ModelMap model, 
@@ -48,11 +49,31 @@ public class QueryController {
 		logger.info("Finding requested travel info. Start: " + start + "  Destination: " + dest);
 		
 		// find the travel info
-        String routeInfo = StringUtils.isBlank(start) || StringUtils.isBlank(dest) 
-				 ? "No travel data found" : travelInfoService.getJourneyDetails(start, dest);   
-    	routeQuery.setRouteInfo(routeInfo);
+        JourneySummary journeySummary = travelInfoService.getJourneyDetails(start, dest); 
+        if (journeySummary.isSuccessfulLastSearch()) {
+        	routeQuery.setRouteInfo(journeySummary.getRouteInfo());
+        	routeQuery.setSuccessfulLastSearch(true);
+        	logger.info("current query route info: " + routeQuery.getRouteInfo());
+        } else { // something went wrong in the model
+        	routeQuery.setSuccessfulLastSearch(false);
+        	if (journeySummary.getFailureException() instanceof IOException) {
+        		routeQuery.setRouteInfo(prop.getString("error.engine.io"));
+        	} else if (journeySummary.getFailureException() instanceof FileNotFoundException) {
+        		routeQuery.setRouteInfo(prop.getString("error.engine.file.not.found"));
+			} else if (journeySummary.getFailureException() instanceof InvalidStationException) {
+				routeQuery.setRouteInfo(prop.getString("error.engine.invalid.station"));	
+			} else if (journeySummary.getFailureException() instanceof InvalidNetworkException) {
+				routeQuery.setRouteInfo(prop.getString("error.engine.invalid.network"));
+			} else if (journeySummary.getFailureException() instanceof NoJourneyFoundException) {
+				routeQuery.setRouteInfo(prop.getString("error.engine.no.journey.found"));
+			} else if (journeySummary.getFailureException() instanceof DuplicateStationException) {
+				routeQuery.setRouteInfo(prop.getString("error.engine.start.and.dest.the.same"));
+			} else if (journeySummary.getFailureException() instanceof Exception) {
+				routeQuery.setRouteInfo(prop.getString("error.engine.generic"));
+			}
+        }
+        
     	model.addAttribute("routeQuery", routeQuery);
-    	logger.info("current query route info: " + routeQuery.getRouteInfo());    	
     	
     	// add (the most recent) route query into a session     
     	request.getSession().setAttribute("mostRecentQuery", routeQuery);

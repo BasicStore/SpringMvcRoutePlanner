@@ -5,6 +5,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.routeplanner.dm.DataModel;
+
 @Entity
 @Table(name="person")
 public class Person extends DataModel {
