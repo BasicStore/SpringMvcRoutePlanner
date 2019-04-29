@@ -120,6 +120,7 @@ public class LoginController {
     	sess.setAttribute("passengerTypeList", PassengerType.values());
     	sess.setAttribute("cardTypeList", CardType.values());
     	sess.setAttribute("titleList", getTitles());
+    	sess.setAttribute("currUser", user);
     	
     	// get an existing open basket for this user from the database
     	Basket openBasket = basketService.findOpenBasketForUser(user.getId());

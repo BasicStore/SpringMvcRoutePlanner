@@ -108,10 +108,10 @@ order by u.name, b.id, t.id
 FULL PURCHASE QUERY - shorten as needed
 
 select b.id as BASKET_ID,
+       b.open as BASKET_OPEN,
        u.name as USERNAME,
        t.id as TICKET_ID,
        t.num_units as NUM_UNITS,
-       t.open as OPEN,
        t.passenger_type as PASSTYPE,
        t.ticket_type as TICKTYPE,
        t.travel_date as TRAVEL_DATE,

@@ -39,6 +39,11 @@
 				</td>
 			</tr>	 
 	 	</table>
+	 	
+	 	
+	 	<label class="errorLine1" th:text = "${errorLine1}"></label>
+	 	
+	 	
 	 	<p><input class="formButton" type="submit" value="Find Route Options" th:attr="value=#{rp.query.submit}" align="center"/></p>
 	 	<p><textarea name="routeInfo" th:text="*{routeInfo}" rows="30" cols="150"></textarea></p>
 	 	<div th:insert="navbar">  </div>

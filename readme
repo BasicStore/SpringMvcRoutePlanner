@@ -243,17 +243,25 @@ ISSUES AND CORE JOURNEY:
          RuleService, TicketService, UserService
 + OK post purchase housekeeping
 + OK start a new shopping spree housekeeping
+- OK add in server side protection on query page to avoid proceeding without a journey
   --------------------------------------
  COMPLETE CORE FUNCTIONALITY
 
-- add in server side protection on query page to avoid proceeding without a journey
+- complete spring form validation on server side
+- add poc controller test and all unit test method stubs
+
+
+- think again about the open flag on items (is it enough to rely on the open flag on the basket)?
+- what about if starting a new journey on the 2nd lap with an existing basket containing items??
+  - currently the basket is refreshed (incorrectly)
+
+- basket.tickets is null after completing a purchase and then coming back to start a new journey (this time on an empty basket) 
 
 - add proper exception handling from services and test transactions are working
   --> all controllers using shopping db methods
   --> usage of: TravelInfoService.getJourneyDetails()
 
-- add poc controller test and all unit test method stubs
-- add poc spring form validation
+
 
 - log the id of the basket items once they have been persisted + shopping
 - clarity on selected objects persisted
@@ -268,8 +276,7 @@ ISSUES AND CORE JOURNEY:
 - implement registration page
 - implement admin corner
 - refine user of roles to be admin or member, and implied guest which is not in the db 
-
-- complete spring form validation on server side
+- purchase history
 
 - it is worth noting that route queries are not unique by start and dest, but tied to a particular query instance.
   it may be worth rethinking this, and perhaps checking the db first before calculating????
@@ -280,6 +287,7 @@ ISSUES AND CORE JOURNEY:
 - safety with the back button
   --> CheckoutController, see todo: sometimes the basket is lost from the order
 - fill in remaining gaps of this basic journey / polish functionality
+- full system test
 
 - add system images
 - remove view basket from view basket page.....   
@@ -288,6 +296,7 @@ ISSUES AND CORE JOURNEY:
 ---------------------------------------
 MAJOR EXTENSIONS   
 
+   --> implement rules for special deals 
    --> complete unit tests including for controller      
    --> remember payment infos and allow user to select from previous or add a new payment info
        --> payment info add new / remove / select   

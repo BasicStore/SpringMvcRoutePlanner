@@ -1,5 +1,8 @@
 package com.routeplanner.ctrl;
 import java.util.HashSet;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.slf4j.Logger;
@@ -27,6 +30,9 @@ public class BasketController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BasketController.class);
 	
+	// TODO this must be dynamic
+	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
+	
 	@Autowired
 	private TicketService ticketService;
 	
@@ -49,8 +55,16 @@ public class BasketController {
 		Basket basket = (Basket)shopping.getBasket();
 		model.addAttribute("basket", basket);
     	
-		// create a NEW ticket based on the most recent travel query, and add to MODEL 
-		RouteQuery mostRecentQuery = (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
+		// get the selected journey details
+		RouteQuery mostRecentQuery = request.getSession().getAttribute("mostRecentQuery") == null ? null : (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
+		
+		// do not proceed unless the journey details are provided
+		if (mostRecentQuery == null) {
+			model.addAttribute("routeQuery", new RouteQuery());
+			model.addAttribute("errorLine1", prop.getString("rp.basket.no.route.err.msg.line1"));
+			return new ModelAndView("query");
+		}
+		
 		Ticket newTicket = new Ticket();
 		newTicket.setRouteQuery(mostRecentQuery);
 		model.addAttribute("ticket", newTicket);
@@ -58,7 +72,10 @@ public class BasketController {
 		return new ModelAndView("view-basket");
 	}
 
-		
+	
+	
+	
+	
 	
 	@PostMapping("/add-ticket")
     public ModelAndView addTicket(HttpServletRequest request, ModelMap model, 
