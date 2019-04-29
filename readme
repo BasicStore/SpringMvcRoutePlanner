@@ -273,6 +273,7 @@ ISSUES AND CORE JOURNEY:
 
 - add poc bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
   https://medium.freecodecamp.org/unit-testing-services-endpoints-and-repositories-in-spring-boot-4b7d9dc2b772 
+
 - log the id of the basket items once they have been persisted + shopping
 - remove link needs to replace radios (but note the methods for radios and checkboxes) 
 - apply the remove checkbox to the basket contents instead of the current radio
@@ -282,19 +283,12 @@ ISSUES AND CORE JOURNEY:
 - consider dynamic locale retrieval in enums or use of session eg. th:text="${session.mockInc.reporter.firstName}"
 - sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response
  
-- design journey for a) registration (non-members) b) admin corner (admin)
-- implement registration page
-- implement admin corner
-- refine user of roles to be admin or member, and implied guest which is not in the db 
-- purchase history
-
-- rethink whether query itself needs to be stored....or else consider Blob to store RouteQuery.routeInfo  
-- trim automatic spring boot column sizes
-
 - error page handling:
   --> apply errors in the contoller when services mess up
   --> test that transaction management is working
-  --> checkoutController.addPaymentInfo()
+  --> checkoutController.addPaymentInfo() 
+- trim automatic spring boot column sizes 
+
 - safety with the back button
   --> CheckoutController, see todo: sometimes the basket is lost from the order
 - fill in remaining gaps of this basic journey / polish functionality
@@ -304,7 +298,13 @@ ISSUES AND CORE JOURNEY:
 - remove view basket from view basket page.....   
 - check warnings
 - add in remaining form validation  
-- list challenges and techs / new stuff / extensions / mvc / purpose and approach / main spiel   
+- list problems and techs / new stuff / extensions / mvc / purpose and approach / main spiel   
+
+- design journey for a) registration (non-members) b) admin corner (admin)
+- implement registration page
+- implement admin corner
+- refine user of roles to be admin or member, and implied guest which is not in the db 
+- purchase history
    
 ---------------------------------------
 MAJOR EXTENSIONS   
@@ -312,6 +312,7 @@ MAJOR EXTENSIONS
    --> research spring boot profiles for running mode (eg. so tests can ignore data.sql) 
        & so that the tests always run
    --> proper date picker and date management
+   --> rethink whether query itself needs to be stored....or else consider Blob to store RouteQuery.routeInfo   
    --> add spring data
    --> spring security
    --> implement rules for special deals 
