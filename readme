@@ -52,6 +52,10 @@
    <div th:if="${user.isAdmin() == false}">
    <div th:if="${!user.isAdmin() and !user.isMember()}" th:text = "#{rp.login.title}"></div>
  
+ - validation:
+   https://docs.spring.io/spring/docs/3.1.x/spring-framework-reference/html/validation.html#validation-beanvalidation
+   (bespoke) https://docs.spring.io/spring/docs/2.0.x/reference/validation.html
+ 
  - hibernate JPA: using abstract superclass for subclasses which are annotated with @Entity
    https://stackoverflow.com/questions/3827494/inherited-abstract-class-with-jpa-hibernate
  
@@ -243,13 +247,20 @@ ISSUES AND CORE JOURNEY:
          RuleService, TicketService, UserService
 + OK post purchase housekeeping
 + OK start a new shopping spree housekeeping
-- OK add in server side protection on query page to avoid proceeding without a journey
+- OK add in dde
+- OK poc basic OOB spring form validation on server side (on contact details page)
+
   --------------------------------------
  COMPLETE CORE FUNCTIONALITY
 
-- complete spring form validation on server side
+- add bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
 - add poc controller test and all unit test method stubs
 
+- query page msg is not red!!!!
+
+- put contact-details.html into its own file
+
+- still an issue when an initial search is done, then an invalid search is performed, the user can then still proceed to checkout. Needs fixing
 
 - think again about the open flag on items (is it enough to rely on the open flag on the basket)?
 - what about if starting a new journey on the 2nd lap with an existing basket containing items??
@@ -292,6 +303,7 @@ ISSUES AND CORE JOURNEY:
 - add system images
 - remove view basket from view basket page.....   
 - check warnings
+- add in remaining form validation  
    
 ---------------------------------------
 MAJOR EXTENSIONS   

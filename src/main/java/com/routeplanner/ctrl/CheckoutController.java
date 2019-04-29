@@ -1,9 +1,12 @@
 package com.routeplanner.ctrl;
 import java.time.LocalDate;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +53,8 @@ public class CheckoutController {
 	@Autowired
 	private BasketService basketService;
 	
+	// TODO this must be dynamic
+	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
 	
 	public CheckoutController() {
 		
@@ -79,7 +84,9 @@ public class CheckoutController {
 	public ModelAndView goToPayment(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute ContactDetails contactDetails, BindingResult errors) {
 		if (errors.hasErrors()) {
     		logger.info("errors exist on contactDetailsForm on contact details page");
+    		model.addAttribute("errorLine1", prop.getString("rp.contact.details.generic.form.error"));
     		model.addAttribute("contactDetails", contactDetails);
+    		addBespokeErrMsgs(contactDetails, model);
     		return new ModelAndView("contact-details");
     	}
 		
@@ -110,6 +117,32 @@ public class CheckoutController {
 		// go to checkout page
 		model.addAttribute("paymentInfo", new PaymentInfo());
 		return new ModelAndView("checkout");
+	}
+	
+	
+	
+	
+	// TODO add in bespoke address if necessary.........
+	private void addBespokeErrMsgs(ContactDetails contactDetails, ModelMap model) {
+		if (StringUtils.isBlank(contactDetails.getAddressLine1())) {
+			model.addAttribute("blankAddress1", prop.getString("rp.validation.is.null"));
+		}
+		
+		if (StringUtils.isBlank(contactDetails.getCity())) {
+			
+		}
+
+		if (StringUtils.isBlank(contactDetails.getRegionOrState())) {
+			
+		}
+
+		if (StringUtils.isBlank(contactDetails.getCountry())) {
+			
+		}
+
+		if (StringUtils.isBlank(contactDetails.getEmail())) {
+			
+		}
 	}
 	
 	

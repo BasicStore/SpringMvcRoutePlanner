@@ -12,16 +12,15 @@
 	<!-- ADD NEW PERSONAL INFO GOES HERE (but the default can be deduced from the membership personal info?).............. -->
 	<!-- put this into its own file? -->
 	
-	
-	 
 	 <div class="mainDiv">
-	     <label th:text = "#{rp.person.add.contact.details}" class="header"></label>
+	     <p class><label th:text = "#{rp.person.add.contact.details}" class="header"></label></p>
 		 <form id="contactDetailsForm" action="#" th:action="@{/routeplanner/add-contact-details}" th:object="${contactDetails}" method="post">
 			 <div><!--left side payment details - start -->
 			 	<table>
 			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.person.title}"></label>
+			 				<p/>
 			 			</td>
 			 			<td align="left">
 							<select th:field="*{title}" width="80px">
@@ -29,76 +28,97 @@
 	             						th:text="${ti}"
 	                     				th:value="${ti}"></option>
 			       			</select>
+			       			<p/>
 			 			</td>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.fullname}"></label>	
+			 				<label th:text = "#{rp.person.fullname}"></label>
+			 				<p/>	
 			 			</td>
 			 			<td align="left">
-			 				<input type="text" th:field="*{fullname}" />	
+			 				<input type="text" th:field="*{fullname}" />
+			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>	
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.address.line1}"></label>		
+			 				<label th:text = "#{rp.person.address.line1}"></label>
+			 				<p/>		
 			 			</td>
 			 			<td align="left">
-			 				<input type="text" th:field="*{addressLine1}" />	
+			 				<input class="form-field-space" type="text" th:field="*{addressLine1}" />
+			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
 			 			</td>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.city}"></label>	
+			 				<label th:text = "#{rp.person.city}"></label>
+			 				<p/>	
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{city}" />
+			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.person.address.line2}"></label>	
+			 				<p/>
 			 			</td>
 			 			<td align="left">
-			 				<input type="text" th:field="*{addressLine2}" />	
+			 				<input class="form-field-space" type="text" th:field="*{addressLine2}" />
+			 				<p/>	
 			 			</td>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.regionOrState}"></label>	
+			 				<label th:text = "#{rp.person.regionOrState}"></label>
+			 				<p/>	
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{regionOrState}" />	
+			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.address.line3}"></label>	
+			 				<label th:text = "#{rp.person.address.line3}"></label>
+			 				<p/>	
 			 			</td>
 			 			<td align="left">
-			 				<input type="text" th:field="*{addressLine3}" />	
+			 				<input class="form-field-space" type="text" th:field="*{addressLine3}" />
+			 				<p/>	
 			 			</td>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.country}"></label>		
+			 				<label th:text = "#{rp.person.country}"></label>
+			 				<p/>		
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{country}" />
+			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.mobile-tel}"></label>	
+			 				<label th:text = "#{rp.person.mobile-tel}"></label>
+			 				<p/>	
 			 			</td>
 			 			<td align="left">
-			 				<input type="text" th:field="*{mobileTel}" />	
+			 				<input class="form-field-space" type="text" th:field="*{mobileTel}" />
+			 				<p/>	
 			 			</td>
 			 			<td align="right">
 			 				<label th:text = "#{rp.person.email}"></label>		
+			 				<p/>
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{email}" />
+			 				<p class="errorMsg"><label th:text = "${blankAddress1}"></label></p>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
-			 				<label th:text = "#{rp.person.home-tel}"></label>	
+			 				<label th:text = "#{rp.person.home-tel}"></label>
+			 				<p/>	
 			 			</td>
 			 			<td align="left">
-			 				<input type="text" th:field="*{homeTel}" />	
+			 				<input class="form-field-space" type="text" th:field="*{homeTel}" />
+			 				<p/>	
 			 			</td>
 			 			<td align="right">
 			 			</td>
@@ -108,6 +128,9 @@
 			 	</table>
 			 </div>
 		</div>
+		
+		<p class="errorMsg"><label th:text = "${errorLine1}"></label></p>
+		
 	    <p><input class="formButtonProceed" type="submit" value="Proceed" th:attr="value=#{rp.contact.details.submit}" align="center"/></p> 
 	 </form>
 	 

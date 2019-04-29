@@ -2,6 +2,9 @@ package com.routeplanner.shopping;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="contact_details")
@@ -9,8 +12,12 @@ public class ContactDetails extends DataModel
 {
 	private String title;
 	
+	@NotNull
+    @Size(min=2, max=30)
 	private String fullname;
 	
+	@NotNull
+    @Size(min=2, max=30)
 	@Column(name="address_line_1")
 	private String addressLine1;
 	
@@ -20,13 +27,18 @@ public class ContactDetails extends DataModel
 	@Column(name="address_line_3")
 	private String addressLine3;
 	
+	@NotNull
 	private String city;
 	
+	@NotNull
 	@Column(name="region_or_state")
 	private String regionOrState;
 	
+	@NotNull
 	private String country;
 	
+	@NotNull
+	@Email
 	private String email;
 	
 	@Column(name="mobile_phone")
