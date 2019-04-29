@@ -249,16 +249,14 @@ ISSUES AND CORE JOURNEY:
 + OK start a new shopping spree housekeeping
 - OK add in dde
 - OK poc basic OOB spring form validation on server side (on contact details page)
+- OK query page msg is not red!!!!
+- OK put contact-details.html into its own file for other use in the registration / admin corner sections
 
   --------------------------------------
  COMPLETE CORE FUNCTIONALITY
 
 - add bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
 - add poc controller test and all unit test method stubs
-
-- query page msg is not red!!!!
-
-- put contact-details.html into its own file
 
 - still an issue when an initial search is done, then an invalid search is performed, the user can then still proceed to checkout. Needs fixing
 

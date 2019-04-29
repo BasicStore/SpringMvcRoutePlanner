@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text = "#{rp.checkout.title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/global.css}" rel="stylesheet" />
+    <script th:src="|/js/global.js|"></script>
+</head>
+<body>
+
+		<div  th:fragment="add-contact-details-box" class="mainDiv">
+		    <p class><label th:text = "'!!!!!' + #{rp.person.add.contact.details}" class="header"></label></p>
+		        <div>
+				 	<table>
+				 		<tr>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.title}"></label>
+				 				<p/>
+				 			</td>
+				 			<td align="left">
+								<select th:field="*{title}" width="80px">
+		             				<option th:each="ti : ${session.titleList}"
+		             						th:text="${ti}"
+		                     				th:value="${ti}"></option>
+				       			</select>
+				       			<p/>
+				 			</td>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.fullname}"></label>
+				 				<p/>	
+				 			</td>
+				 			<td align="left">
+				 				<input type="text" th:field="*{fullname}" />
+				 				<p class="errorMsg"><label th:text = "${badFieldFullname}"></label></p>	
+				 			</td>
+				 		</tr>
+				 		<tr>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.address.line1}"></label>
+				 				<p/>		
+				 			</td>
+				 			<td align="left">
+				 				<input class="form-field-space" type="text" th:field="*{addressLine1}" />
+				 				<p class="errorMsg"><label th:text = "${badFieldAddressLine1}"></label></p>
+				 			</td>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.city}"></label>
+				 				<p/>	
+				 			</td>
+				 			<td align="left">
+				 				<input type="text" th:field="*{city}" />
+				 				<p class="errorMsg"><label th:text = "${badFieldCity}"></label></p>
+				 			</td>
+				 		</tr>
+				 		<tr>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.address.line2}"></label>	
+				 				<p/>
+				 			</td>
+				 			<td align="left">
+				 				<input class="form-field-space" type="text" th:field="*{addressLine2}" />
+				 				<p/>	
+				 			</td>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.regionOrState}"></label>
+				 				<p/>	
+				 			</td>
+				 			<td align="left">
+				 				<input type="text" th:field="*{regionOrState}" />	
+				 				<p class="errorMsg"><label th:text = "${badFieldRegion}"></label></p>
+				 			</td>
+				 		</tr>
+				 		<tr>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.address.line3}"></label>
+				 				<p/>	
+				 			</td>
+				 			<td align="left">
+				 				<input class="form-field-space" type="text" th:field="*{addressLine3}" />
+				 				<p/>	
+				 			</td>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.country}"></label>
+				 				<p/>		
+				 			</td>
+				 			<td align="left">
+				 				<input type="text" th:field="*{country}" />
+				 				<p class="errorMsg"><label th:text = "${badFieldCountry}"></label></p>
+				 			</td>
+				 		</tr>
+				 		<tr>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.mobile-tel}"></label>
+				 				<p/>	
+				 			</td>
+				 			<td align="left">
+				 				<input class="form-field-space" type="text" th:field="*{mobileTel}" />
+				 				<p/>	
+				 			</td>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.email}"></label>		
+				 				<p/>
+				 			</td>
+				 			<td align="left">
+				 				<input type="text" th:field="*{email}" />
+				 				<p class="errorMsg"><label th:text = "${badFieldEmail}"></label></p>
+				 			</td>
+				 		</tr>
+				 		<tr>
+				 			<td align="right">
+				 				<label th:text = "#{rp.person.home-tel}"></label>
+				 				<p/>	
+				 			</td>
+				 			<td align="left">
+				 				<input class="form-field-space" type="text" th:field="*{homeTel}" />
+				 				<p/>	
+				 			</td>
+				 			<td align="right">
+				 			</td>
+				 			<td align="left">
+				 			</td>
+				 		</tr>
+				 	</table>
+				 </div>
+			</div>
+
+</body>
+</html>
