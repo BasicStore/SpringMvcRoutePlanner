@@ -4,13 +4,18 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Optional;
 import java.util.Set;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -32,9 +37,6 @@ import com.routeplanner.shopping.User;
 public class TestBasketRepository {
 
 	@Autowired
-    private TestEntityManager entityManager;
-	
-	@Autowired
 	private BasketRepository<Basket> basketRepository;
 	
 	@Autowired
@@ -42,6 +44,9 @@ public class TestBasketRepository {
 	
 	@Autowired
 	private UserRepository<User> userRepository;
+	
+	@Autowired
+	private TicketRepository<Ticket> ticketRepository;
 	
 	
 	// persist a basket to the database
@@ -64,9 +69,22 @@ public class TestBasketRepository {
 		Set<Ticket> tickets = new HashSet<Ticket>();
 		tickets.add(ticket1);
 		basket1.setTickets(tickets);
+		adminUser1 = userRepository.findById(3).get();
 		basket1.setUser(adminUser1);
 		basket1.setOpen(true);
 		basketRepository.saveAndFlush(basket1);
+	}
+	
+	
+	private void createTickets() {
+		ticket1 = new Ticket();
+		ticket1.setPassengerType(PassengerType.STANDARD_PLUS);
+		ticket1.setRouteQuery(routeQuery1);
+		ticket1.setOpen(true);
+		ticket1.setNumUnits(3);
+		ticket1.setTravelDate(LocalDate.now());
+		ticket1.setTicketType(TicketType.PEAK);
+		ticketRepository.saveAndFlush(ticket1);
 	}
 	
 	
@@ -88,6 +106,7 @@ public class TestBasketRepository {
 		assertEquals(0, (int)basketRepository.count());
 		assertEquals(0, (int)routeQueryRepository.count());
 		assertEquals(3, (int)userRepository.count()); // includes data.sql
+		assertEquals(0, (int)basketRepository.count());
 		
 		// test that no basket returns an optional null
 		Optional<Basket> basket = basketRepository.findOpenBasketForUser(44);
@@ -104,100 +123,59 @@ public class TestBasketRepository {
 		assertNotNull(dbUser);
 		assertEquals("user3", dbUser.getUsername());
 		assertEquals("password", dbUser.getPassword());
+		 
+		createBasket1();
+		assertEquals(1, (int)basketRepository.count());		
+		Basket dbBasket = basketRepository.findOpenBasketForUser(basket1.getId()).get();
+		assertEquals(basket1.getId(), dbBasket.getId());
+		assertEquals(basket1.getTickets().size(), dbBasket.getTickets().size());
+		basket1.getTickets().remove(ticket1);
 		
-		// createBasket1();
+		Iterator<Ticket> tickIt = dbBasket.getTickets().iterator();
+		while (tickIt.hasNext()) {
+			Ticket dbTicket = tickIt.next();
+			assertEquals(dbTicket.getId(), dbTicket.getId());
+			assertEquals(dbTicket.getNumUnits(), dbTicket.getNumUnits());			
+			assertEquals(dbTicket.getPassengerType().getId(), dbTicket.getPassengerType().getId());
+			assertEquals(dbTicket.getTicketType().getId(), dbTicket.getTicketType().getId());		
+			assertEquals(dbTicket.getTravelDate(), dbTicket.getTravelDate());
+			assertEquals(dbTicket.getRouteQuery().getCurrRouteStart(), dbTicket.getRouteQuery().getCurrRouteStart());			
+			assertEquals(dbTicket.getRouteQuery().getCurrRouteDest(), dbTicket.getRouteQuery().getCurrRouteDest());
+		}
 		
-		
-		
-		
-		
+		assertEquals(basket1.getUser().getId(), dbBasket.getUser().getId());
+		assertEquals(basket1.getUser().getUsername(), dbBasket.getUser().getUsername());
+		assertEquals(basket1.getUser().getPassword(), dbBasket.getUser().getPassword());
+		assertEquals(basket1.isOpen(), dbBasket.isOpen());
 	}
 	
 	
-	
-	
-	private void createTickets() {
-		ticket1 = new Ticket();
-		ticket1.setPassengerType(PassengerType.STANDARD_PLUS);
-		ticket1.setRouteQuery(routeQuery1);
-		ticket1.setOpen(true);
-		ticket1.setNumUnits(3);
-		ticket1.setTravelDate(LocalDate.now());
-		ticket1.setTicketType(TicketType.PEAK);
+	@Test
+	public void testFindOpenBasketForUserWithInvalidValueForId() {
+		Optional<Basket> dbBasket = basketRepository.findOpenBasketForUser(9999);
+		assertFalse(dbBasket.isPresent());
 	}
 	
 	
-	
-	
-	
-	/*
-	BASKET
-	
-	@OneToMany
-	private Set<Ticket> tickets;
-	
-	
-	
-	
-	// TODO should this be explicit but have duplication????? or leave  program to checlk whether there are any open items
-	private boolean open = true;
-	
-	---------------------------------------------------------------------
-	
-	TICKET
-	
-	
-	public Ticket(boolean open, int numUnits, PassengerType passengerType, LocalDate travelDate, 
-			RouteQuery routeQuery, Rule rule) {
-	
-	
-	private PassengerType passengerType;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate travelDate;
-	
-	private TicketType ticketType;
-		
-	@OneToOne
-	private RouteQuery routeQuery;
-	
-	private int numUnits;
-	
-	// an item is always open until it is explicitly closed
-	private boolean open = true;
-	
-	
-	---------------------------------------------------------------------
-	PASSENGER TYPE
-	
-	PassengerType.STANDARD_PLUS
-	
-	
-	
-	
-	---------------------------------------------------------------------
-	ROUTE QUERY
-	
-	currRouteStart;
-	
-	private String currRouteDest;
-	
-	private boolean successfulLastSearch = true;
-	
-	private String routeInfo;
-	
-	---------------------------------------------------------------------
-	
-	
-	
-	
-	
-	 */
-	
-	
-	
-	
-	
+	@Before   
+	public void before() {
+		System.out.println("before each test");
+	}
+
+	@After   
+	public void after() {
+		System.out.println("after each test");
+	}
+
+	@BeforeClass     
+	public static void beforeClass() {
+		System.out.println("only once before any tests in class are run");
+	}
+
+	@AfterClass     
+	public static void afterClass() {
+		System.out.println("only once after any tests in class are run");
+	}
 	
 
 }
@@ -205,39 +183,3 @@ public class TestBasketRepository {
 
 
 
-/*
-
-
-
-
-// test how to expect exception
-	@Test(expected = MyException.class)
-	public void givenNull_whenThrowsErrorOnCreate_thenCorrect() {
-	    try
-	    {
-	    	throwException();
-	    	fail("MyException was not thrown!!!!");
-	    }
-	    catch(MyException re)
-	    {
-	       String message = "Employee ID is null";
-	       assertEquals(message, re.getMessage());
-	       System.out.println("My exception was caught");
-	    }
-	}
-
-	
-	
-	private void throwException() throws MyException {
-		throw new MyException("My excpetion msg goes here");
-	}
-	
-	
-	
-	private class MyException extends Exception {
-		public MyException(String msg) {
-			super(msg);
-		}
-	}
-
-*/

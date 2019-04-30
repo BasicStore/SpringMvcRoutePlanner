@@ -1,11 +1,8 @@
 package com.routeplanner.ctrl;
-import java.util.Locale;
 import java.util.ResourceBundle;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +33,6 @@ import com.routeplanner.shopping.service.UserService;
 public class LoginController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-	
-	// TODO this must be dynamic
-	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
-	
 	
 	@Autowired
 	private TravelInfoService travelInfoService;
@@ -119,7 +112,7 @@ public class LoginController {
     	sess.setAttribute("ticketTypeList", TicketType.values());
     	sess.setAttribute("passengerTypeList", PassengerType.values());
     	sess.setAttribute("cardTypeList", CardType.values());
-    	sess.setAttribute("titleList", getTitles());
+    	sess.setAttribute("titleList", getTitleLiterals());
     	sess.setAttribute("currUser", user);
     	
     	// get an existing open basket for this user from the database
@@ -143,10 +136,10 @@ public class LoginController {
         
     
     
-    private String[] getTitles() {
-    	return new String[] {prop.getString("rp.person.title.mr"), 
-    			prop.getString("rp.person.title.mrs"), 
-    			prop.getString("rp.person.title.miss")};
+    private String[] getTitleLiterals() {
+    	return new String[] {"rp.person.title.mr", 
+    			"rp.person.title.mrs", 
+    			"rp.person.title.miss"};
     }
     
     

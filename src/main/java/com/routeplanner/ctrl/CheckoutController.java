@@ -54,9 +54,6 @@ public class CheckoutController {
 	@Autowired
 	private BasketService basketService;
 	
-	// TODO this must be dynamic
-	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
-	
 	public CheckoutController() {
 		
 	}
@@ -85,7 +82,7 @@ public class CheckoutController {
 	public ModelAndView goToPayment(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute ContactDetails contactDetails, BindingResult errors) {
 		if (errors.hasErrors()) {
     		logger.info("errors exist on contactDetailsForm on contact details page");
-    		model.addAttribute("errorLine1", prop.getString("rp.contact.details.generic.form.error"));
+    		model.addAttribute("errorLine1", "rp.contact.details.generic.form.error");
     		model.addAttribute("contactDetails", contactDetails);
     		addBespokeErrMsgs(contactDetails, model);
     		return new ModelAndView("contact-details");
@@ -123,22 +120,20 @@ public class CheckoutController {
 	
 	
 	private void addBespokeErrMsgs(ContactDetails contactDetails, ModelMap model) {
-		addBlankValidation(contactDetails.getAddressLine1(), model, "badFieldAddressLine1");
-		addBlankValidation(contactDetails.getCity(), model, "badFieldCity");
-		addBlankValidation(contactDetails.getRegionOrState(), model, "badFieldRegion");
-		addBlankValidation(contactDetails.getCountry(), model, "badFieldCountry");
-		addBlankValidation(contactDetails.getEmail(), model, "badFieldEmail");
-		addBlankValidation(contactDetails.getFullname(), model, "badFieldFullname");
+		addBlankValidation(contactDetails.getFullname(), "fullname", model, "rp.contact.details.bad-field-fullname-no-value");
+		addBlankValidation(contactDetails.getAddressLine1(), "addressLine1", model, "rp.contact.details.bad-field-address-line-1-no-value");
+		addBlankValidation(contactDetails.getCity(), "city", model, "rp.contact.details.bad-field-city-no-value");
+		addBlankValidation(contactDetails.getRegionOrState(), "regionOrState", model, "rp.contact.details.bad-field-region-no-value");
+		addBlankValidation(contactDetails.getCountry(), "country", model, "rp.contact.details.bad-field-country-no-value");
+		addBlankValidation(contactDetails.getEmail(), "email", model, "rp.contact.details.bad-field-email-no-value");
 	}
 	
 	
-	private void addBlankValidation(String field, ModelMap model, String attribute) {
+	private void addBlankValidation(String field, String fieldLit, ModelMap model, String attribute) {
 		if (StringUtils.isBlank(field)) {
-			model.addAttribute(attribute, prop.getString("rp.validation.is.null"));
+			model.addAttribute(fieldLit, attribute);
 		}
 	}
-	
-	
 	
 	
 	@PostMapping("/do-purchase")

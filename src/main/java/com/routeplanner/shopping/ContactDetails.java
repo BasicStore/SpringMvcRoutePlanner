@@ -6,8 +6,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.routeplanner.dm.DataModel;
-
 @Entity
 @Table(name="contact_details")
 public class ContactDetails extends DataModel 

@@ -8,8 +8,6 @@ import javax.persistence.Table;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.routeplanner.dm.DataModel;
-
 @Entity
 @Table(name="payment_info")
 public class PaymentInfo extends DataModel 

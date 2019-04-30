@@ -27,7 +27,7 @@
 					<td align="left">	    	
 						<select th:field="*{ticketType}" width="200px">
 	               			<option th:each="tt : ${session.ticketTypeList}"
-	                       			th:text="${tt.descriptionTrans}"
+	                       			th:text="#{${tt.description}}"
 	                       			th:value="${tt}"></option>
 		       			</select>
 					</td>
@@ -39,7 +39,7 @@
 					<td align="left">	    	
 						<select th:field="*{passengerType}" width="200px">
 	             				<option th:each="pt : ${session.passengerTypeList}"
-	             						th:text="${pt.typeDisplay}"
+	             						th:text="#{${pt.type}}"
 	                     				th:value="${pt}"></option>
 		       			</select>
 					</td>
@@ -84,8 +84,8 @@
 		  		     </tr>
 					 <tr th:each="item : *{tickets}">
 				         <td><input type="radio" th:field="*{radioButtonSelectedValue}" th:value="${item.id}" /></td>
-				         <td><label th:text="${item.ticketType.descriptionTrans}"></label></td>
-				         <td><label th:text="${item.passengerType.codeDisplay}"></label></td>
+				         <td><label th:text="#{${item.ticketType.description}}"></label></td>
+    				     <td><label th:text="#{${item.passengerType.type}}"></label></td>
 				         <td><label th:text="${item.numUnits}"></label></td>
 				         <td><label th:text="${item.travelDate}"></label></td>
 				         <td><label th:text="${item.routeQuery.currRouteStart}"></label></td>

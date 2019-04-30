@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.routeplanner.dm.DataModel;
-
 @Entity
 @Table(name="rule")
 public class Rule extends DataModel {

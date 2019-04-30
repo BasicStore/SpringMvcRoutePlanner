@@ -20,8 +20,8 @@
 				 			<td align="left">
 								<select th:field="*{title}" width="80px">
 		             				<option th:each="ti : ${session.titleList}"
-		             						th:text="${ti}"
-		                     				th:value="${ti}"></option>
+		             						th:text="#{'' + ${ti}}"
+		                     				th:value="#{'' + ${ti}}"></option>
 				       			</select>
 				       			<p/>
 				 			</td>
@@ -31,7 +31,12 @@
 				 			</td>
 				 			<td align="left">
 				 				<input type="text" th:field="*{fullname}" />
-				 				<p class="errorMsg"><label th:text = "${badFieldFullname}"></label></p>	
+								<div th:if="${fullname} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${fullname}}"></label></p>
+							 	</div>
+								<div th:if="${fullname} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div> 	
 				 			</td>
 				 		</tr>
 				 		<tr>
@@ -42,6 +47,12 @@
 				 			<td align="left">
 				 				<input class="form-field-space" type="text" th:field="*{addressLine1}" />
 				 				<p class="errorMsg"><label th:text = "${badFieldAddressLine1}"></label></p>
+				 				<div th:if="${addressLine1} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${addressLine1}}"></label></p>
+							 	</div>
+								<div th:if="${addressLine1} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div>
 				 			</td>
 				 			<td align="right">
 				 				<label th:text = "#{rp.person.city}"></label>
@@ -49,7 +60,12 @@
 				 			</td>
 				 			<td align="left">
 				 				<input type="text" th:field="*{city}" />
-				 				<p class="errorMsg"><label th:text = "${badFieldCity}"></label></p>
+				 				<div th:if="${city} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${city}}"></label></p>
+							 	</div>
+								<div th:if="${city} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div>
 				 			</td>
 				 		</tr>
 				 		<tr>
@@ -67,7 +83,12 @@
 				 			</td>
 				 			<td align="left">
 				 				<input type="text" th:field="*{regionOrState}" />	
-				 				<p class="errorMsg"><label th:text = "${badFieldRegion}"></label></p>
+				 				<div th:if="${regionOrState} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${regionOrState}}"></label></p>
+							 	</div>
+								<div th:if="${regionOrState} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div>
 				 			</td>
 				 		</tr>
 				 		<tr>
@@ -85,7 +106,12 @@
 				 			</td>
 				 			<td align="left">
 				 				<input type="text" th:field="*{country}" />
-				 				<p class="errorMsg"><label th:text = "${badFieldCountry}"></label></p>
+				 				<div th:if="${country} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${country}}"></label></p>
+							 	</div>
+								<div th:if="${country} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div>
 				 			</td>
 				 		</tr>
 				 		<tr>
@@ -103,7 +129,12 @@
 				 			</td>
 				 			<td align="left">
 				 				<input type="text" th:field="*{email}" />
-				 				<p class="errorMsg"><label th:text = "${badFieldEmail}"></label></p>
+				 				<div th:if="${email} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${email}}"></label></p>
+							 	</div>
+								<div th:if="${email} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div>
 				 			</td>
 				 		</tr>
 				 		<tr>

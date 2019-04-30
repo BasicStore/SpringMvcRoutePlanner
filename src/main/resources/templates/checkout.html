@@ -22,7 +22,7 @@
 			 			<td align="left">
 			 				<select th:field="*{cardType}" width="200px">
 		             				<option th:each="ct : ${session.cardTypeList}"
-		             						th:text="${ct.codeDisplay}"
+		             						th:text="#{${ct.code}}"
 		                     				th:value="${ct}"></option>
 			       			</select>
 			 			</td>

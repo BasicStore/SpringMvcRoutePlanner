@@ -31,9 +31,6 @@ public class BasketController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BasketController.class);
 	
-	// TODO this must be dynamic
-	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
-	
 	@Autowired
 	private TicketService ticketService;
 	
@@ -46,9 +43,8 @@ public class BasketController {
 	public BasketController() {
 		
 	}
-
 	
-	// TODO change to POST
+	
 	@PostMapping("/go-to-basket")
     public ModelAndView proceedToBasket(HttpServletRequest request, ModelMap model) {
 		// display existing tickets in the basket
@@ -57,12 +53,13 @@ public class BasketController {
 		model.addAttribute("basket", basket);
     	
 		// get the selected journey details
-		RouteQuery mostRecentQuery = request.getSession().getAttribute("mostRecentQuery") == null ? null : (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
+		RouteQuery mostRecentQuery = request.getSession().getAttribute("mostRecentQuery") == null 
+				? null : (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
 		
 		// do not proceed unless the journey details are provided
 		if (mostRecentQuery == null || !mostRecentQuery.isSuccessfulLastSearch()) {
 			model.addAttribute("routeQuery", new RouteQuery());
-			model.addAttribute("errorLine1", prop.getString("rp.basket.no.route.err.msg.line1"));
+			model.addAttribute("errorLine1", "rp.basket.no.route.err.msg.line1");
 			return new ModelAndView("query");
 		}
 		
@@ -72,8 +69,6 @@ public class BasketController {
 		
 		return new ModelAndView("view-basket");
 	}
-
-	
 	
 	
 	

@@ -18,6 +18,7 @@
 	 <p th:text="'Email: ' + ${session.shopping.purchase.user.email}" th:unless="${session == null}"> . </p>
 	 <p th:text="'Transaction date: ' + ${session.shopping.purchase.transactionDate}" th:unless="${session == null}"> . </p>
 	 <p th:text="'Name on card: ' + ${session.shopping.purchase.order.paymentInfo.nameOnCard}" th:unless="${session == null}"> . </p>
+	 <p th:text="#{rp.cardtype.label.colon} + ' ' + #{${session.shopping.purchase.order.paymentInfo.cardType.code}}" th:unless="${session == null}"> . </p>
 	 <p th:text="'Card number: ' + ${session.shopping.purchase.order.paymentInfo.cardNumber}" th:unless="${session == null}"> . </p>
 	 <p th:text="'Title: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.title}" th:unless="${session == null}"> . </p>
 	 <p th:text="'Fullname: ' + ${session.shopping.purchase.order.paymentInfo.contactDetails.fullname}" th:unless="${session == null}"> . </p>
@@ -37,8 +38,8 @@
 	 <table class="open-table">
 		 <tr th:each="item : ${session.shopping.purchase.order.basket.tickets}">
 	        <p th:text = "'***** NEXT TICKET..............'"></p>
-	        <p th:text="'Ticket type: ' + ${item.ticketType.descriptionTrans}" th:unless="${session == null}"> . </p>
-	        <p th:text="'Passenger type: ' + ${item.passengerType.codeDisplay}" th:unless="${session == null}"> . </p>
+	        <p th:text="'Ticket type: ' + #{${item.ticketType.description}}" th:unless="${session == null}"> . </p>
+	        <p th:text="'Passenger type: ' + #{${item.passengerType.type}}" th:unless="${session == null}"> . </p>
 	        <p th:text="'Number tickets: ' + ${item.numUnits}" th:unless="${session == null}"> . </p>
 	        <p th:text="'Date of travel: ' + ${item.travelDate}" th:unless="${session == null}"> . </p>
 	        <p th:text="'Start station: ' + ${item.routeQuery.currRouteStart}" th:unless="${session == null}"> . </p>
@@ -46,10 +47,6 @@
 			<br />
 	     </tr>
 	 </table>
-	 
-	 
-	 
-	 
 	 	
 	 <div th:insert="navbar">  </div>
 	 	 

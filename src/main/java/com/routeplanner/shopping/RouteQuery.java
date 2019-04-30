@@ -5,8 +5,6 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.routeplanner.dm.DataModel;
-
 
 @Entity
 @Table(name="route_query")

@@ -29,9 +29,6 @@ public class QueryController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(QueryController.class);
 	
-	// TODO this must be dynamic
-	final ResourceBundle prop = ResourceBundle.getBundle("messages", Locale.FRANCE);
-	
 	@Autowired
 	private TravelInfoService travelInfoService;
 		
@@ -39,8 +36,7 @@ public class QueryController {
 	public QueryController() {
 	
 	}
-	
-	
+		
 	@PostMapping("/query")
     public ModelAndView findTravelInfo(HttpServletRequest request, ModelMap model, 
     		@Valid @ModelAttribute RouteQuery routeQuery, BindingResult errors) {
@@ -57,21 +53,21 @@ public class QueryController {
         } else { // something went wrong in the model
         	routeQuery.setSuccessfulLastSearch(false);
         	if (journeySummary.getFailureException() instanceof IOException) {
-        		routeQuery.setRouteInfo(prop.getString("error.engine.io"));
+        		routeQuery.setRouteInfo("error.engine.io");
         	} else if (journeySummary.getFailureException() instanceof FileNotFoundException) {
-        		routeQuery.setRouteInfo(prop.getString("error.engine.file.not.found"));
+        		routeQuery.setRouteInfo("error.engine.file.not.found");
 			} else if (journeySummary.getFailureException() instanceof InvalidStationException) {
-				routeQuery.setRouteInfo(prop.getString("error.engine.invalid.station"));	
+				routeQuery.setRouteInfo("error.engine.invalid.station");	
 			} else if (journeySummary.getFailureException() instanceof InvalidNetworkException) {
-				routeQuery.setRouteInfo(prop.getString("error.engine.invalid.network"));
+				routeQuery.setRouteInfo("error.engine.invalid.network");
 			} else if (journeySummary.getFailureException() instanceof NoJourneyFoundException) {
-				routeQuery.setRouteInfo(prop.getString("error.engine.no.journey.found"));
+				routeQuery.setRouteInfo("error.engine.no.journey.found");
 			} else if (journeySummary.getFailureException() instanceof DuplicateStationException) {
-				routeQuery.setRouteInfo(prop.getString("error.engine.start.and.dest.the.same"));
+				routeQuery.setRouteInfo("error.engine.start.and.dest.the.same");
 			} else if (journeySummary.getFailureException() instanceof Exception) {
-				routeQuery.setRouteInfo(prop.getString("error.engine.generic"));
+				routeQuery.setRouteInfo("error.engine.generic");
 			}
-        	model.addAttribute("errorLine1", prop.getString("rp.basket.no.route.err.msg.line1"));
+        	model.addAttribute("errorLine1", "rp.basket.no.route.err.msg.line1");
         }
         
     	model.addAttribute("routeQuery", routeQuery);

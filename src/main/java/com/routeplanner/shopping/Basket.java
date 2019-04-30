@@ -7,8 +7,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.routeplanner.dm.DataModel;
-
 
 @Entity
 @Table(name="basket")

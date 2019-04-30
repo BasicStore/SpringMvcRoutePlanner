@@ -18,7 +18,12 @@
 		
 		<div th:insert="add-contact-details-box">  </div>
 		
-		<p class="errorMsg"><label th:text = "${errorLine1}"></label></p>
+		<div th:if="${errorLine1} != null">
+	 		<p class="errorMsg"><label th:text = "#{'' + ${errorLine1}}"></label></p>
+	 	</div>
+		<div th:if="${errorLine1} == null">
+	 		<p class="errorMsg"><label th:text = "' '"></label></p>
+	 	</div>
 		
 		<p><input class="formButtonProceed" type="submit" value="Proceed" th:attr="value=#{rp.contact.details.submit}" align="center"/></p> 
 	 

@@ -7,5 +7,4 @@ public interface UserRepository<T> extends JpaRepository<User, Integer> {
 
 	Optional<User> findByUsername(String name);
 	
-	
 }

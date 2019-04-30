@@ -39,11 +39,24 @@
 				</td>
 			</tr>	 
 	 	</table>
+
 	 	
-	 	<p class="errorMsg"><label th:text = "${errorLine1}"></label></p>
+	 	<div th:if="*{successfulLastSearch} == false">
+	 		<p class="errorMsg"><label th:text = "#{'' + ${errorLine1}}"></label></p>
+	 	</div>
+	 	<div th:if="*{successfulLastSearch} == true">
+			<p class="errorMsg"><label th:text = "${errorLine1}"></label></p>	 		
+	 	</div>
 	 	
 	 	<p><input class="formButton" type="submit" value="Find Route Options" th:attr="value=#{rp.query.submit}" align="center"/></p>
-	 	<p><textarea name="routeInfo" th:text="*{routeInfo}" rows="30" cols="150"></textarea></p>
+	 	
+	 	<div th:if="*{successfulLastSearch} == true">
+	 		<p><textarea name="routeInfo" th:text="*{routeInfo}" rows="30" cols="150"></textarea></p>
+	 	</div>
+	 	<div th:if="*{successfulLastSearch} == false">
+	 		<p><textarea name="routeInfo" th:text="#{'' + *{routeInfo}}" rows="30" cols="150"></textarea></p>
+	 	</div>
+	 	
 	 	<div th:insert="navbar">  </div>
 	</form>
 		
