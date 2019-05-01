@@ -144,10 +144,12 @@ inner join basket b on u.id = b.user_id
 inner join orders o on b.id = o.basket_id
 inner join purchase p on p.order_id = o.id
 inner join payment_info pi on pi.id = o.payment_info_id
-inner join contact_details cd on cd.id = pi.contact_details_id
+inner join contact_details cd on cd.id = o.contact_details_id
 inner join basket_tickets bts on bts.basket_id = b.id
 inner join ticket t on t.id = bts.tickets_id
 inner join route_query rq on rq.id = t.route_query_id
 order by u.name, b.id, t.id
 --------------------------------------------------------
+
+
 

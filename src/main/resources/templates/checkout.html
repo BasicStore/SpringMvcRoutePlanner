@@ -10,7 +10,7 @@
     <p><h1><b th:text = "#{rp.checkout.header}"></b></h1></p>
 	
 	 <!-- Add payment details - start --> 
-	 <div class="mainDiv" style="min-height: 230px">
+	 <div class="mainDiv" style="min-height: 265px">
 	     <p><label th:text = "#{rp.checkout.add.payment.details}" class="header"></label></p>
 		 <form id="doPurchaseForm" action="#" th:action="@{/routeplanner/do-purchase}" th:object="${paymentInfo}" method="post">
 			 <div class="display-inline"><!--left side payment details - start -->

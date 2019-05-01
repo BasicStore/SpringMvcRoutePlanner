@@ -32,6 +32,9 @@
    ResourceBundle rb = ResourceBundle.getBundle("config.sysprops"); [folder + file prefix]
    String value = rb.getString("database.name");
  
+ - specific errors:
+   https://stackoverflow.com/questions/37398385/spring-boot-and-custom-404-error-page
+ 
  - drop downs populated from enum and result read into form object as enum property
    see PassengerType to populate with translated text in java - is there a better way of doing this?
   
@@ -79,78 +82,8 @@
    https://stackoverflow.com/questions/38367339/thymeleaf-how-to-loop-a-list-by-index
  
    https://stackoverflow.com/questions/17692941/values-for-thfield-attributes-in-checkbox
- https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#creating-a-form
- 
- --------------------------------------
- 
- <label th:for="${#ids.prev('currentSelection')}" th:text="${item.routeQuery.currRouteStart}"></label>
-	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.routeQuery.currRouteDest}"></label>
- 
- 
- insert into passenger_type values(1, 'OVER 75','OAP');
-insert into passenger_type values(2, 'STANDARD PLUS','PLU');
-insert into passenger_type values(3, 'BOG STANDARD','STD');
-insert into passenger_type values(4, 'STUDENT POOR','STU');
- 
- 
- <label th:for="${#ids.prev('currentSelection')}" th:text="${item.routeQuery.startAndDestinationLabel}"></label>
- 
- <input type="radio" th:field="*{currentSelection}" th:value="${item}" />
- 
- 
- WAS view basket:
- 
- <div th:object="${ticket.passengerType}">
-			<label th:text = "#{rp.basket.passenger.type}"></label>
-		    <select id="passTypes" name="passTypes">
-		    <!--<select th:field="*{passengerType}">-->
-		        <option th:each="pt : ${passengerTypeList}"
-		                th:value="${pt}"
-		                th:text="${pt.code}"></option>
-		    </select>
-		</div> 
- 
- 
- 
- 		<li th:each="item: *{tickets}">
-	        <input type="radio" th:field="*{currentSelection}" th:value="${item}" />
-	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.ticketType.descriptionTrans}"></label>                                   
-	        <label th:for="${#ids.prev('currentSelection')}" th:text="${item.passengerType.codeDisplay}"></label>
-		</li>
- 
- 
- 	<form th:object="*{tickets}">
-		    <th:block th:each="column: ${columns}">
-		        <input type="radio" th:value="${column.key}" th:id="${column.key}" th:field="*{type}" />
-		        <label th:for="${column.key}" th:text="${column.value}" />
-		    </th:block>
-		</form>
-		
-		
-		
-		
-		!!!************ https://medium.com/@grokwich/spring-boot-thymeleaf-html-form-handling-762ef0d51327
-		            +++https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#order-list
-		***********https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#handling-the-command-object
-		
-		************ OLD STRUTS 1 view_basket.jsp
-	<c:forEach var="thisBasket" items="${state.basketList}" varStatus="loopCount">
-   		<tr>	
-   			<td class="tableContents">${loopCount.count}</td>
-   			<td class="tableContents">${thisBasket.start}</td>
-   			<td class="tableContents">${thisBasket.destination}</td>
-   			<td class="tableContents">${thisBasket.ticket.name}</td>    
-   			<td class="tableContents">${thisBasket.numberTickets}</td>
-   			<td class="tableContents">${thisBasket.travelDate}</td>
-   			<td class="tableContents">${thisBasket.passengerType.code}</td>
-   			<td class="tableContents">${thisBasket.totalPayment}
-   			<td><input type="checkbox" name="remove${loopCount.count}" /></td>
-   			<td><input type="checkbox" name="purchase${loopCount.count}" /></td>
-   			<input type="hidden" name="count" value="${loopCount.count}" />
-    	</tr>
-		</c:forEach>
-	
-	
+   https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#creating-a-form
+
 	Date format too: https://stackoverflow.com/questions/49570719/using-input-type-hidden-combine-with-thymeleaf
 	
  =========================================
@@ -270,17 +203,19 @@ ISSUES AND CORE JOURNEY:
   --> FAIL poc on controller test
   --> FAIL consolidate old engine tests - none found!!!!
   - OK still need to tidy up local in controllers
+  - OK add poc bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
+  - OK error page handling:
+  --> OK apply error handling in the contoller when services mess up (implemented at checkout), otherwise rely on error page
+  --> OK test that transaction management is working
+  
 ---------------------------------------   
  RESEARCH
 
-- add poc bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
-   
-
-- error page handling:
-  --> apply errors in the contoller when services mess up
-  --> test that transaction management is working
-  --> checkoutController.addPaymentInfo() 
+- issue: persistence of passenger type and ticket type enums seems always to be 0.....cannot be right  
+  
 - trim automatic spring boot column sizes 
+
+ 
 
 - log the id of the basket items once they have been persisted + shopping
 - remove link needs to replace radios (but note the methods for radios and checkboxes) 
@@ -303,6 +238,9 @@ ISSUES AND CORE JOURNEY:
   --> CheckoutController, see todo: sometimes the basket is lost from the order
 - full manual system test
 
+- add proper date validation on view-basket and checkout pages
+  --> date of travel (view basket)
+  --> a blank email field is not working....
 - add system images incl basket
 - remove view basket from view basket page.....   
 - check warnings

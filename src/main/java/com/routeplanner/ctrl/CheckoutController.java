@@ -100,14 +100,12 @@ public class CheckoutController {
 		Order order = shopping.getOrder();
 		if (shopping.getOrder() == null) {
 			order = new Order();
-			orderService.save(order);
 		}
 
 		// persist order with the contact details part (without payment info), and add to shopping cart session
 		order.setContactDetails(contactDetails);
 		order.setBasket(shopping.getBasket());
 		order.setUser(shopping.getUser());
-		orderService.save(order);
 		shopping.setOrder(order);
 		
 		// go to checkout page
@@ -168,14 +166,18 @@ public class CheckoutController {
 				Purchase purchase = new Purchase(shopping.getUser(), LocalDate.now(), shopping.getOrder());
 				
 				// TODO when the back button is involved, sometimes the basket is lost from the order.................needs fixing
-				Basket basket = purchase.getOrder().getBasket();
-				
+
 				// set the basket and its contents to closed
+				Basket basket = purchase.getOrder().getBasket();
 				basket.setOpen(false);
-				basketService.saveTickets(basket.getTickets());
-				basketService.save(basket);
+				
+				Order order = shopping.getOrder();
+				order.setBasket(basket);
+				purchase.setOrder(order);
+				
+				purchaseService.save(purchase, basket);
+
 				shopping.setPurchase(purchase);
-				purchaseService.save(purchase);
 				shopping.postPurchasePruneOrder();
 			} else {
 				// TODO go to sale-failure with explanation, and a link to payment
@@ -183,6 +185,7 @@ public class CheckoutController {
 		} catch(Throwable t) { 
 			logger.info("An error occurred whilst attempting to persist the purchase data - " + t.getMessage());
     		model.addAttribute("paymentInfo", paymentInfo);
+    		model.addAttribute("errorLine1", "rp.purchase.generic.failure.error");
     		return new ModelAndView("checkout");
 		}
 				

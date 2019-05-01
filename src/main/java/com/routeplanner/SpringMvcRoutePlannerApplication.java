@@ -23,7 +23,7 @@ public class SpringMvcRoutePlannerApplication extends WebMvcConfigurerAdapter {
 	
 	@Bean
     public Java8TimeDialect java8TimeDialect() {
-        return new Java8TimeDialect();
+        return new Java8TimeDialect();  // TODO upgrade to java 11
     }
 	
 	

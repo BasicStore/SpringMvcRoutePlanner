@@ -125,7 +125,6 @@ public class LoginController {
     		// create a new open basket if one doesn't exist in the database
     		if (openBasket == null) {
     			openBasket = new Basket(user);
-    			basketService.save(openBasket);
     		}
     		
     		// put the user's open basket into the session
@@ -183,9 +182,8 @@ public class LoginController {
     	
     	// delete the existing basket and create a new one from scratch
     	User user = shopping.getUser();
-		Basket openBasket = new Basket(user);
-		basketService.save(openBasket);
-		
+    	Basket openBasket = new Basket(user);
+    	
 		// put the user's open basket into the session
 		shopping.startFreshJourneyPrunePreviousPurchase();
 		shopping.setBasket(openBasket);

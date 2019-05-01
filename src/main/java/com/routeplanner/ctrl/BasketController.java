@@ -51,6 +51,7 @@ public class BasketController {
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		Basket basket = (Basket)shopping.getBasket();
 		model.addAttribute("basket", basket);
+		basket.setTickets(new HashSet<Ticket>());
     	
 		// get the selected journey details
 		RouteQuery mostRecentQuery = request.getSession().getAttribute("mostRecentQuery") == null 
@@ -63,6 +64,7 @@ public class BasketController {
 			return new ModelAndView("query");
 		}
 		
+		// prepare for possibility of user adding a new ticket
 		Ticket newTicket = new Ticket();
 		newTicket.setRouteQuery(mostRecentQuery);
 		model.addAttribute("ticket", newTicket);
@@ -92,16 +94,9 @@ public class BasketController {
 		}
 		basket.getTickets().add(newTicket);
 		
-		
-		// TODO ************** RouteQuery routeQuery;
 		RouteQuery routeQuery = (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
 		routeQueryService.save(routeQuery);
 		newTicket.setRouteQuery(routeQuery);
-		
-		// persist the ticket and its basket now that there are some basket contents
-		ticketService.save(newTicket);
-		basketService.save(basket);
-		logger.info("added new ticket to basket with id: " + newTicket.getId());
 		
 		// prepare view existing tickets
 		model.addAttribute("basket", basket);

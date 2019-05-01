@@ -4,7 +4,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.routeplanner.shopping.Basket;
+import com.routeplanner.shopping.Order;
 import com.routeplanner.shopping.Purchase;
+import com.routeplanner.shopping.Shopping;
+import com.routeplanner.shopping.repository.OrderRepository;
 import com.routeplanner.shopping.repository.PurchaseRepository;
 
 
@@ -15,11 +20,25 @@ public class PurchaseService {
 	@Autowired
 	private PurchaseRepository purchaseRepository;
 	
+	@Autowired
+	private OrderRepository orderRepository;
+	
+	@Autowired
+	private BasketService basketService;
+	
+	@Autowired
+	private PurchaseService purchaseService;
+	
+	
 	public PurchaseService() {
 		
 	}
 
-	public void save(Purchase purchase) {
+	
+	public void save(Purchase purchase, Basket basket) {
+		basketService.saveTickets(basket.getTickets());
+		basketService.save(basket);
+		orderRepository.save(purchase.getOrder());
 		purchaseRepository.save(purchase);
 	}
 	
