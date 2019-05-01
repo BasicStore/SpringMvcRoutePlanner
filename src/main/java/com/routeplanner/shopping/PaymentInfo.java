@@ -6,6 +6,7 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,11 +29,13 @@ public class PaymentInfo extends DataModel
 	private CardType cardType; 
 	
 	@NotNull
+	@Size(min=16,max=16)
 	@Column(name="card_num")
 	private String cardNumber;
 	
 	@NotNull
 	@Column(name="card_sec_code")
+	@Size(min=3,max=3)
 	private String securityCode;
 		
 	@NotNull

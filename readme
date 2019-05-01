@@ -210,11 +210,9 @@ ISSUES AND CORE JOURNEY:
   - OK error page handling:
   --> OK apply error handling in the contoller when services mess up (implemented at checkout), otherwise rely on error page
   --> OK test that transaction management is working
-  
+- OK issue: persistence of passenger type and ticket type enums seems always to be 0.....cannot be right  
 ---------------------------------------   
  RESEARCH
-
-- issue: persistence of passenger type and ticket type enums seems always to be 0.....cannot be right  
  
 - validation handling digits on card number.....  
 - trim automatic spring boot column sizes 

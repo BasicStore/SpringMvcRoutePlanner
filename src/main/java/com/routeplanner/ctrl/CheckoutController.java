@@ -42,6 +42,9 @@ public class CheckoutController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CheckoutController.class);
 	
+	private static final int CREDIT_CARD_NUMBER_LENGTH = 16;
+	private static final int CREDIT_CARD_SECURITY_CODE_LENGTH = 3;
+	
 	private LoginController loginController;
 	
 	@Autowired
@@ -128,10 +131,11 @@ public class CheckoutController {
 	
 	
 	private static void validateTelFields(ContactDetails contactDetails, ModelMap model) {
-		FormValidation.addNumericValidation("mobileTel", contactDetails.getMobileTel(), "rp.contact.details.bad-field-mobile-tel-not-all-digits", model);
-		FormValidation.addNumericValidation("homeTel", contactDetails.getHomeTel(), "rp.contact.details.bad-field-home-tel-not-all-digits", model);
+		FormValidation.addValidation("mobileTel", contactDetails.getMobileTel(), 
+				"rp.contact.details.bad-field-mobile-tel-not-all-digits", model, FormValidation.DIGITS_ONLY_REGEX);
+		FormValidation.addValidation("homeTel", contactDetails.getHomeTel(), 
+				"rp.contact.details.bad-field-home-tel-not-all-digits", model, FormValidation.DIGITS_ONLY_REGEX);
 	}
-	
 	
 	
 	private void addBespokeErrMsgs(PaymentInfo paymentInfo, ModelMap model) {
@@ -139,8 +143,12 @@ public class CheckoutController {
 		FormValidation.addBlankValidation(paymentInfo.getCardNumber(), "cardNumber", model, "rp.checkout.bad-field-card-number-no-value");
 		FormValidation.addBlankValidation(paymentInfo.getSecurityCode(), "securityCode", model, "rp.checkout.bad-field-security-code-no-value");
 		FormValidation.addBlankValidation(paymentInfo.getExpiryDate(), "expiryDate", model, "rp.checkout.bad-field-expiry-date-no-value");
+		FormValidation.addStringFldLengthValidation("cardNumber", paymentInfo.getCardNumber(), 
+				"rp.checkout.card-field-wrong-length", CREDIT_CARD_NUMBER_LENGTH, model);
+		FormValidation.addStringFldLengthValidation("securityCode", paymentInfo.getSecurityCode(), 
+				"rp.checkout.security-field-wrong-length", CREDIT_CARD_SECURITY_CODE_LENGTH, model);
 	}
-	
+
 	
 	
 	@PostMapping("/do-purchase")
