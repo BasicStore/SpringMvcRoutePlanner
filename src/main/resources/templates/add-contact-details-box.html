@@ -121,7 +121,13 @@
 				 			</td>
 				 			<td align="left">
 				 				<input class="form-field-space" type="text" th:field="*{mobileTel}" />
-				 				<p/>	
+				 				<p/>
+				 				<div th:if="${mobileTel} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${mobileTel}}"></label></p>
+							 	</div>
+								<div th:if="${mobileTel} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div>
 				 			</td>
 				 			<td align="right">
 				 				<label th:text = "#{rp.person.email}"></label>		
@@ -140,7 +146,12 @@
 				 		<tr>
 				 			<td align="right">
 				 				<label th:text = "#{rp.person.home-tel}"></label>
-				 				<p/>	
+				 				<div th:if="${homeTel} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${homeTel}}"></label></p>
+							 	</div>
+								<div th:if="${homeTel} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							 	</div>
 				 			</td>
 				 			<td align="left">
 				 				<input class="form-field-space" type="text" th:field="*{homeTel}" />

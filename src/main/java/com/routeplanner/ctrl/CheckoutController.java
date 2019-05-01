@@ -1,13 +1,13 @@
 package com.routeplanner.ctrl;
 import java.time.LocalDate;
-import java.util.Locale;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +18,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.ContactDetails;
 import com.routeplanner.shopping.Order;
 import com.routeplanner.shopping.PaymentInfo;
 import com.routeplanner.shopping.Purchase;
-import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.Ticket;
-import com.routeplanner.shopping.User;
 import com.routeplanner.shopping.service.BasketService;
 import com.routeplanner.shopping.service.OrderService;
 import com.routeplanner.shopping.service.PaymentInfoService;
 import com.routeplanner.shopping.service.PurchaseService;
+import com.routeplanner.shopping.utils.FormValidation;
 
 
 @Controller
@@ -40,7 +38,7 @@ public class CheckoutController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CheckoutController.class);
 	
-	LoginController loginController;
+	private LoginController loginController;
 	
 	@Autowired
 	private PaymentInfoService paymentInfoService;
@@ -53,6 +51,8 @@ public class CheckoutController {
 	
 	@Autowired
 	private BasketService basketService;
+	
+	
 	
 	public CheckoutController() {
 		
@@ -120,20 +120,64 @@ public class CheckoutController {
 	
 	
 	private void addBespokeErrMsgs(ContactDetails contactDetails, ModelMap model) {
+//		FormValidation.addBlankValidation(contactDetails.getFullname(), "fullname", model, "rp.contact.details.bad-field-fullname-no-value");
+//		FormValidation.addBlankValidation(contactDetails.getAddressLine1(), "addressLine1", model, "rp.contact.details.bad-field-address-line-1-no-value");
+//		FormValidation.addBlankValidation(contactDetails.getCity(), "city", model, "rp.contact.details.bad-field-city-no-value");
+//		FormValidation.addBlankValidation(contactDetails.getRegionOrState(), "regionOrState", model, "rp.contact.details.bad-field-region-no-value");
+//		FormValidation.addBlankValidation(contactDetails.getCountry(), "country", model, "rp.contact.details.bad-field-country-no-value");
+//		FormValidation.addBlankValidation(contactDetails.getEmail(), "email", model, "rp.contact.details.bad-field-email-no-value");
+//		FormValidation.validateTelFields(contactDetails, model);
+//		FormValidation.validateEmailFieldPattern("email", contactDetails.getEmail(), "rp.contact.details.bad-field-invalid-email", model);
+		
 		addBlankValidation(contactDetails.getFullname(), "fullname", model, "rp.contact.details.bad-field-fullname-no-value");
 		addBlankValidation(contactDetails.getAddressLine1(), "addressLine1", model, "rp.contact.details.bad-field-address-line-1-no-value");
 		addBlankValidation(contactDetails.getCity(), "city", model, "rp.contact.details.bad-field-city-no-value");
 		addBlankValidation(contactDetails.getRegionOrState(), "regionOrState", model, "rp.contact.details.bad-field-region-no-value");
 		addBlankValidation(contactDetails.getCountry(), "country", model, "rp.contact.details.bad-field-country-no-value");
 		addBlankValidation(contactDetails.getEmail(), "email", model, "rp.contact.details.bad-field-email-no-value");
+		validateTelFields(contactDetails, model);
+		validateEmailFieldPattern("email", contactDetails.getEmail(), "rp.contact.details.bad-field-invalid-email", model);
 	}
+
 	
 	
-	private void addBlankValidation(String field, String fieldLit, ModelMap model, String attribute) {
+	///////////
+	
+	
+private static final String DIGITS_ONLY_REGEX = "^[0-9]*$";
+	
+	public static void validateEmailFieldPattern(String emailFld, String emailVal, String emailErrLit, ModelMap model) {
+		if (StringUtils.isNoneBlank(emailVal) && !EmailValidator.getInstance().isValid(emailVal)) {
+			model.addAttribute(emailFld, emailErrLit);
+		}
+	}
+		
+	public static void validateTelFields(ContactDetails contactDetails, ModelMap model) {
+		addNumericValidation("mobileTel", contactDetails.getMobileTel(), "rp.contact.details.bad-field-mobile-tel-not-all-digits", model);
+		addNumericValidation("homeTel", contactDetails.getHomeTel(), "rp.contact.details.bad-field-home-tel-not-all-digits", model);
+	}
+		
+	private static void addNumericValidation(String fldName, String fldVal, String errorLit, ModelMap model) {
+		Pattern p = Pattern.compile(DIGITS_ONLY_REGEX);
+		if (StringUtils.isNoneBlank(fldVal)) {
+			Matcher m = p.matcher(fldVal);
+			if (! m.matches()) {
+				//model.addAttribute("mobileTel", "rp.contact.details.bad-field-mobile-tel-not-all-digits");
+				model.addAttribute(fldName, errorLit);
+			}
+		}
+	}
+		
+	public static void addBlankValidation(String field, String fieldLit, ModelMap model, String attribute) {
 		if (StringUtils.isBlank(field)) {
 			model.addAttribute(fieldLit, attribute);
 		}
 	}
+	
+	
+	////////////
+	
+	
 	
 	
 	@PostMapping("/do-purchase")

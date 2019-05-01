@@ -52,9 +52,13 @@
    <div th:if="${user.isAdmin() == false}">
    <div th:if="${!user.isAdmin() and !user.isMember()}" th:text = "#{rp.login.title}"></div>
  
+ - service tests
+   https://medium.freecodecamp.org/unit-testing-services-endpoints-and-repositories-in-spring-boot-4b7d9dc2b772
+ 
  - validation:
-   https://docs.spring.io/spring/docs/3.1.x/spring-framework-reference/html/validation.html#validation-beanvalidation
    (bespoke) https://docs.spring.io/spring/docs/2.0.x/reference/validation.html
+             --> Annotations: https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/javax/validation/constraints/package-summary.html
+             --> Validator API: https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/javax/validation/Validator.html
  
  - hibernate JPA: using abstract superclass for subclasses which are annotated with @Entity
    https://stackoverflow.com/questions/3827494/inherited-abstract-class-with-jpa-hibernate
@@ -257,11 +261,7 @@ ISSUES AND CORE JOURNEY:
 - OK still an issue when an initial search is done, then an invalid search is performed, the user can then still proceed to checkout. Needs fixing
 - OK think again about the open flag on items (is it enough to rely on the open flag on the basket)?
 - OK consider dynamic locale retrieval in enums (card type, ticket type, passenger type)
-
-  --------------------------------------
- COMPLETE CORE FUNCTIONALITY
-
-- add poc controller test and all unit test method stubs
+- NOT_COMPLETEadd poc controller test and all unit test method stubs
   https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
   --> OK complete shopping dao
   --> OK apply very basic mockito service test [SERVICES MOCKITO: @RunWith(MockitoJUnitRunner.class)]
@@ -269,21 +269,12 @@ ISSUES AND CORE JOURNEY:
   --> OK TravelInfoService 
   --> FAIL poc on controller test
   --> FAIL consolidate old engine tests - none found!!!!
-
+  - OK still need to tidy up local in controllers
 ---------------------------------------   
-NEXT PHASES:    
+ RESEARCH
 
-- design journey for a) registration (non-members) b) admin corner (admin)
-- implement registration page
-- implement admin corner
-- refine user of roles to be admin or member, and implied guest which is not in the db 
-- purchase history
-  
----------------------------------------
-RESEARCH
-
-- still need to tidy up local in controllers  
-- sort out error controller, especially for dates and routeplanner errors eg. when start and destination are the same, print some message as a response
+- add poc bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
+   
 
 - error page handling:
   --> apply errors in the contoller when services mess up
@@ -297,30 +288,35 @@ RESEARCH
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
   - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
 
-- issue: fetching all items including closed items... 
+- list problems and techs / new stuff / extensions / mvc / purpose and approach / main spiel
 
 - what about if starting a new journey on the 2nd lap with an existing basket containing items??
   - currently the basket is refreshed (incorrectly)
 
 - basket.tickets is null after completing a purchase and then coming back to start a new journey (this time on an empty basket) 
 
-- add poc bespoke validator (to show how it is done and to ensure only numeric digits are added on phone fields on contact details page)
-  https://medium.freecodecamp.org/unit-testing-services-endpoints-and-repositories-in-spring-boot-4b7d9dc2b772 
-
 - controller tests sorted (issue finding other properties file)
   https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
 
+- issue: fetching all items including closed items... 
 - safety with the back button
   --> CheckoutController, see todo: sometimes the basket is lost from the order
-- fill in remaining gaps of this basic journey / polish functionality
 - full manual system test
 
 - add system images incl basket
 - remove view basket from view basket page.....   
 - check warnings
 - add in remaining form validation  
-- list problems and techs / new stuff / extensions / mvc / purpose and approach / main spiel   
-   
+
+---------------------------------------
+COMPLETE CORE FUNCTIONALITY    
+
+- design journey for a) registration (non-members) b) admin corner (admin)
+- implement registration page
+- implement admin corner
+- refine user of roles to be admin or member, and implied guest which is not in the db 
+- purchase history
+  
 ---------------------------------------
 MAJOR EXTENSIONS   
 

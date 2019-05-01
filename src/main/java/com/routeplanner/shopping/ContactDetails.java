@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -42,12 +43,15 @@ public class ContactDetails extends DataModel
 	private String email;
 	
 	@Column(name="mobile_phone")
+	@Pattern(regexp = "^[0-9]*$")
 	private String mobileTel;
 	
 	@Column(name="home_phone")
+	@Pattern(regexp = "^[0-9]*$")
 	private String homeTel;
 	
 	@Column(name="office_phone")
+	@Pattern(regexp = "^[0-9]*$")
 	private String officeTel;
 	
 	
