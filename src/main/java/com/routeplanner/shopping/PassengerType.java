@@ -37,6 +37,17 @@ public enum PassengerType {
 	}
 
 	
+	public static PassengerType fromId(int id) {
+        for (PassengerType pt : PassengerType.values()){
+            if (pt.getId() == id){
+                return pt;
+            }
+        }
+
+        throw new UnsupportedOperationException(
+                "The id " + id + " is not supported!");
+    }
+	
 }
 
 

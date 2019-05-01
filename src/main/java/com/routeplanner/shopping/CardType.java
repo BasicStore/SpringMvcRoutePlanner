@@ -23,6 +23,18 @@ public enum CardType {
 		return code;
 	}
 
+	
+	public static CardType fromId(int id) {
+        for (CardType ct : CardType.values()){
+            if (ct.getId() == id){
+                return ct;
+            }
+        }
+
+        throw new UnsupportedOperationException(
+                "The id " + id + " is not supported!");
+    }
+	
 }
 
 

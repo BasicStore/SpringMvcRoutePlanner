@@ -22,4 +22,17 @@ public enum TicketType {
 		return description;
 	}
 	
+	
+	public static TicketType fromId(int id) {
+        for (TicketType tt : TicketType.values()){
+            if (tt.getId() == id){
+                return tt;
+            }
+        }
+
+        throw new UnsupportedOperationException(
+                "The id " + id + " is not supported!");
+    }
+	
+	
 }

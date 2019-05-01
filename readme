@@ -35,6 +35,9 @@
  - specific errors:
    https://stackoverflow.com/questions/37398385/spring-boot-and-custom-404-error-page
  
+ - handling enums:
+   https://memorynotfound.com/mapping-enum-types-hibernate-example/
+ 
  - drop downs populated from enum and result read into form object as enum property
    see PassengerType to populate with translated text in java - is there a better way of doing this?
   
@@ -212,7 +215,8 @@ ISSUES AND CORE JOURNEY:
  RESEARCH
 
 - issue: persistence of passenger type and ticket type enums seems always to be 0.....cannot be right  
-  
+ 
+- validation handling digits on card number.....  
 - trim automatic spring boot column sizes 
 
  
@@ -240,11 +244,11 @@ ISSUES AND CORE JOURNEY:
 
 - add proper date validation on view-basket and checkout pages
   --> date of travel (view basket)
-  --> a blank email field is not working....
+  --> OK a blank email field is not working....
+
 - add system images incl basket
 - remove view basket from view basket page.....   
 - check warnings
-- add in remaining form validation  
 
 ---------------------------------------
 COMPLETE CORE FUNCTIONALITY    

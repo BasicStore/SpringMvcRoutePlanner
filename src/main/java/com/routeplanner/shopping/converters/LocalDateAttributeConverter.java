@@ -1,4 +1,4 @@
-package com.routeplanner.shopping;
+package com.routeplanner.shopping.converters;
 import java.time.LocalDate;
 import java.sql.Date;
 import javax.persistence.AttributeConverter;

@@ -1,19 +1,27 @@
 package com.routeplanner.shopping;
 import java.time.LocalDate;
+
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.routeplanner.shopping.converters.PassengerTypeConverter;
+import com.routeplanner.shopping.converters.TicketTypeConverter;
 
 @Entity
 @Table(name="ticket")
 public class Ticket extends AbstractItem {
 	
+	@Convert(converter = PassengerTypeConverter.class)
 	private PassengerType passengerType;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate travelDate;
 	
+	@Convert(converter = TicketTypeConverter.class)
 	private TicketType ticketType;
 		
 	@OneToOne
