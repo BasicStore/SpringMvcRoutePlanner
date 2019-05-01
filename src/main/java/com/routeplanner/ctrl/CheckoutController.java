@@ -120,64 +120,21 @@ public class CheckoutController {
 	
 	
 	private void addBespokeErrMsgs(ContactDetails contactDetails, ModelMap model) {
-//		FormValidation.addBlankValidation(contactDetails.getFullname(), "fullname", model, "rp.contact.details.bad-field-fullname-no-value");
-//		FormValidation.addBlankValidation(contactDetails.getAddressLine1(), "addressLine1", model, "rp.contact.details.bad-field-address-line-1-no-value");
-//		FormValidation.addBlankValidation(contactDetails.getCity(), "city", model, "rp.contact.details.bad-field-city-no-value");
-//		FormValidation.addBlankValidation(contactDetails.getRegionOrState(), "regionOrState", model, "rp.contact.details.bad-field-region-no-value");
-//		FormValidation.addBlankValidation(contactDetails.getCountry(), "country", model, "rp.contact.details.bad-field-country-no-value");
-//		FormValidation.addBlankValidation(contactDetails.getEmail(), "email", model, "rp.contact.details.bad-field-email-no-value");
-//		FormValidation.validateTelFields(contactDetails, model);
-//		FormValidation.validateEmailFieldPattern("email", contactDetails.getEmail(), "rp.contact.details.bad-field-invalid-email", model);
-		
-		addBlankValidation(contactDetails.getFullname(), "fullname", model, "rp.contact.details.bad-field-fullname-no-value");
-		addBlankValidation(contactDetails.getAddressLine1(), "addressLine1", model, "rp.contact.details.bad-field-address-line-1-no-value");
-		addBlankValidation(contactDetails.getCity(), "city", model, "rp.contact.details.bad-field-city-no-value");
-		addBlankValidation(contactDetails.getRegionOrState(), "regionOrState", model, "rp.contact.details.bad-field-region-no-value");
-		addBlankValidation(contactDetails.getCountry(), "country", model, "rp.contact.details.bad-field-country-no-value");
-		addBlankValidation(contactDetails.getEmail(), "email", model, "rp.contact.details.bad-field-email-no-value");
+		FormValidation.addBlankValidation(contactDetails.getFullname(), "fullname", model, "rp.contact.details.bad-field-fullname-no-value");
+		FormValidation.addBlankValidation(contactDetails.getAddressLine1(), "addressLine1", model, "rp.contact.details.bad-field-address-line-1-no-value");
+		FormValidation.addBlankValidation(contactDetails.getCity(), "city", model, "rp.contact.details.bad-field-city-no-value");
+		FormValidation.addBlankValidation(contactDetails.getRegionOrState(), "regionOrState", model, "rp.contact.details.bad-field-region-no-value");
+		FormValidation.addBlankValidation(contactDetails.getCountry(), "country", model, "rp.contact.details.bad-field-country-no-value");
+		FormValidation.addBlankValidation(contactDetails.getEmail(), "email", model, "rp.contact.details.bad-field-email-no-value");
 		validateTelFields(contactDetails, model);
-		validateEmailFieldPattern("email", contactDetails.getEmail(), "rp.contact.details.bad-field-invalid-email", model);
-	}
-
-	
-	
-	///////////
-	
-	
-private static final String DIGITS_ONLY_REGEX = "^[0-9]*$";
-	
-	public static void validateEmailFieldPattern(String emailFld, String emailVal, String emailErrLit, ModelMap model) {
-		if (StringUtils.isNoneBlank(emailVal) && !EmailValidator.getInstance().isValid(emailVal)) {
-			model.addAttribute(emailFld, emailErrLit);
-		}
-	}
-		
-	public static void validateTelFields(ContactDetails contactDetails, ModelMap model) {
-		addNumericValidation("mobileTel", contactDetails.getMobileTel(), "rp.contact.details.bad-field-mobile-tel-not-all-digits", model);
-		addNumericValidation("homeTel", contactDetails.getHomeTel(), "rp.contact.details.bad-field-home-tel-not-all-digits", model);
-	}
-		
-	private static void addNumericValidation(String fldName, String fldVal, String errorLit, ModelMap model) {
-		Pattern p = Pattern.compile(DIGITS_ONLY_REGEX);
-		if (StringUtils.isNoneBlank(fldVal)) {
-			Matcher m = p.matcher(fldVal);
-			if (! m.matches()) {
-				//model.addAttribute("mobileTel", "rp.contact.details.bad-field-mobile-tel-not-all-digits");
-				model.addAttribute(fldName, errorLit);
-			}
-		}
-	}
-		
-	public static void addBlankValidation(String field, String fieldLit, ModelMap model, String attribute) {
-		if (StringUtils.isBlank(field)) {
-			model.addAttribute(fieldLit, attribute);
-		}
+		FormValidation.validateEmailFieldPattern("email", contactDetails.getEmail(), "rp.contact.details.bad-field-invalid-email", model);
 	}
 	
 	
-	////////////
-	
-	
+	private static void validateTelFields(ContactDetails contactDetails, ModelMap model) {
+		FormValidation.addNumericValidation("mobileTel", contactDetails.getMobileTel(), "rp.contact.details.bad-field-mobile-tel-not-all-digits", model);
+		FormValidation.addNumericValidation("homeTel", contactDetails.getHomeTel(), "rp.contact.details.bad-field-home-tel-not-all-digits", model);
+	}
 	
 	
 	@PostMapping("/do-purchase")
@@ -185,6 +142,12 @@ private static final String DIGITS_ONLY_REGEX = "^[0-9]*$";
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		if (errors.hasErrors()) {
     		logger.info("errors exist on doPurchaseForm on checkout page");
+
+    		
+    		// TODO **********************************
+    		
+    		
+    		
     		model.addAttribute("paymentInfo", paymentInfo);
     		return new ModelAndView("checkout");
     	}

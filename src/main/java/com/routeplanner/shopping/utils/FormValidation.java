@@ -16,12 +16,7 @@ public class FormValidation {
 		}
 	}
 		
-	public static void validateTelFields(ContactDetails contactDetails, ModelMap model) {
-		addNumericValidation("mobileTel", contactDetails.getMobileTel(), "rp.contact.details.bad-field-mobile-tel-not-all-digits", model);
-		addNumericValidation("homeTel", contactDetails.getHomeTel(), "rp.contact.details.bad-field-home-tel-not-all-digits", model);
-	}
-		
-	private static void addNumericValidation(String fldName, String fldVal, String errorLit, ModelMap model) {
+	public static void addNumericValidation(String fldName, String fldVal, String errorLit, ModelMap model) {
 		Pattern p = Pattern.compile(DIGITS_ONLY_REGEX);
 		if (StringUtils.isNoneBlank(fldVal)) {
 			Matcher m = p.matcher(fldVal);
