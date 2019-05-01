@@ -1,10 +1,9 @@
 package com.routeplanner.shopping;
-import java.util.*;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,26 +13,28 @@ public class PaymentInfo extends DataModel
 {
 	private static String CARD_NUMBER_PREFIX = "-XXXX-XXXX-XXXX";
 	
+	@NotNull
 	@Column(name="card_name")
 	private String nameOnCard;
 	
+	@NotNull
 	@Column(name="card_type")
 	private CardType cardType; 
 	
+	@NotNull
 	@Column(name="card_num")
 	private String cardNumber;
 	
+	@NotNull
 	@Column(name="card_sec_code")
 	private String securityCode;
+		
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate expiryDate;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date expiry_date;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date valid_from;
-	
-	@OneToOne
-	private ContactDetails contactDetails;
+	private LocalDate validFrom;
 	
 	
 	public PaymentInfo()
@@ -42,14 +43,14 @@ public class PaymentInfo extends DataModel
 	}
 	
 	public PaymentInfo(CardType cardType, String cardNumber, String securityCode,
-		                      Date expiry_date, Date valid_from, String nameOnCard) 
+			LocalDate expiryDate, LocalDate validFrom, String nameOnCard) 
 	{
 		this.nameOnCard = nameOnCard;
 		this.cardType = cardType;
 		this.cardNumber = cardNumber;
 		this.securityCode = securityCode;
-		this.expiry_date = expiry_date;
-		this.valid_from = valid_from;
+		this.expiryDate = expiryDate;
+		this.validFrom = validFrom;
 	}
 
 	public CardType getCardType() {
@@ -74,35 +75,25 @@ public class PaymentInfo extends DataModel
 		return securityCode;
 	}
 
-
-
 	public void setSecurityCode(String securityCode) {
 		this.securityCode = securityCode;
 	}
 
-
-
-	public Date getExpiry_date() {
-		return expiry_date;
+	public LocalDate getExpiryDate() {
+		return expiryDate;
 	}
 
-
-
-	public void setExpiry_date(Date expiry_date) {
-		this.expiry_date = expiry_date;
+	public void setExpiryDate(LocalDate expiryDate) {
+		this.expiryDate = expiryDate;
 	}
 
-	
-	public Date getValid_from() {
-		return valid_from;
+	public LocalDate getValidFrom() {
+		return validFrom;
 	}
 
-
-
-	public void setValid_from(Date valid_from) {
-		this.valid_from = valid_from;
+	public void setValidFrom(LocalDate validFrom) {
+		this.validFrom = validFrom;
 	}
-	
 
 	public String getNameOnCard() {
 		return nameOnCard;
@@ -113,14 +104,6 @@ public class PaymentInfo extends DataModel
 		this.nameOnCard = nameOnCard;
 	}
 	
-	
-	public ContactDetails getContactDetails() {
-		return contactDetails;
-	}
-
-	public void setContactDetails(ContactDetails contactDetails) {
-		this.contactDetails = contactDetails;
-	}
 	
 	/**
 	 * Refreshes the payment card details, apart from the credit card number.
@@ -136,9 +119,9 @@ public class PaymentInfo extends DataModel
 	@Override
 	public String toString() {
 		return "PaymentInfo [nameOnCard=" + nameOnCard + ", cardType=" + cardType + ", cardNumber=" + cardNumber
-				+ ", securityCode=" + securityCode + ", expiry_date=" + expiry_date + ", valid_from=" + valid_from
+				+ ", securityCode=" + securityCode + ", expiry_date=" + expiryDate + ", valid_from=" + validFrom
 				+ ", getCardType()=" + getCardType() + ", getCardNumber()=" + getCardNumber() + ", getSecurityCode()="
-				+ getSecurityCode() + ", getExpiry_date()=" + getExpiry_date() + ", getValid_from()=" + getValid_from()
+				+ getSecurityCode() + ", getExpiry_date()=" + getExpiryDate() + ", getValid_from()=" + getValidFrom()
 				+ ", getNameOnCard()=" + getNameOnCard() + ", getId()=" + getId() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}

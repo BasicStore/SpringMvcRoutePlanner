@@ -10,14 +10,15 @@
     <p><h1><b th:text = "#{rp.checkout.header}"></b></h1></p>
 	
 	 <!-- Add payment details - start --> 
-	 <div class="mainDiv" style="min-height: 130px">
-	     <label th:text = "#{rp.checkout.add.payment.details}" class="header"></label>
+	 <div class="mainDiv" style="min-height: 230px">
+	     <p><label th:text = "#{rp.checkout.add.payment.details}" class="header"></label></p>
 		 <form id="doPurchaseForm" action="#" th:action="@{/routeplanner/do-purchase}" th:object="${paymentInfo}" method="post">
 			 <div class="display-inline"><!--left side payment details - start -->
 			 	<table>
 			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.checkout.card.type}"></label>
+			 				<p/>
 			 			</td>
 			 			<td align="left">
 			 				<select th:field="*{cardType}" width="200px">
@@ -25,22 +26,37 @@
 		             						th:text="#{${ct.code}}"
 		                     				th:value="${ct}"></option>
 			       			</select>
+			       			<p/>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
-			 				<label th:text = "#{rp.checkout.name.on.card}"></label>	
+			 				<label th:text = "#{rp.checkout.name.on.card}"></label>
+			 				<p/>	
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{nameOnCard}" />
+			 				<div th:if="${nameOnCard} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${nameOnCard}}"></label></p>
+							 	</div>
+								<div th:if="${nameOnCard} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							</div>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.checkout.card.number}"></label>
+			 				<p/>
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" th:field="*{cardNumber}" />
+			 				<div th:if="${cardNumber} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${cardNumber}}"></label></p>
+							 	</div>
+								<div th:if="${cardNumber} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							</div>
 			 			</td>
 			 		</tr>
 			 	</table>
@@ -50,30 +66,54 @@
 			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.checkout.security.code}"></label>
+			 				<p/>
 			 			</td>
 			 			<td align="left">
 			 				<input type="text" size="3" maxlength="3" th:field="*{securityCode}" />
+			 				<div th:if="${securityCode} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${securityCode}}"></label></p>
+							 	</div>
+								<div th:if="${securityCode} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							</div>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.checkout.expiry.date}"></label>
+			 				<p/>
 			 			</td>
 			 			<td align="left">
-			 				<input type="date" th:field="*{{expiry_date}}" placeholder="yyyy-MM-dd"/>
+			 				<input type="date" th:field="*{{expiryDate}}" placeholder="yyyy-MM-dd"/>
+			 				<div th:if="${expiryDate} != null">
+							 		<p class="errorMsg"><label th:text = "#{'' + ${expiryDate}}"></label></p>
+							 	</div>
+								<div th:if="${expiryDate} == null">
+							 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+							</div>
 			 			</td>
 			 		</tr>
 			 		<tr>
 			 			<td align="right">
 			 				<label th:text = "#{rp.checkout.valid.from}"></label>
+			 				<p/>
 			 			</td>
 			 			<td align="left">
-			 				<input type="date" th:field="*{{valid_from}}" placeholder="yyyy-MM-dd"/>
+			 				<input type="date" th:field="*{{validFrom}}" placeholder="yyyy-MM-dd"/>
+			 				<p/>
 			 			</td>
 			 		</tr>
 			 	</table>
 			 </div><!--right side payment details - end -->
-		</div>	 
+		</div>	
+		
+		<div th:if="${errorLine1} != null">
+	 		<p class="errorMsg"><label th:text = "#{'' + ${errorLine1}}"></label></p>
+	 	</div>
+		<div th:if="${errorLine1} == null">
+	 		<p class="errorMsg"><label th:text = "' '"></label></p>
+	 	</div>
+		 
         <p><input class="formButtonProceed" type="submit" value="Purchase" th:attr="value=#{rp.checkout.submit}" align="center"/></p>
 	 </form>
 	 
@@ -82,5 +122,4 @@
 	 	 
 </body>
 </html>
-
 

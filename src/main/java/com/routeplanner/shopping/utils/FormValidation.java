@@ -1,10 +1,11 @@
 package com.routeplanner.shopping.utils;
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.ui.ModelMap;
-import com.routeplanner.shopping.ContactDetails;
 
 public class FormValidation {
 
@@ -27,11 +28,18 @@ public class FormValidation {
 		}
 	}
 		
-	public static void addBlankValidation(String field, String fieldLit, ModelMap model, String attribute) {
-		if (StringUtils.isBlank(field)) {
+	public static void addBlankValidation(String fldVal, String fieldLit, ModelMap model, String attribute) {
+		if (StringUtils.isBlank(fldVal)) {
 			model.addAttribute(fieldLit, attribute);
 		}
 	}
 	
+	
+	public static void addBlankValidation(LocalDate fldVal, String fieldLit, ModelMap model, String attribute) {
+		if (fldVal != null && StringUtils.isBlank(fldVal.toString())) {
+			model.addAttribute(fieldLit, attribute);
+		}
+	}
+
 	
 }

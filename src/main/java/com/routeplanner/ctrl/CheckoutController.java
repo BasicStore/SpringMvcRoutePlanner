@@ -1,8 +1,10 @@
 package com.routeplanner.ctrl;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.persistence.Column;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -11,6 +13,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.routeplanner.shopping.Basket;
+import com.routeplanner.shopping.CardType;
 import com.routeplanner.shopping.ContactDetails;
 import com.routeplanner.shopping.Order;
 import com.routeplanner.shopping.PaymentInfo;
@@ -98,19 +102,13 @@ public class CheckoutController {
 			order = new Order();
 			orderService.save(order);
 		}
-		
-		shopping.setOrder(order);
-		PaymentInfo paymentInfo = new PaymentInfo();
-		paymentInfo.setContactDetails(contactDetails);
-		
-		// persist payment info
-		paymentInfoService.save(paymentInfo);
-		
-		// persist order with the payment info (contact details part)		
-		order.setPaymentInfo(paymentInfo);
+
+		// persist order with the contact details part (without payment info), and add to shopping cart session
+		order.setContactDetails(contactDetails);
 		order.setBasket(shopping.getBasket());
 		order.setUser(shopping.getUser());
 		orderService.save(order);
+		shopping.setOrder(order);
 		
 		// go to checkout page
 		model.addAttribute("paymentInfo", new PaymentInfo());
@@ -137,35 +135,33 @@ public class CheckoutController {
 	}
 	
 	
+	
+	private void addBespokeErrMsgs(PaymentInfo paymentInfo, ModelMap model) {
+		FormValidation.addBlankValidation(paymentInfo.getNameOnCard(), "nameOnCard", model, "rp.checkout.bad-field-name-on-card-no-value");
+		FormValidation.addBlankValidation(paymentInfo.getCardNumber(), "cardNumber", model, "rp.checkout.bad-field-card-number-no-value");
+		FormValidation.addBlankValidation(paymentInfo.getSecurityCode(), "securityCode", model, "rp.checkout.bad-field-security-code-no-value");
+		FormValidation.addBlankValidation(paymentInfo.getExpiryDate(), "expiryDate", model, "rp.checkout.bad-field-expiry-date-no-value");
+	}
+	
+	
+	
 	@PostMapping("/do-purchase")
 	public ModelAndView addPaymentInfo(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute PaymentInfo paymentInfo, BindingResult errors) {
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		if (errors.hasErrors()) {
     		logger.info("errors exist on doPurchaseForm on checkout page");
-
-    		
-    		// TODO **********************************
-    		
-    		
-    		
+    		model.addAttribute("errorLine1", "rp.checkout.generic.form.error");
     		model.addAttribute("paymentInfo", paymentInfo);
+    		addBespokeErrMsgs(paymentInfo, model);
     		return new ModelAndView("checkout");
     	}
 		
-		logger.info("payment info added by user (excludes contact info): " + paymentInfo.toString());
-				
-		// update the payment with the card details
-		PaymentInfo shopPayInfo = shopping.getOrder().getPaymentInfo();
-		shopPayInfo.setCardNumber(paymentInfo.getCardNumber());
-		shopPayInfo.setCardType(paymentInfo.getCardType());		
-		shopPayInfo.setExpiry_date(paymentInfo.getExpiry_date());
-		shopPayInfo.setNameOnCard(paymentInfo.getNameOnCard());
-		shopPayInfo.setSecurityCode(paymentInfo.getSecurityCode());
-		
 		// persist the payment info in full
-		paymentInfoService.save(shopPayInfo);
+		paymentInfoService.save(paymentInfo);
+		logger.info("payment info added by user (excludes contact info): " + paymentInfo.toString());
 		logger.info("persisted payment info in full: " + paymentInfo.toString());
-
+		shopping.getOrder().setPaymentInfo(paymentInfo);
+		
 		// persist the purchase
 		try {
 			if (purchase(shopping.getOrder())) {

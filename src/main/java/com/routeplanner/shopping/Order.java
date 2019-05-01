@@ -14,6 +14,9 @@ public class Order extends DataModel {
 	private PaymentInfo paymentInfo;
 	
 	@OneToOne
+	private ContactDetails contactDetails;
+	
+	@OneToOne
 	private Basket basket;
 	
 	
@@ -32,6 +35,12 @@ public class Order extends DataModel {
 		this.paymentInfo = paymentInfo;
 	}
 
+	
+	public Order(PaymentInfo paymentInfo, ContactDetails contactDetails, User user, Basket basket) {
+		this(paymentInfo, user, basket);
+		this.contactDetails = contactDetails;
+	}
+	
 
 	public PaymentInfo getPaymentInfo() {
 		return paymentInfo;
@@ -56,6 +65,14 @@ public class Order extends DataModel {
 
 	public void setBasket(Basket basket) {
 		this.basket = basket;
+	}
+	
+	public ContactDetails getContactDetails() {
+		return contactDetails;
+	}
+
+	public void setContactDetails(ContactDetails contactDetails) {
+		this.contactDetails = contactDetails;
 	}
 
 	@Override

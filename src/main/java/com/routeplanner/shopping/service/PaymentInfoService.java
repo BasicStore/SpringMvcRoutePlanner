@@ -25,7 +25,6 @@ public class PaymentInfoService {
 	}
 	
 	public void save(PaymentInfo paymentInfo) {
-		contactDetailsRepository.save(paymentInfo.getContactDetails());
 		paymentInfoRepository.save(paymentInfo);
 	}
 	
