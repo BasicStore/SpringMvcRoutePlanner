@@ -1,4 +1,5 @@
 package com.routeplanner.shopping;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -6,6 +7,7 @@ import javax.persistence.Table;
 @Table(name="role")
 public class Role extends DataModel {
 
+	@Column(length = 30)
 	private String role;
 	
 	public Role() {

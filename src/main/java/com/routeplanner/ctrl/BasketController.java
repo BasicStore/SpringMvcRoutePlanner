@@ -33,6 +33,9 @@ public class BasketController {
 	private static final Logger logger = LoggerFactory.getLogger(BasketController.class);
 	
 	@Autowired
+	private ControllerHelper controllerHelper;
+	
+	@Autowired
 	private TicketService ticketService;
 	
 	@Autowired
@@ -40,6 +43,7 @@ public class BasketController {
 	
 	@Autowired
 	private RouteQueryService routeQueryService;
+	
 	
 	public BasketController() {
 		
@@ -52,7 +56,7 @@ public class BasketController {
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		Basket basket = (Basket)shopping.getBasket();
 		basket.setTickets(new HashSet<Ticket>());
-		return prepareForViewBasket(request, model, basket);
+		return controllerHelper.prepareForViewBasket(request, model, basket);
 	}
 	
 	
@@ -62,31 +66,7 @@ public class BasketController {
 	    Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		Basket basket = (Basket)shopping.getBasket();
 		basket.removeTicket(id);
-		return prepareForViewBasket(request, model, basket);
-	}
-		
-	
-	
-	private ModelAndView prepareForViewBasket(HttpServletRequest request, ModelMap model, Basket basket) {
-		model.addAttribute("basket", basket);
-		
-		// get the selected journey details
-		RouteQuery mostRecentQuery = request.getSession().getAttribute("mostRecentQuery") == null 
-				? null : (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
-		
-		// do not proceed unless the journey details are provided
-		if (mostRecentQuery == null || !mostRecentQuery.isSuccessfulLastSearch()) {
-			model.addAttribute("routeQuery", new RouteQuery());
-			model.addAttribute("errorLine1", "rp.basket.no.route.err.msg.line1");
-			return new ModelAndView("query");
-		}
-		
-		// prepare for possibility of user adding a new ticket
-		Ticket newTicket = new Ticket();
-		newTicket.setRouteQuery(mostRecentQuery);
-		model.addAttribute("ticket", newTicket);
-		
-		return new ModelAndView("view-basket");
+		return controllerHelper.prepareForViewBasket(request, model, basket);
 	}
 	
 	

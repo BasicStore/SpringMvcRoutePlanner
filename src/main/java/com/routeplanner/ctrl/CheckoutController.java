@@ -45,20 +45,14 @@ public class CheckoutController {
 	private static final int CREDIT_CARD_NUMBER_LENGTH = 16;
 	private static final int CREDIT_CARD_SECURITY_CODE_LENGTH = 3;
 	
-	private LoginController loginController;
+	@Autowired
+	private ControllerHelper controllerHelper;
 	
 	@Autowired
 	private PaymentInfoService paymentInfoService;
 	
 	@Autowired
-	private OrderService orderService;
-	
-	@Autowired
 	private PurchaseService purchaseService;
-	
-	@Autowired
-	private BasketService basketService;
-	
 	
 	
 	public CheckoutController() {
@@ -67,19 +61,17 @@ public class CheckoutController {
 
 	
 	@PostMapping("/go-to-checkout-person-details")
-	public ModelAndView goToCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute Basket basket, BindingResult errors) {
-		if (errors.hasErrors()) {
-    		logger.info("errors exist on submitBasketForm on view basket page");
-    		model.addAttribute("basket", basket);
-    		model.addAttribute("ticket", new Ticket());
-    		return new ModelAndView("view-basket");
-    	}
+	public ModelAndView goToCheckout(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute Basket basket) {
+		// if basket is empty go back to the view basket page
+		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+		if (shopping.getBasket().getTickets() == null || shopping.getBasket().getTickets().size() == 0) {
+			return controllerHelper.prepareForViewBasket(request, model, basket);
+		}
 		
 		logger.info("go to checkout from basket page. Basket = " + basket.toString());
 		
 		// prepare new payment info and new contact details parts of the screen
 		model.addAttribute("contactDetails", new ContactDetails());
-		
 		return new ModelAndView("contact-details");
 	}
 	
@@ -178,7 +170,7 @@ public class CheckoutController {
 				// set the basket and its contents to closed
 				Basket basket = purchase.getOrder().getBasket();
 				basket.setOpen(false);
-				
+				basket.closeAllTickets();
 				Order order = shopping.getOrder();
 				order.setBasket(basket);
 				purchase.setOrder(order);

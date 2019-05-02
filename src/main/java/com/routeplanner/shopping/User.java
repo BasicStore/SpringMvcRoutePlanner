@@ -17,16 +17,16 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User extends DataModel {
 
-	@Column(name="email")
+	@Column(name="email", length = 60)
 	private String email;
 	
-	@Column(name="password")
+	@Column(name="password", length = 30)
 	private String password;
 	
-	@Column(name="name")
+	@Column(name="name", length = 30)
 	private String username;
 	
-	@Column(name="last_name")
+	@Column(name="last_name", length = 30)
 	private String lastName;
 	
 	@Column(name="active")

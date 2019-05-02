@@ -10,14 +10,14 @@ import org.hibernate.validator.constraints.Length;
 @Table(name="route_query")
 public class RouteQuery extends DataModel 
 {
+	@Column(length = 45)
 	private String currRouteStart;
 	
+	@Column(length = 45)
 	private String currRouteDest;
 	
 	// a route query is tentatively successful until it fails
 	private boolean successfulLastSearch = true;
-	
-	
 	
 //	@Lob
 //    @Column(name = "route_info", columnDefinition = "LONGBLOB")
@@ -29,8 +29,6 @@ public class RouteQuery extends DataModel
 	
 	// TODO  for simplicity, implement without this first
 	//private List<Integer> zonesCovered;
-	
-
 	
 	public RouteQuery() {
 		

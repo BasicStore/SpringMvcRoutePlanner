@@ -20,7 +20,7 @@ public class PaymentInfo extends DataModel
 	private static String CARD_NUMBER_PREFIX = "-XXXX-XXXX-XXXX";
 	
 	@NotNull
-	@Column(name="card_name")
+	@Column(name="card_name", length = 50)
 	private String nameOnCard;
 	
 	@NotNull

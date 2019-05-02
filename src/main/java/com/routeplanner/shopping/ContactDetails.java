@@ -19,38 +19,41 @@ public class ContactDetails extends DataModel
 	
 	@NotNull
     @Size(min=2, max=30)
-	@Column(name="address_line_1")
+	@Column(name="address_line_1", length = 80)
 	private String addressLine1;
 	
-	@Column(name="address_line_2")
+	@Column(name="address_line_2", length = 80)
 	private String addressLine2;
 	
-	@Column(name="address_line_3")
+	@Column(name="address_line_3", length = 80)
 	private String addressLine3;
 	
 	@NotNull
+	@Column(length = 40)
 	private String city;
 	
 	@NotNull
-	@Column(name="region_or_state")
+	@Column(name="region_or_state", length = 50)
 	private String regionOrState;
 	
 	@NotNull
+	@Column(length = 40)
 	private String country;
 	
 	@NotNull
 	@Email
+	@Column(length = 60)
 	private String email;
 	
-	@Column(name="mobile_phone")
+	@Column(name="mobile_phone", length = 30)
 	@Pattern(regexp = "^[0-9]*$")
 	private String mobileTel;
 	
-	@Column(name="home_phone")
+	@Column(name="home_phone", length = 30)
 	@Pattern(regexp = "^[0-9]*$")
 	private String homeTel;
 	
-	@Column(name="office_phone")
+	@Column(name="office_phone", length = 30)
 	@Pattern(regexp = "^[0-9]*$")
 	private String officeTel;
 	

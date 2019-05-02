@@ -1,4 +1,6 @@
 package com.routeplanner.shopping.service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -11,6 +13,8 @@ import com.routeplanner.shopping.repository.OrderRepository;
 @Service
 public class OrderService {
 
+	private static final Logger logger = LoggerFactory.getLogger(OrderService.class);
+	
 	@Autowired
 	private OrderRepository orderRepository;
 	
@@ -20,6 +24,7 @@ public class OrderService {
 
 	public void save(Order order) {
 		orderRepository.save(order);
+		logger.debug("Order saved with id: " + order.getId());
 	}
 	
 }

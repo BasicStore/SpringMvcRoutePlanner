@@ -22,8 +22,7 @@ public class Basket extends DataModel {
 	@Transient
 	private String radioButtonSelectedValue;
 	
-	// TODO should this be explicit but have duplication????? or leave  program to checlk whether there are any open items
-	private boolean open = true;
+	private boolean open;
 	
 	
 	public Basket() {
@@ -84,12 +83,11 @@ public class Basket extends DataModel {
 	 */
 	public void setOpen(boolean open) {
 		this.open = open;
-		updateBasketContentsStatus(open);
 	}
 	
-	private void updateBasketContentsStatus(boolean open) {
+	public void closeAllTickets() {
 		if (tickets != null) {
-			tickets.forEach(i->i.setOpen(open));
+			tickets.forEach(i->i.setOpen(false));
 		}
 	}
 	
