@@ -210,39 +210,47 @@ ISSUES AND CORE JOURNEY:
   - OK error page handling:
   --> OK apply error handling in the contoller when services mess up (implemented at checkout), otherwise rely on error page
   --> OK test that transaction management is working
-- OK issue: persistence of passenger type and ticket type enums seems always to be 0.....cannot be right  
+- OK issue: persistence of passenger type and ticket type enums seems always to be 0.....cannot be right
+- OK validation handling digits on card number.....and sec code
+- OK basket.tickets is null after completing a purchase and then coming back to start a new journey (this time on an empty basket)  
 ---------------------------------------   
  RESEARCH
- 
-- validation handling digits on card number.....  
+   
 - trim automatic spring boot column sizes 
 
- 
-
-- log the id of the basket items once they have been persisted + shopping
+- all services - log the id of the items once they have been persisted / deleted + shopping
 - remove link needs to replace radios (but note the methods for radios and checkboxes) 
-- apply the remove checkbox to the basket contents instead of the current radio
+
+- OK apply the remove checkbox to the basket contents instead of the current radio
   - https://stackoverflow.com/questions/36500731/how-to-bind-an-object-list-with-thymeleaf [input checkbox]
   - https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller [remove]
+  --> OK this involves refactoring how basket works:
+      --> OK persist basket
+      --> OK persist / remove / modify items as they come
+      --> OK change to link with id as param or make spacing between rows bigger
+      --> refactor basket controller code to avoid duplication                 
+      --> refactor to use link instead 
+      
+- view basket - proceed to checkout only if tickets exist in the basket
+
 
 - list problems and techs / new stuff / extensions / mvc / purpose and approach / main spiel
 
-- what about if starting a new journey on the 2nd lap with an existing basket containing items??
-  - currently the basket is refreshed (incorrectly)
-
-- basket.tickets is null after completing a purchase and then coming back to start a new journey (this time on an empty basket) 
+- add validation on login page
+- add proper date validation on view-basket and checkout pages
+  --> date of travel (view basket)
+  --> OK a blank email field is not working....
 
 - controller tests sorted (issue finding other properties file)
   https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
 
+- bug: refreshing the view-basket page adds a new item!!!
 - issue: fetching all items including closed items... 
 - safety with the back button
   --> CheckoutController, see todo: sometimes the basket is lost from the order
 - full manual system test
-
-- add proper date validation on view-basket and checkout pages
-  --> date of travel (view basket)
-  --> OK a blank email field is not working....
+- what about if starting a new journey on the 2nd lap with an existing basket containing items??
+  - currently the basket is refreshed (incorrectly)
 
 - add system images incl basket
 - remove view basket from view basket page.....   
@@ -256,6 +264,7 @@ COMPLETE CORE FUNCTIONALITY
 - implement admin corner
 - refine user of roles to be admin or member, and implied guest which is not in the db 
 - purchase history
+- how to implement rule  
   
 ---------------------------------------
 MAJOR EXTENSIONS   

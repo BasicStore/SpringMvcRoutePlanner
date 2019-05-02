@@ -1,10 +1,10 @@
 package com.routeplanner.ctrl;
 import java.util.HashSet;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.routeplanner.shopping.Basket;
@@ -50,9 +51,25 @@ public class BasketController {
 		// display existing tickets in the basket
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 		Basket basket = (Basket)shopping.getBasket();
-		model.addAttribute("basket", basket);
 		basket.setTickets(new HashSet<Ticket>());
-    	
+		return prepareForViewBasket(request, model, basket);
+	}
+	
+	
+	@PostMapping("/remove_ticket")
+	private ModelAndView deleteTicket(HttpServletRequest request, ModelMap model, @RequestParam int id){
+	    ticketService.delete(id);
+	    Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
+		Basket basket = (Basket)shopping.getBasket();
+		basket.removeTicket(id);
+		return prepareForViewBasket(request, model, basket);
+	}
+		
+	
+	
+	private ModelAndView prepareForViewBasket(HttpServletRequest request, ModelMap model, Basket basket) {
+		model.addAttribute("basket", basket);
+		
 		// get the selected journey details
 		RouteQuery mostRecentQuery = request.getSession().getAttribute("mostRecentQuery") == null 
 				? null : (RouteQuery)request.getSession().getAttribute("mostRecentQuery");
@@ -74,7 +91,6 @@ public class BasketController {
 	
 	
 	
-	
 	@PostMapping("/add-ticket")
     public ModelAndView addTicket(HttpServletRequest request, ModelMap model, 
     		@Valid @ModelAttribute Ticket newTicket, BindingResult errors) {
@@ -83,6 +99,9 @@ public class BasketController {
     		model.addAttribute("ticket", newTicket);
     		return new ModelAndView("checkout");
     	}
+		
+		// TODO 2) why not add new ticket here........
+		ticketService.save(newTicket);
 		
 		// add the new ticket to the basket
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");

@@ -68,60 +68,71 @@
 	 </form>
 	 	 
 	 
-	 <form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout-person-details}" th:object="${basket}" method="post">
-		 <div class="mainDiv">   
-			 <label th:text="#{rp.basket.contents.title}" class="header"></label>
-			 <div th:if="*{tickets != null and tickets.size() > 0}">
-				 <table class="open-table">
-					 <tr>
-				         <th><label class="table-header" th:text = "#{rp.basket.select}"></label></th>
-				         <th><label class="table-header" th:text = "#{rp.basket.ticket.type}"></label></th>
-				         <th><label class="table-header" th:text = "#{rp.basket.passenger.type}"></label></th>
-				         <th><label class="table-header" th:text = "#{rp.basket.num-units}"></label></th>
-				         <th><label class="table-header" th:text = "#{rp.basket.travel.date}"></label></th>
-				         <th><label class="table-header" th:text = "#{rp.query.start}"></label></th>
-				         <th><label class="table-header" th:text = "#{rp.query.destination}"></label></th>
-		  		     </tr>
-					 <tr th:each="item : *{tickets}">
-				         <td><input type="radio" th:field="*{radioButtonSelectedValue}" th:value="${item.id}" /></td>
-				         <td><label th:text="#{${item.ticketType.description}}"></label></td>
-    				     <td><label th:text="#{${item.passengerType.type}}"></label></td>
-				         <td><label th:text="${item.numUnits}"></label></td>
-				         <td><label th:text="${item.travelDate}"></label></td>
-				         <td><label th:text="${item.routeQuery.currRouteStart}"></label></td>
-				         <td><label th:text="${item.routeQuery.currRouteDest}"></label></td>
-				     </tr>
-				 </table>
-			 </div>
+	 
+	 <div class="mainDiv">   
+		 <label th:text="#{rp.basket.contents.title}" class="header"></label>
+		 <!-- <div th:if="*{tickets != null and tickets.size() > 0}"> -->
+		 <div th:if="${session.shopping.basket.tickets.size() > 0}">
+		 	 <table class="open-table">
+				 <tr>
+			         <th><label class="table-header" th:text = "#{rp.basket.select}"></label></th>
+			         <th><label class="table-header" th:text = "#{rp.basket.ticket.type}"></label></th>
+			         <th><label class="table-header" th:text = "#{rp.basket.passenger.type}"></label></th>
+			         <th><label class="table-header" th:text = "#{rp.basket.num-units}"></label></th>
+			         <th><label class="table-header" th:text = "#{rp.basket.travel.date}"></label></th>
+			         <th><label class="table-header" th:text = "#{rp.query.start}"></label></th>
+			         <th><label class="table-header" th:text = "#{rp.query.destination}"></label></th>
+	  		     </tr>
+				 <tr th:each="item : ${session.shopping.basket.tickets}">
+			         <!-- <td><input type="radio" th:field="*{radioButtonSelectedValue}" th:value="${item.id}" /></td> -->
+			         <td><label th:text="#{${item.ticketType.description}}"></label></td>
+   				     <td><label th:text="#{${item.passengerType.type}}"></label></td>
+			         <td><label th:text="${item.numUnits}"></label></td>
+			         <td><label th:text="${item.travelDate}"></label></td>
+			         <td><label th:text="${item.routeQuery.currRouteStart}"></label></td>
+			         <td><label th:text="${item.routeQuery.currRouteDest}"></label></td>
+			         <td>
+				         <form th:action="@{remove_ticket}" method="post">
+			                  <input type="hidden" name="id" th:value="${item.id}" />
+			                  <input type="submit" value="Remove" th:attr="value=#{rp.btn.remove}" class="button-link"/>
+			             </form>
+		             </td>   
+			     </tr>
+			 </table>
+		 </div>
 
-			 <div th:if="*{tickets == null or tickets.size() == 0}">
-			 	<label th:text="#{rp.basket.no.contents.msg}" class="table-msg"></label>
-			 </div>
-			 
+		 <div th:if="*{session.shopping.basket.tickets.size() == 0}">
+		 	<label th:text="#{rp.basket.no.contents.msg}" class="table-msg"></label>
 		 </div>
 		 
-		<!-- table to display buttons horizontally across forms --> 
+	 </div>
+
+	 
+	<!-- table to display buttons horizontally -->
+	<form id="submitBasketForm" action="#" th:action="@{/routeplanner/go-to-checkout-person-details}" th:object="${basket}" method="post"> 
 		<table>
 			<tr>
 				<td>
-		 
-	 	<p><input class="formButtonProceed" type="submit" value="Place Order" th:attr="value=#{rp.basket.submit}" align="center"/></p>
-	 </form>
-	 
+	 				<p><input class="formButtonProceed" type="submit" value="Place Order" th:attr="value=#{rp.basket.submit}" align="center"/></p>
 	 			</td>			
 				<td>
-	
 					<form action="#" th:action="@{/routeplanner/new-search}" method="post">
 					 	<p><input type="submit" class="formButton" value="Add Another Journey" th:attr="value=#{rp.view-basket.add.journey}" align="center"/></p>
 					</form>
-				
 				</td>
 			</tr>
 		</table>
+	</form>
 	 
-	 <div th:insert="navbar">  </div>
+    <div th:insert="navbar">  </div>
 	 	 
 </body>
 </html>
+
+
+
+
+
+
 
 

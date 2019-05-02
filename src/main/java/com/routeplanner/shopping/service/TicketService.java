@@ -21,6 +21,11 @@ public class TicketService {
 	public void save(Ticket ticket) {
 		ticketRepository.save(ticket);
 	}
+
+	
+	public void delete(int ticketId) {
+		ticketRepository.deleteById(ticketId);
+	}
 	
 }
 

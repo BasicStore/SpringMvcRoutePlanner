@@ -1,4 +1,5 @@
 package com.routeplanner.shopping;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -47,6 +48,15 @@ public class Basket extends DataModel {
 		this.tickets = tickets;
 	}
 
+	
+	public void removeTicket(int id) {
+		if (tickets != null) {
+			Optional<Ticket> tickToRemove = tickets.stream().filter(o->o.getId() == id).findFirst();
+			tickToRemove.ifPresent(t->tickets.remove(t)); 
+		}
+	}
+	
+	
 	public User getUser() {
 		return user;
 	}
@@ -67,7 +77,7 @@ public class Basket extends DataModel {
 	public boolean isOpen() {
 		return open;
 	}
-
+	
 	/**
 	 * Sets the status of the basket and its contents to open or closed.
 	 * @param open

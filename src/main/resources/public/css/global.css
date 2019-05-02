@@ -18,6 +18,20 @@
 }
 
 
+.button-link {
+     background: none!important;
+     /*color: inherit;*/
+     color: blue;
+     border: none; 
+     padding: 0!important;
+     font: inherit;
+     font-size: 11px;
+     text-decoration: none;
+     border-bottom:1px solid #444; 
+     cursor: pointer;
+}
+
+
 
 .formButtonProceed
 {
