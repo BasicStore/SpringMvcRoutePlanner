@@ -6,11 +6,10 @@
     <link th:href="@{/css/global.css}" rel="stylesheet" />
 </head>
 <body>
-    <h1 th:text = "#{international.text}"></h1>
-    <p><h1><b th:text = "#{rp.query.header}"></b></h1></p>
+    <h1 th:text = "#{rp.query.journey.header}"></h1>
+    <p><h2><b th:text = "#{rp.query.header.msg}"></b></h2></p>
 	 
-	 
-	 <form action="#" th:action="@{/routeplanner/query}" th:object="${routeQuery}" method="post">
+     <form action="#" th:action="@{/routeplanner/query}" th:object="${routeQuery}" method="post">
 	 	<table>
 			<tr>
 				<td align="right">
@@ -39,7 +38,6 @@
 				</td>
 			</tr>	 
 	 	</table>
-
 	 	
 	 	<div th:if="*{successfulLastSearch} == false">
 	 		<p class="errorMsg"><label th:text = "#{'' + ${errorLine1}}"></label></p>

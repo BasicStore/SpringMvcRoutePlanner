@@ -92,4 +92,21 @@ input.form-field-space {
 	padding-right: 30px;
 }
 
+div.inlineBlock {
+	display: inline-block;
+}
+
+
+.testBorder {
+	border: solid 1px red;
+}
+
+.testBorder2 {
+	border: solid 1px blue;
+}
+
+.testBorder3 {
+	border: solid 1px green;
+}
+
 

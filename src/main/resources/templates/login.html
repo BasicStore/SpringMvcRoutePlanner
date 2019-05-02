@@ -3,8 +3,7 @@
 	<head>
 	    <title th:text = "#{rp.login.title}"></title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <link th:href="@{/css/global.css}" rel="stylesheet" />
-	    
+	    <link th:href="@{/css/global.css}" rel="stylesheet" />	    
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	   
 	</head>
@@ -17,25 +16,42 @@
 	        	<tr>
 	        		<td align="right">
 	        			<p th:text = "#{rp.login.username}"/>
+	        			<p/>
 	        		</td>
 	        		<td align="left">
 	        			<p> <input type="text" th:field="*{username}" /> 
 				            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error" th:text = "#{rp.login.error.username}"></span>
 				        </p>
+				        <div th:if="${usernameErr} != null">
+							<p class="errorMsg"><label th:text = "#{'' + ${usernameErr}}"></label></p>
+						</div>
+						<div th:if="${usernameErr} == null">
+  					 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+					 	</div>
 	        		</td>
 	            </tr>
 	        	<tr>            
 	        		<td align="right">
 	        			<p th:text = "#{rp.login.pass}"/>
+	        			<p/>
 	        		</td>
 	        		<td align="left">
 	        			<p> <input type="text" th:field="*{password}" /> 
 				            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"  th:text = "#{rp.login.error.pass}"></span></p>
 				        </p>
+				        <div th:if="${passwordErr} != null">
+							<p class="errorMsg"><label th:text = "#{'' + ${passwordErr}}"></label></p>
+						</div>
+						<div th:if="${passwordErr} == null">
+  					 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+					 	</div>
 	        		</td>
 	            </tr>        		
 	        	<tr>        		
 	        		<td align="center">          
+	        			<div th:if="${errorMsg} != null">
+	 						<p class="errorMsg"><label th:text = "#{'' + ${errorMsg}}"></label></p>
+	 					</div>
 	        			<p>
 		        			<input class="formButton" type="submit" value="Submit" th:attr="value=#{rp.login.submit}" /> 
 		        			<input class="formButton" type="reset" value="Reset" th:attr="value=#{rp.login.reset}" />

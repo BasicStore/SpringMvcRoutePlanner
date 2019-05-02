@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.Purchase;
 import com.routeplanner.shopping.repository.OrderRepository;
@@ -27,9 +26,6 @@ public class PurchaseService {
 	
 	@Autowired
 	private BasketService basketService;
-	
-	@Autowired
-	private PurchaseService purchaseService;
 	
 	
 	public PurchaseService() {

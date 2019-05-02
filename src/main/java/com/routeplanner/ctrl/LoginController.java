@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.routeplanner.client.service.TravelInfoService;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.CardType;
+import com.routeplanner.shopping.ContactDetails;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
@@ -26,6 +27,7 @@ import com.routeplanner.shopping.User;
 import com.routeplanner.shopping.ex.UsernameNotFoundException;
 import com.routeplanner.shopping.service.BasketService;
 import com.routeplanner.shopping.service.UserService;
+import com.routeplanner.shopping.utils.FormValidation;
 
 
 @Controller
@@ -74,19 +76,25 @@ public class LoginController {
     }
 
 
-	
+	private void addLoginFormErrMsgs(User loginUser, ModelMap model) {
+		model.addAttribute("errorMsg", "rp.login.generic.form.error");
+		FormValidation.addBlankValidation(loginUser.getUsername(), "usernameErr", model, "rp.login.username-no-value");
+		FormValidation.addBlankValidation(loginUser.getPassword(), "passwordErr", model, "rp.login.password-no-value");
+	}
+		
     
-    @PostMapping("/login")
-    public ModelAndView attemptLogin(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
+	@PostMapping("/login")
+    public ModelAndView login(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute User loginUser, BindingResult errors) {
     	logger.info("Dealing with login request");
     	if (errors.hasErrors() || pageHasBlankMandatoryFields(loginUser)) {
-    		// TODO apply login form validation here...........
+    		addLoginFormErrMsgs(loginUser, model);
     		logger.info("errors exist on login request form");
     		return new ModelAndView("login");
     	}    	
     	
     	User dbUser = getLoginUser(request, loginUser.getUsername());
     	if (dbUser == null) {
+    		addLoginFormErrMsgs(loginUser, model);
     		User newusr = new User();
 			model.addAttribute("user", newusr);
     		return new ModelAndView("login");
@@ -134,7 +142,8 @@ public class LoginController {
     		sess.setAttribute("shopping", shopping);
     	}
     }
-        
+    
+    
     
     
     private String[] getTitleLiterals() {
