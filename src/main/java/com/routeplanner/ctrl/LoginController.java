@@ -125,8 +125,6 @@ public class LoginController {
     		// create a new open basket if one doesn't exist in the database
     		if (openBasket == null) {
     			openBasket = new Basket(user);
-    			
-    			// TODO 1) why not persist new basket here?
     			basketService.save(openBasket);
     		}
     		

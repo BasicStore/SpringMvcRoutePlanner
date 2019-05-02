@@ -100,7 +100,6 @@ public class BasketController {
     		return new ModelAndView("checkout");
     	}
 		
-		// TODO 2) why not add new ticket here........
 		ticketService.save(newTicket);
 		
 		// add the new ticket to the basket
