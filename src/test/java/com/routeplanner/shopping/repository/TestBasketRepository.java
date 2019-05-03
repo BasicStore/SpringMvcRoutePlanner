@@ -2,12 +2,12 @@ package com.routeplanner.shopping.repository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.Set;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -50,7 +50,7 @@ public class TestBasketRepository {
 	
 	
 	// persist a basket to the database
-	private User adminUser1;
+	private User memberUser1;
 	private RouteQuery routeQuery1;
 	private Basket basket1;
 	private Ticket ticket1;
@@ -69,10 +69,20 @@ public class TestBasketRepository {
 		Set<Ticket> tickets = new HashSet<Ticket>();
 		tickets.add(ticket1);
 		basket1.setTickets(tickets);
-		adminUser1 = userRepository.findById(3).get();
-		basket1.setUser(adminUser1);
+		createMemberUser1();
+		basket1.setUser(memberUser1);
 		basket1.setOpen(true);
 		basketRepository.saveAndFlush(basket1);
+	}
+	
+	
+	private void createMemberUser1() {
+		memberUser1 = new User();
+		memberUser1.setUsername("MyUser");
+		memberUser1.setPassword("MyPass123");
+		memberUser1.setEmail("sdfdsf@sdfsd.com");
+		memberUser1.setLastName("Smith");
+		userRepository.saveAndFlush(memberUser1);
 	}
 	
 	
@@ -105,7 +115,7 @@ public class TestBasketRepository {
 	public void testFindOpenBasketForUser() {
 		assertEquals(0, (int)basketRepository.count());
 		assertEquals(0, (int)routeQueryRepository.count());
-		assertEquals(3, (int)userRepository.count()); // includes data.sql
+		assertEquals(0, (int)userRepository.count()); // includes data.sql
 		assertEquals(0, (int)basketRepository.count());
 		
 		// test that no basket returns an optional null
@@ -117,16 +127,16 @@ public class TestBasketRepository {
 		RouteQuery dbRouteQuery = routeQueryRepository.findById(routeQuery1.getId()).get();
 		assertEquals(routeQuery1.getCurrRouteStart(), dbRouteQuery.getCurrRouteStart());
 		assertEquals(routeQuery1.getCurrRouteDest(), dbRouteQuery.getCurrRouteDest());
-		
-		int adminUserId = 3;
-		User dbUser = userRepository.findById(adminUserId).get();
-		assertNotNull(dbUser);
-		assertEquals("user3", dbUser.getUsername());
-		assertEquals("password", dbUser.getPassword());
 		 
 		createBasket1();
+		
+		User dbUser = userRepository.findById(memberUser1.getId()).get();
+		assertNotNull(dbUser);
+		assertEquals(memberUser1.getUsername(), dbUser.getUsername());
+		assertEquals(memberUser1.getPassword(), dbUser.getPassword());
+		
 		assertEquals(1, (int)basketRepository.count());		
-		Basket dbBasket = basketRepository.findOpenBasketForUser(basket1.getId()).get();
+		Basket dbBasket = basketRepository.findOpenBasketForUser(memberUser1.getId()).get();
 		assertEquals(basket1.getId(), dbBasket.getId());
 		assertEquals(basket1.getTickets().size(), dbBasket.getTickets().size());
 		basket1.getTickets().remove(ticket1);
@@ -153,7 +163,9 @@ public class TestBasketRepository {
 	@Test
 	public void testFindOpenBasketForUserWithInvalidValueForId() {
 		Optional<Basket> dbBasket = basketRepository.findOpenBasketForUser(9999);
-		assertFalse(dbBasket.isPresent());
+		if (dbBasket.isPresent()) {
+			fail("Basket is present, but no basket should exist");
+		} 
 	}
 	
 	

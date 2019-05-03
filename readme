@@ -230,18 +230,17 @@ ISSUES AND CORE JOURNEY:
 --> OK a blank email field is not working....
 - OK list problems, techs and model / new stuff / extensions / mvc / purpose and approach / main spiel
 - OK design journey for a) registration (non-members) b) admin corner (admin) c) purchase history
-- OK implementing registration so that a newly registered user can be user in the ap 
+- OK implementing registration so that a newly registered user can be user in the ap
+- OK error handling for registration
+- OK add in a check on the password....and make sure the user has member status....... 
 ---------------------------------------   
 COMPLETE CORE FUNCTIONALITY    
 
-- error handling for registration
 
 - implement change password
+
+
 - implement purchase history
-
-- implement registration page
-  - refine user of roles to be admin or member, and implied guest which is not in the db
-
 - implement admin corner
   - manage users
   - manage rule implementation
@@ -249,17 +248,19 @@ COMPLETE CORE FUNCTIONALITY
 --------------------------------------- 
 BUGS:  
   
+- RESOLVED dao unit test of getting user post script changes. 
+- RESOLVED the H2 config has disappeared.....and @TestPropertySource is not working......  
+- RESOLVED run unit tests together together (reolved with @TestPropertySource)
 - implementing registration
   ==> BUG: transaction rollback in not working in UsrService.register()
   ==> on a 2nd registration.......the registration falls on the 2nd round because it cannot persist in the user_role with same ids 
-- bug: save first batch and baslet / item id is false as expected.
+- bug: save first batch and basket / item id is false as expected.
        on a second trip those same objects are set to true!!!!  And the new objects are also then correctly set to true. 
        - OK at what stage does this get distored in the db? - always on the 2nd checkout.......
        - OK refactor the open basket code 
 - bug: refreshing the view-basket page adds a new item!!!
 - safety with the back button
   --> CheckoutController, see todo: sometimes the basket is lost from the order
-- full manual system test
 - what about if starting a new journey on the 2nd lap with an existing basket containing items??
   - currently the basket is refreshed (incorrectly)
 - add proper date validation on view-basket and checkout pages: date of travel (view basket) + expiry date on checkout

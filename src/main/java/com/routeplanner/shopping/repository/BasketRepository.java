@@ -15,6 +15,3 @@ public interface BasketRepository<T> extends JpaRepository<Basket, Integer> {
 	Optional<Basket> findOpenBasketForUser(@Param("userId") int userId);
 
 }
-
-
-

@@ -1,12 +1,12 @@
 package com.routeplanner.shopping.repository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,11 +20,9 @@ import com.routeplanner.shopping.User;
 		  loader = AnnotationConfigContextLoader.class)
 @Transactional
 public class TestUserRepository {
-
+	
 	@Autowired
 	private UserRepository<User> userRepository;
-	
-	private User adminUser1;
 	
 	public TestUserRepository() {
 		
@@ -33,11 +31,6 @@ public class TestUserRepository {
 	@Test
 	public void testFindByUsername() {
 		
-		User dbAdminUser1 = userRepository.findById(3).get();
-		assertTrue(userRepository.findByUsername(dbAdminUser1.getUsername()).isPresent());
-		assertEquals(dbAdminUser1.getUsername(), userRepository.findByUsername(dbAdminUser1.getUsername()).get().getUsername());
-		assertEquals(dbAdminUser1.getPassword(), userRepository.findByUsername(dbAdminUser1.getUsername()).get().getPassword());
-		
 		User newUser = new User();
 		newUser.setUsername("MyUser");
 		newUser.setPassword("MyPass123");
@@ -45,14 +38,13 @@ public class TestUserRepository {
 		newUser.setLastName("Smith");
 		userRepository.saveAndFlush(newUser);
 		
-		// TODO script needs to ignore this
-//		Optional<User> optUser = userRepository.findByUsername(newUser.getUsername());
-//		assertTrue(optUser.isPresent());
-//		assertEquals(newUser.getUsername(), optUser.get().getUsername());
-//		assertEquals(newUser.getPassword(), optUser.get().getPassword());
-//		assertEquals(newUser.getId(), optUser.get().getId());
-//		assertEquals(newUser.getEmail(), optUser.get().getEmail());
-//		assertEquals(newUser.getLastName(), optUser.get().getLastName());
+		assertTrue(userRepository.findByUsername(newUser.getUsername()).isPresent());
+		assertEquals(newUser.getUsername(), userRepository.findByUsername(newUser.getUsername()).get().getUsername());
+		assertEquals(newUser.getPassword(), userRepository.findByUsername(newUser.getUsername()).get().getPassword());
+		
+		assertTrue(userRepository.fetchUserFromLoginCredentials(newUser.getUsername(), newUser.getPassword()).isPresent());
+		assertEquals(newUser.getUsername(), userRepository.fetchUserFromLoginCredentials(newUser.getUsername(), newUser.getPassword()).get().getUsername());
+		assertEquals(newUser.getPassword(), userRepository.fetchUserFromLoginCredentials(newUser.getUsername(), newUser.getPassword()).get().getPassword());
 	}
 	
 	

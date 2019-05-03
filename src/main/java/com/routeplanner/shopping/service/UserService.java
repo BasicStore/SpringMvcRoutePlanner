@@ -46,8 +46,8 @@ public class UserService {
 	}
 	
 	// TODO SPRING SECURITY add: 	return optionalUser.map(CustomUserDetails::new).get();
-	public User findByUsername(String username) throws UsernameNotFoundException {
-		Optional<User> optUser = userRepository.findByUsername(username);
+	public User findByUsername(String username, String password) throws UsernameNotFoundException {
+		Optional<User> optUser = userRepository.fetchUserFromLoginCredentials(username, password);
 		optUser.orElseThrow(()-> new UsernameNotFoundException("Username not found"));
 		return optUser.get();
 	}

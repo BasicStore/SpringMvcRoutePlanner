@@ -9,14 +9,15 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.routeplanner.shopping.repository")
-@PropertySource("application.properties")
 @EnableTransactionManagement
 @EntityScan(basePackages = {"com.routeplanner.shopping"})
+@TestPropertySource(locations="classpath:test.properties")
 public class H2TestProfileJPAConfig {
  	
 	@Autowired

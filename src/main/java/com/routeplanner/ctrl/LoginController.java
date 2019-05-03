@@ -1,7 +1,5 @@
 package com.routeplanner.ctrl;
-import java.util.HashSet;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -25,10 +23,10 @@ import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.CardType;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RegistrationDetails;
-import com.routeplanner.shopping.Role;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.TicketType;
+import com.routeplanner.shopping.UpdateUser;
 import com.routeplanner.shopping.User;
 import com.routeplanner.shopping.ex.UsernameNotFoundException;
 import com.routeplanner.shopping.service.BasketService;
@@ -98,7 +96,7 @@ public class LoginController {
     		return new ModelAndView("login");
     	}    	
     	
-    	User dbUser = getLoginUser(request, loginUser.getUsername());
+    	User dbUser = getLoginUser(request, loginUser.getUsername(), loginUser.getPassword());
     	if (dbUser == null) {
     		addLoginFormErrMsgs(loginUser, model);
     		User newusr = new User();
@@ -129,6 +127,65 @@ public class LoginController {
 		}
 		return "registration";
 	}
+	
+	
+	@GetMapping("/go-to-change-pass")
+	public String gotToChangePassword(HttpServletRequest request, ModelMap model) {
+		logger.info("preparing to load change password page");
+		model.addAttribute("changePassUsr", new UpdateUser());
+		HttpSession sess = request.getSession();
+		if (sess.getAttribute("titleList") == null) {
+			sess.setAttribute("titleList", getTitleLiterals());
+		}
+		return "change-pass";
+	}
+
+	
+	
+	
+	@PostMapping("/do-change-pass")
+	public ModelAndView registerPerson(HttpServletRequest request, ModelMap model, 
+			@Valid @ModelAttribute UpdateUser updateUser, BindingResult errors) {
+		if (errors.hasErrors()) {
+			// TODO implement
+			model.addAttribute("errorLineMsg", "rp.");
+			
+			
+			
+		}
+			
+		try {
+			
+			if (!updateUser.getNewPasword().contentEquals(updateUser.getCfmNewPasword())) {
+				logger.info("new user name does not match confirmation field");
+				model.addAttribute("changePassUsr", new UpdateUser());
+				return new ModelAndView("change-pass");
+			}
+			
+			
+			// update user and if successful go back to the login page
+			model.addAttribute("user", new User());
+			return new ModelAndView("login");
+		} catch (Throwable t) {
+			// there was a problem saving the password change, so redirect back to change pass page for user to retry
+			logger.info("could not persist registration details: " + t.getMessage());
+			model.addAttribute("changePassUsr", new UpdateUser());
+			return new ModelAndView("change-pass");
+		}
+	}
+	
+	/*
+	UpdateUser {
+
+	private String oldUsername;
+	
+	private String oldPassword;
+	
+	private String newPasword;
+	
+	private String cfmNewPasword;
+	 */
+	
 	
     
 	@PostMapping("/do-registration")
@@ -209,12 +266,12 @@ public class LoginController {
     
     
     // TODO replace eventually with spring security
-    private User getLoginUser(HttpServletRequest request, String gvnUsername) {
+    private User getLoginUser(HttpServletRequest request, String gvnUsername, String gvnPassword) {
     	try {
 			logger.info("Attempting to retrieve user '" + gvnUsername + "' from database");
 			Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
 			try {
-				User dbuser = userService.findByUsername(gvnUsername);
+				User dbuser = userService.findByUsername(gvnUsername, gvnPassword);
 				logger.info("user has been retrieved successfully from db");
 				return dbuser;
 			} catch(UsernameNotFoundException e) {
