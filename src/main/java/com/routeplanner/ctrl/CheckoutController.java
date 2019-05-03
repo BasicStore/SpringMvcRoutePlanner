@@ -42,9 +42,6 @@ public class CheckoutController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CheckoutController.class);
 	
-	private static final int CREDIT_CARD_NUMBER_LENGTH = 16;
-	private static final int CREDIT_CARD_SECURITY_CODE_LENGTH = 3;
-	
 	@Autowired
 	private ControllerHelper controllerHelper;
 	
@@ -83,7 +80,7 @@ public class CheckoutController {
     		logger.info("errors exist on contactDetailsForm on contact details page");
     		model.addAttribute("errorLine1", "rp.contact.details.generic.form.error");
     		model.addAttribute("contactDetails", contactDetails);
-    		addBespokeErrMsgs(contactDetails, model);
+    		FormValidation.addBespokeContactDetailsErrMsgs(contactDetails, model);
     		return new ModelAndView("contact-details");
     	}
 		
@@ -109,40 +106,6 @@ public class CheckoutController {
 	}
 	
 	
-	
-	private void addBespokeErrMsgs(ContactDetails contactDetails, ModelMap model) {
-		FormValidation.addBlankValidation(contactDetails.getFullname(), "fullname", model, "rp.contact.details.bad-field-fullname-no-value");
-		FormValidation.addBlankValidation(contactDetails.getAddressLine1(), "addressLine1", model, "rp.contact.details.bad-field-address-line-1-no-value");
-		FormValidation.addBlankValidation(contactDetails.getCity(), "city", model, "rp.contact.details.bad-field-city-no-value");
-		FormValidation.addBlankValidation(contactDetails.getRegionOrState(), "regionOrState", model, "rp.contact.details.bad-field-region-no-value");
-		FormValidation.addBlankValidation(contactDetails.getCountry(), "country", model, "rp.contact.details.bad-field-country-no-value");
-		FormValidation.addBlankValidation(contactDetails.getEmail(), "email", model, "rp.contact.details.bad-field-email-no-value");
-		validateTelFields(contactDetails, model);
-		FormValidation.validateEmailFieldPattern("email", contactDetails.getEmail(), "rp.contact.details.bad-field-invalid-email", model);
-	}
-	
-	
-	private static void validateTelFields(ContactDetails contactDetails, ModelMap model) {
-		FormValidation.addValidation("mobileTel", contactDetails.getMobileTel(), 
-				"rp.contact.details.bad-field-mobile-tel-not-all-digits", model, FormValidation.DIGITS_ONLY_REGEX);
-		FormValidation.addValidation("homeTel", contactDetails.getHomeTel(), 
-				"rp.contact.details.bad-field-home-tel-not-all-digits", model, FormValidation.DIGITS_ONLY_REGEX);
-	}
-	
-	
-	private void addBespokeErrMsgs(PaymentInfo paymentInfo, ModelMap model) {
-		FormValidation.addBlankValidation(paymentInfo.getNameOnCard(), "nameOnCard", model, "rp.checkout.bad-field-name-on-card-no-value");
-		FormValidation.addBlankValidation(paymentInfo.getCardNumber(), "cardNumber", model, "rp.checkout.bad-field-card-number-no-value");
-		FormValidation.addBlankValidation(paymentInfo.getSecurityCode(), "securityCode", model, "rp.checkout.bad-field-security-code-no-value");
-		FormValidation.addBlankValidation(paymentInfo.getExpiryDate(), "expiryDate", model, "rp.checkout.bad-field-expiry-date-no-value");
-		FormValidation.addStringFldLengthValidation("cardNumber", paymentInfo.getCardNumber(), 
-				"rp.checkout.card-field-wrong-length", CREDIT_CARD_NUMBER_LENGTH, model);
-		FormValidation.addStringFldLengthValidation("securityCode", paymentInfo.getSecurityCode(), 
-				"rp.checkout.security-field-wrong-length", CREDIT_CARD_SECURITY_CODE_LENGTH, model);
-	}
-
-	
-	
 	@PostMapping("/do-purchase")
 	public ModelAndView addPaymentInfo(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute PaymentInfo paymentInfo, BindingResult errors) {
 		Shopping shopping = (Shopping)request.getSession().getAttribute("shopping");
@@ -150,7 +113,7 @@ public class CheckoutController {
     		logger.info("errors exist on doPurchaseForm on checkout page");
     		model.addAttribute("errorLine1", "rp.checkout.generic.form.error");
     		model.addAttribute("paymentInfo", paymentInfo);
-    		addBespokeErrMsgs(paymentInfo, model);
+    		FormValidation.addBespokePaymentInfoErrMsgs(paymentInfo, model);
     		return new ModelAndView("checkout");
     	}
 		

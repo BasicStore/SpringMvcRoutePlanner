@@ -19,6 +19,12 @@
 	 			</td>
 	 			<td align="left">
 	 				<input type="text" th:field="*{user.username}" />
+	 				<div th:if="${username} != null">
+				 		<p class="errorMsg"><label th:text = "#{'' + ${username}}"></label></p>
+				 	</div>
+					<div th:if="${username} == null">
+				 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+				 	</div> 	
 	 			</td>
 	 			<td align="right">
 	 				<label th:text = "#{rp.login.pass}"></label>
@@ -26,11 +32,24 @@
 	 			</td>
 	 			<td align="left">
 	 				<input type="text" th:field="*{user.password}" />
+	 				<div th:if="${password} != null">
+				 		<p class="errorMsg"><label th:text = "#{'' + ${password}}"></label></p>
+				 	</div>
+					<div th:if="${password} == null">
+				 		<p class="errorMsg"><label th:text = "' '"></label></p> 
+				 	</div>
 	 			</td>
 	 		</tr>
 	    </table>
 	    
 	    <div th:insert="add-contact-details-box">  </div> 
+
+		<div th:if="${errorLineMsg} != null">
+	 		<p class="errorMsg"><label th:text = "#{'' + ${errorLineMsg}}"></label></p>
+	 	</div>
+		<div th:if="${errorLineMsg} == null">
+	 		<p class="errorMsg"><label th:text = "' '"></label></p>
+	 	</div>
 
 	    <p><input class="formButton" type="submit" value="Register" th:attr="value=#{rp.registration.register}" align="center"/></p>
 

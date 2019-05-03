@@ -14,6 +14,12 @@ public class Role extends DataModel {
 		
 	}
 
+	
+	public Role(String roleName) {
+		role = roleName;
+	}
+	
+	
 	public String getRole() {
 		return role;
 	}

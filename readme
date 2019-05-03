@@ -229,10 +229,13 @@ ISSUES AND CORE JOURNEY:
 - OK add validation on login page
 --> OK a blank email field is not working....
 - OK list problems, techs and model / new stuff / extensions / mvc / purpose and approach / main spiel
-- OK design journey for a) registration (non-members) b) admin corner (admin) c) purchase history 
+- OK design journey for a) registration (non-members) b) admin corner (admin) c) purchase history
+- OK implementing registration so that a newly registered user can be user in the ap 
 ---------------------------------------   
 COMPLETE CORE FUNCTIONALITY    
-- implement registration
+
+- error handling for registration
+
 - implement change password
 - implement purchase history
 
@@ -246,6 +249,9 @@ COMPLETE CORE FUNCTIONALITY
 --------------------------------------- 
 BUGS:  
   
+- implementing registration
+  ==> BUG: transaction rollback in not working in UsrService.register()
+  ==> on a 2nd registration.......the registration falls on the 2nd round because it cannot persist in the user_role with same ids 
 - bug: save first batch and baslet / item id is false as expected.
        on a second trip those same objects are set to true!!!!  And the new objects are also then correctly set to true. 
        - OK at what stage does this get distored in the db? - always on the 2nd checkout.......
@@ -264,8 +270,9 @@ MAJOR EXTENSIONS
    --> add spring data
    --> spring security
    --> implement rules for special deals
+   --> select payment method
    --> give user option to change the locale with flag images   
-   --> more soffisticated HTML, CSS and js - redesign frontend
+   --> more sophisticated HTML, CSS and js - redesign frontend
    --> add system images incl basket
    --> jasper reports
    --> liquibase

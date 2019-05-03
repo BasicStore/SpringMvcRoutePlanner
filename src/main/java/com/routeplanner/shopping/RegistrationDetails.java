@@ -15,8 +15,9 @@ public class RegistrationDetails extends ContactDetails {
 	
 	public RegistrationDetails() {
 		super();
+		this.user = new User();
 	}
-
+	
 	public User getUser() {
 		return user;
 	}

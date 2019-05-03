@@ -1,5 +1,7 @@
 package com.routeplanner.ctrl;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,9 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.routeplanner.client.service.TravelInfoService;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.CardType;
-import com.routeplanner.shopping.ContactDetails;
 import com.routeplanner.shopping.PassengerType;
 import com.routeplanner.shopping.RegistrationDetails;
+import com.routeplanner.shopping.Role;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.TicketType;
@@ -135,40 +137,34 @@ public class LoginController {
 		
 		// check for errors, and if they exist go back to registration
     	if (errors.hasErrors()) {     //  || pageHasBlankMandatoryFields(registerPerson)
-//    		addLoginFormErrMsgs(loginUser, model);
+    		model.addAttribute("errorLineMsg", "rp.register.generic.form.error");
+    		FormValidation.addBespokeContactDetailsErrMsgs(registerPerson, model);
+    		FormValidation.addBlankValidation(registerPerson.getUser().getUsername(), "username", model, "rp.register.bad.username");
+    		FormValidation.addBlankValidation(registerPerson.getUser().getPassword(), "password", model, "rp.register.bad.password");
     		logger.info("errors exist on registration request form");
     		model.addAttribute("registerPerson", registerPerson);
     		return new ModelAndView("registration");
     	}    	
 		
+    	// complete the registration request for member status
 		try {
-			
-
-			
-			
-			User loginUser = registerPerson.getUser();
-			loginUser.setEmail(registerPerson.getEmail());
-			loginUser.setActive(1);
-			
-			// persist the user, and the reg details within the same session
-			
-			
-			
-			return login(request, model, loginUser, errors);
-			
+			consolidateUserObject(registerPerson);
+			userService.register(registerPerson);
+			return login(request, model, registerPerson.getUser(), errors);
 		} catch (Throwable t) {
 			logger.info("could not persist registration details: " + t.getMessage());
 			model.addAttribute("user", new User());
 			// TODO add error msg for screen
 			return new ModelAndView("login");
 		}
-		
-		
-		
-		
-		
 	}
 	
+	
+	private static void consolidateUserObject(RegistrationDetails registerPerson) {
+		User loginUser = registerPerson.getUser();
+		loginUser.setEmail(registerPerson.getEmail());
+		loginUser.setActive(1);
+	}
 	
 	
     private void initSessVars(HttpServletRequest request, User user) {
