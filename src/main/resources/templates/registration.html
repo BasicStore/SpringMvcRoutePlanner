@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text = "#{rp.query.title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/global.css}" rel="stylesheet" />
+</head>
+<body>
+    <h1 th:text = "#{rp.registration.header}"></h1>
+    <p><h2><b th:text = "#{rp.registration.msg}"></b></h2></p>
+     
+    <form action="#" th:action="@{/routeplanner/do-registration}" th:object="${registerPerson}" method="post"> 
+
+		<table>	    
+		    <tr>
+	 			<td align="right">
+	 				<label th:text = "#{rp.login.username}"></label>
+	 				<p/>	
+	 			</td>
+	 			<td align="left">
+	 				<input type="text" th:field="*{user.username}" />
+	 			</td>
+	 			<td align="right">
+	 				<label th:text = "#{rp.login.pass}"></label>
+	 				<p/>	
+	 			</td>
+	 			<td align="left">
+	 				<input type="text" th:field="*{user.password}" />
+	 			</td>
+	 		</tr>
+	    </table>
+	    
+	    <div th:insert="add-contact-details-box">  </div> 
+
+	    <p><input class="formButton" type="submit" value="Register" th:attr="value=#{rp.registration.register}" align="center"/></p>
+
+    </form> 
+     
+</body>
+</html>
+

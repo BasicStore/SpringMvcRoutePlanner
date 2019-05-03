@@ -228,18 +228,21 @@ ISSUES AND CORE JOURNEY:
 - OK all services - log the id of the items once they have been persisted / deleted + shopping
 - OK add validation on login page
 --> OK a blank email field is not working....
-- OK list problems, techs and model / new stuff / extensions / mvc / purpose and approach / main spiel 
+- OK list problems, techs and model / new stuff / extensions / mvc / purpose and approach / main spiel
+- OK design journey for a) registration (non-members) b) admin corner (admin) c) purchase history 
 ---------------------------------------   
 COMPLETE CORE FUNCTIONALITY    
-
-
-- add system images incl basket
-- design journey for a) registration (non-members) b) admin corner (admin) c) purchase history d) rule implementation
+- implement registration
+- implement change password
 - implement purchase history
+
 - implement registration page
   - refine user of roles to be admin or member, and implied guest which is not in the db
+
 - implement admin corner
-- implement change password
+  - manage users
+  - manage rule implementation
+
 --------------------------------------- 
 BUGS:  
   
@@ -262,7 +265,8 @@ MAJOR EXTENSIONS
    --> spring security
    --> implement rules for special deals
    --> give user option to change the locale with flag images   
-   --> more soffisticated HTML, CSS and js - redesign frontend      
+   --> more soffisticated HTML, CSS and js - redesign frontend
+   --> add system images incl basket
    --> jasper reports
    --> liquibase
    --> archiving
@@ -297,8 +301,7 @@ MAJOR EXTENSIONS
  - thyme conditions
  - page fragments
  - server side validation
- - external js, css and images 
- 
+ - external js, css and images  
  = spring MVC
  = RPstruts background
  = RPStruts notes

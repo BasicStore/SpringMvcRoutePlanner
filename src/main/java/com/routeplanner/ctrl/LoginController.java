@@ -1,8 +1,10 @@
 package com.routeplanner.ctrl;
 import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +17,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.routeplanner.client.service.TravelInfoService;
 import com.routeplanner.shopping.Basket;
 import com.routeplanner.shopping.CardType;
 import com.routeplanner.shopping.ContactDetails;
 import com.routeplanner.shopping.PassengerType;
+import com.routeplanner.shopping.RegistrationDetails;
 import com.routeplanner.shopping.RouteQuery;
 import com.routeplanner.shopping.Shopping;
 import com.routeplanner.shopping.TicketType;
@@ -64,7 +68,7 @@ public class LoginController {
 		
 		// bind a user object for the current user to sign in
 		User user = new User();
-		logger.info("check new user role is USER ==> " + user.getRoleLevel().getRoleName());
+		logger.info("check new user role is user: " + user.getRoleLevel().getRoleName());
 		model.addAttribute("user", user);
     	
     	// RESOURCE FILE: testing accessing a configuration file which can be done from any java class
@@ -110,9 +114,63 @@ public class LoginController {
     	
     	return new ModelAndView("query");
     }
+    
+	
+	@GetMapping("/go-to-registration") 
+	public String gotToRegistration(HttpServletRequest request, ModelMap model) {
+		logger.info("preparing to register a new member");
+		RegistrationDetails registerPerson = new RegistrationDetails();
+		model.addAttribute("registerPerson", registerPerson);
+		HttpSession sess = request.getSession();
+		if (sess.getAttribute("titleList") == null) {
+			sess.setAttribute("titleList", getTitleLiterals());
+		}
+		return "registration";
+	}
+	
+    
+	@PostMapping("/do-registration")
+    public ModelAndView registerPerson(HttpServletRequest request, ModelMap model, @Valid @ModelAttribute RegistrationDetails registerPerson, BindingResult errors) {
+		logger.info("Dealing with registration request");
+		
+		// check for errors, and if they exist go back to registration
+    	if (errors.hasErrors()) {     //  || pageHasBlankMandatoryFields(registerPerson)
+//    		addLoginFormErrMsgs(loginUser, model);
+    		logger.info("errors exist on registration request form");
+    		model.addAttribute("registerPerson", registerPerson);
+    		return new ModelAndView("registration");
+    	}    	
+		
+		try {
+			
 
-    
-    
+			
+			
+			User loginUser = registerPerson.getUser();
+			loginUser.setEmail(registerPerson.getEmail());
+			loginUser.setActive(1);
+			
+			// persist the user, and the reg details within the same session
+			
+			
+			
+			return login(request, model, loginUser, errors);
+			
+		} catch (Throwable t) {
+			logger.info("could not persist registration details: " + t.getMessage());
+			model.addAttribute("user", new User());
+			// TODO add error msg for screen
+			return new ModelAndView("login");
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
     private void initSessVars(HttpServletRequest request, User user) {
     	// setup common static session variables
     	HttpSession sess = request.getSession();
